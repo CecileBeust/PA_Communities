@@ -1,0 +1,15 @@
+seed: results_10_740/seeds_740.txt
+self_loops: 0
+r: 0.7
+eta: [1.0]
+multiplex:
+    1:
+        layers:
+            - multiplex/1/Coexpression.tsv
+            - multiplex/1/Complexes.tsv
+            - multiplex/1/Diseases_involvement.tsv
+            - multiplex/1/PPI.tsv
+            - multiplex/1/Pathways.tsv
+        delta: 0.5
+        graph_type: [00, 00, 00, 00, 00]
+        tau: [0.2, 0.2, 0.2, 0.2, 0.2]
