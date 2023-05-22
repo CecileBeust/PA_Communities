@@ -1,15 +1,31 @@
 import pandas as pd
-from analyse_final_communities import create_dico_disease_seeds, build_communities_list
+from analyse_final_communities import create_dico_disease_seeds
+from cluster_communities import build_communities_list
 from gprofiler import GProfiler
 import os
 import ast
+import argparse
 
 path = os.path.dirname(os.path.realpath(__file__))
 path = path + '/'
 os.chdir(path)
 print(path)
 
-comm_path = "/home/cbeust/Landscape_PA/Github_Codes/PA_Communities/IDCommunity"
+# Argparse
+parser = argparse.ArgumentParser(
+    prog="cluster_communities.py", 
+    description="functions cluster communities based on Jaccard index"
+    )
+parser.add_argument("-p", "--path", help="path where communities are stored", required=True, type=str)
+parser.add_argument("-v", "--verbose", help="increase output verbosity", required=False, action="store_true")
+args = parser.parse_args()
+
+comm_path = args.path
+
+# Check if the path exist
+if os.path.exists(comm_path) == False :
+    raise ValueError("Incorrect path, please try again")
+
 
 (dico_disease_seeds, list_id) = create_dico_disease_seeds(path, "orpha_codes_PA.txt")
 (communities_10, not_analyzed) = build_communities_list(comm_path, list_id, 10)
@@ -84,7 +100,6 @@ def select_seeds_from_cluster(dico_disease_seeds: dict, dico_cluster: dict, clus
             seeds.add(seed)
     return seeds
 
-#seeds_cluster_24 = select_seeds_from_cluster(dico_disease_seeds, dico_cluster_diseases, 24)
 
 def select_nodes_from_cluster(comm_path: str, size: int, dico_cluster: dict, cluster_id: int) -> set:
     """Function to select the nodes from a disease community cluster
@@ -106,7 +121,6 @@ def select_nodes_from_cluster(comm_path: str, size: int, dico_cluster: dict, clu
                 nodes.add(line.rstrip())
     return nodes
 
-#nodes_cluster_6 = select_nodes_from_cluster(100, filtered_dico_cluster_100_0_65, 6)
 
 def enrichment_cluster(cluster_id: int, gene_set: set, size: int):
     """Function to enrich a disease communities cluster wth g:Profiler
@@ -123,7 +137,7 @@ def enrichment_cluster(cluster_id: int, gene_set: set, size: int):
     gp = GProfiler(return_dataframe=True)
     enrich = gp.profile(organism='hsapiens', query=genes, no_evidences=False)
     print(enrich)
-    enrich.to_csv(f"/home/cbeust/Landscape_PA/CommunityIdentification/CommunityIdentification_V2/Analysis_Communities_V2/enrichment/cluster_{size}_{cluster_id}.tsv", sep="\t")
+    enrich.to_csv(path + f"cluster_{size}_{cluster_id}.tsv", sep="\t")
     
 def enrich_all_clusters(filtered_dico: dict) -> None:
     """Function to make the enrichment of all the clusters
@@ -140,14 +154,7 @@ def enrich_all_clusters(filtered_dico: dict) -> None:
 
 #enrich_all_clusters(filtered_dico_cluster_10_0_7)
 
-seeds = set()
-for list_gene in dico_disease_seeds.values():
-    for gene in list_gene:
-        seeds.add(gene)
-print(seeds)
-print(len(seeds))
-
-pa_diseases = pd.read_csv('pa_orphanet_diseases.tsv', sep="\t", header=None)
+pa_diseases = pd.read_csv(path + 'pa_orphanet_diseases.tsv', sep="\t", header=None)
 dico_code_disease = {}
 for index, row in pa_diseases.iterrows():
     code = row[0][6:]
@@ -155,9 +162,13 @@ for index, row in pa_diseases.iterrows():
     dico_code_disease[code] = disease
 print(dico_code_disease)
 
-def highlight_seeds():
+def highlight_seeds(size: int, dico_code_disease: dict, dico_disease_seeds: dict):
+    seeds = set()
+    for list_gene in dico_disease_seeds.values():
+        for gene in list_gene:
+            seeds.add(gene)
     for cluster in filtered_dico_cluster_10_0_7.keys():
-        enrichment_file = f"/home/cbeust/Landscape_PA/CommunityIdentification/CommunityIdentification_V2/Analysis_Communities_V2/enrichment/cluster_100_{cluster}.tsv"
+        enrichment_file = path + f"cluster_{size}_{cluster}.tsv"
         df = pd.read_csv(enrichment_file, sep="\t")
         df["seed"] = 0
         df["disease"] = 0
@@ -181,7 +192,7 @@ def highlight_seeds():
                     dis_names.append(dis_name)
                 df._set_value(i, 'disease', str(dis_names)) 
             i += 1
-        df.to_csv(f"/home/cbeust/Landscape_PA/CommunityIdentification/CommunityIdentification_V2/Analysis_Communities_V2/enrichment/cluster_100_{cluster}_with_genes.tsv", sep="\t")
+        df.to_csv(path + f"cluster_{size}_{cluster}_with_genes.tsv", sep="\t")
                 
-highlight_seeds()
+#highlight_seeds(10, dico_code_disease, dico_disease_seeds)
 
