@@ -5,6 +5,9 @@ This folder contains different scripts of a pipeline to analyze communities. The
 ## Folders
 
 * ```EnrichmentAgingGenes``` : This folder contains codes to perform an enrichment of the PA associated communities in physiological aging genes. Can be used and adapted to assess the enrichment of other genes sets in communities. 
-*```PlotCommunities``` : This folder contains codes to generate files for the visualisation of communities in the Cytoscape application.
-*```data``` : Data folder containing the list of PA diseases and their associated genes from ORPHANET
-*```gmt_files``` : Folder containing GMT files for the enrichment analysis with g:Profiler 
+
+* ```PlotCommunities``` : This folder contains codes to generate files for the visualisation of communities in the Cytoscape application.
+
+* ```data``` : Data folder containing the list of PA diseases and their associated genes from ORPHANET
+ 
+* ```gmt_files``` : Folder containing GMT files for the enrichment analysis with g:Profiler 
