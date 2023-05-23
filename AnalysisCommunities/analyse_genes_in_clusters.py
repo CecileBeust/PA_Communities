@@ -26,30 +26,30 @@ comm_path = args.path
 if os.path.exists(comm_path) == False :
     raise ValueError("Incorrect path, please try again")
 
-dico_cluster_diseases_100_0_7 = create_cluster_dico(path + "cluster_output_100_0.7.tsv")
-filtered_dico_cluster_100_0_7 = filter_cluster(dico_cluster_diseases_100_0_7)
+dico_cluster_diseases = create_cluster_dico(path + "data/cluster_output_10_0.7.tsv")
+filtered_dico_cluster = filter_cluster(dico_cluster_diseases)
 
-def extract_genes_clusters(filtered_dico_cluster_100_0_7: dict) -> None:
+def extract_genes_clusters(filtered_dico_cluster: dict) -> None:
     """Function to extract the genes in a cluster of communities : generates
     an excel file gathering the gene composition of each cluster
 
     Args:
-        filtered_dico_cluster_100_0_7 (dict): dicitonary containing the assignement
+        filtered_dico_cluster (dict): dicitonary containing the assignement
         of communities in custers
     """
     ppi = nx.read_edgelist(comm_path + "multiplex/1/PPI.tsv", create_using = nx.Graph)
     pathways = nx.read_edgelist(comm_path + "multiplex/1/Pathways.tsv", create_using = nx.Graph)
     coexp = nx.read_edgelist(comm_path + "multiplex/1/Coexpression.tsv", create_using = nx.Graph)
     complexes = nx.read_edgelist(comm_path + "multiplex/1/Complexes.tsv", create_using = nx.Graph)
-    for cluster in filtered_dico_cluster_100_0_7:
+    for cluster in filtered_dico_cluster:
         print(cluster)
         diseases = []
-        for disease in filtered_dico_cluster_100_0_7[cluster]:
+        for disease in filtered_dico_cluster[cluster]:
             diseases.append(disease)
         genes_cluster = list()
         dico_genes_comm = dict()
         for disease in diseases:
-            comm = path + f"/results_100_{disease}/seeds_{disease}.txt"
+            comm = comm_path + f"results_10_{disease}/seeds_{disease}.txt"
             with open(comm, 'r') as file:
                 for line in file:
                     gene = line.rstrip()
@@ -80,7 +80,7 @@ def extract_genes_clusters(filtered_dico_cluster_100_0_7: dict) -> None:
             df._set_value(i, 'sum degrees', sum(all_deg))
             i += 1
         df = df.rename(columns={'Unnamed: 0': f"Cluster {cluster}"})
-        df.to_csv(path + f"Analysis_Communities_V3/GenesClusters/genes_in_cluster_{cluster}.tsv", sep="\t")
+        df.to_csv(path + f"Clusters/genes_in_cluster_{cluster}.tsv", sep="\t")
         comm = df['Nb of communities in cluster']
         max_deg = df['max degree']
         sum_deg = df['sum degrees']
@@ -90,15 +90,16 @@ def extract_genes_clusters(filtered_dico_cluster_100_0_7: dict) -> None:
         corr_sum, p_value_sum = pearsonr(comm, sum_deg)
         print('Correlation Nb comm / sum deg:', corr_sum)
         print('P-value:', p_value_sum)
-    tsv_dir = Path(path + "/Analysis_Communities_V3/GenesClusters")
+    os.mkdir(path + "Clusters")
+    tsv_dir = Path(path + "Clusters")
     tsv_data = {}
     for tsv_file in tsv_dir.glob('*.tsv'):
         tsv_name = tsv_file.stem
         tsv_data[tsv_name] = pd.read_csv(tsv_file, sep="\t")
-    writer = pd.ExcelWriter(path + "/Analysis_Communities_V3/GenesClusters/genes_in_clusters.xlsx", engine='xlsxwriter')
+    writer = pd.ExcelWriter(path + "Clusters/genes_in_clusters.xlsx", engine='xlsxwriter')
     for sheet_name, sheet_data in tsv_data.items():
         sheet_data.to_excel(writer, sheet_name=sheet_name, index=False)
     writer.save()
 
 
-extract_genes_clusters(filtered_dico_cluster_100_0_7)
+extract_genes_clusters(filtered_dico_cluster)

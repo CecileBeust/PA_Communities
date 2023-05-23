@@ -30,7 +30,7 @@ if os.path.exists(comm_path) == False :
 
 
 # Define the dico of diseases and their seeds + list of ORPHANET identifiers
-(dico_disease_seeds, list_id) = create_dico_disease_seeds(path, "orpha_codes_PA.txt")
+(dico_disease_seeds, list_id) = create_dico_disease_seeds(path, "data/orpha_codes_PA.txt")
 
 def build_communities_list(path: str, list_id: list, size: int) -> tuple[list, list]:
     """Function which builds a list of communities by gathering
@@ -70,11 +70,11 @@ print(" ")
 print(f"Diseases not analyzed : {not_analyzed}")
 list_ids_analyzed = [x for x in list_id if x not in not_analyzed]
 print(f"There are {len(list_ids_analyzed)} diseases analyzed")
-disease_name_list = get_list_orpha_names(path, "pa_orphanet_diseases.tsv", list_ids_analyzed)
+disease_name_list = get_list_orpha_names(path, "data/pa_orphanet_diseases.tsv", list_ids_analyzed)
 print(" ")
 print(f"Diseases names list : {disease_name_list}")
 
-df_disease = pd.read_csv(path + "/pa_orphanet_diseases.tsv", sep="\t", header=None)
+df_disease = pd.read_csv(path + "data/pa_orphanet_diseases.tsv", sep="\t", header=None)
 disease_names = []
 for id in list_ids_analyzed:
     for row in df_disease.iterrows():
@@ -180,12 +180,6 @@ def jaccard_index(file1, file2) -> float:
     union = len(set1) + len(set2) - intersection
 
     jaccard_index = intersection / union
-    # semi jaccard index : need to set another argument
-    # to tell on which set we want to compare
-    # if nb == 1:
-        #jaccard_index = intersection / len(set1)
-    #elif nb == 2:
-        #jaccard_index = intersection / len(set2)
     
     return jaccard_index
 

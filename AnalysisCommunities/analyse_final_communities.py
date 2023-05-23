@@ -75,7 +75,7 @@ def create_dico_disease_seeds(path: str, orpha_seeds: str) -> tuple[dict, list]:
                     dico_seeds[disease].append(genes)
         return (dico_seeds, list_disease)
 
-(dico_disease_seeds, list_id) = create_dico_disease_seeds(path, "orpha_codes_PA.txt")
+(dico_disease_seeds, list_id) = create_dico_disease_seeds(path, "data/orpha_codes_PA.txt")
 print(f"Dico diseases-seeds : {dico_disease_seeds}")
 print(" ")
 print(f"List diseases IDs : {list_id}")
