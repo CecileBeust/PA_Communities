@@ -52,21 +52,21 @@ def enrichment_communities(list_comm, list_ids_analyzed, size):
             gp = GProfiler(return_dataframe=True)
             enrich = gp.profile(organism='hsapiens', query=genes, no_evidences=False)
             print(enrich)
-            enrich.to_csv(f"/home/cbeust/Landscape_PA/CommunityIdentification/CommunityIdentification_V3/Analysis_Communities_V3/enrichment/EnrichCommunities/comm_{id}_{size}.tsv", sep="\t")
+            enrich.to_csv(path + f"EnrichmentCommunities/comm_{id}_{size}.tsv", sep="\t")
     for id in list_ids_analyzed:
-        df = pd.read_csv(f"/home/cbeust/Landscape_PA/CommunityIdentification/CommunityIdentification_V3/Analysis_Communities_V3/enrichment/EnrichCommunities/comm_{id}_{100}.tsv", sep="\t")
+        df = pd.read_csv(path + f"EnrichmentCommunities/comm_{id}_{size}.tsv", sep="\t")
         disease_name = dico_code_disease[str(id)]
         df = df.rename(columns={'Unnamed: 0': str(disease_name)})
         df = df.drop(['evidences'], axis=1)
         print(df)
-        df.to_csv(f"/home/cbeust/Landscape_PA/CommunityIdentification/CommunityIdentification_V3/Analysis_Communities_V3/enrichment/EnrichCommunities/comm_{id}_{100}.tsv", sep="\t", index=False)
+        df.to_csv(path + f"EnrichmentCommunities/comm_{id}_{size}.tsv", sep="\t", index=False)
 
-    tsv_dir = Path("/home/cbeust/Landscape_PA/CommunityIdentification/CommunityIdentification_V3/Analysis_Communities_V3/enrichment/EnrichCommunities/")
+    tsv_dir = Path(path + "EnrichmentCommunities/")
     tsv_data = {}
     for tsv_file in tsv_dir.glob('*.tsv'):
         tsv_name = tsv_file.stem
         tsv_data[tsv_name] = pd.read_csv(tsv_file, sep="\t")
-    writer = pd.ExcelWriter('/home/cbeust/Landscape_PA/CommunityIdentification/CommunityIdentification_V3/Analysis_Communities_V3/enrichment/EnrichCommunities/enrichment_communities_100.xlsx', engine='xlsxwriter')
+    writer = pd.ExcelWriter(path + "EnrichmentCommunities/enrichment_communities_100.xlsx", engine='xlsxwriter')
     for sheet_name, sheet_data in tsv_data.items():
         sheet_data.to_excel(writer, sheet_name=sheet_name, index=False)
     writer.save()
