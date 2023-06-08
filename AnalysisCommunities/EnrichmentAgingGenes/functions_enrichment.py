@@ -2,8 +2,12 @@ import networkx as nx
 import pandas as pd
 import numpy as np
 import scipy.stats as stats
-path = "/home/cbeust/Landscape_PA/CommunityIdentification/CommunityIdentification_V3"
+import os
 
+path = os.path.dirname(os.path.realpath(__file__))
+path = path + '/'
+os.chdir(path)
+print(path)
 
 #############################################
 ###### LOAD AND PROCESS DATA ################

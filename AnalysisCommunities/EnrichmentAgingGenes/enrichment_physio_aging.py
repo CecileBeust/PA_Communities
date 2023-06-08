@@ -1,5 +1,6 @@
 # import modules
 import pandas as pd
+import os
 import networkx as nx
 import numpy as np
 from matplotlib_venn import venn2, venn2_circles, venn2_unweighted
@@ -9,7 +10,11 @@ from gprofiler import GProfiler
 import scipy.stats as stats
 from functions_enrichment import load_networks, extract_seeds, load_geneage, extract_genes_from_cluster, extract_genes_from_comm, fisher, hypergeome
 
-path = "/home/cbeust/Landscape_PA/CommunityIdentification/CommunityIdentification_V3"
+path = os.path.dirname(os.path.realpath(__file__))
+path = path + '/'
+os.chdir(path)
+print(path)
+
 list_id_analyzed = ['93932', '920', '909', '904', '90348', '90324', '90322', '90321', '902', '90154', '90153', '897', '895', '894', '808', '79477', '79476', '79474', '79333', '79325', '79087', '769', '758', '75496', '740', '633', '500', '498359', '487825', '477', '435628', '412057', '363618', '357074', '3455', '3437', '33445', '33364', '3322', '3163', '3051', '2963', '287', '286', '2834', '280679', '280365', '2658', '263534', '263487', '2500', '220295', '2078', '2067', '1942', '1901', '1860', '1807', '1775', '163746', '1387', '137608', '1340', '1299', '1297', '101028', '100']
 
 all_nodes = load_networks()
