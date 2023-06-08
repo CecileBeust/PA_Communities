@@ -1,4 +1,4 @@
-# Identification, clustering and enrichment of communities in a multiplex network : application to Premature Aging diseases 
+# Identification, clustering and enrichment of communities in a multiplex network: application to Premature Aging diseases 
 
 This repository contains codes to :
 * Identify communities associated to Premature Aging (PA) diseases in a multiplex biological network  
