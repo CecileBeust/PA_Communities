@@ -28,6 +28,7 @@ for index, row in pa.iterrows():
 # remove this disease because seed not in network
 diseases_pa.remove("Arterial tortuosity syndrome")
 print(f"PA diseases : {diseases_pa}")
+print(len(diseases_pa))
 print(" ")
 
 def create_dico_clusters_diseases(clusters_file) -> dict:
@@ -54,38 +55,6 @@ def create_dico_clusters_diseases(clusters_file) -> dict:
 dico_clusters_diseases = create_dico_clusters_diseases("clusters_100.tsv")
 print(f"Dico clusters diseases : {dico_clusters_diseases}")
 print(" ")
-
-def hypergeome(list1, list2, background) -> float:
-    """Function to perform hypergeometric test between
-    two lists of terms
-
-    Args:
-        list1 (list): first list of terms
-        list2 (list): second list of terms
-        background (int): number of terms taken as a 
-        background for the statistical significance
-        of the analysis
-
-    Returns:
-        floast: p-value of the hypergeometric test
-    """
-    # Define the number of features in the two lists
-    list1_size = len(list1)
-    list2_size = len(list2)
-
-    # Determine the number of genes that are common to both lists
-    common = set(list1).intersection(list2)
-    common_size = len(common)
-
-    # Define the number of features to randomly sample from the background
-    sample_size = list1_size
-
-    # Calculate the p-value using a hypergeometric test
-    p_value = stats.hypergeom.sf(common_size-1, background, list2_size, sample_size)
-
-    #print(f'p-value: {p_value:.4f}')
-    return p_value
-
 
 def get_PA_pheno_for_disease(clusters_file: str) -> tuple:
     """Extract diseases from each cluster
@@ -122,40 +91,7 @@ def get_PA_pheno_for_disease(clusters_file: str) -> tuple:
                 
 (cluster1, cluster2, cluster3, cluster4, cluster5, cluster6) = get_PA_pheno_for_disease("clusters_100.tsv")
 list_clusters = [cluster1, cluster2, cluster3, cluster4, cluster5, cluster6]
-print(len(list_clusters))
-
-def enrich__PA_phenotypes(list_clusters: list, dico_pheno: dict, background: int):
-    df_pval = pd.DataFrame(columns=['Cluster', 'DisCluster', 'Phenotype', 'Diseases', 'Intersection', 'pvalue', 'Corrected pvalue'])
-    j = 1
-    for cluster in list_clusters:
-        print(j)
-        i = 0
-        for pheno, diseases in dico_pheno.items():
-            p = hypergeome(cluster, diseases, background)
-            df_pval._set_value(i, 'Cluster', j)
-            df_pval._set_value(i, 'DisCluster', cluster)
-            df_pval._set_value(i, 'Phenotype', pheno)
-            df_pval._set_value(i, 'Diseases', diseases)
-            df_pval._set_value(i, 'Intersection', set(cluster).intersection(diseases))
-            df_pval._set_value(i, 'pvalue', p)
-            i += 1
-            pvals = df_pval['pvalue'].to_list()
-        p_adjusted = multipletests(pvals, alpha=0.05, method='fdr_bh')[1]
-        df_pval['Corrected pvalue'] = p_adjusted
-        df_pval.to_csv(path + f"/enrichment_cluster{j}_phenotypes.tsv", sep="\t", index=False)  
-        j += 1
-    
-    tsv_dir = Path(path)
-    tsv_data = {}
-    for tsv_file in tsv_dir.glob('*.tsv'):
-        tsv_name = tsv_file.stem
-        tsv_data[tsv_name] = pd.read_csv(tsv_file, sep="\t")
-    writer = pd.ExcelWriter(path + "/enrichment_phenotypes.xlsx", engine='xlsxwriter')
-    for sheet_name, sheet_data in tsv_data.items():
-        sheet_data.to_excel(writer, sheet_name=sheet_name, index=False)
-    writer.save()
-
-#enrich__PA_phenotypes(list_clusters, dico_pheno_diseases, 67)
+print(list_clusters)
 
 def build_background(list_diseases: list, dico_diseases_code: dict) -> list:
     """Function that determines the background of HPO phenotypes to use
@@ -179,7 +115,8 @@ def build_background(list_diseases: list, dico_diseases_code: dict) -> list:
     return background
 
 background = build_background(diseases_pa, dico_diseases_code)
-print(f"Background : {len(background)} phenotypes")
+print(" ")
+print(f"Background : {len(set(background))} phenotypes")
 
 def create_dico_clusters_pheno(list_diseases_in_clusters: list) -> dict:
     """Function which creates a dictionary of HPO phenotypes associated
@@ -282,7 +219,7 @@ def create_enrichment_files():
         print(dfEnrichmentGroup)
         dfEnrichmentGroupSource = dfEnrichmentGroup["HPO ID"]
         print(dfEnrichmentGroupSource)
-        dfEnrichmentGroupSource.to_csv(path + f"/Orsum_cluster_{i}/Enrich-HPO-cluster-{i}.txt", index=False, header=None)
+        dfEnrichmentGroupSource.to_csv(path + f"Orsum_cluster_{i}/Enrich-HPO-cluster-{i}.txt", index=False, header=None)
 
 create_enrichment_files()
 
@@ -302,12 +239,15 @@ def applyOrsum2(dico: dict, gmt: str, summaryFolder: str, outputFolder: str, max
         numberOfTermsToPlot (int, optional): The number of representative terms to be presented in barplot and heatmap. Defaults to 50.
     """
     noEnrichmentGroup = set()
-    command = '/home/cbeust/miniconda3/pkgs/orsum-1.6.0-hdfd78af_0/bin/orsum.py'
-    #command = 'orsum.py'
+    #/!\ ORSUM PATH TO ADDAPT /!\
+    # if orsum is installed as a conda pacgke
+    command = '/home/.../miniconda3/pkgs/orsum-1.6.0-hdfd78af_0/bin/orsum.py'
+    # if orsum is installed in the current directory
+    #command = path + 'orsum/orsum.py'
     command = command + ' --gmt \"'+gmt+'\" '
     command = command + '--files '
     for clusters in dico:
-        filePath = summaryFolder+os.sep+f'/Orsum_cluster_{int(clusters)}/Enrich-HPO-cluster-{int(clusters)}.txt'
+        filePath = summaryFolder+f'Orsum_cluster_{int(clusters)}/Enrich-HPO-cluster-{int(clusters)}.txt'
         if os.stat(filePath).st_size == 0: # orsum exits when one enrichment file is empty
             noEnrichmentGroup.add(int(clusters))
         else:
@@ -326,13 +266,13 @@ def applyOrsum2(dico: dict, gmt: str, summaryFolder: str, outputFolder: str, max
 
 
 def multiple_enrichment(dico_clusters_diseases, gmt):
-    os.mkdir(path + f"/ME_results_phenotypes")
-    outputFolder = path + f"/ME_results_phenotypes"
+    os.mkdir(path + f"ME_results_phenotypes")
+    outputFolder = path + f"ME_results_phenotypes"
     applyOrsum2(dico=dico_clusters_diseases, gmt=gmt, summaryFolder=path, outputFolder=outputFolder)
 
 
 # set paths for GMT files
-gmt_HPO = path + "/hpo_phenotypes.gmt"
+gmt_HPO = path + "hpo_phenotypes.gmt"
 
 multiple_enrichment(dico_clusters_diseases, gmt_HPO)
 
