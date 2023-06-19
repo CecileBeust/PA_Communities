@@ -7,9 +7,8 @@ multiplex:
         layers:
             - multiplex/1/Coexpression.tsv
             - multiplex/1/Complexes.tsv
-            - multiplex/1/Diseases_involvement.tsv
             - multiplex/1/PPI.tsv
             - multiplex/1/Pathways.tsv
         delta: 0.5
-        graph_type: [00, 00, 00, 00, 00]
-        tau: [0.2, 0.2, 0.2, 0.2, 0.2]
+        graph_type: [00, 00, 00, 00]
+        tau: [0.25, 0.25, 0.25, 0.25]
