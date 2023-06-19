@@ -1,6 +1,6 @@
 # Identification, clustering and enrichment of communities in a multiplex network: application to Premature Aging diseases 
 
-This repository contains codes to :
+This repository presents a pipeline allowing to:
 * Identify communities associated to Premature Aging (PA) diseases in a multiplex biological network  
 * Perform a clustering of the communities based on Jaccard index
 * Perform enrichment analysis of the clusters using biological annotation or other lists of genes or phenoypes
@@ -13,9 +13,18 @@ This pipeline can be used and/or adapted to any study requiring the identificati
 
 ## Folders
 
-* ```IDCommunity``` : Folder containing codes for the community identification with itRWR. It contains a subset toy example of a multiplex biological network composed of 4 layers : Protein-protein interactions, Molecular complexes, Pathways and Coexpression networks. This subset is extracted from complete networks, which are available on the NDEx server: https://www.ndexbio.org/index.html#/search?searchType=All&searchString=cecile.beust&searchTermExpansion=false
+* ```_00_data```: Folder containing the data files needed for the analysis (diseases identifiers files, gmt files and some output files used in different steps of the analysis)
+* ```_01_Community_Identification```: Folder containing codes for the community identification with itRWR. It contains a subset toy example of a multiplex biological network composed of 4 layers : Protein-protein interactions, Molecular complexes, Pathways and Coexpression networks. This subset is extracted from complete networks, which are available on the NDEx server: https://www.ndexbio.org/index.html#/search?searchType=All&searchString=cecile.beust&searchTermExpansion=false
 
-* ```AnalysisCommunities``` : Folder containing codes to analyze communities. Codes for the clustering of the communities based on Jaccard Index, and the enrichment analysis of the obtained clusters are provided, as well as codes for the visualisation of communities in Cytoscape.
+* ```_02_Analysis_Communities```: Folder containing codes to analyze communities and visualize them in Cytoscape
+
+* ```_03_Cluster_Communities```: Folder containing the codes to perform a clustering of communities based on Jaccard index.
+
+* ```_04_Enrichment_BioAnnotations```: Folder containing the codes to perform enrichent analysis of the communities, or clusters of communities, using biological annotations.
+
+* ```_05_Enrichment_PhysioAging_Genes```: Folder containing the codes to perfom enrichment analysis of the clusters using physiological aging genes.
+
+* ```_06_Enrichment_Phenotypes```: Folder containing codes to perform enrich;ent analysus of the clusters using phenotypes
 
 * ```Tests``` : Folder containing a test file to check the results of the community identification algorithm.
 
