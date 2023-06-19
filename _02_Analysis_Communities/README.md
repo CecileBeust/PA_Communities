@@ -1,28 +1,16 @@
 # Analysis, Clustering, Enrichment and Visualization of gene communities
 
-This folder contains different scripts to analyze communities. The scripts can be used individually depending on the type of analysis you want to perform on you communities, or can be used altogther in the same pipeline.
+This folder contains different scripts to analyze communities of genes, here identified for Premature Aging diseases in a multiplex network of biological interaction using an iterative Random Walk with Restart algorithm (itRWR)
 
 ## Folders
 
-* ```EnrichmentAgingGenes```: This folder contains codes to perform an enrichment of the PA associated communities in physiological aging genes. The code can be used and adapted to assess the enrichment of other genes sets in communities. 
-
-* ```EnrichmentPhenotypes```: This folder containg codes to perform an enrichment of diseases in clusters using HPO phentoypes
-
 * ```PlotCommunities```: This folder contains codes to generate files for the visualisation of communities in the Cytoscape application.
 
-* ```data```: Data folder containing the list of PA diseases and their associated genes from ORPHANET
- 
-* ```gmt_files```: Folder containing GMT files for the enrichment analysis with g:Profiler 
 
 ## Files
 
 * ```analysis_final_communities.py```: Python functions that are used in other scripts
-* ```analysis_genes_in_clusters.py```: contain functions to analyze the genes present in each cluster of communities
 * ```analysis_genes_in_communities.py```: contain functions to analyze the genes present in the communities
-* ```cluster_communities.py```: contain functions to cluster communities of genes based on Jaccard index
-* ```enrichment_clusters.py```: contain functions to enrich the clusters using biological annotations
-* ```enrichment_communities.py```: contain functions to enrich the communities using biogical annotations
-* ```orsum_enrichment_clusters.py```: contain functions to filter the enrichment results in biological annotations for the clusters
 
 
 ## References
