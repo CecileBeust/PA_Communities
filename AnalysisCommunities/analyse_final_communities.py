@@ -7,12 +7,16 @@ import matplotlib.pyplot as plt
 from scipy.cluster.hierarchy import dendrogram, linkage
 import argparse
 
-path = os.path.dirname(os.path.realpath(__file__))
+"""path = os.path.dirname(os.path.realpath(__file__))
 path = path + '/'
 os.chdir(path)
 print(path)
 
-def get_list_orpha_names(path: str, pa_diseases: str, id_diseases_analysed: list) -> list:
+data_folder = os.path.join(os.path.dirname(__file__), '..', 'data')
+orpha_codes = os.path.join(data_folder, 'orpha_codes_PA.txt')
+orpha_names = os.path.join(data_folder, 'pa_orphanet_diseases.tsv')"""
+
+def get_list_orpha_names(pa_diseases: str, id_diseases_analysed: list) -> list:
     """Function to get a list of PA diseases names
     from a file of diseases + their IDs and a list 
     of identifiers to analyze
@@ -27,7 +31,7 @@ def get_list_orpha_names(path: str, pa_diseases: str, id_diseases_analysed: list
         list: list of disease names to analyze
     """
     disease_name_list = []
-    file = path + pa_diseases
+    file = pa_diseases
     with open(file, 'r') as fi:
         for line in fi:
             disease_id = line.split("\t")[0].rstrip()
@@ -37,7 +41,7 @@ def get_list_orpha_names(path: str, pa_diseases: str, id_diseases_analysed: list
                     disease_name_list.append(disease_name)
     return disease_name_list
 
-def create_dico_disease_seeds(path: str, orpha_seeds: str) -> tuple[dict, list]:
+def create_dico_disease_seeds(orpha_codes: str) -> tuple[dict, list]:
     """Function to create a dictionary of PA
     diseases and their associated causative
     genes (seeds)
@@ -56,7 +60,7 @@ def create_dico_disease_seeds(path: str, orpha_seeds: str) -> tuple[dict, list]:
     """
     dico_seeds = {}
     list_disease = []
-    file = path + orpha_seeds
+    file = orpha_codes
     with open(file, 'r') as fi:
         for line in fi:
             # separate diseases from seeds in the input file
@@ -75,7 +79,7 @@ def create_dico_disease_seeds(path: str, orpha_seeds: str) -> tuple[dict, list]:
                     dico_seeds[disease].append(genes)
         return (dico_seeds, list_disease)
 
-(dico_disease_seeds, list_id) = create_dico_disease_seeds(path, "data/orpha_codes_PA.txt")
+"""(dico_disease_seeds, list_id) = create_dico_disease_seeds(path, orpha_codes)
 print(f"Dico diseases-seeds : {dico_disease_seeds}")
 print(" ")
-print(f"List diseases IDs : {list_id}")
+print(f"List diseases IDs : {list_id}")"""
