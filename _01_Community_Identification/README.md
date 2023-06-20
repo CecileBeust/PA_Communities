@@ -4,13 +4,18 @@ This folder contains the Python script allowing to run the identification of com
 
 The communities are identified using and iterative Random Walk with Restart algorithm, itRWR (https://github.com/anthbapt/itRWR.git), based on the MultiXrank Python package.
 
+## Data
+
+* Folder ```multiplex```: contains a multiplex network of biological interactions composed of 4 layers (PPI, Pathways, Co-expression, Complexes).
+
+* ```orpha_codes_PA.txt```: file containing the Premature Aging diseases analyzed and their associated causative genes from ORPHANET. We removed from the file the causative genes which were nor present in our multiplex network of biological interactions, and thus can not be used as seeds. 
+
 ## Files
 
 * ```config_ID.yml```: configuration files for each disease analyzed, with ID being ORPHANET codes of the diseases.  
 
 * ```seeds_ID.txt```: files containing the causative genes associated to each diseases. These causative genes are used as seeds by the itRWR algorithm.
 
-* ```orpha_codes_PA.txt```: file containing the Premature Aging diseases analyzed and their associated causative genes from ORPHANET. We removed from the file the causative genes which were nor present in our multiplex network of biological interactions, and thus can not be used as seeds. 
 
 * ```run_CI.py```: Python script allowing to run the identification of communities for the 67 ORPHANET diseases associated to at least one causative gene (one seed) in the multiplex network. Here we use a number of iteration of 100, but it is possible to change this parameter in the script. This will change the size of the obtained communities.
 
