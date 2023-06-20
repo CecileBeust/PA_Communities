@@ -16,7 +16,6 @@ orpha_codes = os.path.join(data_folder, 'orpha_codes_PA.txt')
 orpha_names = os.path.join(data_folder, 'pa_orphanet_diseases.tsv')
 cluster_output = os.path.join(data_folder, 'cluster_output_10_0.7.tsv')
 
-
 # Argparse
 parser = argparse.ArgumentParser(
     prog="analyse_genes_in_clusters.py", 
@@ -92,10 +91,10 @@ def extract_genes_clusters(filtered_dico_cluster: dict) -> None:
         filtered_dico_cluster (dict): dicitonary containing the assignement
         of communities in custers
     """
-    ppi = nx.read_edgelist(comm_path + "multiplex/1/PPI.tsv", create_using = nx.Graph)
-    pathways = nx.read_edgelist(comm_path + "multiplex/1/Pathways.tsv", create_using = nx.Graph)
-    coexp = nx.read_edgelist(comm_path + "multiplex/1/Coexpression.tsv", create_using = nx.Graph)
-    complexes = nx.read_edgelist(comm_path + "multiplex/1/Complexes.tsv", create_using = nx.Graph)
+    ppi = nx.read_edgelist(comm_path + "multiplex/1/PPI_HiUnion_LitBM_APID_gene_names_190123.tsv", create_using = nx.Graph)
+    pathways = nx.read_edgelist(comm_path + "multiplex/1/reactome_pathways_gene_names_190123.tsv", create_using = nx.Graph)
+    coexp = nx.read_edgelist(comm_path + "multiplex/1/Coexpression_310323.tsv", create_using = nx.Graph)
+    complexes = nx.read_edgelist(comm_path + "multiplex/1/Complexes_gene_names_190123.tsv", create_using = nx.Graph)
     for cluster in filtered_dico_cluster:
         print(cluster)
         diseases = []
@@ -104,7 +103,7 @@ def extract_genes_clusters(filtered_dico_cluster: dict) -> None:
         genes_cluster = list()
         dico_genes_comm = dict()
         for disease in diseases:
-            comm = comm_path + f"results_10_{disease}/seeds_{disease}.txt"
+            comm = comm_path + f"results_100_{disease}/seeds_{disease}.txt"
             with open(comm, 'r') as file:
                 for line in file:
                     gene = line.rstrip()

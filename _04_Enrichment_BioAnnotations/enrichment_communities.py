@@ -13,8 +13,8 @@ sys.path.append('../')
 os.chdir(path)
 print(path)
 
-from AnalysisCommunities.analyse_final_communities import create_dico_disease_seeds
-from ClusterCommunities.cluster_communities import build_communities_list
+from utilities import create_dico_disease_seeds
+from _03_Cluster_Communities.cluster_communities import build_communities_list
 
 data_folder = os.path.join(os.path.dirname(__file__), '..', 'data')
 orpha_codes = os.path.join(data_folder, 'orpha_codes_PA.txt')
@@ -37,7 +37,7 @@ if os.path.exists(comm_path) == False :
 
 
 (dico_disease_seeds, list_id) = create_dico_disease_seeds(orpha_codes)
-(communities_10, not_analyzed) = build_communities_list(comm_path, list_id, 10)
+(communities_100, not_analyzed) = build_communities_list(comm_path, list_id, 100)
 list_ids_analyzed = [x for x in list_id if x not in not_analyzed]
 
 pa_diseases = pd.read_csv(orpha_names, sep="\t", header=None)
@@ -78,4 +78,4 @@ def enrichment_communities(list_comm, list_ids_analyzed, size):
         sheet_data.to_excel(writer, sheet_name=sheet_name, index=False)
     writer.save()
 
-enrichment_communities(communities_10, list_ids_analyzed, 10)
+enrichment_communities(communities_100, list_ids_analyzed, 100)

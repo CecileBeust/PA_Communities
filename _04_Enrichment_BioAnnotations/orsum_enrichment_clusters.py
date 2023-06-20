@@ -12,14 +12,15 @@ data_folder = os.path.join(os.path.dirname(__file__), '..', 'data')
 orpha_codes = os.path.join(data_folder, 'orpha_codes_PA.txt')
 orpha_names = os.path.join(data_folder, 'pa_orphanet_diseases.tsv')
 gmt_folder = os.path.join(os.path.dirname(__file__), '..', 'data/gmt')
-cluster_output = os.path.join(data_folder, 'cluster_output_10_0.7.tsv')
+cluster_output = os.path.join(data_folder, 'cluster_output_100_0.7.tsv')
 
 def create_enrichment_files(size: int, cluster_id: int, th: float):
     """Function which creates enrichment files containing lists of 
     terms IDs for orsum analysis
 
     Args:
-        size (int): the size of communities analyzed (30, 50, 100)
+        size (int): number of iterations used for itRWR, reflecting the
+        size of the communities
         cluster_id (int): the ID of the cluster
         th (float): threshold used to determine the clusters
     """
@@ -96,6 +97,7 @@ def multiple_enrichment(sorted_dico_clusters: dict, th: float, size: int, source
     os.mkdir(path + f"/{size}_{th}/ME_results_{source}_comm_{th}")
     outputFolder = path + f"/{size}_{th}/ME_results_{source}_comm_{th}"
     if source == "REAC":
+        # for Reactome pathways we apply a different value for the maxRepSize parameter
         applyOrsum(dico=sorted_dico_clusters, size=size, th=0.7, gmt=gmt, source=source, summaryFolder=path, outputFolder=outputFolder, maxRepSize=2000, numberOfTermsToPlot=50)
     else:
         applyOrsum(dico=sorted_dico_clusters, size=size, th=0.7, gmt=gmt, source=source, summaryFolder=path, outputFolder=outputFolder, numberOfTermsToPlot=50)
@@ -106,4 +108,4 @@ def apply_orsum_to_clusters(th: float, size: int):
     multiple_enrichment(th=th, size=size, source="GOCC", gmt=gmt_GOCC)
     multiple_enrichment(th=th, size=size, source="REAC", gmt=gmt_REAC)
 
-apply_orsum_to_clusters(0.7, 10)
+apply_orsum_to_clusters(0.7, 100)

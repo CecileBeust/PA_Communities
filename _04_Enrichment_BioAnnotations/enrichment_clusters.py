@@ -1,19 +1,23 @@
 import os
 import argparse
-from enrichment_communities import create_dico_disease_seeds, build_communities_list
 from gprofiler import GProfiler
 import ast
 import pandas as pd
+import sys
 
 path = os.path.dirname(os.path.realpath(__file__))
 path = path + '/'
+sys.path.append('../')
 os.chdir(path)
 print(path)
+
+from utilities import create_dico_disease_seeds
+from _03_Cluster_Communities.cluster_communities import build_communities_list
 
 data_folder = os.path.join(os.path.dirname(__file__), '..', 'data')
 orpha_codes = os.path.join(data_folder, 'orpha_codes_PA.txt')
 orpha_names = os.path.join(data_folder, 'pa_orphanet_diseases.tsv')
-cluster_output = os.path.join(data_folder, 'cluster_output_10_0.7.tsv')
+cluster_output = os.path.join(data_folder, 'cluster_output_100_0.7.tsv')
 
 # Argparse
 parser = argparse.ArgumentParser(
@@ -30,9 +34,9 @@ comm_path = args.path
 if os.path.exists(comm_path) == False :
     raise ValueError("Incorrect path, please try again")
 
-
+# variables statement
 (dico_disease_seeds, list_id) = create_dico_disease_seeds(orpha_codes)
-(communities_10, not_analyzed) = build_communities_list(comm_path, list_id, 10)
+(communities_10, not_analyzed) = build_communities_list(comm_path, list_id, 100)
 
 pa_diseases = pd.read_csv(orpha_names, sep="\t", header=None)
 dico_code_disease = {}
@@ -164,7 +168,7 @@ def enrich_all_clusters(filtered_dico: dict) -> None:
         nodes = select_nodes_from_cluster(100, filtered_dico, cluster)
         enrichment_cluster(cluster, nodes, 100)
 
-#enrich_all_clusters(filtered_dico_cluster_10_0_7)
+enrich_all_clusters(filtered_dico_cluster)
 
 def highlight_seeds(filtered_dico_cluster: dict, size: int, dico_code_disease: dict, dico_disease_seeds: dict):
     seeds = set()

@@ -1,6 +1,6 @@
-### Enrichment of clusters of genes using physiological aging genes
+# Enrichment of clusters of gene communities using physiological aging genes
 
-This folder contains codes to enrich clusters of genes using lists of physiological aging genes. Here the lists of physiological aging genes used are the following : 
+This folder contains codes to enrich clusters of gene communities using lists of physiological aging genes. Here the lists of physiological aging genes used are the following : 
 
 * Genes from the GenAge database
 * Genes up and down-regulated during physiological aging in blood and skin, from the study of Irizar et al.
@@ -8,14 +8,13 @@ This folder contains codes to enrich clusters of genes using lists of physiologi
 ## Files
 
 * ```GSE103232_hs_blood_batch2_counts_rpkm.xls```: File containing Ensembl identifiers of genes to map to HUGO genes symbols, from the study of Irizar et al. 
-* ```cluster_output_100_0.7.tsv```: file describing the cluster assignement of each disease-associated community identified previously.
 * ```enrichment_physio_aging.py```: Python script containing the functions to perform the enrichment analysis
 * ```functions_enrichment.py```: Python script containing other functions used in ```enrichment_physio_aging.py```
 * ```geneage_human.csv```: physiological aging genes extracted from GenAge
 
 ## Usage
 
-Run the ```enrichment_physio_aging.py``` to enrich the clusters (here identified for Premature Aging diseases) with physiological aging genes. 
+```python enrichment_physio_aging.py```
 
 ## Output
 
