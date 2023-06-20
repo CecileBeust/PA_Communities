@@ -14,7 +14,7 @@ sys.path.append('../')
 os.chdir(path)
 print(path)
 
-from _02_Analysis_Communities.analyse_final_communities import create_dico_disease_seeds, get_list_orpha_names
+from _02_Analysis_Communities.utilities import create_dico_disease_seeds, get_list_orpha_names
 
 data_folder = os.path.join(os.path.dirname(__file__), '..', '00_data')
 orpha_codes = os.path.join(data_folder, 'orpha_codes_PA.txt')
