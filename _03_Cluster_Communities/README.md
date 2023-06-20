@@ -18,6 +18,6 @@ The Jaccard index is the ratio of the common genes between two communities over 
 
 ## Output
 
-The script ```cluster_communities.py``` will generate a clustering of communities based on Jaccard index. It is possible to download to corresponding dendrogram and clustermap.
+The script ```cluster_communities.py``` will generate a clustering of communities based on Jaccard index. It is possible to download to corresponding dendrogram and clustermap. It will also generate a file ```cluster_output_100_0.7.tsv``` which recapitulates which communities are gathered in each cluster. This file is also present in the ```_00_data``` folder because it is used for downstream analysis. 
 
 The script ```analyse_genes_in_clusters.py``` will generate an excel file of the genes represented in each cluster of communities.
