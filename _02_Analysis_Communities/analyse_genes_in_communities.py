@@ -1,5 +1,10 @@
-from analyse_final_communities import create_dico_disease_seeds
-from cluster_communities import build_communities_list, build_similarity_matrix
+"""
+Functions to analyze the gene composition of communities
+and generate associated files
+"""
+
+# import modules
+from utilities import create_dico_disease_seeds
 import seaborn as sns
 import pandas as pd
 import numpy as np
@@ -8,11 +13,16 @@ import argparse
 from scipy.stats import pearsonr
 import matplotlib.pyplot as plt
 import os
+import sys
 
+# define path
 path = os.path.dirname(os.path.realpath(__file__))
 path = path + '/'
+sys.path.append('../')
 os.chdir(path)
 print(path)
+
+from _03_Cluster_Communities.cluster_communities import build_communities_list, build_similarity_matrix
 
 # Argparse
 parser = argparse.ArgumentParser(
@@ -29,10 +39,16 @@ comm_path = args.path
 if os.path.exists(comm_path) == False :
     raise ValueError("Incorrect path, please try again")
 
-(dico_disease_seeds, list_id) = create_dico_disease_seeds(path, "orpha_codes_PA.txt")
-(communities_10, not_analyzed) = build_communities_list(comm_path, list_id, 10)
+# define path to data
+data_folder = os.path.join(os.path.dirname(__file__), '..', '00_data')
+orpha_codes = os.path.join(data_folder, 'orpha_codes_PA.txt')
+orpha_names = os.path.join(data_folder, 'pa_orphanet_diseases.tsv')
+
+# variables statement
+(dico_disease_seeds, list_id) = create_dico_disease_seeds(orpha_codes)
+(communities_100, not_analyzed) = build_communities_list(comm_path, list_id, 100)
 list_ids_analyzed = [x for x in list_id if x not in not_analyzed]
-similarity_matrix_10 = build_similarity_matrix(communities_10)[0]
+similarity_matrix_100 = build_similarity_matrix(communities_100)[0]
 
 def analyse_genes_in_comm(communities: list, list_ids_analyzed: list) -> tuple[list, list, dict]:
     """
@@ -41,7 +57,7 @@ def analyse_genes_in_comm(communities: list, list_ids_analyzed: list) -> tuple[l
 
     Args:
         communities (list) : list of paths to the communities to analyze
-        list_ids_analyzed (list) : list of the ORPHANET identifiers of diseases communities to analyze
+        list_ids_analyzed (list) : list of the ORPHANET identifiers of diseases communities analyzed
 
     Return:
         (tuple) : the list of total genes in the communities, the list of genes without seeds, the dicionary of the genes
@@ -52,7 +68,7 @@ def analyse_genes_in_comm(communities: list, list_ids_analyzed: list) -> tuple[l
     genes_wo_seeds = []
     genes_in_several_comm = []
     seeds = set()
-    df = pd.read_table(path + "orpha_codes_PA.txt")
+    df = pd.read_table(orpha_codes)
     for index, row in df.iterrows():
         if row[0] in list_ids_analyzed:
             seeds_disease = row[1].split(",")
@@ -80,7 +96,7 @@ def analyse_genes_in_comm(communities: list, list_ids_analyzed: list) -> tuple[l
                         genes_wo_seeds.append(gene)
     return genes_total, genes_wo_seeds, dico_gene_comm
 
-(genes_total, genes_wo_seeds, dico_gene_comm) = analyse_genes_in_comm(communities_10, [740, 902])
+(genes_total, genes_wo_seeds, dico_gene_comm) = analyse_genes_in_comm(communities_100, [740, 902])
 print(f"Total genes in commmunities : {genes_total}")
 print(f"Genes without seeds in communities : {genes_wo_seeds}")
 print(f"Dico genes in communities : {dico_gene_comm}")
@@ -107,12 +123,12 @@ def generate_table_genes_in_comm(dico_gene_comm, genes_wo_seeds) -> None:
             i += 1
     df_100.sort_values(by=['Number of PA communities memberships'], ascending=False)
     print(df_100)
-    #df_100.to_csv(path + "genes_comm.tsv", sep="\t", index=None)
+    df_100.to_csv(path + "genes_comm.tsv", sep="\t", index=None)
 
 generate_table_genes_in_comm(dico_gene_comm, genes_wo_seeds)
 
 def generate_excel_genes(dico_gene_comm: dict) -> None:
-    """Function to generate an excel file gathering 
+    """Function to generate file gathering 
     information about the genes inside a set of communities
     (number of communities it belongs to, degrees in the different networks of 
     the multiplex, maximum degree, sum of the degree). The function also prints 
@@ -125,10 +141,10 @@ def generate_excel_genes(dico_gene_comm: dict) -> None:
     """
     df = pd.DataFrame(columns=['Gene symbol', 'Nb of communities', 'degree PPI ntw', 'degree Pathways ntw', 'degree Coexp ntw', 'degree Complexes ntw', 'max degree', 'sum degrees'])
     i = 0
-    ppi = nx.read_edgelist(comm_path + "multiplex/1/PPI.tsv", create_using = nx.Graph)
-    pathways = nx.read_edgelist(comm_path + "multiplex/1/Pathways.tsv", create_using = nx.Graph)
-    coexp = nx.read_edgelist(comm_path + "multiplex/1/Coexpression.tsv", create_using = nx.Graph)
-    complexes = nx.read_edgelist(comm_path + "multiplex/1/Complexes.tsv", create_using = nx.Graph)
+    ppi = nx.read_edgelist(comm_path + "multiplex/1/PPI_HiUnion_LitBM_APID_gene_names_190123.tsv", create_using = nx.Graph)
+    pathways = nx.read_edgelist(comm_path + "multiplex/1/reactome_pathways_gene_names_190123.tsv", create_using = nx.Graph)
+    coexp = nx.read_edgelist(comm_path + "multiplex/1/Coexpression_310323.tsv", create_using = nx.Graph)
+    complexes = nx.read_edgelist(comm_path + "multiplex/1/Complexes_gene_names_190123.tsv", create_using = nx.Graph)
     for gene in dico_gene_comm:
         df._set_value(i, 'Gene symbol', gene)
         nb_comm = 0
