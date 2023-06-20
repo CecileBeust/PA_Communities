@@ -100,8 +100,13 @@ def plot_community(id: int, size: int) -> None:
     df.to_csv(f"{id}_community_{size}.tsv", sep="\t")
     print(df)
 
-plot_community(740, 10)
-plot_community(902, 10)
+# Here we want to generate the files for the visualisation of the communities
+# of Hutchinson-Gilford Progeria Syndrome (ORPHANET code 740) and Werner Syndrome
+# (ORPAHNET code 902)
+
+# Change the ORPHANET code depending on the community to analyze
+plot_community(740, 100)
+plot_community(902, 100)
 
 def plot_community_with_neighbors(id: int, size: int) -> None:
     """Function to generate a tabulated file of the genes in 
