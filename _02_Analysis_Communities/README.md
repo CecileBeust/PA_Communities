@@ -1,4 +1,4 @@
-# Analysis, Clustering, Enrichment and Visualization of gene communities
+# Analysis and visualization of communities 
 
 This folder contains different scripts to analyze communities of genes, here identified for Premature Aging diseases in a multiplex network of biological interaction using an iterative Random Walk with Restart algorithm (itRWR)
 
