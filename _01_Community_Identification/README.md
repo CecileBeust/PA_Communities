@@ -8,7 +8,7 @@ The communities are identified using and iterative Random Walk with Restart algo
 
 * Folder ```multiplex```: contains a multiplex network of biological interactions composed of 4 layers (PPI, Pathways, Co-expression, Complexes).
 
-* ```orpha_codes_PA.txt```: file containing the Premature Aging diseases analyzed and their associated causative genes from ORPHANET. We removed from the file the causative genes which were nor present in our multiplex network of biological interactions, and thus can not be used as seeds. 
+* ```orpha_codes_PA.txt```: file containing the Premature Aging diseases analyzed and their associated causative genes from ORPHANET. We removed from the file the causative genes which were not present in our multiplex network of biological interactions, and thus can not be used as seeds. 
 
 ## Files
 
