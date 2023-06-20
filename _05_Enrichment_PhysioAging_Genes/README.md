@@ -5,12 +5,22 @@ This folder contains codes to enrich clusters of gene communities using lists of
 * Genes from the GenAge database
 * Genes up and down-regulated during physiological aging in blood and skin, from the study of Irizar et al.
 
-## Files
+## Folders
+
+* ```Data_PhysioAging```: Folder containing the physiological aging data.
+
+This folder contains the following data files : 
 
 * ```GSE103232_hs_blood_batch2_counts_rpkm.xls```: File containing Ensembl identifiers of genes to map to HUGO genes symbols, from the study of Irizar et al. 
+* ```geneage_human.csv```: physiological aging genes extracted from GenAge
+* ```human-blood.txt```: list of genes differentially expressed during physiological aging in blood (from the study of Irizar et al)
+* ```human-skin.txt```: list of genes differentially expressed during physiological aging in skin (from the study of Irizar et al)
+* ```Mapping_Ensembl_GeneSymbol.txt```: mapping file for Ensembl gene symbols tp HUGO gene symbols
+
+## Files
+
 * ```enrichment_physio_aging.py```: Python script containing the functions to perform the enrichment analysis
 * ```functions_enrichment.py```: Python script containing other functions used in ```enrichment_physio_aging.py```
-* ```geneage_human.csv```: physiological aging genes extracted from GenAge
 
 ## Usage
 
