@@ -7,15 +7,6 @@ import matplotlib.pyplot as plt
 from scipy.cluster.hierarchy import dendrogram, linkage
 import argparse
 
-"""path = os.path.dirname(os.path.realpath(__file__))
-path = path + '/'
-os.chdir(path)
-print(path)
-
-data_folder = os.path.join(os.path.dirname(__file__), '..', 'data')
-orpha_codes = os.path.join(data_folder, 'orpha_codes_PA.txt')
-orpha_names = os.path.join(data_folder, 'pa_orphanet_diseases.tsv')"""
-
 def get_list_orpha_names(pa_diseases: str, id_diseases_analysed: list) -> list:
     """Function to get a list of PA diseases names
     from a file of diseases + their IDs and a list 
@@ -78,8 +69,3 @@ def create_dico_disease_seeds(orpha_codes: str) -> tuple[dict, list]:
                     # add set of seeds in dico
                     dico_seeds[disease].append(genes)
         return (dico_seeds, list_disease)
-
-"""(dico_disease_seeds, list_id) = create_dico_disease_seeds(path, orpha_codes)
-print(f"Dico diseases-seeds : {dico_disease_seeds}")
-print(" ")
-print(f"List diseases IDs : {list_id}")"""
