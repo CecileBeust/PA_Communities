@@ -2,15 +2,19 @@
 
 This folder contains different scripts to analyze communities of genes, here identified for Premature Aging diseases in a multiplex network of biological interaction using an iterative Random Walk with Restart algorithm (itRWR)
 
-## Folders
-
-* ```PlotCommunities```: This folder contains codes to generate files for the visualisation of communities in the Cytoscape application.
-
 
 ## Files
 
-* ```analysis_final_communities.py```: Python functions that are used in other scripts
-* ```analysis_genes_in_communities.py```: contain functions to analyze the genes present in the communities
+* ```utilities.py```: contains Python functions that are used in other scripts
+* ```analysis_genes_in_communities.py```: contains Python functions to analyze the genes present in the communities
+* ```visualization_communities.py```: contains Python functions to generate tabulated files for the visualization of communities in Cytoscape
+
+## Usage
+
+```python analysis_genes_in_communities.py -p /path/where/communities/folders/are/stored```
+
+```python visualization_communities.py -p /path/where/communities/folders/are/stored```
+
 
 
 ## References
