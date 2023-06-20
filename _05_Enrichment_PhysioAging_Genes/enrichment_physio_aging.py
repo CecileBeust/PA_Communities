@@ -3,10 +3,9 @@ import pandas as pd
 import os
 import networkx as nx
 import numpy as np
-from matplotlib_venn import venn2, venn2_circles, venn2_unweighted
+from matplotlib_venn import venn2
 from matplotlib import pyplot as plt
 import seaborn as sns
-from gprofiler import GProfiler
 import scipy.stats as stats
 from functions_enrichment import load_networks, extract_seeds, load_geneage, extract_genes_from_cluster, extract_genes_from_comm, fisher, hypergeome
 
@@ -15,13 +14,20 @@ path = path + '/'
 os.chdir(path)
 print(path)
 
+# define path to data
+data_folder = os.path.join(os.path.dirname(__file__), '..', '00_data')
+orpha_codes = os.path.join(data_folder, 'orpha_codes_PA.txt')
+orpha_names = os.path.join(data_folder, 'pa_orphanet_diseases.tsv')
+cluster_output = os.path.join(data_folder, 'cluster_output_100_0.7.tsv')
+
 list_id_analyzed = ['93932', '920', '909', '904', '90348', '90324', '90322', '90321', '902', '90154', '90153', '897', '895', '894', '808', '79477', '79476', '79474', '79333', '79325', '79087', '769', '758', '75496', '740', '633', '500', '498359', '487825', '477', '435628', '412057', '363618', '357074', '3455', '3437', '33445', '33364', '3322', '3163', '3051', '2963', '287', '286', '2834', '280679', '280365', '2658', '263534', '263487', '2500', '220295', '2078', '2067', '1942', '1901', '1860', '1807', '1775', '163746', '1387', '137608', '1340', '1299', '1297', '101028', '100']
+print(len(list_id_analyzed))
 
 all_nodes = load_networks()
 seeds = list(extract_seeds(path + "/orpha_codes_PA.txt", list_id_analyzed))
 geneage = load_geneage('genage_human.csv', seeds, all_nodes)
 dico_comm_nodes = extract_genes_from_comm(100, list_id_analyzed)
-dico_clusters_nodes = extract_genes_from_cluster(100, path + "/Analysis_Communities_V3/enrichment/PhysioAgingEnrich/EnrichmentDownUp/cluster_output_100_0.7.tsv")
+dico_clusters_nodes = extract_genes_from_cluster(100, cluster_output)
 print(dico_clusters_nodes.keys())
 
 ######################################
@@ -97,8 +103,8 @@ def create_mapping_file(rpkm_file):
     print(df)
     df.to_csv("Mapping_Ensembl_GeneSymbol.txt", sep="\t", index=None)
 
-create_mapping_file('GSE103232_hs_blood_batch2_counts_rpkm.xls')
-mapping_file_path = path + '/Analysis_Communities_V3/enrichment/PhysioAgingEnrich/EnrichmentDownUp/Mapping_Ensembl_GeneSymbol.txt'
+create_mapping_file(path + '/Data_PhysioAging/GSE103232_hs_blood_batch2_counts_rpkm.xls')
+mapping_file_path = path + '/Data_PhysioAging/Mapping_Ensembl_GeneSymbol.txt'
 
 def getMappingDict(filePath, convertFrom, convertTo):
 	df=pd.read_csv(filePath, sep="\t")
