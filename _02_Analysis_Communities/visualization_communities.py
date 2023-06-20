@@ -1,8 +1,15 @@
+"""
+Functions to generate files to visualize
+gene communities in Cytoscape
+"""
+
+# import modules
 import pandas as pd
 import networkx as nx
 import os
 import argparse
 
+# define path
 path = os.path.dirname(os.path.realpath(__file__))
 path = path + '/'
 os.chdir(path)
@@ -25,19 +32,19 @@ if os.path.exists(comm_path) == False :
 
 def plot_community(id: int, size: int) -> None:
     """Function to generate a tabulated file
-    of nodes in a community and the edges
+    of nodes in a community and edges
     between them
 
     Args:
         id (int): the ORPHANET identifier of the
-        disease community to analyze
+        disease-associated community to analyze
         size (int): number of iterations used to
         build the community with the itRWR algorithm
     """
-    ppi = nx.read_edgelist(comm_path + "multiplex/1/PPI.tsv", create_using = nx.Graph)
-    pathways = nx.read_edgelist(comm_path + "multiplex/1/Pathways.tsv", create_using = nx.Graph)
-    coexp = nx.read_edgelist(comm_path + "multiplex/1/Coexpression.tsv", create_using = nx.Graph)
-    complexes = nx.read_edgelist(comm_path + "multiplex/1/Complexes.tsv", create_using = nx.Graph)
+    ppi = nx.read_edgelist(comm_path + "multiplex/1/PPI_HiUnion_LitBM_APID_gene_names_190123.tsv", create_using = nx.Graph)
+    pathways = nx.read_edgelist(comm_path + "multiplex/1/reactome_pathways_gene_names_190123.tsv", create_using = nx.Graph)
+    coexp = nx.read_edgelist(comm_path + "multiplex/1/Coexpression_310323.tsv", create_using = nx.Graph)
+    complexes = nx.read_edgelist(comm_path + "multiplex/1/Complexes_gene_names_190123.tsv", create_using = nx.Graph)
     community = comm_path + f"results_{size}_{id}/seeds_{id}.txt"
     nodes = []
     with open(community, 'r') as community_file:
@@ -105,10 +112,10 @@ def plot_community_with_neighbors(id: int, size: int) -> None:
         id (int): _description_
         size (int): _description_
     """
-    ppi = nx.read_edgelist(comm_path + "multiplex/1/PPI.tsv", create_using = nx.Graph)
-    pathways = nx.read_edgelist(comm_path + "multiplex/1/Pathways.tsv", create_using = nx.Graph)
-    coexp = nx.read_edgelist(comm_path + "multiplex/1/Coexpression.tsv", create_using = nx.Graph)
-    complexes = nx.read_edgelist(comm_path + "multiplex/1/Complexes.tsv", create_using = nx.Graph)
+    ppi = nx.read_edgelist(comm_path + "multiplex/1/PPI_HiUnion_LitBM_APID_gene_names_190123.tsv", create_using = nx.Graph)
+    pathways = nx.read_edgelist(comm_path + "multiplex/1/reactome_pathways_gene_names_190123.tsv", create_using = nx.Graph)
+    coexp = nx.read_edgelist(comm_path + "multiplex/1/Coexpression_310323.tsv", create_using = nx.Graph)
+    complexes = nx.read_edgelist(comm_path + "multiplex/1/Complexes_gene_names_190123.tsv", create_using = nx.Graph)
     community = comm_path + f"results_{size}_{id}/seeds_{id}.txt"
     nodes = []
     with open(community, 'r') as community_file:
@@ -157,5 +164,5 @@ def plot_community_with_neighbors(id: int, size: int) -> None:
     print(df)
     df.to_csv(f"{id}_community_{size}_with_neighbors.tsv", sep="\t")
 
-plot_community_with_neighbors(740, 10)
-plot_community_with_neighbors(902, 10)
+plot_community_with_neighbors(740, 100)
+plot_community_with_neighbors(902, 100) 
