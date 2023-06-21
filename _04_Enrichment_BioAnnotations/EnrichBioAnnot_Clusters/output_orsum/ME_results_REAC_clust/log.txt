@@ -1,0 +1,41 @@
+orsum 1.6.0
+
+gmt:	/home/cbeust/Landscape_PA/Github_Codes/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Clusters/../../_00_data/gmt_files/hsapiens.REAC.name.gmt
+files:	['/home/cbeust/Landscape_PA/Github_Codes/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Clusters/output_orsum/Orsum_cluster_1/EnrichmentClust-REAC.txt', '/home/cbeust/Landscape_PA/Github_Codes/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Clusters/output_orsum/Orsum_cluster_2/EnrichmentClust-REAC.txt', '/home/cbeust/Landscape_PA/Github_Codes/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Clusters/output_orsum/Orsum_cluster_3/EnrichmentClust-REAC.txt', '/home/cbeust/Landscape_PA/Github_Codes/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Clusters/output_orsum/Orsum_cluster_4/EnrichmentClust-REAC.txt', '/home/cbeust/Landscape_PA/Github_Codes/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Clusters/output_orsum/Orsum_cluster_5/EnrichmentClust-REAC.txt', '/home/cbeust/Landscape_PA/Github_Codes/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Clusters/output_orsum/Orsum_cluster_6/EnrichmentClust-REAC.txt']
+fileAliases:	['cluster_1', 'cluster_2', 'cluster_3', 'cluster_4', 'cluster_5', 'cluster_6']
+outputFolder:	/home/cbeust/Landscape_PA/Github_Codes/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Clusters/output_orsum/ME_results_REAC_clust
+maxRepSize:	2000
+maxTermSize:	1000000
+minTermSize:	10
+numberOfTermsToPlot:	50
+
+
+Processing /home/cbeust/Landscape_PA/Github_Codes/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Clusters/output_orsum/Orsum_cluster_1/EnrichmentClust-REAC.txt
+10 terms are smaller than minTermSize=10, they are removed.
+
+Processing /home/cbeust/Landscape_PA/Github_Codes/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Clusters/output_orsum/Orsum_cluster_2/EnrichmentClust-REAC.txt
+2 terms are not in GMT, they are removed.
+29 terms are smaller than minTermSize=10, they are removed.
+
+Processing /home/cbeust/Landscape_PA/Github_Codes/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Clusters/output_orsum/Orsum_cluster_3/EnrichmentClust-REAC.txt
+2 terms are not in GMT, they are removed.
+37 terms are smaller than minTermSize=10, they are removed.
+
+Processing /home/cbeust/Landscape_PA/Github_Codes/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Clusters/output_orsum/Orsum_cluster_4/EnrichmentClust-REAC.txt
+1 term is not in GMT, it is removed.
+16 terms are smaller than minTermSize=10, they are removed.
+
+Processing /home/cbeust/Landscape_PA/Github_Codes/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Clusters/output_orsum/Orsum_cluster_5/EnrichmentClust-REAC.txt
+24 terms are smaller than minTermSize=10, they are removed.
+
+Processing /home/cbeust/Landscape_PA/Github_Codes/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Clusters/output_orsum/Orsum_cluster_6/EnrichmentClust-REAC.txt
+7 terms are smaller than minTermSize=10, they are removed.
+
+Initial term number (recurring terms in different lists are not merged yet, each one is counted): 905
+
+Same terms in multiple lists are unified
+Representing term number: 658
+
+Superterms represent their less significant (worse ranked) subterms. This includes equal terms, i.e. the terms that annotate exactly the same set of genes.
+Representing term number: 94
+

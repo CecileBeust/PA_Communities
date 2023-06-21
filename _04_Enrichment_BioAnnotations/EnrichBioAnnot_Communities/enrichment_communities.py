@@ -1,5 +1,4 @@
 import pandas as pd
-from enrichment_clusters import create_cluster_dico
 from gprofiler import GProfiler
 import os
 import ast

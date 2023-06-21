@@ -100,3 +100,53 @@ def build_communities_list(comm_path: str, list_id: list, size: int) -> tuple[li
         else:
             not_analyzed.append(id)
     return (list_communities, not_analyzed)
+
+def create_cluster_dico(cluster_file: str) -> dict :
+    """Function to create a dictionary of disease
+    communities clusters
+
+    Args:
+        cluster_file (str): name of the file containing
+        the clusters assignments
+
+    Returns:
+        dict: the dictionary of disease communities
+        clusters
+    """
+    df = pd.read_csv(cluster_file, sep="\t")
+    dico_cluster_diseases = {}
+    i = 0
+    for cluster in df['cluster']:
+        disease = df.iloc[i]['disease']
+        if cluster not in dico_cluster_diseases.keys():
+            dico_cluster_diseases[cluster] = [disease]
+        else:
+            dico_cluster_diseases[cluster] += [disease]
+        i += 1
+    return dico_cluster_diseases
+
+def filter_cluster(dico_cluster: dict) -> dict:
+    """Function to filter a dictionary of 
+    disease communities clusters to keep
+    only clusters having at least 3 disease
+    communities
+
+    Args:
+        dico_cluster (dict): the dico of
+        disease commmunities clusters
+
+    Returns:
+        dict: the filtered dictionary 
+    """
+    filtered_dict = {}
+    for cluster in dico_cluster:
+        if len(dico_cluster[cluster]) >=3 :
+            filtered_dict[cluster] = dico_cluster[cluster]
+    # Rename clusters by order of appearance on the clustermap
+    filtered_dict["cluster_1"] = filtered_dict.pop(1)
+    filtered_dict["cluster_2"] = filtered_dict.pop(3)
+    filtered_dict["cluster_3"] = filtered_dict.pop(4)
+    filtered_dict["cluster_4"] = filtered_dict.pop(5)
+    filtered_dict["cluster_5"] = filtered_dict.pop(8)
+    filtered_dict["cluster_6"] = filtered_dict.pop(13)
+    return filtered_dict

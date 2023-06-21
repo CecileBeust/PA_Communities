@@ -4,25 +4,25 @@ from gprofiler import GProfiler
 import ast
 import pandas as pd
 import sys
+from pathlib import Path
 
 path = os.path.dirname(os.path.realpath(__file__))
 path = path + '/'
-sys.path.append('../')
+sys.path.append('../..')
 os.chdir(path)
 print(path)
 
-from utilities import create_dico_disease_seeds
-from _03_Cluster_Communities.cluster_communities import build_communities_list
+from utilities import create_dico_disease_seeds, build_communities_list, create_cluster_dico, filter_cluster
 
-data_folder = os.path.join(os.path.dirname(__file__), '..', 'data')
+data_folder = os.path.join(os.path.dirname(__file__), '../..', '_00_data')
 orpha_codes = os.path.join(data_folder, 'orpha_codes_PA.txt')
 orpha_names = os.path.join(data_folder, 'pa_orphanet_diseases.tsv')
 cluster_output = os.path.join(data_folder, 'cluster_output_100_0.7.tsv')
 
 # Argparse
 parser = argparse.ArgumentParser(
-    prog="cluster_communities.py", 
-    description="functions cluster communities based on Jaccard index"
+    prog="enrichment_clusters.py", 
+    description="functions perform enrichment of clusters of gene communities"
     )
 parser.add_argument("-p", "--path", help="path where communities are stored", required=True, type=str)
 parser.add_argument("-v", "--verbose", help="increase output verbosity", required=False, action="store_true")
@@ -36,7 +36,7 @@ if os.path.exists(comm_path) == False :
 
 # variables statement
 (dico_disease_seeds, list_id) = create_dico_disease_seeds(orpha_codes)
-(communities_10, not_analyzed) = build_communities_list(comm_path, list_id, 100)
+(communities_100, not_analyzed) = build_communities_list(comm_path, list_id, 100)
 
 pa_diseases = pd.read_csv(orpha_names, sep="\t", header=None)
 dico_code_disease = {}
@@ -46,54 +46,13 @@ for index, row in pa_diseases.iterrows():
     dico_code_disease[code] = disease
 print(dico_code_disease)
 
-def create_cluster_dico(cluster_file: str) -> dict :
-    """Function to create a dictionary of disease
-    communities clusters
-
-    Args:
-        cluster_file (str): name of the file containing
-        the clusters assignments
-
-    Returns:
-        dict: the dictionary of disease communities
-        clusters
-    """
-    df = pd.read_csv(cluster_file, sep="\t")
-    dico_cluster_diseases = {}
-    i = 0
-    for cluster in df['cluster']:
-        disease = df.iloc[i]['disease']
-        if cluster not in dico_cluster_diseases.keys():
-            dico_cluster_diseases[cluster] = [disease]
-        else:
-            dico_cluster_diseases[cluster] += [disease]
-        i += 1
-    return dico_cluster_diseases
-
 dico_cluster_diseases = create_cluster_dico(cluster_output)
+print(" ")
 print(dico_cluster_diseases)
 
-def filter_cluster(dico_cluster: dict) -> dict:
-    """Function to filter a dictionary of 
-    disease communities clusters to keep
-    only clusters having at least 3 disease
-    communities
-
-    Args:
-        dico_cluster (dict): the dico of
-        disease commmunities clusters
-
-    Returns:
-        dict: the filtered dictionary 
-    """
-    filtered_dict = {}
-    for cluster in dico_cluster:
-        if len(dico_cluster[cluster]) >=3 :
-            filtered_dict[cluster] = dico_cluster[cluster]
-    return filtered_dict
-
 filtered_dico_cluster = filter_cluster(dico_cluster_diseases)
-print(filtered_dico_cluster)
+print(" ")
+print(f"Clusters containing at least 3 diseases: {filtered_dico_cluster}")
 
 def select_seeds_from_cluster(dico_disease_seeds: dict, dico_cluster: dict, cluster_id: int) -> set:
     """Function to select the seeds genes from a cluster
@@ -153,7 +112,7 @@ def enrichment_cluster(cluster_id: int, gene_set: set, size: int):
     gp = GProfiler(return_dataframe=True)
     enrich = gp.profile(organism='hsapiens', query=genes, no_evidences=False)
     print(enrich)
-    enrich.to_csv(path + f"cluster_{size}_{cluster_id}.tsv", sep="\t")
+    enrich.to_csv(path + f"output_tables/enrich_bioannot_{cluster_id}.tsv", sep="\t")
     
 def enrich_all_clusters(filtered_dico: dict) -> None:
     """Function to make the enrichment of all the clusters
@@ -165,18 +124,37 @@ def enrich_all_clusters(filtered_dico: dict) -> None:
     """
     for cluster in filtered_dico.keys():
         print(cluster)
-        nodes = select_nodes_from_cluster(100, filtered_dico, cluster)
+        nodes = select_nodes_from_cluster(comm_path, 100, filtered_dico, cluster)
         enrichment_cluster(cluster, nodes, 100)
+    tsv_dir = Path(path + "output_tables/")
+    tsv_data = {}
+    for tsv_file in tsv_dir.glob('*.tsv'):
+        tsv_name = tsv_file.stem
+        tsv_data[tsv_name] = pd.read_csv(tsv_file, sep="\t")
+    writer = pd.ExcelWriter(path + "output_tables/enrich_bioannot_clusters.xlsx", engine='xlsxwriter')
+    for sheet_name, sheet_data in tsv_data.items():
+        sheet_data.to_excel(writer, sheet_name=sheet_name, index=False)
+    writer.save()
 
 enrich_all_clusters(filtered_dico_cluster)
 
-def highlight_seeds(filtered_dico_cluster: dict, size: int, dico_code_disease: dict, dico_disease_seeds: dict):
+def highlight_seeds(filtered_dico_cluster: dict, size: int, dico_code_disease: dict, dico_disease_seeds: dict) -> None:
+    """Function which allows to add information to the enrichment files generated with enrich_all_clusters()
+    It adds two columns to the enrichment tables : the seeds in the genes associated to each enrichment term, and
+    the associated diseases
+
+    Args:
+        filtered_dico_cluster (dict): dictionary of clusters and their diseases
+        size (int): number of iterations used for itRWR, reflecting the size of communities
+        dico_code_disease (dict): dictionary containing PA diseases and their ORPHANET codes 
+        dico_disease_seeds (dict): dictionary containing PA diseases and their associated genes
+    """
     seeds = set()
     for list_gene in dico_disease_seeds.values():
         for gene in list_gene:
             seeds.add(gene)
     for cluster in filtered_dico_cluster.keys():
-        enrichment_file = path + f"cluster_{size}_{cluster}.tsv"
+        enrichment_file = path + f"output_tables/enrich_bioannot_{cluster}.tsv"
         df = pd.read_csv(enrichment_file, sep="\t")
         df["seed"] = 0
         df["disease"] = 0
@@ -200,6 +178,6 @@ def highlight_seeds(filtered_dico_cluster: dict, size: int, dico_code_disease: d
                     dis_names.append(dis_name)
                 df._set_value(i, 'disease', str(dis_names)) 
             i += 1
-        df.to_csv(path + f"cluster_{size}_{cluster}_with_genes.tsv", sep="\t")
+        df.to_csv(path + f"output_tables/{cluster}_with_genes.tsv", sep="\t")
                 
 #highlight_seeds(filtered_dico_cluster, 10, dico_code_disease, dico_disease_seeds)

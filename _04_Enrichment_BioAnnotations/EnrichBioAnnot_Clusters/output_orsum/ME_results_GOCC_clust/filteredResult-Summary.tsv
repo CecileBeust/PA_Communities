@@ -1,0 +1,38 @@
+Representing term id	Representing term name	Representing term size	Representing term rank	Represented term number	cluster_1 term rank	cluster_2 term rank	cluster_3 term rank	cluster_4 term rank	cluster_5 term rank	cluster_6 term rank
+GO:0005654	nucleoplasm	4200	1	26	1	1	1	13	None	None
+GO:0005829	cytosol	5440	1	2	47	20	34	1	13	15
+GO:0071944	cell periphery	6167	1	36	87	None	40	8	1	43
+GO:0031410	cytoplasmic vesicle	2485	1	35	None	None	None	17	10	1
+GO:0000781	chromosome, telomeric region	168	2	4	2	27	None	None	None	None
+GO:0031981	nuclear lumen	5364	2	15	3	2	3	25	None	None
+GO:0005667	transcription regulator complex	516	2	4	72	11	2	None	None	None
+GO:0005737	cytoplasm	12254	2	42	29	72	44	2	3	2
+GO:0070161	anchoring junction	983	2	9	None	None	47	None	2	None
+GO:0031974	membrane-enclosed lumen	6496	3	4	5	3	4	40	None	None
+GO:0140535	intracellular protein-containing complex	941	3	18	34	29	35	3	None	27
+GO:0005694	chromosome	1927	4	19	4	6	8	None	None	None
+GO:0030054	cell junction	2122	5	11	None	None	None	None	5	22
+GO:0012506	vesicle membrane	1202	5	1	None	None	None	27	89	5
+GO:0016020	membrane	9837	6	15	64	None	56	10	6	7
+GO:1990234	transferase complex	879	7	6	35	7	11	7	96	None
+GO:0043235	receptor complex	529	7	1	None	None	None	31	7	None
+GO:0031982	vesicle	3973	8	3	None	None	None	24	8	12
+GO:0005634	nucleus	9929	9	11	10	9	9	35	132	None
+GO:0032991	protein-containing complex	7826	9	9	14	12	13	9	26	None
+GO:0012505	endomembrane system	4728	10	1	None	None	None	50	11	10
+GO:0043232	intracellular non-membrane-bounded organelle	6396	12	12	12	15	25	44	46	None
+GO:0043228	non-membrane-bounded organelle	6397	13	1	13	16	26	None	None	None
+GO:0005622	intracellular anatomical structure	17594	14	5	19	19	18	14	105	34
+GO:0005576	extracellular region	4234	17	5	None	None	None	None	17	50
+GO:0043227	membrane-bounded organelle	15483	20	4	27	23	20	45	80	44
+GO:0042995	cell projection	2389	21	9	None	None	None	None	21	48
+GO:0043226	organelle	16569	23	1	37	31	23	None	97	57
+GO:0009986	cell surface	955	27	1	None	None	None	None	27	None
+GO:0099081	supramolecular polymer	1052	37	2	None	None	None	None	37	None
+GO:0031252	cell leading edge	426	44	1	None	None	None	None	44	None
+GO:0099080	supramolecular complex	1407	53	1	None	None	None	None	53	None
+GO:0036477	somatodendritic compartment	859	67	2	None	None	None	None	78	67
+GO:0044297	cell body	576	84	1	None	None	None	None	134	84
+GO:0045178	basal part of cell	275	93	1	None	None	None	None	93	None
+GO:0045177	apical part of cell	439	104	1	None	None	None	None	104	None
+GO:0110165	cellular anatomical entity	21308	116	2	None	None	None	None	116	None

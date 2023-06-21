@@ -1,0 +1,110 @@
+Representing term id	Representing term name	Representing term size	Representing term rank	Represented term number	cluster_1 term rank	cluster_2 term rank	cluster_3 term rank	cluster_4 term rank	cluster_5 term rank	cluster_6 term rank
+GO:0006259	DNA metabolic process	1054	1	95	1	42	255	None	535	None
+GO:0051171	regulation of nitrogen compound metabolic process	5724	1	153	55	1	7	56	41	25
+GO:0006351	DNA-templated transcription	3583	1	13	393	29	1	222	None	None
+GO:0007249	I-kappaB kinase/NF-kappaB signaling	287	1	5	None	None	None	1	None	None
+GO:0007166	cell surface receptor signaling pathway	2869	1	109	373	201	153	33	1	None
+GO:0016192	vesicle-mediated transport	1638	1	40	None	None	None	None	150	1
+GO:0080090	regulation of primary metabolic process	5882	2	16	89	2	32	95	297	None
+GO:0097659	nucleic acid-templated transcription	3584	2	1	397	30	2	223	None	None
+GO:0016477	cell migration	1501	2	52	None	None	402	None	2	None
+GO:0071705	nitrogen compound transport	2189	2	22	None	None	477	675	665	2
+GO:0006974	cellular response to DNA damage stimulus	881	3	14	3	105	185	177	None	None
+GO:0060255	regulation of macromolecule metabolic process	6850	3	81	110	3	19	47	134	74
+GO:0032774	RNA biosynthetic process	3621	3	1	338	31	3	219	None	None
+GO:0048870	cell motility	1698	3	4	None	None	387	None	3	None
+GO:0051641	cellular localization	3524	3	67	113	347	267	280	178	3
+GO:0033554	cellular response to stress	1941	4	36	4	83	100	101	456	None
+GO:0044772	mitotic cell cycle phase transition	450	4	13	57	4	86	None	None	None
+GO:0034654	nucleobase-containing compound biosynthetic process	4071	4	1	93	33	4	218	None	None
+GO:0080134	regulation of response to stress	1441	4	38	132	354	337	4	236	None
+GO:0019438	aromatic compound biosynthetic process	4160	5	1	96	39	5	215	None	None
+GO:0035556	intracellular signal transduction	2667	5	48	39	223	286	5	12	49
+GO:0018130	heterocycle biosynthetic process	4149	6	1	94	38	6	211	None	None
+GO:0009653	anatomical structure morphogenesis	2696	6	94	425	276	143	457	6	146
+GO:0007049	cell cycle	1816	7	45	12	7	88	518	None	None
+GO:0009607	response to biotic stimulus	1598	7	20	None	None	None	7	409	None
+GO:0007154	cell communication	6573	7	56	237	273	107	20	7	63
+GO:0033036	macromolecule localization	3113	7	19	230	None	609	640	264	7
+GO:0044419	biological process involved in interspecies interaction between organisms	1724	8	9	None	None	485	8	257	None
+GO:0023052	signaling	6462	8	5	None	300	110	26	8	None
+GO:0051276	chromosome organization	635	9	8	9	149	747	None	None	None
+GO:0051716	cellular response to stimulus	7491	9	47	45	132	96	32	9	None
+GO:1901362	organic cyclic compound biosynthetic process	4306	10	1	104	44	10	226	None	None
+GO:0040011	locomotion	1352	10	9	None	None	364	None	10	None
+GO:0071702	organic substance transport	2617	10	3	None	None	None	None	502	10
+GO:0006950	response to stress	3980	11	21	16	130	209	11	116	None
+GO:0031323	regulation of cellular metabolic process	5653	12	31	78	12	22	108	16	53
+GO:0048584	positive regulation of response to stimulus	2267	12	9	446	None	273	12	24	None
+GO:0002376	immune system process	2683	13	78	117	None	271	13	78	107
+GO:0007155	cell adhesion	1521	13	31	None	None	486	263	13	None
+GO:0006810	transport	4709	13	21	None	None	None	509	173	13
+GO:0034097	response to cytokine	914	14	4	None	None	722	14	468	None
+GO:0048583	regulation of response to stimulus	3998	14	9	242	335	144	16	14	None
+GO:0051234	establishment of localization	4869	14	2	None	None	None	None	256	14
+GO:0050896	response to stimulus	9039	15	70	19	116	76	24	15	106
+GO:0019222	regulation of metabolic process	7385	16	12	121	16	21	38	127	36
+GO:0010256	endomembrane system organization	595	16	4	None	None	None	None	891	16
+GO:0048518	positive regulation of biological process	6347	19	58	130	89	42	49	19	116
+GO:0051179	localization	5513	19	10	None	None	697	488	141	19
+GO:0009059	macromolecule biosynthetic process	4819	20	1	120	51	20	231	None	None
+GO:0016310	phosphorylation	1872	20	6	330	154	180	239	20	None
+GO:0016050	vesicle organization	352	20	1	None	None	None	None	None	20
+GO:0048731	system development	3961	22	132	409	170	85	None	22	94
+GO:0043085	positive regulation of catalytic activity	1181	23	6	223	305	560	119	23	None
+GO:0044271	cellular nitrogen compound biosynthetic process	4888	25	5	137	43	25	296	586	None
+GO:0090304	nucleic acid metabolic process	7366	26	8	26	58	54	None	None	None
+GO:0006996	organelle organization	3566	26	41	29	322	768	237	166	26
+GO:0022406	membrane docking	91	27	1	None	None	None	None	None	27
+GO:0032501	multicellular organismal process	7656	28	94	256	173	77	76	28	None
+GO:0008219	cell death	2112	30	42	226	103	130	30	119	None
+GO:0048856	anatomical structure development	5860	31	64	375	163	56	289	31	None
+GO:0044249	cellular biosynthetic process	5790	35	1	174	54	35	345	None	None
+GO:0051128	regulation of cellular component organization	2363	35	13	176	246	240	205	35	82
+GO:1901576	organic substance biosynthetic process	5883	37	3	190	65	37	323	None	None
+GO:0009058	biosynthetic process	5970	38	1	195	59	38	332	None	None
+GO:0006139	nucleobase-containing compound metabolic process	7946	41	2	41	64	60	682	None	None
+GO:0046483	heterocycle metabolic process	8117	42	1	42	72	63	None	None	None
+GO:0032502	developmental process	6445	43	23	314	133	57	468	43	None
+GO:0006725	cellular aromatic compound metabolic process	8173	44	1	44	75	62	None	None	None
+GO:0061025	membrane fusion	180	44	1	None	None	None	None	None	44
+GO:0048523	negative regulation of cellular process	4754	45	3	99	45	59	146	196	None
+GO:0061024	membrane organization	885	46	2	406	None	None	657	790	46
+GO:1901360	organic cyclic compound metabolic process	8405	49	1	49	86	64	None	None	None
+GO:0030030	cell projection organization	1556	50	7	None	None	1060	None	83	50
+GO:0034641	cellular nitrogen compound metabolic process	8573	53	1	53	60	69	None	None	None
+GO:0044093	positive regulation of molecular function	1580	53	3	207	236	211	67	53	None
+GO:0065008	regulation of biological quality	2789	54	15	347	None	517	305	108	54
+GO:0050790	regulation of catalytic activity	2356	55	9	151	111	210	103	55	None
+GO:0042982	amyloid precursor protein metabolic process	73	58	3	None	None	810	None	None	58
+GO:0065009	regulation of molecular function	3059	59	7	183	101	111	59	94	None
+GO:0016043	cellular component organization	7941	60	33	135	78	291	190	132	60
+GO:0050794	regulation of cellular process	11137	61	19	218	68	61	116	84	104
+GO:0043412	macromolecule modification	3871	62	47	157	62	105	128	68	113
+GO:0044248	cellular catabolic process	2138	62	9	247	185	315	163	None	62
+GO:0048519	negative regulation of biological process	5926	66	2	162	74	66	194	239	None
+GO:0008283	cell population proliferation	1984	68	7	334	73	68	234	79	None
+GO:0071840	cellular component organization or biogenesis	8147	68	2	138	319	818	638	175	68
+GO:0010467	gene expression	8836	70	4	None	225	70	581	757	None
+GO:0006807	nitrogen compound metabolic process	12053	72	15	97	85	72	91	184	80
+GO:0043170	macromolecule metabolic process	12161	84	2	101	92	84	283	None	None
+GO:0044237	cellular metabolic process	11940	87	6	87	99	108	320	87	127
+GO:0050789	regulation of biological process	12376	87	3	296	97	87	133	107	None
+GO:0044238	primary metabolic process	12563	92	2	103	100	92	422	None	None
+GO:0065007	biological regulation	12924	94	1	295	102	94	129	103	145
+GO:0040007	growth	933	101	2	388	183	101	None	231	None
+GO:0009056	catabolic process	2609	110	2	304	250	625	127	None	110
+GO:0071704	organic substance metabolic process	13754	122	1	156	122	136	406	None	None
+GO:0051301	cell division	659	125	1	266	125	246	None	None	None
+GO:0033059	cellular pigmentation	65	131	1	None	None	None	None	None	131
+GO:0008152	metabolic process	14234	137	3	185	137	162	312	760	None
+GO:0048511	rhythmic process	307	168	2	394	168	264	None	None	None
+GO:0030029	actin filament-based process	812	185	1	None	None	None	None	185	None
+GO:0019953	sexual reproduction	908	201	1	201	297	None	None	None	None
+GO:0022414	reproductive process	1508	217	1	217	271	500	None	None	None
+GO:0000003	reproduction	1517	219	1	219	256	467	None	None	None
+GO:0007163	establishment or maintenance of cell polarity	240	293	5	None	None	None	None	293	None
+GO:0019083	viral transcription	52	321	1	None	None	321	None	None	None
+GO:0009987	cellular process	19025	366	9	366	470	415	522	507	None
+GO:0042592	homeostatic process	1666	407	8	None	None	501	None	407	None
+GO:0016032	viral process	418	573	2	None	None	573	660	829	None
