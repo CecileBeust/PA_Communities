@@ -6,6 +6,7 @@ gene communities based on Jaccard index
 # Import modules and define path variable
 import os
 import sys
+import shutil
 import numpy as np
 import pandas as pd
 import seaborn as sns
@@ -259,6 +260,9 @@ def cluster_dendrogram(matrix: np.ndarray, cutoff: float, size: int, dico_id_sho
     cluster_output = pd.DataFrame({'disease': list_ids_analyzed, 'cluster':assignments})
     # export cluster output to file
     cluster_output.to_csv(f"cluster_output_{size}_{cutoff}.tsv", sep="\t")
+    source_file = f"cluster_output_{size}_{cutoff}.tsv"
+    destination_folder = path + "../_00_data/"
+    shutil.copy(source_file, destination_folder)
     
     # add cutoff line to dendrogram
     plt.axvline(x=cutoff, c='r')
