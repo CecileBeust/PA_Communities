@@ -11,7 +11,7 @@ path = path + '/'
 os.chdir(path)
 print(path)
 
-data_folder = os.path.join(os.path.dirname(__file__), '..', '00_data')
+data_folder = os.path.join(os.path.dirname(__file__), '..', '_00_data')
 orpha_codes = os.path.join(data_folder, 'orpha_codes_PA.txt')
 orpha_names = os.path.join(data_folder, 'pa_orphanet_diseases.tsv')
 cluster_output = os.path.join(data_folder, 'cluster_output_100_0.7.tsv')
@@ -58,7 +58,7 @@ def create_cluster_dico(cluster_file: str) -> dict :
 
 
 dico_cluster_diseases = create_cluster_dico(cluster_output)
-print(dico_cluster_diseases)
+print(f"Clusters: {dico_cluster_diseases}")
 
 def filter_cluster(dico_cluster: dict) -> dict:
     """Function to filter a dictionary of 
@@ -80,8 +80,16 @@ def filter_cluster(dico_cluster: dict) -> dict:
     return filtered_dict
 
 filtered_dico_cluster = filter_cluster(dico_cluster_diseases)
+
+# Rename clusters by order of appearance on the clustermap
+filtered_dico_cluster["cluster_1"] = filtered_dico_cluster.pop(1)
+filtered_dico_cluster["cluster_2"] = filtered_dico_cluster.pop(3)
+filtered_dico_cluster["cluster_3"] = filtered_dico_cluster.pop(4)
+filtered_dico_cluster["cluster_4"] = filtered_dico_cluster.pop(5)
+filtered_dico_cluster["cluster_5"] = filtered_dico_cluster.pop(8)
+filtered_dico_cluster["cluster_6"] = filtered_dico_cluster.pop(13)
 print(" ")
-print(filtered_dico_cluster)
+print(f"Clusters containing at least 3 diseases: {filtered_dico_cluster}")
 
 def extract_genes_clusters(filtered_dico_cluster: dict) -> None:
     """Function to extract the genes in a cluster of communities : generates
@@ -96,7 +104,6 @@ def extract_genes_clusters(filtered_dico_cluster: dict) -> None:
     coexp = nx.read_edgelist(comm_path + "multiplex/1/Coexpression_310323.tsv", create_using = nx.Graph)
     complexes = nx.read_edgelist(comm_path + "multiplex/1/Complexes_gene_names_190123.tsv", create_using = nx.Graph)
     for cluster in filtered_dico_cluster:
-        print(cluster)
         diseases = []
         for disease in filtered_dico_cluster[cluster]:
             diseases.append(disease)
@@ -114,7 +121,7 @@ def extract_genes_clusters(filtered_dico_cluster: dict) -> None:
                         dico_genes_comm[gene] += 1
         i = 0
         df = pd.DataFrame(columns=["Gene", 'Nb of communities in cluster', 'degree PPI ntw', 'degree Pathways ntw', 'degree Coexp ntw', 'degree Complexes ntw', 'max degree', 'sum degrees'])
-        for gene in genes_cluster:
+        for gene in set(genes_cluster):
             all_deg = []
             df._set_value(i, 'Gene', gene)
             df._set_value(i, 'Nb of communities in cluster', dico_genes_comm[gene])
@@ -133,8 +140,9 @@ def extract_genes_clusters(filtered_dico_cluster: dict) -> None:
             df._set_value(i, 'max degree', max(all_deg))
             df._set_value(i, 'sum degrees', sum(all_deg))
             i += 1
-        df = df.rename(columns={'Unnamed: 0': f"Cluster {cluster}"})
-        df.to_csv(path + f"Clusters/genes_in_cluster_{cluster}.tsv", sep="\t")
+        df = df.rename(columns={'Unnamed: 0': f"{cluster}"})
+        df_sorted = df.sort_values(by=['Nb of communities in cluster'], ascending=False)
+        df_sorted.to_csv(path + f"output_tables/genes_in_{cluster}.tsv", sep="\t")
         comm = df['Nb of communities in cluster']
         max_deg = df['max degree']
         sum_deg = df['sum degrees']
@@ -144,13 +152,12 @@ def extract_genes_clusters(filtered_dico_cluster: dict) -> None:
         corr_sum, p_value_sum = pearsonr(comm, sum_deg)
         print('Correlation Nb comm / sum deg:', corr_sum)
         print('P-value:', p_value_sum)
-    os.mkdir(path + "Clusters")
-    tsv_dir = Path(path + "Clusters")
+    tsv_dir = Path(path + "output_tables")
     tsv_data = {}
     for tsv_file in tsv_dir.glob('*.tsv'):
         tsv_name = tsv_file.stem
         tsv_data[tsv_name] = pd.read_csv(tsv_file, sep="\t")
-    writer = pd.ExcelWriter(path + "/genes_in_clusters.xlsx", engine='xlsxwriter')
+    writer = pd.ExcelWriter(path + "output_tables/genes_in_clusters.xlsx", engine='xlsxwriter')
     for sheet_name, sheet_data in tsv_data.items():
         sheet_data.to_excel(writer, sheet_name=sheet_name, index=False)
     writer.save()
