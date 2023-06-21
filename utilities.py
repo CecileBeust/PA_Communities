@@ -142,6 +142,8 @@ def filter_cluster(dico_cluster: dict) -> dict:
     for cluster in dico_cluster:
         if len(dico_cluster[cluster]) >=3 :
             filtered_dict[cluster] = dico_cluster[cluster]
+    print(" ")
+    print(filtered_dict)
     # Rename clusters by order of appearance on the clustermap
     filtered_dict["cluster_1"] = filtered_dict.pop(1)
     filtered_dict["cluster_2"] = filtered_dict.pop(3)
@@ -149,4 +151,6 @@ def filter_cluster(dico_cluster: dict) -> dict:
     filtered_dict["cluster_4"] = filtered_dict.pop(5)
     filtered_dict["cluster_5"] = filtered_dict.pop(8)
     filtered_dict["cluster_6"] = filtered_dict.pop(13)
+    print(" ")
+    print(filtered_dict)
     return filtered_dict

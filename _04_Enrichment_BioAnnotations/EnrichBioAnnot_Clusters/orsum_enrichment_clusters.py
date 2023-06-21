@@ -108,4 +108,4 @@ def apply_orsum_to_clusters():
     multiple_enrichment(dico_clusters=filtered_dico_cluster, source="GOCC", gmt=gmt_GOCC)
     multiple_enrichment(dico_clusters=filtered_dico_cluster, source="REAC", gmt=gmt_REAC)
 
-apply_orsum_to_clusters()
+#apply_orsum_to_clusters()
