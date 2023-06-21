@@ -63,7 +63,7 @@ for id in list_ids_analyzed:
             disease_names.append(str(row[df_disease.columns[1]][1]))
 
 # Define a list of shorten disease names for better further visualization
-shorten_disease_names = ['FG syndrome type 1', 
+shorter_disease_names = ['FG syndrome type 1', 
                          'Ablepharon macrostomia syndrome', 
                          'Cerebrotendinous xanthomatosis', 
                          'Williams syndrome', 
@@ -100,7 +100,6 @@ shorten_disease_names = ['FG syndrome type 1',
                          'Wiedemann-Rautenstrauch syndrome', 
                          'Vogt-Koyanagi-Harada disease', 
                          'Neuroectodermal melanolysosomal disease', 
-                         'Arterial tortuosity syndrome', 
                          'Trichothiodystrophy', 
                          'Hoyeraal-Hreidarsson syndrome', 
                          'SHORT syndrome', 
@@ -132,7 +131,13 @@ shorten_disease_names = ['FG syndrome type 1',
                          'Transaldolase deficiency', 
                          'Ataxia-telangiectasia'
                          ]
-print(len(shorten_disease_names))
+
+# create a dictionary of diseases ORPAHNET codes and their shorter names
+assert len(list_ids_analyzed) == len(shorter_disease_names)
+dico_id_shorter_names = dict()
+for code, name in zip(list_ids_analyzed, shorter_disease_names):
+    dico_id_shorter_names[code] = name
+print(dico_id_shorter_names)
 
 def jaccard_index(file1, file2) -> float:
     """Function to compute the Jaccard index
@@ -220,24 +225,7 @@ def build_distance_matrix(sim_matrix) -> np.ndarray:
 # Build a distance matrix from the similarity matrix
 distance_matrix_100 = build_distance_matrix(similarity_matrix_100)
 
-"""def plot_dendrogram(model, **kwargs):
-    # Children of hierarchical clustering
-    children = model.children_
-
-    # Distances between each pair of children
-    # Since we don't have this information, we can use a uniform one for plotting
-    distance = np.arange(children.shape[0])
-
-    # The number of observations contained in each cluster level
-    no_of_observations = np.arange(2, children.shape[0]+2)
-
-    # Create linkage matrix and then plot the dendrogram
-    linkage_matrix = np.column_stack([children, distance, no_of_observations]).astype(float)
-
-    # Plot the corresponding dendrogram
-    dendrogram(linkage_matrix, **kwargs)"""
-
-def cluster_dendrogram(matrix: np.ndarray, cutoff: float, size: int):
+def cluster_dendrogram(matrix: np.ndarray, cutoff: float, size: int, dico_id_shorter_names: dict):
     """
     Function to plot a hierarchichal clustering dendrogram from a distance matrix
 
@@ -246,6 +234,8 @@ def cluster_dendrogram(matrix: np.ndarray, cutoff: float, size: int):
         cutoff (float) : a value to cut the tree
         size (int) : the number of iterations chose
         to build the communities
+        dic_shorter_names (dict) : dictionary containing diseases
+        ORPHANET codes as keys and their names (shortened) as values
     Return:
         None
     """
@@ -255,11 +245,10 @@ def cluster_dendrogram(matrix: np.ndarray, cutoff: float, size: int):
     Z = linkage(array, 'average')
     
     # plot dendrogram
-    fig, ax = plt.subplots(figsize=(10, 10))
-    plt.title("Hierarchichal clustering of disease communities")
-    #dn = hierarchy.dendrogram(Z, labels=list_ids_analyzed, leaf_font_size=7, ax=ax)
-    #dn = hierarchy.dendrogram(Z, labels=disease_names, leaf_font_size=7, ax=ax, color_threshold=cutoff, orientation='right')
-    dn = dendrogram(Z, labels=shorten_disease_names, leaf_font_size=7, ax=ax, color_threshold=None, orientation='left')
+    fig, ax = plt.subplots(figsize=(15, 15))
+    plt.title("Hierarchichal clustering of PA diseases-associated communities")
+    dn = dendrogram(Z, labels=list(dico_id_shorter_names.values()), leaf_font_size=7, ax=ax, color_threshold=None, orientation='left')
+    plt.savefig(path + "output_figures/Dendrogram_PA_diseases.png", bbox_inches='tight')
     # define clusters assignments
     assignments = fcluster(Z, t=cutoff, criterion='distance')
     print(f"Cluster assignements : {assignments}") 
@@ -268,7 +257,6 @@ def cluster_dendrogram(matrix: np.ndarray, cutoff: float, size: int):
     
     # export cluster assignment to dataframe
     cluster_output = pd.DataFrame({'disease': list_ids_analyzed, 'cluster':assignments})
-    #cluster_output = pd.DataFrame({'disease': disease_names, 'cluster':assignments})
     # export cluster output to file
     cluster_output.to_csv(f"cluster_output_{size}_{cutoff}.tsv", sep="\t")
     
@@ -277,9 +265,7 @@ def cluster_dendrogram(matrix: np.ndarray, cutoff: float, size: int):
     plt.tight_layout()
     
     # export distance matrix to dataframe for clustermap
-    #df = pd.DataFrame(matrix, columns=list_ids_analyzed, index=list_ids_analyzed)
-    #df = pd.DataFrame(matrix, columns=disease_names, index=disease_names)
-    df = pd.DataFrame(matrix, columns=shorten_disease_names, index=shorten_disease_names)
+    df = pd.DataFrame(matrix, columns=list(dico_id_shorter_names.values()), index=list(dico_id_shorter_names.values()))
     print("Dataframe of distance matrix")
     print(df)
     
@@ -310,6 +296,8 @@ def cluster_dendrogram(matrix: np.ndarray, cutoff: float, size: int):
     new_values = np.ma.array(values, mask=mask)
     clust.ax_heatmap.collections[0].set_array(new_values)
     clust.ax_row_dendrogram.set_visible(False)
+    plt.title("Clustering of Premature Aging diseases based on the Jaccard index similarity of their identified communities", loc="left")
+    plt.savefig(path + '/output_figures/clustering_PA_diseases.png')
     plt.show()
 
-cluster_dendrogram(distance_matrix_100, 0.7, 100)
+cluster_dendrogram(distance_matrix_100, 0.7, 100, dico_id_shorter_names)
