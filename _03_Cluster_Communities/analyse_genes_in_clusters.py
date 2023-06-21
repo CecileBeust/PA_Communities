@@ -142,7 +142,7 @@ def extract_genes_clusters(filtered_dico_cluster: dict) -> None:
             i += 1
         df = df.rename(columns={'Unnamed: 0': f"{cluster}"})
         df_sorted = df.sort_values(by=['Nb of communities in cluster'], ascending=False)
-        df_sorted.to_csv(path + f"output_tables/genes_in_{cluster}.tsv", sep="\t")
+        df_sorted.to_csv(path + f"output_tables/genes_in_{cluster}.tsv", sep="\t", index=False)
         comm = df['Nb of communities in cluster']
         max_deg = df['max degree']
         sum_deg = df['sum degrees']
