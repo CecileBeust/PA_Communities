@@ -1,0 +1,14 @@
+seed: results_100_1340/seeds_1340.txt
+self_loops: 0
+r: 0.7
+eta: [1.0]
+multiplex:
+    1:
+        layers:
+            - multiplex/1/Coexpression_310323.tsv
+            - multiplex/1/Complexes_gene_names_190123.tsv
+            - multiplex/1/PPI_HiUnion_LitBM_APID_gene_names_190123.tsv
+            - multiplex/1/reactome_pathways_gene_names_190123.tsv
+        delta: 0.5
+        graph_type: [00, 00, 00, 00]
+        tau: [0.25, 0.25, 0.25, 0.25]
