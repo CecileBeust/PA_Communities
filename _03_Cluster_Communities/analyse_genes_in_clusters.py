@@ -14,7 +14,7 @@ print(path)
 data_folder = os.path.join(os.path.dirname(__file__), '..', '00_data')
 orpha_codes = os.path.join(data_folder, 'orpha_codes_PA.txt')
 orpha_names = os.path.join(data_folder, 'pa_orphanet_diseases.tsv')
-cluster_output = os.path.join(data_folder, 'cluster_output_10_0.7.tsv')
+cluster_output = os.path.join(data_folder, 'cluster_output_100_0.7.tsv')
 
 # Argparse
 parser = argparse.ArgumentParser(

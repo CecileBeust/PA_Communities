@@ -14,7 +14,7 @@ import os
 
 # Argparse
 parser = argparse.ArgumentParser(
-    prog="cluster_communities.py", 
+    prog="stats_networks.py", 
     description="Function to analyze networks"
     )
 parser.add_argument("-p", "--path", help="path where communities are stored", required=True, type=str)

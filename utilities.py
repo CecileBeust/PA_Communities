@@ -69,3 +69,34 @@ def create_dico_disease_seeds(orpha_codes: str) -> tuple[dict, list]:
                     # add set of seeds in dico
                     dico_seeds[disease].append(genes)
         return (dico_seeds, list_disease)
+    
+def build_communities_list(comm_path: str, list_id: list, size: int) -> tuple[list, list]:
+    """Function which builds a list of communities by gathering
+    all communities stored in different forlders identified by
+    identifiers after itRWR
+
+    Args:
+        path (str): the path to the directory where RWR output
+        folder containing communities are stored
+        list_id (list): list of ids for the communities
+        (corresponding to the ORPHANET codes of the diseases)
+        size (int) : the number of iterations used to build
+        the communities
+
+    Returns:
+        list: the list of communities names
+        list: list of IDs of diseases that we do not analyze
+        (because they have no seeds)
+    """
+    list_communities = []
+    not_analyzed = []
+    for id in list_id:
+        # set path for community corresponding to the id
+        community = comm_path + f"results_{size}_{id}/seeds_{id}.txt"
+        # check is path exists = if the RWR has gave an output for this disease
+        if os.path.exists(community):
+            list_communities.append(community)
+        # if not we store the id in a list of ids not analyzed
+        else:
+            not_analyzed.append(id)
+    return (list_communities, not_analyzed)

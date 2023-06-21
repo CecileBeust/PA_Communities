@@ -4,7 +4,6 @@ and generate associated files
 """
 
 # import modules
-from utilities import create_dico_disease_seeds
 import seaborn as sns
 import pandas as pd
 import numpy as np
@@ -22,7 +21,12 @@ sys.path.append('../')
 os.chdir(path)
 print(path)
 
-from _03_Cluster_Communities.cluster_communities import build_communities_list, build_similarity_matrix
+from utilities import create_dico_disease_seeds, build_communities_list
+
+# define path to data
+data_folder = os.path.join(os.path.dirname(__file__), '..', '_00_data')
+orpha_codes = os.path.join(data_folder, 'orpha_codes_PA.txt')
+orpha_names = os.path.join(data_folder, 'pa_orphanet_diseases.tsv')
 
 # Argparse
 parser = argparse.ArgumentParser(
@@ -39,16 +43,17 @@ comm_path = args.path
 if os.path.exists(comm_path) == False :
     raise ValueError("Incorrect path, please try again")
 
-# define path to data
-data_folder = os.path.join(os.path.dirname(__file__), '..', '00_data')
-orpha_codes = os.path.join(data_folder, 'orpha_codes_PA.txt')
-orpha_names = os.path.join(data_folder, 'pa_orphanet_diseases.tsv')
-
 # variables statement
 (dico_disease_seeds, list_id) = create_dico_disease_seeds(orpha_codes)
+print(f"Dico diseases seeds: {dico_disease_seeds}")
+print(" ")
+print(f"List all diseases: {list_id}")
 (communities_100, not_analyzed) = build_communities_list(comm_path, list_id, 100)
+print(" ")
+print(f"Number of communities: {len(communities_100)}")
+print(" ")
+print(f"Diseases not analyzed: {not_analyzed}")
 list_ids_analyzed = [x for x in list_id if x not in not_analyzed]
-similarity_matrix_100 = build_similarity_matrix(communities_100)[0]
 
 def analyse_genes_in_comm(communities: list, list_ids_analyzed: list) -> tuple[list, list, dict]:
     """
@@ -68,12 +73,14 @@ def analyse_genes_in_comm(communities: list, list_ids_analyzed: list) -> tuple[l
     genes_wo_seeds = []
     genes_in_several_comm = []
     seeds = set()
-    df = pd.read_table(orpha_codes)
+    df = pd.read_csv(orpha_codes, sep="\t", header=None)
     for index, row in df.iterrows():
-        if row[0] in list_ids_analyzed:
+        if str(row[0]) in list_ids_analyzed:
             seeds_disease = row[1].split(",")
             for seed in seeds_disease:
                 seeds.add(seed)
+    # check if there are as much communities as diseases analyzed
+    assert len(communities) == len(list_ids_analyzed)
     for comm, id in zip(communities, list_ids_analyzed):
         with open(comm, 'r') as file:
             for line in file:
@@ -96,12 +103,13 @@ def analyse_genes_in_comm(communities: list, list_ids_analyzed: list) -> tuple[l
                         genes_wo_seeds.append(gene)
     return genes_total, genes_wo_seeds, dico_gene_comm
 
-(genes_total, genes_wo_seeds, dico_gene_comm) = analyse_genes_in_comm(communities_100, [740, 902])
-print(f"Total genes in commmunities : {genes_total}")
-print(f"Genes without seeds in communities : {genes_wo_seeds}")
-print(f"Dico genes in communities : {dico_gene_comm}")
+(genes_total, genes_wo_seeds, dico_gene_comm) = analyse_genes_in_comm(communities_100, list_ids_analyzed)
+print(" ")
+print(f"Total genes in commmunities : {len(genes_total)}")
+print(" ")
+print(f"Genes without seeds in communities : {len(genes_wo_seeds)}")
 
-def generate_table_genes_in_comm(dico_gene_comm, genes_wo_seeds) -> None:
+def generate_table_genes_in_comm(dico_gene_comm: dict, genes_wo_seeds: list) -> None:
     """Function to generate a table of the genes in a set of 
     communities and the number of communities they belong to
 
@@ -113,17 +121,16 @@ def generate_table_genes_in_comm(dico_gene_comm, genes_wo_seeds) -> None:
     Return:
         None
     """
-    df_100 = pd.DataFrame(columns=['Gene name', 'Number of PA communities memberships'])
+    df = pd.DataFrame(columns=['Gene name', 'Number of PA communities memberships'])
     i = 0
     for gene in dico_gene_comm.keys():
         if gene in genes_wo_seeds:
-            df_100._set_value(i, 'Gene name', gene)
+            df._set_value(i, 'Gene name', gene)
             nb_comm = len(dico_gene_comm[gene])
-            df_100._set_value(i, 'Number of PA communities memberships', nb_comm)
+            df._set_value(i, 'Number of PA communities memberships', nb_comm)
             i += 1
-    df_100.sort_values(by=['Number of PA communities memberships'], ascending=False)
-    print(df_100)
-    df_100.to_csv(path + "genes_comm.tsv", sep="\t", index=None)
+    df_sorted = df.sort_values(by=['Number of PA communities memberships'], ascending=False)
+    df_sorted.to_csv(path + "output_tables/genes_comm.tsv", sep="\t", index=None)
 
 generate_table_genes_in_comm(dico_gene_comm, genes_wo_seeds)
 
@@ -184,6 +191,8 @@ def generate_excel_genes(dico_gene_comm: dict) -> None:
     corr_sum, p_value_sum = pearsonr(comm, sum_deg)
     print('Correlation Nb comm / sum deg:', corr_sum)
     print('P-value:', p_value_sum)
-    df.to_csv("gene_in_communities.tsv", sep="\t")
-
+    df_sorted = df.sort_values(by=['Nb of communities'], ascending=False)
+    df_sorted.to_csv("output_tables/genes_in_communities.tsv", sep="\t")
+    
+    
 generate_excel_genes(dico_gene_comm)

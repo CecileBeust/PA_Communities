@@ -11,7 +11,7 @@ print(path)
 
 # Argparse
 parser = argparse.ArgumentParser(
-    prog="cluster_communities.py", 
+    prog="test_CI.py", 
     description="Test functions"
     )
 parser.add_argument("-p", "--path", help="path where communities are stored", required=True, type=str)

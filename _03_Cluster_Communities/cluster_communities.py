@@ -12,14 +12,16 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 from scipy.cluster.hierarchy import dendrogram, linkage, fcluster
 import argparse
-from utilities import create_dico_disease_seeds, get_list_orpha_names
 
 path = os.path.dirname(os.path.realpath(__file__))
 path = path + '/'
+sys.path.append('../')
 os.chdir(path)
 print(path)
 
-data_folder = os.path.join(os.path.dirname(__file__), '..', '00_data')
+from utilities import create_dico_disease_seeds, get_list_orpha_names, build_communities_list
+
+data_folder = os.path.join(os.path.dirname(__file__), '..', '_00_data')
 orpha_codes = os.path.join(data_folder, 'orpha_codes_PA.txt')
 orpha_names = os.path.join(data_folder, 'pa_orphanet_diseases.tsv')
 
@@ -41,40 +43,9 @@ if os.path.exists(comm_path) == False :
 # Define the dico of diseases and their seeds + list of ORPHANET identifiers\
 (dico_disease_seeds, list_id) = create_dico_disease_seeds(orpha_codes)
 
-def build_communities_list(path: str, list_id: list, size: int) -> tuple[list, list]:
-    """Function which builds a list of communities by gathering
-    all communities stored in different forlders identified by
-    identifiers after itRWR
-
-    Args:
-        path (str): the path to the directory where RWR output
-        folder containing communities are stored
-        list_id (list): list of ids for the communities
-        (corresponding to the ORPHANET codes of the diseases)
-        size (int) : the number of iterations used to build
-        the communities
-
-    Returns:
-        list: the list of communities names
-        list: list of IDs of diseases that we do not analyze
-        (because they have no seeds)
-    """
-    list_communities = []
-    not_analyzed = []
-    for id in list_id:
-        # set path for community corresponding to the id
-        community = comm_path + f"results_{size}_{id}/seeds_{id}.txt"
-        # check is path exists = if the RWR has gave an output for this disease
-        if os.path.exists(community):
-            list_communities.append(community)
-        # if not we store the id in a list of ids not analyzed
-        else:
-            not_analyzed.append(id)
-    return (list_communities, not_analyzed)
-
 # Build the list of communities
 (communities_100, not_analyzed) = build_communities_list(comm_path, list_id, 100)
-print(f"Communities : {communities_100}")
+print(f"Number of communities : {len(communities_100)}")
 print(" ")
 print(f"Diseases not analyzed : {not_analyzed}")
 list_ids_analyzed = [x for x in list_id if x not in not_analyzed]
