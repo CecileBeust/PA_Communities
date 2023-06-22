@@ -8,21 +8,20 @@ from pathlib import Path
 
 path = os.path.dirname(os.path.realpath(__file__))
 path = path + '/'
-sys.path.append('../')
+sys.path.append('../..')
 os.chdir(path)
 print(path)
 
-from utilities import create_dico_disease_seeds
-from _03_Cluster_Communities.cluster_communities import build_communities_list
+from utilities import create_dico_disease_seeds, build_communities_list
 
-data_folder = os.path.join(os.path.dirname(__file__), '..', 'data')
+data_folder = os.path.join(os.path.dirname(__file__), '../..', '_00_data')
 orpha_codes = os.path.join(data_folder, 'orpha_codes_PA.txt')
 orpha_names = os.path.join(data_folder, 'pa_orphanet_diseases.tsv')
 
 # Argparse
 parser = argparse.ArgumentParser(
-    prog="cluster_communities.py", 
-    description="functions cluster communities based on Jaccard index"
+    prog="enrichment_communities.py", 
+    description="functions to perform enrichment of gene communities"
     )
 parser.add_argument("-p", "--path", help="path where communities are stored", required=True, type=str)
 parser.add_argument("-v", "--verbose", help="increase output verbosity", required=False, action="store_true")
@@ -48,31 +47,31 @@ for index, row in pa_diseases.iterrows():
 print(dico_code_disease)
 
 def enrichment_communities(list_comm, list_ids_analyzed, size):
+    #os.mkdir('output_tables')
     print(len(list_comm))
     for comm, id in zip(list_comm, list_ids_analyzed):
         with open(comm, 'r') as file:
             genes = []
             for line in file:
                 genes += line.rsplit()
-            print(genes)
-            gp = GProfiler(return_dataframe=True)
+            gp = GProfiler(user_agent='https://biit.cs.ut.ee/gprofiler_archive3/e108_eg55_p17/api/gost/profile/', return_dataframe=True)
             enrich = gp.profile(organism='hsapiens', query=genes, no_evidences=False)
             print(enrich)
-            enrich.to_csv(path + f"EnrichmentCommunities/comm_{id}_{size}.tsv", sep="\t")
+            enrich.to_csv(path + f"output_tables/comm_{id}_{size}.tsv", sep="\t")
     for id in list_ids_analyzed:
-        df = pd.read_csv(path + f"EnrichmentCommunities/comm_{id}_{size}.tsv", sep="\t")
+        df = pd.read_csv(path + f"output_tables/comm_{id}_{size}.tsv", sep="\t")
         disease_name = dico_code_disease[str(id)]
         df = df.rename(columns={'Unnamed: 0': str(disease_name)})
         df = df.drop(['evidences'], axis=1)
         print(df)
-        df.to_csv(path + f"EnrichmentCommunities/comm_{id}_{size}.tsv", sep="\t", index=False)
+        df.to_csv(path + f"output_tables/comm_{id}_{size}.tsv", sep="\t", index=False)
 
-    tsv_dir = Path(path + "EnrichmentCommunities/")
+    tsv_dir = Path(path + "output_tables/")
     tsv_data = {}
     for tsv_file in tsv_dir.glob('*.tsv'):
         tsv_name = tsv_file.stem
         tsv_data[tsv_name] = pd.read_csv(tsv_file, sep="\t")
-    writer = pd.ExcelWriter(path + "EnrichmentCommunities/enrichment_communities_10.xlsx", engine='xlsxwriter')
+    writer = pd.ExcelWriter(path + "output_tables/enrichment_communities_100.xlsx", engine='xlsxwriter')
     for sheet_name, sheet_data in tsv_data.items():
         sheet_data.to_excel(writer, sheet_name=sheet_name, index=False)
     writer.save()
