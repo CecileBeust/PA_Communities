@@ -5,6 +5,7 @@ import scipy.stats as stats
 from pathlib import Path
 from statsmodels.sandbox.stats.multicomp import multipletests
 import os
+import sys
 import seaborn as sns
 import matplotlib.pyplot as plt
 from pyhpo import Ontology
@@ -13,23 +14,36 @@ _ = Ontology()
 
 path = os.path.dirname(os.path.realpath(__file__))
 path = path + '/'
+sys.path.append('../')
 os.chdir(path)
 print(path)
 
-diseases_pa = []
-dico_diseases_code = dict()
-pa = pd.read_csv("PA_diseases.tsv", sep="\t", header=0)
-print(pa)
-for index, row in pa.iterrows():
-    if not row[2] is np.nan or not pd.isnull(row[2]):
-        diseases_pa.append(row[0])
-        dico_diseases_code[row[0]] = row[1]
+data_folder = os.path.join(os.path.dirname(__file__), '../', '_00_data')
+orpha_codes = os.path.join(data_folder, 'orpha_codes_PA.txt')
+orpha_names = os.path.join(data_folder, 'pa_orphanet_diseases.tsv')
+clusters_compo = os.path.join(data_folder, 'clusters_100.tsv')
 
-# remove this disease because seed not in network
-diseases_pa.remove("Arterial tortuosity syndrome")
-print(f"PA diseases : {diseases_pa}")
-print(len(diseases_pa))
-print(" ")
+orpha_codes_file = pd.read_csv(orpha_codes, sep="\t", header=None)
+orpha_names_file = pd.read_csv(orpha_names, sep="\t", header=None)
+list_ids_analyzed = list()
+pa_diseases_analyzed = list()
+all_pa_diseases = list()
+dico_code_disease = dict()
+for index, row in orpha_codes_file.iterrows():
+    if not row[1] is np.nan and not row[1] is pd.isnull:
+        list_ids_analyzed.append(row[0])
+
+for index, row in orpha_names_file.iterrows():
+    code = row[0][6:]
+    disease = row[1]
+    dico_code_disease[code] = disease
+
+print(dico_code_disease)
+
+for index, row in orpha_names_file.iterrows():
+    all_pa_diseases.append(row[1])
+    if int(row[0][6:]) in list_ids_analyzed:
+        pa_diseases_analyzed.append(row[1])
 
 def create_dico_clusters_diseases(clusters_file) -> dict:
     """Function that creates a dictionary of clusters
@@ -52,7 +66,7 @@ def create_dico_clusters_diseases(clusters_file) -> dict:
             dico_clusters_diseases[row[0]] += [row[1]]
     return dico_clusters_diseases
             
-dico_clusters_diseases = create_dico_clusters_diseases("clusters_100.tsv")
+dico_clusters_diseases = create_dico_clusters_diseases(clusters_compo)
 print(f"Dico clusters diseases : {dico_clusters_diseases}")
 print(" ")
 
@@ -89,11 +103,11 @@ def get_PA_pheno_for_disease(clusters_file: str) -> tuple:
                     cluster6.append(row[1])
     return (cluster1, cluster2, cluster3, cluster4, cluster5, cluster6)
                 
-(cluster1, cluster2, cluster3, cluster4, cluster5, cluster6) = get_PA_pheno_for_disease("clusters_100.tsv")
+(cluster1, cluster2, cluster3, cluster4, cluster5, cluster6) = get_PA_pheno_for_disease(clusters_compo)
 list_clusters = [cluster1, cluster2, cluster3, cluster4, cluster5, cluster6]
 print(list_clusters)
 
-def build_background(list_diseases: list, dico_diseases_code: dict) -> list:
+def build_background(list_diseases: list, dico_code_disease: dict) -> list:
     """Function that determines the background of HPO phenotypes to use
     for the hypergeometric test
 
@@ -107,14 +121,16 @@ def build_background(list_diseases: list, dico_diseases_code: dict) -> list:
     """
     background= list()
     for disease in list_diseases:
-        disease_id = dico_diseases_code[disease]
-        pheno_file = path + f"HPOTermsOrphaDiseases/terms_for_ORPHA_{disease_id}.xlsx"
+        print(disease)
+        disease_id = {id for id in dico_code_disease if dico_code_disease[id]==disease}
+        for id in disease_id:
+            pheno_file = path + f"Data_HPO/terms_for_ORPHA_{id}.xlsx"
         df = pd.read_excel(pheno_file, header=0)
         phenotypes = df['HPO_TERM_NAME'].to_list()
         background.extend(phenotypes)
     return background
 
-background = build_background(diseases_pa, dico_diseases_code)
+background = build_background(pa_diseases_analyzed, dico_code_disease)
 print(" ")
 print(f"Background : {len(set(background))} phenotypes")
 
@@ -134,8 +150,9 @@ def create_dico_clusters_pheno(list_diseases_in_clusters: list) -> dict:
     for cluster in list_diseases_in_clusters:
         all_phenotypes = []
         for disease in cluster:
-            disease_id = dico_diseases_code[disease]
-            pheno_file =  path + '/' + f"HPOTermsOrphaDiseases/terms_for_ORPHA_{disease_id}.xlsx"
+            disease_id = {id for id in dico_code_disease if dico_code_disease[id]==disease}
+            for id in disease_id:
+                pheno_file =  path + f"Data_HPO/terms_for_ORPHA_{id}.xlsx"
             df = pd.read_excel(pheno_file, header=0)
             phenotypes = df['HPO_TERM_NAME'].to_list()
             all_phenotypes.extend(phenotypes)
@@ -170,25 +187,22 @@ def enrich_phenotypes(background_pheno: list, diseases_pa: list, list_cluster: l
         pvals = df['p-value'].to_list()
         p_adjusted = multipletests(pvals, alpha=0.05, method='fdr_bh')[1]
         df['Corrected p-value'] = p_adjusted
-        df.to_csv(path + f"EnrichPhenoResults/enrichment_cluster{j}_all_pheno.tsv", sep="\t", index=False)
+        df.to_csv(path + f"output_tables/enrichment_cluster{j}_all_pheno.tsv", sep="\t", index=False)
         j += 1
-    tsv_dir = Path(path + "EnrichPhenoResults/")
+    tsv_dir = Path(path + "output_tables/")
     tsv_data = {}
     for tsv_file in tsv_dir.glob('*.tsv'):
         tsv_name = tsv_file.stem
         tsv_data[tsv_name] = pd.read_csv(tsv_file, sep="\t")
-    writer = pd.ExcelWriter(path + "EnrichPhenoResults/enrichment_all_phenotypes.xlsx", engine='xlsxwriter')
+    writer = pd.ExcelWriter(path + "output_tables/enrichment_all_phenotypes.xlsx", engine='xlsxwriter')
     for sheet_name, sheet_data in tsv_data.items():
         sheet_data.to_excel(writer, sheet_name=sheet_name, index=False)
     writer.save()
 
-pa = pd.read_csv("PA_diseases.tsv", sep="\t", header=None)
-diseases_pa_complete = pa[0].to_list()
-
-enrich_phenotypes(background_pheno = background, diseases_pa = diseases_pa_complete, list_cluster = list_clusters, back = 4262)
+enrich_phenotypes(background_pheno = background, diseases_pa = all_pa_diseases, list_cluster = list_clusters, back = 4262)
 
 def create_gmt():
-    onto = pd.read_csv(path + "HP.csv", sep=",", header=0)
+    onto = pd.read_csv(path + "Data_HPO/HP.csv", sep=",", header=0)
     print(onto)
     to_write = list()
     for index, row in onto.iterrows():
@@ -212,18 +226,18 @@ create_gmt()
 
 def create_enrichment_files():
     for i in range(1,7):
-        os.mkdir(path + f"Orsum_cluster_{i}")
-        dfEnrichmentGroup = pd.read_csv(path + f"EnrichPhenoResults/enrichment_cluster{i}_all_pheno.tsv", sep="\t", header=0)
+        os.mkdir(path + f"output_orsum/Orsum_cluster_{i}")
+        dfEnrichmentGroup = pd.read_csv(path + f"output_tables/enrichment_cluster{i}_all_pheno.tsv", sep="\t", header=0)
         dfEnrichmentGroup = dfEnrichmentGroup.sort_values(by="Corrected p-value", ascending=True)
         dfEnrichmentGroup = dfEnrichmentGroup[dfEnrichmentGroup["Corrected p-value"] <= 0.05]
         print(dfEnrichmentGroup)
         dfEnrichmentGroupSource = dfEnrichmentGroup["HPO ID"]
         print(dfEnrichmentGroupSource)
-        dfEnrichmentGroupSource.to_csv(path + f"Orsum_cluster_{i}/Enrich-HPO-cluster-{i}.txt", index=False, header=None)
+        dfEnrichmentGroupSource.to_csv(path + f"output_orsum/Orsum_cluster_{i}/Enrich-HPO-cluster-{i}.txt", index=False, header=None)
 
 create_enrichment_files()
 
-def applyOrsum2(dico: dict, gmt: str, summaryFolder: str, outputFolder: str, maxRepSize=int(1E6), minTermSize=10, numberOfTermsToPlot=50):
+def applyOrsum(dico: dict, gmt: str, summaryFolder: str, outputFolder: str, maxRepSize=int(1E6), minTermSize=10, numberOfTermsToPlot=50):
     """Function to apply orsum on enrichment analysis results of clusters inside a dictionnary
 
     Args:
@@ -241,13 +255,13 @@ def applyOrsum2(dico: dict, gmt: str, summaryFolder: str, outputFolder: str, max
     noEnrichmentGroup = set()
     #/!\ ORSUM PATH TO ADDAPT /!\
     # if orsum is installed as a conda pacgke
-    command = '/home/.../miniconda3/pkgs/orsum-1.6.0-hdfd78af_0/bin/orsum.py'
+    command = '/home/cbeust/miniconda3/pkgs/orsum-1.6.0-hdfd78af_0/bin/orsum.py'
     # if orsum is installed in the current directory
     #command = path + 'orsum/orsum.py'
     command = command + ' --gmt \"'+gmt+'\" '
     command = command + '--files '
     for clusters in dico:
-        filePath = summaryFolder+f'Orsum_cluster_{int(clusters)}/Enrich-HPO-cluster-{int(clusters)}.txt'
+        filePath = summaryFolder+f'output_orsum/Orsum_cluster_{int(clusters)}/Enrich-HPO-cluster-{int(clusters)}.txt'
         if os.stat(filePath).st_size == 0: # orsum exits when one enrichment file is empty
             noEnrichmentGroup.add(int(clusters))
         else:
@@ -266,9 +280,9 @@ def applyOrsum2(dico: dict, gmt: str, summaryFolder: str, outputFolder: str, max
 
 
 def multiple_enrichment(dico_clusters_diseases, gmt):
-    os.mkdir(path + f"ME_results_phenotypes")
-    outputFolder = path + f"ME_results_phenotypes"
-    applyOrsum2(dico=dico_clusters_diseases, gmt=gmt, summaryFolder=path, outputFolder=outputFolder)
+    os.mkdir(path + f"output_orsum/ME_results_phenotypes")
+    outputFolder = path + f"output_orsum/ME_results_phenotypes"
+    applyOrsum(dico=dico_clusters_diseases, gmt=gmt, summaryFolder=path, outputFolder=outputFolder)
 
 
 # set paths for GMT files

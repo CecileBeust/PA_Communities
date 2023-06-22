@@ -2,6 +2,10 @@
 
 This folder contains Python codes to enrich clusters of diseases using phenotypes from the Human Phenotype Ontology.
 
+## Data
+
+* ```HPOTermsOrphaDiseases ```: Folder containing the phenotypes files from HPO associated to the 67 Premature Aging diseases analyzed.
+
 ## Files
 
 * ```HP.csv``` : Ontology file of HPO terms
@@ -11,7 +15,7 @@ This folder contains Python codes to enrich clusters of diseases using phenotype
 
 ## Usage
 
-Download the phenotypes file corresponding the diseases analyzed from HPO and store it in a folder named ```HPOTermsOrphaDiseases ```. Then run the script ```enrichment_phenotypes.py```. 
+```python enrichment_phenotypes.py ```
 
 ## Output
 

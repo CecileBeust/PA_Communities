@@ -1,0 +1,36 @@
+orsum 1.6.0
+
+gmt:	/home/cbeust/Landscape_PA/Github_Codes/PA_Communities/_06_Enrichment_Phenotypes/hpo_phenotypes.gmt
+files:	['/home/cbeust/Landscape_PA/Github_Codes/PA_Communities/_06_Enrichment_Phenotypes/output_orsum/Orsum_cluster_1/Enrich-HPO-cluster-1.txt', '/home/cbeust/Landscape_PA/Github_Codes/PA_Communities/_06_Enrichment_Phenotypes/output_orsum/Orsum_cluster_2/Enrich-HPO-cluster-2.txt', '/home/cbeust/Landscape_PA/Github_Codes/PA_Communities/_06_Enrichment_Phenotypes/output_orsum/Orsum_cluster_3/Enrich-HPO-cluster-3.txt', '/home/cbeust/Landscape_PA/Github_Codes/PA_Communities/_06_Enrichment_Phenotypes/output_orsum/Orsum_cluster_4/Enrich-HPO-cluster-4.txt', '/home/cbeust/Landscape_PA/Github_Codes/PA_Communities/_06_Enrichment_Phenotypes/output_orsum/Orsum_cluster_5/Enrich-HPO-cluster-5.txt', '/home/cbeust/Landscape_PA/Github_Codes/PA_Communities/_06_Enrichment_Phenotypes/output_orsum/Orsum_cluster_6/Enrich-HPO-cluster-6.txt']
+fileAliases:	['1', '2', '3', '4', '5', '6']
+outputFolder:	/home/cbeust/Landscape_PA/Github_Codes/PA_Communities/_06_Enrichment_Phenotypes/output_orsum/ME_results_phenotypes
+maxRepSize:	1000000
+maxTermSize:	1000000
+minTermSize:	10
+numberOfTermsToPlot:	50
+
+
+Processing /home/cbeust/Landscape_PA/Github_Codes/PA_Communities/_06_Enrichment_Phenotypes/output_orsum/Orsum_cluster_1/Enrich-HPO-cluster-1.txt
+19 terms are smaller than minTermSize=10, they are removed.
+
+Processing /home/cbeust/Landscape_PA/Github_Codes/PA_Communities/_06_Enrichment_Phenotypes/output_orsum/Orsum_cluster_2/Enrich-HPO-cluster-2.txt
+1 term is smaller than minTermSize=10, it is removed.
+
+Processing /home/cbeust/Landscape_PA/Github_Codes/PA_Communities/_06_Enrichment_Phenotypes/output_orsum/Orsum_cluster_3/Enrich-HPO-cluster-3.txt
+1 term is smaller than minTermSize=10, it is removed.
+
+Processing /home/cbeust/Landscape_PA/Github_Codes/PA_Communities/_06_Enrichment_Phenotypes/output_orsum/Orsum_cluster_4/Enrich-HPO-cluster-4.txt
+
+Processing /home/cbeust/Landscape_PA/Github_Codes/PA_Communities/_06_Enrichment_Phenotypes/output_orsum/Orsum_cluster_5/Enrich-HPO-cluster-5.txt
+8 terms are smaller than minTermSize=10, they are removed.
+
+Processing /home/cbeust/Landscape_PA/Github_Codes/PA_Communities/_06_Enrichment_Phenotypes/output_orsum/Orsum_cluster_6/Enrich-HPO-cluster-6.txt
+
+Initial term number (recurring terms in different lists are not merged yet, each one is counted): 215
+
+Same terms in multiple lists are unified
+Representing term number: 172
+
+Superterms represent their less significant (worse ranked) subterms. This includes equal terms, i.e. the terms that annotate exactly the same set of genes.
+Representing term number: 89
+
