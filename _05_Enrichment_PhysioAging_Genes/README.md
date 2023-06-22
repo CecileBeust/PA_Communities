@@ -24,7 +24,7 @@ This folder contains the following data files :
 
 ## Usage
 
-```python enrichment_physio_aging.py```
+```python enrichment_physio_aging.py -p /path/where/communities/folders/are/stored```
 
 ## Output
 

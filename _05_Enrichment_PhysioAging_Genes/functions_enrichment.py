@@ -13,12 +13,12 @@ print(path)
 ###### LOAD AND PROCESS DATA ################
 #############################################
 
-def load_networks():
+def load_networks(comm_path: str):
     # load networks
-    ppi = nx.read_edgelist(path + "/multiplex/1/PPI_HiUnion_LitBM_APID_gene_names_190123.tsv", create_using = nx.Graph)
-    pathways = nx.read_edgelist(path + "/multiplex/1/reactome_pathways_gene_names_190123.tsv", create_using = nx.Graph)
-    coexp = nx.read_edgelist(path + "/multiplex/1/Coexpression_310323.tsv", create_using = nx.Graph)
-    complexes = nx.read_edgelist(path + "/multiplex/1/Complexes_gene_names_190123.tsv", create_using = nx.Graph)
+    ppi = nx.read_edgelist(comm_path + "/multiplex/1/PPI_HiUnion_LitBM_APID_gene_names_190123.tsv", create_using = nx.Graph)
+    pathways = nx.read_edgelist(comm_path + "/multiplex/1/reactome_pathways_gene_names_190123.tsv", create_using = nx.Graph)
+    coexp = nx.read_edgelist(comm_path + "/multiplex/1/Coexpression_310323.tsv", create_using = nx.Graph)
+    complexes = nx.read_edgelist(comm_path + "/multiplex/1/Complexes_gene_names_190123.tsv", create_using = nx.Graph)
 
     # get noeds in networks
     ppi_nodes = ppi.nodes()
@@ -63,10 +63,10 @@ def load_geneage(file, seeds, nodes_ntw):
     print(f"{len(genes_aging_wo_seeds)} aging genes without seeds in network")
     return genes_aging_wo_seeds
 
-def extract_genes_from_comm(size: int, list_id_analyzed: list):
+def extract_genes_from_comm(comm_path: str, size: int, list_id_analyzed: list):
     dico_comm_nodes = {}
     for id in list_id_analyzed:
-        community = path + f"/results_{size}_{id}/seeds_{id}.txt"
+        community = comm_path + f"/results_{size}_{id}/seeds_{id}.txt"
         nodes_comm = []
         with open(community, 'r') as fi:
             for line in fi:
@@ -77,26 +77,12 @@ def extract_genes_from_comm(size: int, list_id_analyzed: list):
             dico_comm_nodes[id] += node
     return dico_comm_nodes
 
-def extract_genes_from_cluster(size: int, cluster_assignement: str):
-    dico_clusters = {}
-    filtered_dico = {}
-    df = pd.read_csv(cluster_assignement, sep="\t", header=None, index_col=None)
-    #df.drop(columns=df.columns[0], axis=1, inplace=True)
-    df = df.reset_index()
-    print(df)
-    for index, row in df.iterrows():
-        if not row[2] in dico_clusters.keys():
-            dico_clusters[row[2]] = [row[1]]
-        else:
-            dico_clusters[row[2]] += [row[1]]
-    for cluster in dico_clusters:
-        if len(dico_clusters[cluster]) >= 3:
-            filtered_dico[cluster] = dico_clusters[cluster]
-    dico_clusters_nodes = {}
+def extract_genes_from_cluster(comm_path: str, filtered_dico: dict, size: int):
+    dico_clusters_nodes = dict()
     for cluster in filtered_dico:
         dico_clusters_nodes[cluster] = []
         for comm in filtered_dico[cluster]:
-            community = path + f"/results_{size}_{comm}/seeds_{comm}.txt"
+            community = comm_path + f"/results_{size}_{comm}/seeds_{comm}.txt"
             with open(community, 'r') as file:
                 for line in file:
                     gene = line.rstrip()
