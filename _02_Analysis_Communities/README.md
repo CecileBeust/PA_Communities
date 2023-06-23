@@ -20,6 +20,8 @@ This folder contains different scripts to analyze communities of genes, here ide
 The script ```analysis_genes_in_communities``` generates a table of the genes inside communities in the ```output_tables``` folder. 
 The script ```visualization_communities``` generates tsv files of communities, allowing them to be visualized individually or as group of communities in Cytoscape. 
 
+<img src="visualization_3comm.png" alt="Alt text" title="Communities of Hutchinson-Gilford Progeria Syndrome (ORHPANET code 740), Ataxia telangiectasia (ORPHANET code 100) and Classical Ehlers-Danlos Syndrome (ORPHANET code 287) visualized in Cytoscape">
+
 
 ## References
 
