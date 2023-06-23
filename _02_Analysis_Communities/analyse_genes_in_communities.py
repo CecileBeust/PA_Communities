@@ -27,6 +27,8 @@ from utilities import create_dico_disease_seeds, build_communities_list
 data_folder = os.path.join(os.path.dirname(__file__), '..', '_00_data')
 orpha_codes = os.path.join(data_folder, 'orpha_codes_PA.txt')
 orpha_names = os.path.join(data_folder, 'pa_orphanet_diseases.tsv')
+cluster_output = os.path.join(data_folder, 'cluster_output_100_0.7.tsv')
+
 
 # Argparse
 parser = argparse.ArgumentParser(

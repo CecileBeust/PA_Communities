@@ -20,7 +20,7 @@ sys.path.append('../')
 os.chdir(path)
 print(path)
 
-from utilities import create_dico_disease_seeds, get_list_orpha_names, build_communities_list
+from utilities import create_dico_disease_seeds, get_list_orpha_names, build_communities_list, create_cluster_dico, filter_cluster
 
 data_folder = os.path.join(os.path.dirname(__file__), '..', '_00_data')
 orpha_codes = os.path.join(data_folder, 'orpha_codes_PA.txt')
@@ -40,6 +40,14 @@ comm_path = args.path
 # Check if the path exist
 if os.path.exists(comm_path) == False :
     raise ValueError("Incorrect path, please try again")
+
+pa_diseases = pd.read_csv(orpha_names, sep="\t", header=None)
+dico_code_disease = {}
+for index, row in pa_diseases.iterrows():
+    code = row[0][6:]
+    disease = row[1]
+    dico_code_disease[code] = disease
+print(dico_code_disease)
 
 # Define the dico of diseases and their seeds + list of ORPHANET identifiers\
 (dico_disease_seeds, list_id) = create_dico_disease_seeds(orpha_codes)
@@ -305,3 +313,36 @@ def cluster_dendrogram(matrix: np.ndarray, cutoff: float, size: int, dico_id_sho
     plt.show()
 
 cluster_dendrogram(distance_matrix_100, 0.7, 100, dico_id_shorter_names)
+
+
+cluster_output = os.path.join(data_folder, 'cluster_output_100_0.7.tsv')
+
+dico_cluster_diseases = create_cluster_dico(cluster_output)
+print(" ")
+print(f"Clusters: {dico_cluster_diseases}")
+
+filtered_dico_cluster = filter_cluster(dico_cluster_diseases)
+print(" ")
+print(f"Clusters containing at least 3 diseases: {filtered_dico_cluster}")
+
+
+def analyze_clusters(dico_disease_seeds: dict, filtered_dico_cluster: dict, dico_code_disease: dict, size: int):
+    df = pd.DataFrame(columns=['Cluster', 'Diseases', 'Seeds'])
+    i = 0
+    for cluster in filtered_dico_cluster:
+        diseases_codes = filtered_dico_cluster[cluster]
+        diseases_names = []
+        for code in diseases_codes:
+            diseases_names.append(dico_code_disease[str(code)])
+        for disease, code in zip(diseases_names, diseases_codes):
+            print(disease, code)
+            seeds = dico_disease_seeds[str(code)]
+            new_row = [f"{cluster}", disease, seeds]
+            df = df.append(dict(zip(df.columns, new_row)), ignore_index=True)
+    print(df)
+    df.to_csv(path + f"output_tables/clusters_{size}.tsv", sep="\t", index=False)
+    source_file = f"output_tables/clusters_{size}.tsv"
+    destination_folder = path + "../_00_data/"
+    shutil.copy(source_file, destination_folder)
+
+analyze_clusters(dico_disease_seeds, filtered_dico_cluster, dico_code_disease, 100)

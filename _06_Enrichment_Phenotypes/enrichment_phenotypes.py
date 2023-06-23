@@ -1,3 +1,15 @@
+"""
+Python script to perform an enrichment of clusters of communities
+using HPO phenotypes (https://hpo.jax.org/app/)
+
+We use an hypergeometric test to perform this enrichment. 
+We consider the set of all ORPHANET diseases described in 
+HPO as a background. For each HPO phenotype found associated 
+to one or several disease(s) in a cluster, we compare the number 
+of ORPHANET diseases associated to that phenotype in HPO, to the 
+number of diseases in the cluster. 
+"""
+
 from gprofiler import GProfiler
 import pandas as pd
 import numpy as np

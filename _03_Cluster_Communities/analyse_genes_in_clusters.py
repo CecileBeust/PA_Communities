@@ -8,8 +8,11 @@ import sys
 
 path = os.path.dirname(os.path.realpath(__file__))
 path = path + '/'
+sys.path.append('../')
 os.chdir(path)
 print(path)
+
+from utilities import create_cluster_dico, filter_cluster
 
 data_folder = os.path.join(os.path.dirname(__file__), '..', '_00_data')
 orpha_codes = os.path.join(data_folder, 'orpha_codes_PA.txt')
@@ -31,64 +34,10 @@ comm_path = args.path
 if os.path.exists(comm_path) == False :
     raise ValueError("Incorrect path, please try again")
 
-
-def create_cluster_dico(cluster_file: str) -> dict :
-    """Function to create a dictionary of disease
-    communities clusters
-
-    Args:
-        cluster_file (str): name of the file containing
-        the clusters assignments
-
-    Returns:
-        dict: the dictionary of disease communities
-        clusters
-    """
-    df = pd.read_csv(cluster_file, sep="\t")
-    dico_cluster_diseases = {}
-    i = 0
-    for cluster in df['cluster']:
-        disease = df.iloc[i]['disease']
-        if cluster not in dico_cluster_diseases.keys():
-            dico_cluster_diseases[cluster] = [disease]
-        else:
-            dico_cluster_diseases[cluster] += [disease]
-        i += 1
-    return dico_cluster_diseases
-
-
 dico_cluster_diseases = create_cluster_dico(cluster_output)
 print(f"Clusters: {dico_cluster_diseases}")
 
-def filter_cluster(dico_cluster: dict) -> dict:
-    """Function to filter a dictionary of 
-    disease communities clusters to keep
-    only clusters having at least 3 disease
-    communities
-
-    Args:
-        dico_cluster (dict): the dico of
-        disease commmunities clusters
-
-    Returns:
-        dict: the filtered dictionary 
-    """
-    filtered_dict = {}
-    for cluster in dico_cluster:
-        if len(dico_cluster[cluster]) >=3 :
-            filtered_dict[cluster] = dico_cluster[cluster]
-    return filtered_dict
-
 filtered_dico_cluster = filter_cluster(dico_cluster_diseases)
-
-# Rename clusters by order of appearance on the clustermap
-filtered_dico_cluster["cluster_1"] = filtered_dico_cluster.pop(1)
-filtered_dico_cluster["cluster_2"] = filtered_dico_cluster.pop(3)
-filtered_dico_cluster["cluster_3"] = filtered_dico_cluster.pop(4)
-filtered_dico_cluster["cluster_4"] = filtered_dico_cluster.pop(5)
-filtered_dico_cluster["cluster_5"] = filtered_dico_cluster.pop(8)
-filtered_dico_cluster["cluster_6"] = filtered_dico_cluster.pop(13)
-print(" ")
 print(f"Clusters containing at least 3 diseases: {filtered_dico_cluster}")
 
 def extract_genes_clusters(filtered_dico_cluster: dict) -> None:

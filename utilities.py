@@ -1,11 +1,6 @@
 # Import modules
 import os
-import numpy as np
 import pandas as pd
-import seaborn as sns
-import matplotlib.pyplot as plt
-from scipy.cluster.hierarchy import dendrogram, linkage
-import argparse
 
 def get_list_orpha_names(pa_diseases: str, id_diseases_analysed: list) -> list:
     """Function to get a list of PA diseases names
