@@ -248,3 +248,34 @@ def plot_several_communities(list_id: list, size: int) -> set:
 # Hutchinson-Gilford Progeria Syndrome (ORPHANET code 740), Ataxia telangiectasia (ORPHANET code 100)
 # and Classical Ehlers-Danlos syndrome (OPRHANET code 287)
 nodes_all_comm = plot_several_communities(['100', '740', '287'], 100)
+
+def create_node_table_100_740_287():
+    """Function to create a node table
+    for three communities (OHPANET code 740,
+    100, 287). Allows to obtain the community
+    belonging of each node.
+    """
+    nodes_100 = plot_community("100", 100)
+    nodes_740 = plot_community("740", 100)
+    nodes_287 = plot_community("287", 100)
+
+    node_table = pd.DataFrame(columns=['node', 'provenance'])
+    nodes_seen = []
+    for node in nodes_all_comm:
+        if node not in nodes_seen:
+            if node in nodes_100 and node in nodes_740:
+                new_row = [node, "AT;HGPS"]
+            elif node in nodes_100 and node in nodes_287:
+                new_row = [node, "AT;ED"]
+            elif node in nodes_740 and node in nodes_287:
+                new_row = [node, "HGPS;ED"]
+            elif node in nodes_100:
+                new_row = [node, "AT"]
+            elif node in nodes_740:
+                new_row = [node, "HGPS"]
+            elif node in nodes_287:
+                new_row = [node, "ED"]
+            node_table = node_table.append(dict(zip(node_table.columns, new_row)), ignore_index=True)
+            nodes_seen.append(node)
+    print(node_table)
+    node_table.to_csv(path + 'output_visualization/node_table_3comm.tsv', sep="\t", index=False)
