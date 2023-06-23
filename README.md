@@ -11,6 +11,8 @@ The itRWR algorithm is available as a Python package on GitHub : https://github.
 
 This pipeline can be used and/or adapted to any study requiring the identification of communities in a multiplex network and their analysis.
 
+<img src="HGPS_community.png" alt="Alt text" title="CCommunity idenfitied for Hutchinson-Gilford Progeria Syndrome in a multiplex network of biological interactions">
+
 ## Folders
 
 * ```_00_data```: Folder containing the data files needed for the analysis (diseases identifiers files, gmt files and some output files used in different steps of the analysis)
