@@ -31,7 +31,7 @@ Processing /home/cbeust/Landscape_PA/Github_Codes/PA_Communities/_04_Enrichment_
 Processing /home/cbeust/Landscape_PA/Github_Codes/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Clusters/output_orsum/Orsum_cluster_6/EnrichmentClust-REAC.txt
 7 terms are smaller than minTermSize=10, they are removed.
 
-Initial term number (recurring terms in different lists are not merged yet, each one is counted): 905
+Initial term number (recurring terms in different lists are not merged yet, each one is counted): 906
 
 Same terms in multiple lists are unified
 Representing term number: 658

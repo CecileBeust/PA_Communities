@@ -95,7 +95,7 @@ REAC:R-HSA-74160	Gene expression (Transcription)	1
 									REAC:R-HSA-167172	Transcription of the HIV genome	29									
 																		REAC:R-HSA-211000	Gene Silencing by RNA	33
 						REAC:R-HSA-8878166	Transcriptional regulation by RUNX2	59	REAC:R-HSA-8878166	Transcriptional regulation by RUNX2	35									
-						REAC:R-HSA-9614085	FOXO-mediated transcription	37	REAC:R-HSA-9614085	FOXO-mediated transcription	79	REAC:R-HSA-9614085	FOXO-mediated transcription	115						
+						REAC:R-HSA-9614085	FOXO-mediated transcription	37	REAC:R-HSA-9614085	FOXO-mediated transcription	79	REAC:R-HSA-9614085	FOXO-mediated transcription	116						
 									REAC:R-HSA-674695	RNA Polymerase II Pre-transcription Events	37									
 						REAC:R-HSA-6804114	TP53 Regulates Transcription of Genes Involved in G2 Cell Cycle Arrest	40	REAC:R-HSA-6804114	TP53 Regulates Transcription of Genes Involved in G2 Cell Cycle Arrest	75									
 			REAC:R-HSA-6796648	TP53 Regulates Transcription of DNA Repair Genes	72				REAC:R-HSA-6796648	TP53 Regulates Transcription of DNA Repair Genes	40									
@@ -131,8 +131,8 @@ REAC:R-HSA-74160	Gene expression (Transcription)	1
 									REAC:R-HSA-167160	RNA Pol II CTD phosphorylation and interaction with CE during HIV infection	81									
 									REAC:R-HSA-383280	Nuclear Receptor transcription pathway	82									
 						REAC:R-HSA-9615017	FOXO-mediated transcription of oxidative stress, metabolic and neuronal genes	83	REAC:R-HSA-9615017	FOXO-mediated transcription of oxidative stress, metabolic and neuronal genes	169									
-												REAC:R-HSA-5633008	TP53 Regulates Transcription of Cell Death Genes	88						
 									REAC:R-HSA-72086	mRNA Capping	89									
+												REAC:R-HSA-5633008	TP53 Regulates Transcription of Cell Death Genes	89						
 						REAC:R-HSA-2173795	Downregulation of SMAD2/3:SMAD4 transcriptional activity	152	REAC:R-HSA-2173795	Downregulation of SMAD2/3:SMAD4 transcriptional activity	91									
 									REAC:R-HSA-8941326	RUNX2 regulates bone development	94									
 			REAC:R-HSA-6804757	Regulation of TP53 Degradation	97	REAC:R-HSA-6804757	Regulation of TP53 Degradation	107	REAC:R-HSA-6804757	Regulation of TP53 Degradation	135									
@@ -143,10 +143,10 @@ REAC:R-HSA-74160	Gene expression (Transcription)	1
 									REAC:R-HSA-9005891	Loss of function of MECP2 in Rett syndrome	102									
 									REAC:R-HSA-9675151	Disorders of Developmental Biology	104									
 									REAC:R-HSA-76046	RNA Polymerase III Transcription Initiation	106									
-						REAC:R-HSA-9614657	FOXO-mediated transcription of cell death genes	120				REAC:R-HSA-9614657	FOXO-mediated transcription of cell death genes	107						
-												REAC:R-HSA-6803204	TP53 Regulates Transcription of Genes Involved in Cytochrome C Release	110						
-												REAC:R-HSA-6803207	TP53 Regulates Transcription of Caspase Activators and Caspases	113						
+						REAC:R-HSA-9614657	FOXO-mediated transcription of cell death genes	120				REAC:R-HSA-9614657	FOXO-mediated transcription of cell death genes	108						
+												REAC:R-HSA-6803204	TP53 Regulates Transcription of Genes Involved in Cytochrome C Release	111						
 									REAC:R-HSA-749476	RNA Polymerase III Abortive And Retractive Initiation	114									
+												REAC:R-HSA-6803207	TP53 Regulates Transcription of Caspase Activators and Caspases	114						
 									REAC:R-HSA-74158	RNA Polymerase III Transcription	115									
 						REAC:R-HSA-8866910	TFAP2 (AP-2) family regulates transcription of growth factors and their receptors	118												
 						REAC:R-HSA-6804758	Regulation of TP53 Activity through Acetylation	121	REAC:R-HSA-6804758	Regulation of TP53 Activity through Acetylation	185									
@@ -169,23 +169,23 @@ REAC:R-HSA-166016	Toll Like Receptor 4 (TLR4) Cascade	1
 												REAC:R-HSA-166016	Toll Like Receptor 4 (TLR4) Cascade	1						
 												REAC:R-HSA-937061	TRIF(TICAM1)-mediated TLR4 signaling 	2						
 												REAC:R-HSA-166166	MyD88-independent TLR4 cascade 	3						
-												REAC:R-HSA-166058	MyD88:MAL(TIRAP) cascade initiated on plasma membrane	11						
-												REAC:R-HSA-168188	Toll Like Receptor TLR6:TLR2 Cascade	12						
-												REAC:R-HSA-181438	Toll Like Receptor 2 (TLR2) Cascade	13						
-												REAC:R-HSA-168179	Toll Like Receptor TLR1:TLR2 Cascade	14						
+												REAC:R-HSA-168188	Toll Like Receptor TLR6:TLR2 Cascade	11						
+												REAC:R-HSA-166058	MyD88:MAL(TIRAP) cascade initiated on plasma membrane	12						
+												REAC:R-HSA-168179	Toll Like Receptor TLR1:TLR2 Cascade	13						
+												REAC:R-HSA-181438	Toll Like Receptor 2 (TLR2) Cascade	14						
 												REAC:R-HSA-445989	TAK1-dependent IKK and NF-kappa-B activation  	25						
 												REAC:R-HSA-450294	MAP kinase activation	35						
 												REAC:R-HSA-937041	IKK complex recruitment mediated by RIP1	38						
-												REAC:R-HSA-975163	IRAK2 mediated activation of TAK1 complex upon TLR7/8 or 9 stimulation	52						
-												REAC:R-HSA-937072	TRAF6-mediated induction of TAK1 complex within TLR4 complex	53						
+												REAC:R-HSA-937072	TRAF6-mediated induction of TAK1 complex within TLR4 complex	52						
+												REAC:R-HSA-975163	IRAK2 mediated activation of TAK1 complex upon TLR7/8 or 9 stimulation	53						
 												REAC:R-HSA-5684264	MAP3K8 (TPL2)-dependent MAPK1/3 activation	57						
 												REAC:R-HSA-450321	JNK (c-Jun kinases) phosphorylation and  activation mediated by activated human TAK1	63						
-												REAC:R-HSA-936964	Activation of IRF3/IRF7 mediated by TBK1/IKK epsilon	67						
+												REAC:R-HSA-936964	Activation of IRF3/IRF7 mediated by TBK1/IKK epsilon	66						
 												REAC:R-HSA-450302	activated TAK1 mediates p38 MAPK activation	68						
-												REAC:R-HSA-975144	IRAK1 recruits IKK complex upon TLR7/8 or 9 stimulation	70						
-												REAC:R-HSA-937039	IRAK1 recruits IKK complex	71						
+												REAC:R-HSA-937039	IRAK1 recruits IKK complex	70						
+												REAC:R-HSA-975144	IRAK1 recruits IKK complex upon TLR7/8 or 9 stimulation	71						
 												REAC:R-HSA-937042	IRAK2 mediated activation of TAK1 complex	85						
-												REAC:R-HSA-5603041	IRAK4 deficiency (TLR2/4)	122						
+												REAC:R-HSA-5603041	IRAK4 deficiency (TLR2/4)	123						
 REAC:R-HSA-9006934	Signaling by Receptor Tyrosine Kinases	1
 									REAC:R-HSA-9006934	Signaling by Receptor Tyrosine Kinases	121				REAC:R-HSA-9006934	Signaling by Receptor Tyrosine Kinases	1			
 															REAC:R-HSA-186797	Signaling by PDGF	7			
@@ -255,7 +255,7 @@ REAC:R-HSA-9007101	Rab regulation of trafficking	1
 																		REAC:R-HSA-8876198	RAB GEFs exchange GTP for GDP on RABs	2
 																		REAC:R-HSA-8854214	TBC/RABGAPs	6
 REAC:R-HSA-162582	Signal Transduction	2
-						REAC:R-HSA-162582	Signal Transduction	81	REAC:R-HSA-162582	Signal Transduction	6	REAC:R-HSA-162582	Signal Transduction	94	REAC:R-HSA-162582	Signal Transduction	2			
+						REAC:R-HSA-162582	Signal Transduction	81	REAC:R-HSA-162582	Signal Transduction	6	REAC:R-HSA-162582	Signal Transduction	96	REAC:R-HSA-162582	Signal Transduction	2			
 REAC:R-HSA-1640170	Cell Cycle	3
 			REAC:R-HSA-1640170	Cell Cycle	3	REAC:R-HSA-1640170	Cell Cycle	11	REAC:R-HSA-1640170	Cell Cycle	87									
 			REAC:R-HSA-69242	S Phase	39	REAC:R-HSA-69242	S Phase	4	REAC:R-HSA-69242	S Phase	76									
@@ -277,7 +277,7 @@ REAC:R-HSA-1640170	Cell Cycle	3
 			REAC:R-HSA-176187	Activation of ATR in response to replication stress	59	REAC:R-HSA-176187	Activation of ATR in response to replication stress	46												
 			REAC:R-HSA-69190	DNA strand elongation	47	REAC:R-HSA-69190	DNA strand elongation	158												
 			REAC:R-HSA-174411	Polymerase switching on the C-strand of the telomere	50															
-						REAC:R-HSA-453274	Mitotic G2-G2/M phases	50	REAC:R-HSA-453274	Mitotic G2-G2/M phases	201	REAC:R-HSA-453274	Mitotic G2-G2/M phases	130						
+						REAC:R-HSA-453274	Mitotic G2-G2/M phases	50	REAC:R-HSA-453274	Mitotic G2-G2/M phases	201	REAC:R-HSA-453274	Mitotic G2-G2/M phases	131						
 						REAC:R-HSA-69275	G2/M Transition	56	REAC:R-HSA-69275	G2/M Transition	218	REAC:R-HSA-69275	G2/M Transition	129						
 			REAC:R-HSA-69183	Processive synthesis on the lagging strand	58															
 			REAC:R-HSA-174430	Telomere C-strand synthesis initiation	60															
@@ -298,7 +298,7 @@ REAC:R-HSA-1640170	Cell Cycle	3
 			REAC:R-HSA-9670095	Inhibition of DNA recombination at telomere	117															
 						REAC:R-HSA-156711	Polo-like kinase mediated events	117												
 						REAC:R-HSA-176408	Regulation of APC/C activators between G1/S and early anaphase	119												
-												REAC:R-HSA-2565942	Regulation of PLK1 Activity at G2/M Transition	124						
+												REAC:R-HSA-2565942	Regulation of PLK1 Activity at G2/M Transition	125						
 						REAC:R-HSA-69017	CDK-mediated phosphorylation and removal of Cdc6	157												
 REAC:R-HSA-216083	Integrin cell surface interactions	3
 															REAC:R-HSA-216083	Integrin cell surface interactions	3			
@@ -311,15 +311,15 @@ REAC:R-HSA-168898	Toll-like Receptor Cascades	4
 												REAC:R-HSA-168181	Toll Like Receptor 7/8 (TLR7/8) Cascade	8						
 												REAC:R-HSA-168138	Toll Like Receptor 9 (TLR9) Cascade	9						
 												REAC:R-HSA-975138	TRAF6 mediated induction of NFkB and MAP kinases upon TLR7/8 or 9 activation	10						
-												REAC:R-HSA-168176	Toll Like Receptor 5 (TLR5) Cascade	16						
 												REAC:R-HSA-975871	MyD88 cascade initiated on plasma membrane	17						
 												REAC:R-HSA-168142	Toll Like Receptor 10 (TLR10) Cascade	18						
-												REAC:R-HSA-5602358	Diseases associated with the TLR signaling cascade	45						
-												REAC:R-HSA-5260271	Diseases of Immune System	46						
+												REAC:R-HSA-168176	Toll Like Receptor 5 (TLR5) Cascade	19						
+												REAC:R-HSA-5260271	Diseases of Immune System	45						
+												REAC:R-HSA-5602358	Diseases associated with the TLR signaling cascade	46						
 												REAC:R-HSA-168927	TICAM1, RIP1-mediated IKK complex recruitment	60						
-												REAC:R-HSA-975110	TRAF6 mediated IRF7 activation in TLR7/8 or 9 signaling	83						
-												REAC:R-HSA-9014325	TICAM1,TRAF6-dependent induction of TAK1 complex	86						
-												REAC:R-HSA-9013973	TICAM1-dependent activation of IRF3/IRF7	89						
+												REAC:R-HSA-975110	TRAF6 mediated IRF7 activation in TLR7/8 or 9 signaling	82						
+												REAC:R-HSA-9014325	TICAM1,TRAF6-dependent induction of TAK1 complex	87						
+												REAC:R-HSA-9013973	TICAM1-dependent activation of IRF3/IRF7	90						
 															REAC:R-HSA-5686938	Regulation of TLR by endogenous ligand	199			
 REAC:R-HSA-1474244	Extracellular matrix organization	4
 															REAC:R-HSA-1474244	Extracellular matrix organization	4			
@@ -385,7 +385,7 @@ REAC:R-HSA-5663202	Diseases of signal transduction by growth factor receptors an
 									REAC:R-HSA-2219528	PI3K/AKT Signaling in Cancer	191				REAC:R-HSA-2219528	PI3K/AKT Signaling in Cancer	39			
 															REAC:R-HSA-6802952	Signaling by BRAF and RAF1 fusions	46			
 															REAC:R-HSA-6802957	Oncogenic MAPK signaling	59			
-						REAC:R-HSA-5674400	Constitutive Signaling by AKT1 E17K in Cancer	144	REAC:R-HSA-5674400	Constitutive Signaling by AKT1 E17K in Cancer	204	REAC:R-HSA-5674400	Constitutive Signaling by AKT1 E17K in Cancer	114						
+						REAC:R-HSA-5674400	Constitutive Signaling by AKT1 E17K in Cancer	144	REAC:R-HSA-5674400	Constitutive Signaling by AKT1 E17K in Cancer	204	REAC:R-HSA-5674400	Constitutive Signaling by AKT1 E17K in Cancer	115						
 						REAC:R-HSA-9725371	Nuclear events stimulated by ALK signaling in cancer	122												
 						REAC:R-HSA-9725370	Signaling by ALK fusions and activated point mutants	161							REAC:R-HSA-9725370	Signaling by ALK fusions and activated point mutants	133			
 						REAC:R-HSA-9700206	Signaling by ALK in cancer	160							REAC:R-HSA-9700206	Signaling by ALK in cancer	134			
@@ -430,7 +430,7 @@ REAC:R-HSA-5684996	MAPK1/MAPK3 signaling	13
 REAC:R-HSA-264642	Acetylcholine Neurotransmitter Release Cycle	13
 																		REAC:R-HSA-264642	Acetylcholine Neurotransmitter Release Cycle	13
 REAC:R-HSA-1643685	Disease	14
-			REAC:R-HSA-1643685	Disease	69	REAC:R-HSA-1643685	Disease	70	REAC:R-HSA-1643685	Disease	14	REAC:R-HSA-1643685	Disease	80	REAC:R-HSA-1643685	Disease	74			
+			REAC:R-HSA-1643685	Disease	69	REAC:R-HSA-1643685	Disease	70	REAC:R-HSA-1643685	Disease	14	REAC:R-HSA-1643685	Disease	77	REAC:R-HSA-1643685	Disease	74			
 									REAC:R-HSA-9013700	NOTCH4 Activation and Transmission of Signal to the Nucleus	103							REAC:R-HSA-9013700	NOTCH4 Activation and Transmission of Signal to the Nucleus	20
 																		REAC:R-HSA-168799	Neurotoxicity of clostridium toxins	34
 									REAC:R-HSA-162599	Late Phase of HIV Life Cycle	48									
@@ -439,14 +439,14 @@ REAC:R-HSA-1643685	Disease	14
 												REAC:R-HSA-9705683	SARS-CoV-2-host interactions	61						
 												REAC:R-HSA-9694516	SARS-CoV-2 Infection	72						
 												REAC:R-HSA-9679506	SARS-CoV Infections	73						
-												REAC:R-HSA-9660826	Purinergic signaling in leishmaniasis infection	77						
 												REAC:R-HSA-9664424	Cell recruitment (pro-inflammatory response)	78						
+												REAC:R-HSA-9660826	Purinergic signaling in leishmaniasis infection	79						
+									REAC:R-HSA-5663205	Infectious disease	111	REAC:R-HSA-5663205	Infectious disease	86						
 			REAC:R-HSA-162906	HIV Infection	129				REAC:R-HSA-162906	HIV Infection	88									
-									REAC:R-HSA-5663205	Infectious disease	111	REAC:R-HSA-5663205	Infectious disease	90						
 			REAC:R-HSA-162594	Early Phase of HIV Life Cycle	91															
 									REAC:R-HSA-8876384	Listeria monocytogenes entry into host cells	214				REAC:R-HSA-8876384	Listeria monocytogenes entry into host cells	97			
-						REAC:R-HSA-9645723	Diseases of programmed cell death	102				REAC:R-HSA-9645723	Diseases of programmed cell death	101						
-												REAC:R-HSA-918233	TRAF3-dependent IRF activation pathway	105						
+						REAC:R-HSA-9645723	Diseases of programmed cell death	102				REAC:R-HSA-9645723	Diseases of programmed cell death	103						
+												REAC:R-HSA-918233	TRAF3-dependent IRF activation pathway	106						
 						REAC:R-HSA-9734009	Defective Intrinsic Pathway for Apoptosis	110				REAC:R-HSA-9734009	Defective Intrinsic Pathway for Apoptosis	112						
 															REAC:R-HSA-9664422	FCGR3A-mediated phagocytosis	125			
 															REAC:R-HSA-9664417	Leishmania phagocytosis	126			
@@ -478,14 +478,14 @@ REAC:R-HSA-157118	Signaling by NOTCH	16
 									REAC:R-HSA-9013508	NOTCH3 Intracellular Domain Regulates Transcription	95									
 									REAC:R-HSA-2197563	NOTCH2 intracellular domain regulates transcription	161									
 									REAC:R-HSA-1912420	Pre-NOTCH Processing in Golgi	212									
+REAC:R-HSA-168256	Immune System	16
+												REAC:R-HSA-168256	Immune System	16	REAC:R-HSA-168256	Immune System	66			
 REAC:R-HSA-181429	Serotonin Neurotransmitter Release Cycle	16
 																		REAC:R-HSA-181429	Serotonin Neurotransmitter Release Cycle	16
 REAC:R-HSA-9024446	NR1H2 and NR1H3-mediated signaling	17
 									REAC:R-HSA-9024446	NR1H2 and NR1H3-mediated signaling	93							REAC:R-HSA-9024446	NR1H2 and NR1H3-mediated signaling	17
 REAC:R-HSA-9603798	Class I peroxisomal membrane protein import	18
 																		REAC:R-HSA-9603798	Class I peroxisomal membrane protein import	18
-REAC:R-HSA-168256	Immune System	19
-												REAC:R-HSA-168256	Immune System	19	REAC:R-HSA-168256	Immune System	66			
 REAC:R-HSA-194315	Signaling by Rho GTPases	19
 															REAC:R-HSA-194315	Signaling by Rho GTPases	19			
 															REAC:R-HSA-9012999	RHO GTPase cycle	35			
@@ -499,48 +499,19 @@ REAC:R-HSA-194315	Signaling by Rho GTPases	19
 															REAC:R-HSA-9013424	RHOV GTPase cycle	190			
 															REAC:R-HSA-9013148	CDC42 GTPase cycle	192			
 REAC:R-HSA-2262752	Cellular responses to stress	20
-			REAC:R-HSA-2262752	Cellular responses to stress	119	REAC:R-HSA-2262752	Cellular responses to stress	20	REAC:R-HSA-2262752	Cellular responses to stress	122									
-						REAC:R-HSA-9755511	KEAP1-NFE2L2 pathway	51				REAC:R-HSA-9755511	KEAP1-NFE2L2 pathway	121						
+			REAC:R-HSA-2262752	Cellular responses to stress	119	REAC:R-HSA-2262752	Cellular responses to stress	20	REAC:R-HSA-2262752	Cellular responses to stress	122	REAC:R-HSA-2262752	Cellular responses to stress	130						
+						REAC:R-HSA-9755511	KEAP1-NFE2L2 pathway	51				REAC:R-HSA-9755511	KEAP1-NFE2L2 pathway	122						
 						REAC:R-HSA-9711123	Cellular response to chemical stress	68	REAC:R-HSA-9711123	Cellular response to chemical stress	117									
+												REAC:R-HSA-3371568	Attenuation phase	92						
+												REAC:R-HSA-3371497	HSP90 chaperone cycle for steroid hormone receptors (SHR) in the presence of ligand	94						
 						REAC:R-HSA-9759194	Nuclear events mediated by NFE2L2	97												
-												REAC:R-HSA-3371497	HSP90 chaperone cycle for steroid hormone receptors (SHR) in the presence of ligand	100						
-												REAC:R-HSA-3371568	Attenuation phase	102						
+												REAC:R-HSA-3371571	HSF1-dependent transactivation	102						
 									REAC:R-HSA-9707616	Heme signaling	108									
-												REAC:R-HSA-3371571	HSF1-dependent transactivation	111						
+												REAC:R-HSA-3371556	Cellular response to heat stress	113						
 									REAC:R-HSA-9707564	Cytoprotection by HMOX1	116									
-												REAC:R-HSA-3371556	Cellular response to heat stress	125						
 						REAC:R-HSA-9708530	Regulation of BACH1 activity	133	REAC:R-HSA-9708530	Regulation of BACH1 activity	219									
-REAC:R-HSA-446652	Interleukin-1 family signaling	20
-												REAC:R-HSA-446652	Interleukin-1 family signaling	20						
-REAC:R-HSA-5683057	MAPK family signaling cascades	20
-															REAC:R-HSA-5683057	MAPK family signaling cascades	20			
-																		REAC:R-HSA-5687128	MAPK6/MAPK4 signaling	38
-REAC:R-HSA-73887	Death Receptor Signaling	21
-												REAC:R-HSA-73887	Death Receptor Signaling	21				REAC:R-HSA-73887	Death Receptor Signaling	47
-												REAC:R-HSA-75893	TNF signaling	24						
-												REAC:R-HSA-5357956	TNFR1-induced NFkappaB signaling pathway	28						
-												REAC:R-HSA-5357905	Regulation of TNFR1 signaling	30						
-												REAC:R-HSA-193704	p75 NTR receptor-mediated signalling	108				REAC:R-HSA-193704	p75 NTR receptor-mediated signalling	31
-																		REAC:R-HSA-204998	Cell death signalling via NRAGE, NRIF and NADE	32
-												REAC:R-HSA-5357786	TNFR1-induced proapoptotic signaling	69						
-												REAC:R-HSA-3371378	Regulation by c-FLIP	74						
-												REAC:R-HSA-5218900	CASP8 activity is inhibited	75						
-												REAC:R-HSA-69416	Dimerization of procaspase-8	76						
-												REAC:R-HSA-193639	p75NTR signals via NF-kB	84						
-												REAC:R-HSA-209560	NF-kB is activated and signals survival	91						
-												REAC:R-HSA-209543	p75NTR recruits signalling complexes	116						
-REAC:R-HSA-212676	Dopamine Neurotransmitter Release Cycle	21
-																		REAC:R-HSA-212676	Dopamine Neurotransmitter Release Cycle	21
-REAC:R-HSA-8953897	Cellular responses to stimuli	22
-			REAC:R-HSA-8953897	Cellular responses to stimuli	123	REAC:R-HSA-8953897	Cellular responses to stimuli	22	REAC:R-HSA-8953897	Cellular responses to stimuli	131									
-REAC:R-HSA-9006931	Signaling by Nuclear Receptors	22
-									REAC:R-HSA-9006931	Signaling by Nuclear Receptors	22									
-						REAC:R-HSA-8939211	ESR-mediated signaling	132	REAC:R-HSA-8939211	ESR-mediated signaling	41									
-						REAC:R-HSA-9018519	Estrogen-dependent gene expression	148	REAC:R-HSA-9018519	Estrogen-dependent gene expression	71							REAC:R-HSA-9018519	Estrogen-dependent gene expression	49
-									REAC:R-HSA-9009391	Extra-nuclear estrogen signaling	160				REAC:R-HSA-9009391	Extra-nuclear estrogen signaling	152			
-									REAC:R-HSA-9634638	Estrogen-dependent nuclear events downstream of ESR-membrane signaling	171									
-REAC:R-HSA-168249	Innate Immune System	22
-												REAC:R-HSA-168249	Innate Immune System	22	REAC:R-HSA-168249	Innate Immune System	106			
+REAC:R-HSA-168249	Innate Immune System	20
+												REAC:R-HSA-168249	Innate Immune System	20	REAC:R-HSA-168249	Innate Immune System	106			
 												REAC:R-HSA-168928	DDX58/IFIH1-mediated induction of interferon-alpha/beta	27						
 												REAC:R-HSA-5607764	CLEC7A (Dectin-1) signaling	29						
 												REAC:R-HSA-5621481	C-type lectin receptors (CLRs)	32						
@@ -552,16 +523,45 @@ REAC:R-HSA-168249	Innate Immune System	22
 												REAC:R-HSA-933542	TRAF6 mediated NF-kB activation	58						
 												REAC:R-HSA-2454202	Fc epsilon receptor (FCERI) signaling	64	REAC:R-HSA-2454202	Fc epsilon receptor (FCERI) signaling	189			
 															REAC:R-HSA-2424491	DAP12 signaling	65			
-												REAC:R-HSA-933543	NF-kB activation through FADD/RIP-1 pathway mediated by caspase-8 and -10	82						
+												REAC:R-HSA-933543	NF-kB activation through FADD/RIP-1 pathway mediated by caspase-8 and -10	83						
 															REAC:R-HSA-2172127	DAP12 interactions	84			
-												REAC:R-HSA-5607761	Dectin-1 mediated noncanonical NF-kB signaling	93						
-												REAC:R-HSA-933541	TRAF6 mediated IRF7 activation	95						
-												REAC:R-HSA-9645460	Alpha-protein kinase 1 signaling pathway	98						
-												REAC:R-HSA-5676590	NIK-->noncanonical NF-kB signaling	103						
+												REAC:R-HSA-5607761	Dectin-1 mediated noncanonical NF-kB signaling	95						
+												REAC:R-HSA-933541	TRAF6 mediated IRF7 activation	97						
+												REAC:R-HSA-9645460	Alpha-protein kinase 1 signaling pathway	101						
+												REAC:R-HSA-5676590	NIK-->noncanonical NF-kB signaling	104						
 															REAC:R-HSA-2029482	Regulation of actin dynamics for phagocytic cup formation	114			
-												REAC:R-HSA-936440	Negative regulators of DDX58/IFIH1 signaling	123						
+												REAC:R-HSA-936440	Negative regulators of DDX58/IFIH1 signaling	124						
 												REAC:R-HSA-5621575	CD209 (DC-SIGN) signaling	126						
 			REAC:R-HSA-3270619	IRF3-mediated induction of type I IFN	136															
+REAC:R-HSA-5683057	MAPK family signaling cascades	20
+															REAC:R-HSA-5683057	MAPK family signaling cascades	20			
+																		REAC:R-HSA-5687128	MAPK6/MAPK4 signaling	38
+REAC:R-HSA-446652	Interleukin-1 family signaling	21
+												REAC:R-HSA-446652	Interleukin-1 family signaling	21						
+REAC:R-HSA-212676	Dopamine Neurotransmitter Release Cycle	21
+																		REAC:R-HSA-212676	Dopamine Neurotransmitter Release Cycle	21
+REAC:R-HSA-8953897	Cellular responses to stimuli	22
+			REAC:R-HSA-8953897	Cellular responses to stimuli	123	REAC:R-HSA-8953897	Cellular responses to stimuli	22	REAC:R-HSA-8953897	Cellular responses to stimuli	131									
+REAC:R-HSA-9006931	Signaling by Nuclear Receptors	22
+									REAC:R-HSA-9006931	Signaling by Nuclear Receptors	22									
+						REAC:R-HSA-8939211	ESR-mediated signaling	132	REAC:R-HSA-8939211	ESR-mediated signaling	41									
+						REAC:R-HSA-9018519	Estrogen-dependent gene expression	148	REAC:R-HSA-9018519	Estrogen-dependent gene expression	71							REAC:R-HSA-9018519	Estrogen-dependent gene expression	49
+									REAC:R-HSA-9009391	Extra-nuclear estrogen signaling	160				REAC:R-HSA-9009391	Extra-nuclear estrogen signaling	152			
+									REAC:R-HSA-9634638	Estrogen-dependent nuclear events downstream of ESR-membrane signaling	171									
+REAC:R-HSA-73887	Death Receptor Signaling	22
+												REAC:R-HSA-73887	Death Receptor Signaling	22				REAC:R-HSA-73887	Death Receptor Signaling	47
+												REAC:R-HSA-75893	TNF signaling	24						
+												REAC:R-HSA-5357956	TNFR1-induced NFkappaB signaling pathway	28						
+												REAC:R-HSA-5357905	Regulation of TNFR1 signaling	30						
+												REAC:R-HSA-193704	p75 NTR receptor-mediated signalling	109				REAC:R-HSA-193704	p75 NTR receptor-mediated signalling	31
+																		REAC:R-HSA-204998	Cell death signalling via NRAGE, NRIF and NADE	32
+												REAC:R-HSA-5357786	TNFR1-induced proapoptotic signaling	69						
+												REAC:R-HSA-3371378	Regulation by c-FLIP	74						
+												REAC:R-HSA-69416	Dimerization of procaspase-8	75						
+												REAC:R-HSA-5218900	CASP8 activity is inhibited	76						
+												REAC:R-HSA-193639	p75NTR signals via NF-kB	84						
+												REAC:R-HSA-209560	NF-kB is activated and signals survival	91						
+												REAC:R-HSA-209543	p75NTR recruits signalling complexes	117						
 REAC:R-HSA-9716542	Signaling by Rho GTPases, Miro GTPases and RHOBTB3	22
 															REAC:R-HSA-9716542	Signaling by Rho GTPases, Miro GTPases and RHOBTB3	22			
 REAC:R-HSA-210500	Glutamate Neurotransmitter Release Cycle	22
@@ -573,12 +573,12 @@ REAC:R-HSA-1280215	Cytokine Signaling in Immune system	23
 												REAC:R-HSA-448424	Interleukin-17 signaling	36						
 															REAC:R-HSA-512988	Interleukin-3, Interleukin-5 and GM-CSF signaling	38			
 												REAC:R-HSA-5668541	TNFR2 non-canonical NF-kB pathway	40						
-												REAC:R-HSA-5676594	TNF receptor superfamily (TNFSF) members mediating non-canonical NF-kB pathway	66						
+												REAC:R-HSA-5676594	TNF receptor superfamily (TNFSF) members mediating non-canonical NF-kB pathway	67						
 															REAC:R-HSA-9607240	FLT3 Signaling	95			
-												REAC:R-HSA-6785807	Interleukin-4 and Interleukin-13 signaling	96						
+												REAC:R-HSA-6785807	Interleukin-4 and Interleukin-13 signaling	98						
 															REAC:R-HSA-451927	Interleukin-2 family signaling	108			
 						REAC:R-HSA-1170546	Prolactin receptor signaling	147				REAC:R-HSA-1170546	Prolactin receptor signaling	119						
-												REAC:R-HSA-5669034	TNFs bind their physiological receptors	120						
+												REAC:R-HSA-5669034	TNFs bind their physiological receptors	121						
 															REAC:R-HSA-912526	Interleukin receptor SHC signaling	145			
 															REAC:R-HSA-9674555	Signaling by CSF3 (G-CSF)	200			
 REAC:R-HSA-6811558	PI5P, PP2A and IER3 Regulate PI3K/AKT Signaling	23
@@ -590,16 +590,16 @@ REAC:R-HSA-392499	Metabolism of proteins	25
 			REAC:R-HSA-2990846	SUMOylation	88	REAC:R-HSA-2990846	SUMOylation	45	REAC:R-HSA-2990846	SUMOylation	27									
 																		REAC:R-HSA-977225	Amyloid fiber formation	28
 			REAC:R-HSA-3108232	SUMO E3 ligases SUMOylate target proteins	87	REAC:R-HSA-3108232	SUMO E3 ligases SUMOylate target proteins	42	REAC:R-HSA-3108232	SUMO E3 ligases SUMOylate target proteins	34									
-			REAC:R-HSA-597592	Post-translational protein modification	106	REAC:R-HSA-597592	Post-translational protein modification	48	REAC:R-HSA-597592	Post-translational protein modification	187	REAC:R-HSA-597592	Post-translational protein modification	104				REAC:R-HSA-597592	Post-translational protein modification	37
-			REAC:R-HSA-5688426	Deubiquitination	90	REAC:R-HSA-5688426	Deubiquitination	62	REAC:R-HSA-5688426	Deubiquitination	206	REAC:R-HSA-5688426	Deubiquitination	97						
+			REAC:R-HSA-597592	Post-translational protein modification	106	REAC:R-HSA-597592	Post-translational protein modification	48	REAC:R-HSA-597592	Post-translational protein modification	187	REAC:R-HSA-597592	Post-translational protein modification	107				REAC:R-HSA-597592	Post-translational protein modification	37
+			REAC:R-HSA-5688426	Deubiquitination	90	REAC:R-HSA-5688426	Deubiquitination	62	REAC:R-HSA-5688426	Deubiquitination	206	REAC:R-HSA-5688426	Deubiquitination	99						
 									REAC:R-HSA-4090294	SUMOylation of intracellular receptors	64									
 						REAC:R-HSA-8951664	Neddylation	75												
 						REAC:R-HSA-3899300	SUMOylation of transcription cofactors	82	REAC:R-HSA-3899300	SUMOylation of transcription cofactors	83									
 			REAC:R-HSA-5689880	Ub-specific processing proteases	93	REAC:R-HSA-5689880	Ub-specific processing proteases	86												
 						REAC:R-HSA-4551638	SUMOylation of chromatin organization proteins	89												
-												REAC:R-HSA-5689896	Ovarian tumor domain proteases	92						
+												REAC:R-HSA-5689896	Ovarian tumor domain proteases	93						
 			REAC:R-HSA-3108214	SUMOylation of DNA damage response and repair proteins	94	REAC:R-HSA-3108214	SUMOylation of DNA damage response and repair proteins	156												
-												REAC:R-HSA-4755510	SUMOylation of immune response proteins	99						
+												REAC:R-HSA-4755510	SUMOylation of immune response proteins	100						
 			REAC:R-HSA-3232118	SUMOylation of transcription factors	105	REAC:R-HSA-3232118	SUMOylation of transcription factors	162	REAC:R-HSA-3232118	SUMOylation of transcription factors	178									
 						REAC:R-HSA-4570464	SUMOylation of RNA binding proteins	145												
 						REAC:R-HSA-264876	Insulin processing	146							REAC:R-HSA-264876	Insulin processing	173			
@@ -639,11 +639,11 @@ REAC:R-HSA-5357801	Programmed Cell Death	31
 						REAC:R-HSA-109606	Intrinsic Pathway for Apoptosis	131				REAC:R-HSA-109606	Intrinsic Pathway for Apoptosis	65	REAC:R-HSA-109606	Intrinsic Pathway for Apoptosis	135			
 															REAC:R-HSA-111458	Formation of apoptosome	72			
 															REAC:R-HSA-9627069	Regulation of the apoptosome activity	73			
-						REAC:R-HSA-114452	Activation of BH3-only proteins	154				REAC:R-HSA-114452	Activation of BH3-only proteins	87						
+						REAC:R-HSA-114452	Activation of BH3-only proteins	154				REAC:R-HSA-114452	Activation of BH3-only proteins	88						
 															REAC:R-HSA-111461	Cytochrome c-mediated apoptotic response	88			
-												REAC:R-HSA-111447	Activation of BAD and translocation to mitochondria 	106						
+												REAC:R-HSA-111447	Activation of BAD and translocation to mitochondria 	105						
 															REAC:R-HSA-111471	Apoptotic factor-mediated response	116			
-												REAC:R-HSA-5620971	Pyroptosis	117						
+												REAC:R-HSA-5620971	Pyroptosis	118						
 REAC:R-HSA-199418	Negative regulation of the PI3K/AKT network	32
 															REAC:R-HSA-199418	Negative regulation of the PI3K/AKT network	32			
 REAC:R-HSA-69306	DNA Replication	34
@@ -680,7 +680,7 @@ REAC:R-HSA-1168372	Downstream signaling events of B Cell Receptor (BCR)	49
 REAC:R-HSA-1257604	PIP3 activates AKT signaling	57
 			REAC:R-HSA-1257604	PIP3 activates AKT signaling	112	REAC:R-HSA-1257604	PIP3 activates AKT signaling	57	REAC:R-HSA-1257604	PIP3 activates AKT signaling	136				REAC:R-HSA-1257604	PIP3 activates AKT signaling	75			
 			REAC:R-HSA-6807070	PTEN Regulation	124	REAC:R-HSA-6807070	PTEN Regulation	60	REAC:R-HSA-6807070	PTEN Regulation	188									
-												REAC:R-HSA-198323	AKT phosphorylates targets in the cytosol	118						
+												REAC:R-HSA-198323	AKT phosphorylates targets in the cytosol	120						
 			REAC:R-HSA-8948751	Regulation of PTEN stability and activity	132															
 REAC:R-HSA-3247509	Chromatin modifying enzymes	64
 						REAC:R-HSA-3247509	Chromatin modifying enzymes	64	REAC:R-HSA-3247509	Chromatin modifying enzymes	73									
@@ -690,12 +690,12 @@ REAC:R-HSA-9006925	Intracellular signaling by second messengers	66
 			REAC:R-HSA-9006925	Intracellular signaling by second messengers	125	REAC:R-HSA-9006925	Intracellular signaling by second messengers	66	REAC:R-HSA-9006925	Intracellular signaling by second messengers	159				REAC:R-HSA-9006925	Intracellular signaling by second messengers	93			
 REAC:R-HSA-1474165	Reproduction	70
 			REAC:R-HSA-1474165	Reproduction	70															
-REAC:R-HSA-983705	Signaling by the B Cell Receptor (BCR)	79
-												REAC:R-HSA-983705	Signaling by the B Cell Receptor (BCR)	79						
+REAC:R-HSA-983705	Signaling by the B Cell Receptor (BCR)	80
+												REAC:R-HSA-983705	Signaling by the B Cell Receptor (BCR)	80						
 															REAC:R-HSA-983695	Antigen activates B Cell Receptor (BCR) leading to generation of second messengers	167			
 REAC:R-HSA-1280218	Adaptive Immune System	81
 												REAC:R-HSA-1280218	Adaptive Immune System	81	REAC:R-HSA-1280218	Adaptive Immune System	87			
-												REAC:R-HSA-983169	Class I MHC mediated antigen processing & presentation	109						
+												REAC:R-HSA-983169	Class I MHC mediated antigen processing & presentation	110						
 															REAC:R-HSA-389356	CD28 co-stimulation	139			
 															REAC:R-HSA-388841	Costimulation by the CD28 family	177			
 REAC:R-HSA-8949613	Cristae formation	86

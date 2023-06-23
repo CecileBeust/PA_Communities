@@ -109,7 +109,8 @@ def enrichment_cluster(cluster_id: int, gene_set: set, size: int):
         None
     """
     genes = list(gene_set)
-    gp = GProfiler(return_dataframe=True)
+    print(genes)
+    gp = GProfiler(user_agent='https://biit.cs.ut.ee/gprofiler_archive3/e108_eg55_p17/api/gost/profile/', return_dataframe=True)
     enrich = gp.profile(organism='hsapiens', query=genes, no_evidences=False)
     print(enrich)
     enrich.to_csv(path + f"output_tables/enrich_bioannot_{cluster_id}.tsv", sep="\t")
@@ -131,7 +132,7 @@ def enrich_all_clusters(filtered_dico: dict) -> None:
     for tsv_file in tsv_dir.glob('*.tsv'):
         tsv_name = tsv_file.stem
         tsv_data[tsv_name] = pd.read_csv(tsv_file, sep="\t")
-    writer = pd.ExcelWriter(path + "output_tables/enrich_bioannot_clusters.xlsx", engine='xlsxwriter')
+    writer = pd.ExcelWriter(path + f"output_tables/enrich_bioannot_clusters.xlsx", engine='xlsxwriter')
     for sheet_name, sheet_data in tsv_data.items():
         sheet_data.to_excel(writer, sheet_name=sheet_name, index=False)
     writer.save()
@@ -181,3 +182,33 @@ def highlight_seeds(filtered_dico_cluster: dict, size: int, dico_code_disease: d
         df.to_csv(path + f"output_tables/{cluster}_with_genes.tsv", sep="\t")
                 
 #highlight_seeds(filtered_dico_cluster, 10, dico_code_disease, dico_disease_seeds)
+
+def analyze_clusters(dico_clusters, dico_diseases_names):
+    df = pd.DataFrame(columns=['Cluster', 'Diseases', 'Seeds'])
+    print(df)
+    i = 0
+    for cluster in dico_clusters:
+        print(cluster)
+        diseases_codes = dico_clusters[cluster]
+        diseases_names = []
+        for code in diseases_codes:
+            diseases_names.append(dico_diseases_names[str(code)])
+        for disease, code in zip(diseases_names, diseases_codes):
+            print(disease, code)
+            seeds = dico_disease_seeds[str(code)]
+            if cluster == 3:
+                new_clust_id = 2
+            elif cluster == 4:
+                new_clust_id = 3
+            elif cluster == 5:
+                new_clust_id = 4
+            elif cluster == 8:
+                new_clust_id = 5
+            elif cluster == 13:
+                new_clust_id = 6
+            else:
+                new_clust_id = cluster
+            new_row = [f"{new_clust_id}", disease, seeds]
+            df = df.append(dict(zip(df.columns, new_row)), ignore_index=True)
+    print(df)
+    df.to_csv("/home/cbeust/Landscape_PA/CommunityIdentification/CommunityIdentification_V3/Analysis_Communities_V3/clusters_100.tsv", sep="\t", index=False)

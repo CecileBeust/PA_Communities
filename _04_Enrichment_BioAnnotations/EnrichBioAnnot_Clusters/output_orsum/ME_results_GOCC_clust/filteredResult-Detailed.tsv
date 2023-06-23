@@ -32,14 +32,14 @@ GO:0005829	cytosol	1
 GO:0071944	cell periphery	1
 															GO:0071944	cell periphery	1	GO:0071944	cell periphery	52
 															GO:0005886	plasma membrane	4	GO:0005886	plasma membrane	43
-												GO:0035631	CD40 receptor complex	8						
+												GO:0035631	CD40 receptor complex	9						
 															GO:0062023	collagen-containing extracellular matrix	19			
 															GO:0098802	plasma membrane signaling receptor complex	20			
-												GO:0098797	plasma membrane protein complex	49	GO:0098797	plasma membrane protein complex	22			
+												GO:0098797	plasma membrane protein complex	50	GO:0098797	plasma membrane protein complex	22			
 															GO:0008305	integrin complex	25			
 															GO:0031012	extracellular matrix	28			
 															GO:0030312	external encapsulating structure	29			
-												GO:0009898	cytoplasmic side of plasma membrane	33	GO:0009898	cytoplasmic side of plasma membrane	47			
+												GO:0009898	cytoplasmic side of plasma membrane	35	GO:0009898	cytoplasmic side of plasma membrane	47			
 															GO:0098644	complex of collagen trimers	36			
 															GO:0098590	plasma membrane region	39	GO:0098590	plasma membrane region	72
 									GO:0016342	catenin complex	40									
@@ -67,9 +67,9 @@ GO:0071944	cell periphery	1
 															GO:0002116	semaphorin receptor complex	128			
 															GO:0016323	basolateral plasma membrane	137			
 GO:0031410	cytoplasmic vesicle	1
-												GO:0031410	cytoplasmic vesicle	29	GO:0031410	cytoplasmic vesicle	10	GO:0031410	cytoplasmic vesicle	1
-												GO:0030659	cytoplasmic vesicle membrane	32	GO:0030659	cytoplasmic vesicle membrane	109	GO:0030659	cytoplasmic vesicle membrane	3
-												GO:0005768	endosome	20	GO:0005768	endosome	52	GO:0005768	endosome	4
+												GO:0031410	cytoplasmic vesicle	28	GO:0031410	cytoplasmic vesicle	10	GO:0031410	cytoplasmic vesicle	1
+												GO:0030659	cytoplasmic vesicle membrane	33	GO:0030659	cytoplasmic vesicle membrane	109	GO:0030659	cytoplasmic vesicle membrane	3
+												GO:0005768	endosome	21	GO:0005768	endosome	52	GO:0005768	endosome	4
 												GO:0010008	endosome membrane	17				GO:0010008	endosome membrane	6
 															GO:0005769	early endosome	72	GO:0005769	early endosome	11
 															GO:0030139	endocytic vesicle	63	GO:0030139	endocytic vesicle	13
@@ -130,24 +130,24 @@ GO:0005667	transcription regulator complex	2
 						GO:0090571	RNA polymerase II transcription repressor complex	58												
 GO:0005737	cytoplasm	2
 			GO:0005737	cytoplasm	97	GO:0005737	cytoplasm	72	GO:0005737	cytoplasm	44	GO:0005737	cytoplasm	2	GO:0005737	cytoplasm	3	GO:0005737	cytoplasm	8
-												GO:0097708	intracellular vesicle	30	GO:0097708	intracellular vesicle	9	GO:0097708	intracellular vesicle	2
+												GO:0097708	intracellular vesicle	29	GO:0097708	intracellular vesicle	9	GO:0097708	intracellular vesicle	2
 												GO:0097136	Bcl-2 family protein complex	5						
 															GO:0005788	endoplasmic reticulum lumen	16			
 			GO:0005741	mitochondrial outer membrane	69							GO:0005741	mitochondrial outer membrane	18						
-			GO:0005739	mitochondrion	96							GO:0005739	mitochondrion	21						
-												GO:0048471	perinuclear region of cytoplasm	28	GO:0048471	perinuclear region of cytoplasm	59	GO:0048471	perinuclear region of cytoplasm	25
+			GO:0005739	mitochondrion	96							GO:0005739	mitochondrion	19						
+												GO:0048471	perinuclear region of cytoplasm	26	GO:0048471	perinuclear region of cytoplasm	59	GO:0048471	perinuclear region of cytoplasm	25
 																		GO:0098791	Golgi apparatus subcompartment	28
 			GO:0140275	MIB complex	29															
 			GO:0001401	SAM complex	31															
 															GO:0005794	Golgi apparatus	114	GO:0005794	Golgi apparatus	31
 																		GO:0031984	organelle subcompartment	32
 																		GO:0005802	trans-Golgi network	35
-												GO:0101031	chaperone complex	37	GO:0101031	chaperone complex	108			
 			GO:0005742	mitochondrial outer membrane translocase complex	38															
 			GO:0098799	outer mitochondrial membrane protein complex	39															
 			GO:0061617	MICOS complex	40															
-												GO:0005776	autophagosome	43						
+												GO:0101031	chaperone complex	41	GO:0101031	chaperone complex	108			
 															GO:0005783	endoplasmic reticulum	43	GO:0005783	endoplasmic reticulum	65
+												GO:0005776	autophagosome	44						
 																		GO:0000932	P-body	45
 																		GO:0031903	microbody membrane	46
 																		GO:0005778	peroxisomal membrane	47
@@ -182,14 +182,14 @@ GO:0070161	anchoring junction	2
 															GO:0070160	tight junction	74			
 															GO:0044291	cell-cell contact zone	138			
 GO:0031974	membrane-enclosed lumen	3
-			GO:0031974	membrane-enclosed lumen	7	GO:0031974	membrane-enclosed lumen	3	GO:0031974	membrane-enclosed lumen	6	GO:0031974	membrane-enclosed lumen	41						
-			GO:0070013	intracellular organelle lumen	5	GO:0070013	intracellular organelle lumen	4	GO:0070013	intracellular organelle lumen	5	GO:0070013	intracellular organelle lumen	40						
-			GO:0043233	organelle lumen	6	GO:0043233	organelle lumen	5	GO:0043233	organelle lumen	4	GO:0043233	organelle lumen	42						
+			GO:0031974	membrane-enclosed lumen	7	GO:0031974	membrane-enclosed lumen	3	GO:0031974	membrane-enclosed lumen	6	GO:0031974	membrane-enclosed lumen	40						
+			GO:0070013	intracellular organelle lumen	5	GO:0070013	intracellular organelle lumen	4	GO:0070013	intracellular organelle lumen	5	GO:0070013	intracellular organelle lumen	39						
+			GO:0043233	organelle lumen	6	GO:0043233	organelle lumen	5	GO:0043233	organelle lumen	4	GO:0043233	organelle lumen	38						
 			GO:0042575	DNA polymerase complex	26															
 GO:0140535	intracellular protein-containing complex	3
 			GO:0140535	intracellular protein-containing complex	34	GO:0140535	intracellular protein-containing complex	29	GO:0140535	intracellular protein-containing complex	41	GO:0140535	intracellular protein-containing complex	3						
 			GO:0000151	ubiquitin ligase complex	85	GO:0000151	ubiquitin ligase complex	30	GO:0000151	ubiquitin ligase complex	57	GO:0000151	ubiquitin ligase complex	6						
-						GO:0031461	cullin-RING ubiquitin ligase complex	38				GO:0031461	cullin-RING ubiquitin ligase complex	26						
+						GO:0031461	cullin-RING ubiquitin ligase complex	38				GO:0031461	cullin-RING ubiquitin ligase complex	27						
 																		GO:1902555	endoribonuclease complex	27
 																		GO:1905348	endonuclease complex	30
 			GO:0031464	Cul4A-RING E3 ubiquitin ligase complex	60	GO:0031464	Cul4A-RING E3 ubiquitin ligase complex	35												
@@ -238,19 +238,19 @@ GO:0030054	cell junction	5
 															GO:0099572	postsynaptic specialization	110			
 															GO:0043197	dendritic spine	135			
 GO:0012506	vesicle membrane	5
-												GO:0012506	vesicle membrane	27	GO:0012506	vesicle membrane	89	GO:0012506	vesicle membrane	5
+												GO:0012506	vesicle membrane	30	GO:0012506	vesicle membrane	89	GO:0012506	vesicle membrane	5
 GO:0016020	membrane	6
-												GO:0016020	membrane	48	GO:0016020	membrane	6	GO:0016020	membrane	20
-												GO:0098588	bounding membrane of organelle	19	GO:0098588	bounding membrane of organelle	120	GO:0098588	bounding membrane of organelle	7
+												GO:0016020	membrane	49	GO:0016020	membrane	6	GO:0016020	membrane	20
+												GO:0098588	bounding membrane of organelle	20	GO:0098588	bounding membrane of organelle	120	GO:0098588	bounding membrane of organelle	7
 												GO:0031090	organelle membrane	47	GO:0031090	organelle membrane	112	GO:0031090	organelle membrane	9
 												GO:0045121	membrane raft	10	GO:0045121	membrane raft	30			
 												GO:0098857	membrane microdomain	11	GO:0098857	membrane microdomain	31			
 												GO:0098552	side of membrane	46	GO:0098552	side of membrane	18			
-			GO:0031968	organelle outer membrane	64							GO:0031968	organelle outer membrane	22						
-			GO:0019867	outer membrane	65							GO:0019867	outer membrane	23						
-												GO:0098562	cytoplasmic side of membrane	39	GO:0098562	cytoplasmic side of membrane	57			
+			GO:0031968	organelle outer membrane	64							GO:0031968	organelle outer membrane	23						
+			GO:0019867	outer membrane	65							GO:0019867	outer membrane	24						
 															GO:0098796	membrane protein complex	40			
 									GO:0019898	extrinsic component of membrane	63				GO:0019898	extrinsic component of membrane	41			
+												GO:0098562	cytoplasmic side of membrane	43	GO:0098562	cytoplasmic side of membrane	57			
 			GO:0031965	nuclear membrane	99				GO:0031965	nuclear membrane	56									
 															GO:0005942	phosphatidylinositol 3-kinase complex	75			
 																		GO:0042175	nuclear outer membrane-endoplasmic reticulum membrane network	75
@@ -260,41 +260,41 @@ GO:1990234	transferase complex	7
 			GO:0000307	cyclin-dependent protein kinase holoenzyme complex	53	GO:0000307	cyclin-dependent protein kinase holoenzyme complex	10	GO:0000307	cyclin-dependent protein kinase holoenzyme complex	12									
 			GO:1902554	serine/threonine protein kinase complex	48	GO:1902554	serine/threonine protein kinase complex	13	GO:1902554	serine/threonine protein kinase complex	15	GO:1902554	serine/threonine protein kinase complex	15						
 			GO:1902911	protein kinase complex	51	GO:1902911	protein kinase complex	14	GO:1902911	protein kinase complex	16	GO:1902911	protein kinase complex	16						
-			GO:0061695	transferase complex, transferring phosphorus-containing groups	36	GO:0061695	transferase complex, transferring phosphorus-containing groups	22	GO:0061695	transferase complex, transferring phosphorus-containing groups	17	GO:0061695	transferase complex, transferring phosphorus-containing groups	38	GO:0061695	transferase complex, transferring phosphorus-containing groups	96			
+			GO:0061695	transferase complex, transferring phosphorus-containing groups	36	GO:0061695	transferase complex, transferring phosphorus-containing groups	22	GO:0061695	transferase complex, transferring phosphorus-containing groups	17	GO:0061695	transferase complex, transferring phosphorus-containing groups	42	GO:0061695	transferase complex, transferring phosphorus-containing groups	96			
 						GO:0034708	methyltransferase complex	41	GO:0034708	methyltransferase complex	51									
 GO:0043235	receptor complex	7
 												GO:0043235	receptor complex	31	GO:0043235	receptor complex	7			
-GO:0031982	vesicle	8
-												GO:0031982	vesicle	24	GO:0031982	vesicle	8	GO:0031982	vesicle	12
-															GO:1903561	extracellular vesicle	32	GO:1903561	extracellular vesicle	49
-															GO:0070062	extracellular exosome	35	GO:0070062	extracellular exosome	56
-GO:0005634	nucleus	9
-			GO:0005634	nucleus	10	GO:0005634	nucleus	9	GO:0005634	nucleus	9	GO:0005634	nucleus	35						
+GO:0032991	protein-containing complex	8
+			GO:0032991	protein-containing complex	17	GO:0032991	protein-containing complex	17	GO:0032991	protein-containing complex	14	GO:0032991	protein-containing complex	8	GO:0032991	protein-containing complex	60			
+			GO:1902494	catalytic complex	18	GO:1902494	catalytic complex	12	GO:1902494	catalytic complex	13	GO:1902494	catalytic complex	12						
+			GO:0032993	protein-DNA complex	14	GO:0032993	protein-DNA complex	34	GO:0032993	protein-DNA complex	42									
 			GO:0140513	nuclear protein-containing complex	15	GO:0140513	nuclear protein-containing complex	21	GO:0140513	nuclear protein-containing complex	21									
 						GO:0031519	PcG protein complex	18												
 			GO:1990391	DNA repair complex	25															
-			GO:0043073	germ cell nucleus	59	GO:0043073	germ cell nucleus	66	GO:0043073	germ cell nucleus	46									
-			GO:0005697	telomerase holoenzyme complex	50															
-			GO:0042555	MCM complex	56	GO:0042555	MCM complex	52												
-			GO:0001673	male germ cell nucleus	61				GO:0001673	male germ cell nucleus	80									
-									GO:0016592	mediator complex	72									
-			GO:0005635	nuclear envelope	93				GO:0005635	nuclear envelope	79									
-															GO:0008180	COP9 signalosome	132			
-GO:0032991	protein-containing complex	9
-			GO:0032991	protein-containing complex	17	GO:0032991	protein-containing complex	17	GO:0032991	protein-containing complex	14	GO:0032991	protein-containing complex	9	GO:0032991	protein-containing complex	60			
-			GO:1902494	catalytic complex	18	GO:1902494	catalytic complex	12	GO:1902494	catalytic complex	13	GO:1902494	catalytic complex	12						
-			GO:0032993	protein-DNA complex	14	GO:0032993	protein-DNA complex	34	GO:0032993	protein-DNA complex	42									
 															GO:0098636	protein complex involved in cell adhesion	26			
 															GO:0005581	collagen trimer	38			
 			GO:0044815	DNA packaging complex	44															
 						GO:1904949	ATPase complex	45	GO:1904949	ATPase complex	77									
+			GO:0005697	telomerase holoenzyme complex	50															
+			GO:0042555	MCM complex	56	GO:0042555	MCM complex	52												
+									GO:0016592	mediator complex	72									
 			GO:0005732	sno(s)RNA-containing ribonucleoprotein complex	89															
+															GO:0008180	COP9 signalosome	132			
 															GO:0036038	MKS complex	136			
+GO:0031982	vesicle	8
+												GO:0031982	vesicle	22	GO:0031982	vesicle	8	GO:0031982	vesicle	12
+															GO:1903561	extracellular vesicle	32	GO:1903561	extracellular vesicle	49
+															GO:0070062	extracellular exosome	35	GO:0070062	extracellular exosome	56
+GO:0005634	nucleus	9
+			GO:0005634	nucleus	10	GO:0005634	nucleus	9	GO:0005634	nucleus	9	GO:0005634	nucleus	34						
+			GO:0043073	germ cell nucleus	59	GO:0043073	germ cell nucleus	66	GO:0043073	germ cell nucleus	46									
+			GO:0001673	male germ cell nucleus	61				GO:0001673	male germ cell nucleus	80									
+			GO:0005635	nuclear envelope	93				GO:0005635	nuclear envelope	79									
 GO:0012505	endomembrane system	10
-												GO:0012505	endomembrane system	50	GO:0012505	endomembrane system	11	GO:0012505	endomembrane system	10
+												GO:0012505	endomembrane system	48	GO:0012505	endomembrane system	11	GO:0012505	endomembrane system	10
 GO:0043232	intracellular non-membrane-bounded organelle	12
 			GO:0043232	intracellular non-membrane-bounded organelle	12	GO:0043232	intracellular non-membrane-bounded organelle	15	GO:0043232	intracellular non-membrane-bounded organelle	25									
-			GO:0015630	microtubule cytoskeleton	54	GO:0015630	microtubule cytoskeleton	42	GO:0015630	microtubule cytoskeleton	70	GO:0015630	microtubule cytoskeleton	44	GO:0015630	microtubule cytoskeleton	127			
+			GO:0015630	microtubule cytoskeleton	54	GO:0015630	microtubule cytoskeleton	42	GO:0015630	microtubule cytoskeleton	70	GO:0015630	microtubule cytoskeleton	37	GO:0015630	microtubule cytoskeleton	127			
 						GO:0005856	cytoskeleton	79	GO:0005856	cytoskeleton	84				GO:0005856	cytoskeleton	46			
 			GO:0005813	centrosome	49	GO:0005813	centrosome	50	GO:0005813	centrosome	64									
 			GO:0005815	microtubule organizing center	52	GO:0005815	microtubule organizing center	57	GO:0005815	microtubule organizing center	81									
@@ -309,7 +309,7 @@ GO:0043228	non-membrane-bounded organelle	13
 			GO:0043228	non-membrane-bounded organelle	13	GO:0043228	non-membrane-bounded organelle	16	GO:0043228	non-membrane-bounded organelle	26									
 GO:0005622	intracellular anatomical structure	14
 			GO:0005622	intracellular anatomical structure	42	GO:0005622	intracellular anatomical structure	32	GO:0005622	intracellular anatomical structure	29	GO:0005622	intracellular anatomical structure	14	GO:0005622	intracellular anatomical structure	105	GO:0005622	intracellular anatomical structure	36
-			GO:0043231	intracellular membrane-bounded organelle	19	GO:0043231	intracellular membrane-bounded organelle	19	GO:0043231	intracellular membrane-bounded organelle	18	GO:0043231	intracellular membrane-bounded organelle	34				GO:0043231	intracellular membrane-bounded organelle	34
+			GO:0043231	intracellular membrane-bounded organelle	19	GO:0043231	intracellular membrane-bounded organelle	19	GO:0043231	intracellular membrane-bounded organelle	18	GO:0043231	intracellular membrane-bounded organelle	32				GO:0043231	intracellular membrane-bounded organelle	34
 			GO:0043229	intracellular organelle	32	GO:0043229	intracellular organelle	25	GO:0043229	intracellular organelle	22							GO:0043229	intracellular organelle	42
 			GO:0031975	envelope	66															
 			GO:0031967	organelle envelope	67															

@@ -20,7 +20,7 @@ Processing /home/cbeust/Landscape_PA/Github_Codes/PA_Communities/_04_Enrichment_
 33 terms are smaller than minTermSize=10, they are removed.
 
 Processing /home/cbeust/Landscape_PA/Github_Codes/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Clusters/output_orsum/Orsum_cluster_4/EnrichmentClust-GOBP.txt
-31 terms are smaller than minTermSize=10, they are removed.
+28 terms are smaller than minTermSize=10, they are removed.
 
 Processing /home/cbeust/Landscape_PA/Github_Codes/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Clusters/output_orsum/Orsum_cluster_5/EnrichmentClust-GOBP.txt
 18 terms are smaller than minTermSize=10, they are removed.
@@ -28,10 +28,10 @@ Processing /home/cbeust/Landscape_PA/Github_Codes/PA_Communities/_04_Enrichment_
 Processing /home/cbeust/Landscape_PA/Github_Codes/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Clusters/output_orsum/Orsum_cluster_6/EnrichmentClust-GOBP.txt
 18 terms are smaller than minTermSize=10, they are removed.
 
-Initial term number (recurring terms in different lists are not merged yet, each one is counted): 3802
+Initial term number (recurring terms in different lists are not merged yet, each one is counted): 3808
 
 Same terms in multiple lists are unified
-Representing term number: 2178
+Representing term number: 2179
 
 Superterms represent their less significant (worse ranked) subterms. This includes equal terms, i.e. the terms that annotate exactly the same set of genes.
 Representing term number: 109
