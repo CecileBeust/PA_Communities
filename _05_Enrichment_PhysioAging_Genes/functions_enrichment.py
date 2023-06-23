@@ -136,23 +136,3 @@ def hypergeome(list1, list2, gene_pool):
 
     print(f'p-value: {p_value:.4f}')
     return p_value
-
-
-def overlap_sets(setA, setB):
-    """
-    Accepts to lists
-    M is the population size (previously N)
-    n is the number of successes in the population 
-    N is the sample size (previously n)
-    x is still the number of drawn “successes”
-    """
-
-    M= 18629 #total number of genes in the genome 
-    n= len(setA)
-    N= len(setB)
-    x= len(setA.intersection(setB))
- 
-
-    print('p-value <= ' + str(x) + ': ' + str(stats.hypergeom.cdf(x, M, n, N)))
-    print('p-value >= ' + str(x)  + ': ' + str(stats.hypergeom.sf(x-1, M, n, N)))
-    pass 
