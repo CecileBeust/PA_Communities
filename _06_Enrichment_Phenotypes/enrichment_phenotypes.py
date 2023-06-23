@@ -121,9 +121,9 @@ def build_background(list_diseases: list, dico_code_disease: dict) -> set:
         disease_id = {id for id in dico_code_disease if dico_code_disease[id]==disease}
         for id in disease_id:
             pheno_file = path + f"Data_HPO/terms_for_ORPHA_{id}.xlsx"
-        df = pd.read_excel(pheno_file, header=0)
-        phenotypes = df['HPO_TERM_NAME'].to_list()
-        background.extend(phenotypes)
+            df = pd.read_excel(pheno_file, header=0)
+            phenotypes = df['HPO_TERM_NAME'].to_list()
+            background.extend(phenotypes)
     return set(background)
 
 background = build_background(pa_diseases_analyzed, dico_code_disease)

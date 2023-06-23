@@ -32,5 +32,5 @@ Same terms in multiple lists are unified
 Representing term number: 172
 
 Superterms represent their less significant (worse ranked) subterms. This includes equal terms, i.e. the terms that annotate exactly the same set of genes.
-Representing term number: 89
+Representing term number: 90
 
