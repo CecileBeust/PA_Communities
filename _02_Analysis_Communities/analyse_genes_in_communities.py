@@ -109,31 +109,6 @@ print(f"Total genes in commmunities : {len(genes_total)}")
 print(" ")
 print(f"Genes without seeds in communities : {len(genes_wo_seeds)}")
 
-def generate_table_genes_in_comm(dico_gene_comm: dict, genes_wo_seeds: list) -> None:
-    """Function to generate a table of the genes in a set of 
-    communities and the number of communities they belong to
-
-    Args:
-        dico_gene_comm (dict): dictionary of genes and their
-        associated communities
-        genes_wo_seeds (list): list of genes in the communities
-        without the seeds
-    Return:
-        None
-    """
-    df = pd.DataFrame(columns=['Gene name', 'Number of PA communities memberships'])
-    i = 0
-    for gene in dico_gene_comm.keys():
-        if gene in genes_wo_seeds:
-            df._set_value(i, 'Gene name', gene)
-            nb_comm = len(dico_gene_comm[gene])
-            df._set_value(i, 'Number of PA communities memberships', nb_comm)
-            i += 1
-    df_sorted = df.sort_values(by=['Number of PA communities memberships'], ascending=False)
-    df_sorted.to_csv(path + "output_tables/genes_comm.tsv", sep="\t", index=None)
-
-generate_table_genes_in_comm(dico_gene_comm, genes_wo_seeds)
-
 def generate_excel_genes(dico_gene_comm: dict) -> None:
     """Function to generate file gathering 
     information about the genes inside a set of communities

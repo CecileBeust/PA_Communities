@@ -97,16 +97,14 @@ def plot_community(id: int, size: int) -> None:
             df = df.append(dict(zip(df.columns, new_row)), ignore_index=True)
             counter += 1
             int_complexes.append(forward)
-    df.to_csv(f"{id}_community_{size}.tsv", sep="\t")
+    df.to_csv(f"output_visualization/{id}_community_{size}.tsv", sep="\t")
     print(df)
 
 # Here we want to generate the files for the visualisation of the communities
-# of Hutchinson-Gilford Progeria Syndrome (ORPHANET code 740) and Werner Syndrome
-# (ORPAHNET code 902)
+# of Hutchinson-Gilford Progeria Syndrome (ORPHANET code 740) 
 
 # Change the ORPHANET code depending on the community to analyze
 plot_community(740, 100)
-plot_community(902, 100)
 
 def plot_community_with_neighbors(id: int, size: int) -> None:
     """Function to generate a tabulated file of the genes in 
@@ -167,7 +165,86 @@ def plot_community_with_neighbors(id: int, size: int) -> None:
                 int_complexes.append(forward)
     print(counter)
     print(df)
-    df.to_csv(f"{id}_community_{size}_with_neighbors.tsv", sep="\t")
+    df.to_csv(f"output_visualization/{id}_community_{size}_with_neighbors.tsv", sep="\t")
 
-plot_community_with_neighbors(740, 100)
-plot_community_with_neighbors(902, 100) 
+
+def plot_several_communities(list_id: list, size: int) -> set:
+    """Function to generate a tsv file for the visualization
+    of several communities together in Cytoscape
+
+    Args:
+        list_id (list): list of ORPHANET codes of diseases
+        to analyze
+        size (int): number of iterations used for itRWR, reflecting
+        the size of communities
+
+    Returns:
+        set: set of nodes in the communities analyzed
+    """
+    ppi = nx.read_edgelist(comm_path + 'multiplex/1/PPI_HiUnion_LitBM_APID_gene_names_190123.tsv', create_using = nx.Graph)
+    pathways = nx.read_edgelist(comm_path + 'multiplex/1/reactome_pathways_gene_names_190123.tsv', create_using = nx.Graph)
+    coexp = nx.read_edgelist(comm_path + 'multiplex/1/Coexpression_310323.tsv', create_using = nx.Graph)
+    complexes = nx.read_edgelist(comm_path + 'multiplex/1/Complexes_gene_names_190123.tsv', create_using = nx.Graph)
+    df = pd.DataFrame(columns=['node1', 'node2', 'provenance'])
+    #extract all nodes in the 3 communities and the associated subnetwork
+    nodes_all_comm = set()
+    for id in list_id :
+        community = comm_path + f'/results_{size}_{id}/seeds_{id}.txt'
+        nodes = []
+        with open(community, 'r') as community_file:
+            for node in community_file:
+                nodes.append(node.rstrip())
+                nodes_all_comm.add(node.rstrip())
+    nodes_ppi_all = ppi.subgraph(list(nodes_all_comm))
+    edges_ppi_all = nodes_ppi_all.edges()
+    nodes_pathways_all = pathways.subgraph(list(nodes_all_comm))
+    edges_pathways_all = nodes_pathways_all.edges()
+    nodes_coexp_all = coexp.subgraph(list(nodes_all_comm))
+    edges_coexp_all = nodes_coexp_all.edges()
+    nodes_complexes_all = complexes.subgraph(list(nodes_all_comm))
+    edges_complexes_all = nodes_complexes_all.edges()
+    int_ppi_all = []
+    int_pathways_all = []
+    int_coexp_all = []
+    int_complexes_all = []
+    counter = 0
+    for interaction in edges_ppi_all:
+        forward = (interaction[0], interaction[1])
+        reverse = (interaction[1], interaction[0])
+        if not forward in int_ppi_all and not reverse in int_ppi_all:
+            new_row = [interaction[0], interaction[1], 'ppi']
+            df = df.append(dict(zip(df.columns, new_row)), ignore_index=True)
+            counter += 1
+            int_ppi_all.append(forward)
+    for interaction in edges_pathways_all:
+        forward = (interaction[0], interaction[1])
+        reverse = (interaction[1], interaction[0])
+        if not forward in int_pathways_all and not reverse in int_pathways_all:
+            new_row = [interaction[0], interaction[1], 'pathways']
+            df = df.append(dict(zip(df.columns, new_row)), ignore_index=True)
+            counter += 1
+            int_pathways_all.append(forward)
+    for interaction in edges_coexp_all:
+        forward = (interaction[0], interaction[1])
+        reverse = (interaction[1], interaction[0])
+        if not forward in int_coexp_all and not reverse in int_coexp_all:
+            new_row = [interaction[0], interaction[1], 'coexp']
+            df = df.append(dict(zip(df.columns, new_row)), ignore_index=True)
+            counter += 1
+            int_coexp_all.append(forward)
+    for interaction in edges_complexes_all:
+        forward = (interaction[0], interaction[1])
+        reverse = (interaction[1], interaction[0])
+        if not forward in int_complexes_all and not reverse in int_complexes_all:
+            new_row = [interaction[0], interaction[1], 'complexes']
+            df = df.append(dict(zip(df.columns, new_row)), ignore_index=True)
+            counter += 1
+            int_complexes_all.append(forward)
+    df.to_csv(path + f'output_visualization/3communities_{size}.tsv', sep="\t", index=False)
+    return nodes_all_comm 
+    
+
+# Use this command to generate the tsv file for the representation of the three communities of
+# Hutchinson-Gilford Progeria Syndrome (ORPHANET code 740), Ataxia telangiectasia (ORPHANET code 100)
+# and Classical Ehlers-Danlos syndrome (OPRHANET code 287)
+nodes_all_comm = plot_several_communities(['100', '740', '287'], 100)

@@ -15,6 +15,10 @@ This folder contains different scripts to analyze communities of genes, here ide
 
 ```python visualization_communities.py -p /path/where/communities/folders/are/stored```
 
+## Output
+
+The script ```analysis_genes_in_communities``` generates a table of the genes inside communities in the ```output_tables``` folder. 
+The script ```visualization_communities``` generates tsv files of communities, allowing them to be visualized individually or as group of communities in Cytoscape. 
 
 
 ## References
