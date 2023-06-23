@@ -21,7 +21,7 @@ The communities are identified using and iterative Random Walk with Restart algo
 
 ## Usage
 
-```python run_CI.py```
+    python run_CI.py
 
 ## Output
 

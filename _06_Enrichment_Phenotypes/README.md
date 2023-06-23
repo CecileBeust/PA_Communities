@@ -13,7 +13,7 @@ This folder contains Python codes to enrich clusters of diseases using phenotype
 
 ## Usage
 
-```python enrichment_phenotypes.py ```
+    python enrichment_phenotypes.py 
 
 ## Output
 

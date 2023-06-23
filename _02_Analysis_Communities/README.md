@@ -10,9 +10,9 @@ This folder contains different scripts to analyze communities of genes, here ide
 
 ## Usage
 
-```python analysis_genes_in_communities.py -p /path/where/communities/folders/are/stored```
+    python analysis_genes_in_communities.py -p /path/where/communities/folders/are/stored
 
-```python visualization_communities.py -p /path/where/communities/folders/are/stored```
+    python visualization_communities.py -p /path/where/communities/folders/are/stored
 
 ## Output
 

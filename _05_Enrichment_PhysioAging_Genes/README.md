@@ -24,11 +24,13 @@ This folder contains the following data files :
 
 ## Usage
 
-```python enrichment_physio_aging.py -p /path/where/communities/folders/are/stored```
+    python enrichment_physio_aging.py -p /path/where/communities/folders/are/stored
 
 ## Output
 
-* ```Enrichment_clusters_aging_genes.tsv``` : file containing the p-values of hypergeometric tests for the enrichment of the cluster in physiological aging genes
+* ```output_tables/Enrichment_clusters_aging_genes.tsv```: file containing the p-values of hypergeometric tests for the enrichment of the cluster in physiological aging genes
+
+* ```output_figures/Heatmap_PhysioAging.png```: a heatmap of the enrichment results
 
 The code also allows to create a heatmap of enrichment results. 
 
