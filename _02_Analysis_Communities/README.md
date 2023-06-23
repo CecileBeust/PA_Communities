@@ -5,7 +5,6 @@ This folder contains different scripts to analyze communities of genes, here ide
 
 ## Files
 
-* ```utilities.py```: contains Python functions that are used in other scripts
 * ```analysis_genes_in_communities.py```: contains Python functions to analyze the genes present in the communities
 * ```visualization_communities.py```: contains Python functions to generate tabulated files for the visualization of communities in Cytoscape
 
