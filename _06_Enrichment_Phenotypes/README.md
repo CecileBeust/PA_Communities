@@ -4,14 +4,12 @@ This folder contains Python codes to enrich clusters of diseases using phenotype
 
 ## Data
 
-* ```HPOTermsOrphaDiseases ```: Folder containing the phenotypes files from HPO associated to the 67 Premature Aging diseases analyzed.
+* The ```Data_HPO``` folder contains the HPO ontology file ```HP.csv``` and the phenotypes files from HPO associated to the 67 Premature Aging diseases analyzed.
 
 ## Files
 
-* ```HP.csv``` : Ontology file of HPO terms
-* ```PA_diseases.tsv``` : File containing the Premature Aging diseases analyzed
-* ```clusters_100.tsv``` : File describing the diseases in each cluster
 * ```enrichment_phenotypes.py``` : Python script containing enrichment functions. The enrichment results are filtered using orsum. 
+* ```hpo_phenotypes```: GMT file of HPO phenotypes and associated diseases, built with the ```enrichment_phenotypes.py``` script. 
 
 ## Usage
 
@@ -19,9 +17,8 @@ This folder contains Python codes to enrich clusters of diseases using phenotype
 
 ## Output
 
-* ```EnrichPhenoResults```: Folder containing the enrichment results for HPO phenotypes in each cluster of diseases.
-* Orsum folders containing files listing signicant phenotypes in each clusters
-* ```ME_results_phenotypes```: Folder containing the results of the filtereing of enrichment results with orsum. Contains the heatmaps of most significant terms.
+* ```output_tables```: Folder containing the enrichment results for HPO phenotypes in each cluster of diseases.
+* ```outout_orsum```: Folder containing the results of the filtereing of enrichment results with orsum. Contains the heatmaps of most significant terms.
 
 ## References
 
