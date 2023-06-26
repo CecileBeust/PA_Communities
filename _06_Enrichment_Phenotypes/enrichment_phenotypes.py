@@ -10,7 +10,6 @@ of ORPHANET diseases associated to that phenotype in HPO, to the
 number of diseases in the cluster. 
 """
 
-from gprofiler import GProfiler
 import pandas as pd
 import numpy as np
 import scipy.stats as stats
@@ -95,16 +94,14 @@ dico_clusters_diseases = create_dico_clusters_diseases(clusters_compo)
 print(f"Dico clusters diseases : {dico_clusters_diseases}")
 print(" ")
 
-cluster1 = dico_clusters_diseases[1]
-cluster2 = dico_clusters_diseases[2]
-cluster3 = dico_clusters_diseases[3]
-cluster4 = dico_clusters_diseases[4]
-cluster5 = dico_clusters_diseases[5]
-cluster6 = dico_clusters_diseases[6]
-list_clusters = [cluster1, cluster2, cluster3, cluster4, cluster5, cluster6]
+list_clusters = []
+for key in range(1, 7):
+    list_clusters.append(dico_clusters_diseases[key])
+    globals()[f'cluster{key}'] = dico_clusters_diseases[key]
+
 print(list_clusters)
 
-def build_background(list_diseases: list, dico_code_disease: dict) -> set:
+def build_pheno_set(list_diseases_analyzed: list, dico_code_disease: dict) -> set:
     """Function that determines the background of HPO phenotypes to use
     for the hypergeometric test
 
@@ -116,65 +113,41 @@ def build_background(list_diseases: list, dico_code_disease: dict) -> set:
     Returns:
         list: set containing all the phenotypes of the background
     """
-    background = list()
-    for disease in list_diseases:
-        disease_id = {id for id in dico_code_disease if dico_code_disease[id]==disease}
-        for id in disease_id:
-            pheno_file = path + f"Data_HPO/terms_for_ORPHA_{id}.xlsx"
-            df = pd.read_excel(pheno_file, header=0)
-            phenotypes = df['HPO_TERM_NAME'].to_list()
-            background.extend(phenotypes)
-    return set(background)
+    pheno = list()
+    # for each disease analyzed
+    for disease in list_diseases_analyzed:
+        # get path of the file describing HPO phentoypes associated to the disease
+        pheno_file = path + f"Data_HPO/terms_for_ORPHA_{disease}.xlsx"
+        df = pd.read_excel(pheno_file, header=0)
+        phenotypes = df['HPO_TERM_NAME'].to_list()
+        # add phenotypes to the background
+        pheno.extend(phenotypes)
+    return set(pheno)
 
-background = build_background(pa_diseases_analyzed, dico_code_disease)
+#pheno_set = build_pheno_set(pa_diseases_analyzed, dico_code_disease)
+pheno_set = build_pheno_set(list_ids_analyzed, dico_code_disease)
 print(" ")
-print(f"Background : {len(background)} phenotypes")
+print(f"Background : {len(pheno_set)} phenotypes")
 
-def create_dico_clusters_pheno(list_diseases_in_clusters: list, dico_code_disease: dict) -> dict:
-    """Function which creates a dictionary of HPO phenotypes associated
-    to PA diseases
+def enrich_phenotypes(pheno_set: set, list_cluster: list, background_diseases_HPO: int) -> None:
+    """Function to perform enrichment analysis of a set of HPO phenotypes in clusters of diseases
+    using an hypergeometric test
 
     Args:
-        list_diseases_in_clusters (list): list of diseases in clusters
-
-    Returns:
-        dict: dico of clusters as keys and their associated phenotypes 
-        from HPO as values
+        pheno_set (set): set of HPO phenotypes to enrich
+        list_cluster (list): list of clusters of diseases
+        background_diseases_HPO (int): number of diseases used as background
     """
-    dico_clusters_pheno = dict()
-    i = 1
-    for cluster in list_diseases_in_clusters:
-        # initialize list of phenotypes of the cluster
-        all_phenotypes = []
-        for disease in cluster:
-            disease_id = {id for id in dico_code_disease if dico_code_disease[id]==disease}
-            print(disease_id)
-            for id in disease_id:
-                pheno_file =  path + f"Data_HPO/terms_for_ORPHA_{id}.xlsx"
-                print(pheno_file)
-            df = pd.read_excel(pheno_file, header=0)
-            phenotypes = df['HPO_TERM_NAME'].to_list()
-            all_phenotypes.extend(phenotypes)
-            print(all_phenotypes)
-        dico_clusters_pheno[i] = all_phenotypes
-        i += 1
-    return dico_clusters_pheno
-
-"""dico_clusters_pheno = create_dico_clusters_pheno(list_clusters, dico_code_disease)
-print(" ")
-print(dico_clusters_pheno)"""
-
-def enrich_phenotypes(background_pheno: set, diseases_pa: list, list_cluster: list, background_diseases_HPO: int):
     j = 1
     for cluster in list_cluster:
+        print(cluster)
         df = pd.DataFrame(columns=['Cluster', 'HPO ID', 'Phenotype', 'p-value', 'Corrected p-value'])
         nb_diseases_cluster = len(cluster)
         i = 0
-        for phenotype in background_pheno:
+        for phenotype in pheno_set:
             term = Ontology.get_hpo_object(phenotype)
             list_diseases_pheno = list()
             for disease in term.orpha_diseases:
-                #if str(disease) in diseases_pa:
                 list_diseases_pheno.append(str(disease))
             nb_diseases_pheno = len(set(list_diseases_pheno))
             success_sample = len(set(cluster).intersection(set(list_diseases_pheno)))
@@ -199,26 +172,33 @@ def enrich_phenotypes(background_pheno: set, diseases_pa: list, list_cluster: li
         sheet_data.to_excel(writer, sheet_name=sheet_name, index=False)
     writer.save()
 
-enrich_phenotypes(background_pheno = background, diseases_pa = all_pa_diseases, list_cluster = list_clusters, background_diseases_HPO = 4262)
+# We use the number of ORPHANET diseases in HPO (4262) as a background for statistical significance
+enrich_phenotypes(pheno_set = pheno_set, list_cluster = list_clusters, background_diseases_HPO = 4262)
 
-def create_gmt():
+def create_gmt() -> None:
+    """Function to create a gmt file of HPO phenotypes
+    and their associated ORPHANET diseases in HPO
+    """
+    # read the ontology file of HPO
     onto = pd.read_csv(path + "Data_HPO/HP.csv", sep=",", header=0)
-    print(onto)
     to_write = list()
     for index, row in onto.iterrows():
         line = str()
+        # replace deprecated identifiers by updated ones
         if row[4] == True:
             if not row[54] is np.nan or not pd.isnull(row[54]):
                 id_hpo = str(row[54][31:]).replace("_",":")
         else:
             id_hpo = str(row[0][31:]).replace("_",":")
             name = row[1]
+            # get the HPO term and its associated diseases
             term = Ontology.get_hpo_object(id_hpo)
             diseases = term.orpha_diseases
             line += (str(id_hpo) + "\t" + str(name) + "\t")
             for dis in diseases:
                 line += (str(dis) + "\t")
             to_write += [line]
+    # create gmt file
     with open(path + "hpo_phenotypes.gmt", 'w') as file:
         file.write("\n".join([line for line in to_write]))
 

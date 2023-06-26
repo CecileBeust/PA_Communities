@@ -3,157 +3,156 @@ HP:0007495	Prematurely aged appearance	1
 			HP:0007495	Prematurely aged appearance	1	HP:0007495	Prematurely aged appearance	2	HP:0007495	Prematurely aged appearance	1	HP:0007495	Prematurely aged appearance	1	HP:0007495	Prematurely aged appearance	1	HP:0007495	Prematurely aged appearance	1
 			HP:0002216	Premature graying of hair	2	HP:0002216	Premature graying of hair	1							HP:0002216	Premature graying of hair	38			
 			HP:0100678	Premature skin wrinkling	18				HP:0100678	Premature skin wrinkling	2				HP:0100678	Premature skin wrinkling	2			
-			HP:0007392	Excessive wrinkled skin	86				HP:0007392	Excessive wrinkled skin	3				HP:0007392	Excessive wrinkled skin	4			
-			HP:0005328	Progeroid facial appearance	5										HP:0005328	Progeroid facial appearance	27			
+			HP:0007392	Excessive wrinkled skin	85				HP:0007392	Excessive wrinkled skin	3				HP:0007392	Excessive wrinkled skin	4			
+			HP:0005328	Progeroid facial appearance	5										HP:0005328	Progeroid facial appearance	28			
 HP:0011354	Generalized abnormality of skin	3
 			HP:0011354	Generalized abnormality of skin	3	HP:0011354	Generalized abnormality of skin	4	HP:0011354	Generalized abnormality of skin	4				HP:0011354	Generalized abnormality of skin	3			
 															HP:0001001	Abnormality of subcutaneous fat tissue	20			
 			HP:0100585	Telangiectasia of the skin	23															
-															HP:0003758	Reduced subcutaneous adipose tissue	29			
+															HP:0003758	Reduced subcutaneous adipose tissue	27			
 			HP:0001009	Telangiectasia	40															
 			HP:0007394	Prominent superficial blood vessels	75															
 HP:0005599	Hypopigmentation of hair	3
-			HP:0005599	Hypopigmentation of hair	16	HP:0005599	Hypopigmentation of hair	3												
-			HP:0002211	White forelock	51										HP:0002211	White forelock	57			
-			HP:0011358	Generalized hypopigmentation of hair	85															
+			HP:0005599	Hypopigmentation of hair	17	HP:0005599	Hypopigmentation of hair	3												
+			HP:0002211	White forelock	51										HP:0002211	White forelock	56			
+			HP:0011358	Generalized hypopigmentation of hair	86															
 HP:0008065	Aplasia/Hypoplasia of the skin	4
-			HP:0008065	Aplasia/Hypoplasia of the skin	4										HP:0008065	Aplasia/Hypoplasia of the skin	26			
-			HP:0000963	Thin skin	56										HP:0000963	Thin skin	11			
+			HP:0008065	Aplasia/Hypoplasia of the skin	4										HP:0008065	Aplasia/Hypoplasia of the skin	25			
+			HP:0000963	Thin skin	55										HP:0000963	Thin skin	12			
 			HP:0004334	Dermal atrophy	31															
 HP:0000492	Abnormal eyelid morphology	5
 									HP:0000492	Abnormal eyelid morphology	5				HP:0000492	Abnormal eyelid morphology	32			
 									HP:0000506	Telecanthus	9				HP:0000506	Telecanthus	75			
-			HP:0000499	Abnormal eyelash morphology	71				HP:0000499	Abnormal eyelash morphology	12				HP:0000499	Abnormal eyelash morphology	50			
-			HP:0000561	Absent eyelashes	74															
+			HP:0000499	Abnormal eyelash morphology	71				HP:0000499	Abnormal eyelash morphology	11				HP:0000499	Abnormal eyelash morphology	50			
+			HP:0000561	Absent eyelashes	76															
 															HP:0000286	Epicanthus	82			
 HP:0001582	Redundant skin	5
 															HP:0001582	Redundant skin	5			
 HP:0010766	Ectopic calcification	6
 			HP:0010766	Ectopic calcification	6															
-			HP:0002514	Cerebral calcification	36															
+			HP:0002514	Cerebral calcification	35															
 			HP:0000934	Chondrocalcinosis	65															
-HP:0000534	Abnormal eyebrow morphology	6
-									HP:0000534	Abnormal eyebrow morphology	6									
+HP:0001595	Abnormal hair morphology	6
+			HP:0001595	Abnormal hair morphology	30				HP:0001595	Abnormal hair morphology	6				HP:0001595	Abnormal hair morphology	33			
+									HP:0000534	Abnormal eyebrow morphology	7									
+			HP:0011362	Abnormal hair quantity	21				HP:0011362	Abnormal hair quantity	13				HP:0011362	Abnormal hair quantity	46			
+			HP:0008070	Sparse hair	22				HP:0008070	Sparse hair	15				HP:0008070	Sparse hair	62			
+									HP:0010720	Abnormal hair pattern	19									
 									HP:0002553	Highly arched eyebrow	20									
+			HP:0001596	Alopecia	41															
+			HP:0003777	Pili torti	54															
+			HP:0010721	Abnormal hair whorl	63															
+			HP:0002209	Sparse scalp hair	66															
+															HP:0010719	Abnormality of hair texture	73			
+															HP:0001007	Hirsutism	76			
 			HP:0002223	Absent eyebrow	83															
 HP:0011121	Abnormality of skin morphology	6
-			HP:0011121	Abnormality of skin morphology	13				HP:0011121	Abnormality of skin morphology	11				HP:0011121	Abnormality of skin morphology	6			
+			HP:0011121	Abnormality of skin morphology	13				HP:0011121	Abnormality of skin morphology	12				HP:0011121	Abnormality of skin morphology	6			
 															HP:0000973	Cutis laxa	7			
 			HP:0001000	Abnormality of skin pigmentation	11				HP:0001000	Abnormality of skin pigmentation	8									
 			HP:0000953	Hyperpigmentation of the skin	9															
 															HP:0000974	Hyperextensible skin	9			
-			HP:0100679	Lack of skin elasticity	14															
 									HP:0001053	Hypopigmented skin patches	14									
+			HP:0100679	Lack of skin elasticity	16															
 			HP:0001034	Hypermelanotic macule	20															
-			HP:0007400	Irregular hyperpigmentation	25															
+			HP:0007400	Irregular hyperpigmentation	26															
 			HP:0012733	Macule	28															
-			HP:0006739	Squamous cell carcinoma of the skin	54															
-															HP:0000956	Acanthosis nigricans	67			
+			HP:0006739	Squamous cell carcinoma of the skin	53															
+															HP:0000956	Acanthosis nigricans	64			
 															HP:0005294	Arterial dissection	68			
-															HP:0200036	Skin nodule	90			
+															HP:0200036	Skin nodule	89			
 															HP:0000982	Palmoplantar keratoderma	94			
 HP:0002634	Arteriosclerosis	7
 			HP:0002634	Arteriosclerosis	7															
 			HP:0002621	Atherosclerosis	10															
 			HP:0001677	Coronary artery atherosclerosis	33															
-HP:0001595	Abnormal hair morphology	7
-			HP:0001595	Abnormal hair morphology	30				HP:0001595	Abnormal hair morphology	7				HP:0001595	Abnormal hair morphology	34			
-			HP:0011362	Abnormal hair quantity	21				HP:0011362	Abnormal hair quantity	13				HP:0011362	Abnormal hair quantity	46			
-			HP:0008070	Sparse hair	22				HP:0008070	Sparse hair	15				HP:0008070	Sparse hair	61			
-									HP:0010720	Abnormal hair pattern	19									
-			HP:0001596	Alopecia	41															
-			HP:0003777	Pili torti	53															
-			HP:0010721	Abnormal hair whorl	63															
-			HP:0002209	Sparse scalp hair	66															
-															HP:0010719	Abnormality of hair texture	73			
-															HP:0001007	Hirsutism	76			
 HP:0009771	Osteolytic defects of the phalanges of the hand	8
 			HP:0009771	Osteolytic defects of the phalanges of the hand	8															
 HP:0000951	Abnormality of the skin	8
-			HP:0000951	Abnormality of the skin	19				HP:0000951	Abnormality of the skin	17				HP:0000951	Abnormality of the skin	8			
+			HP:0000951	Abnormality of the skin	19				HP:0000951	Abnormality of the skin	18				HP:0000951	Abnormality of the skin	8			
 									HP:0000964	Eczema	21									
-			HP:0002860	Squamous cell carcinoma	49															
+			HP:0002860	Squamous cell carcinoma	50															
 			HP:0008069	Neoplasm of the skin	68															
 HP:0000632	Lacrimation abnormality	10
 									HP:0000632	Lacrimation abnormality	10									
 HP:0000015	Bladder diverticulum	10
 															HP:0000015	Bladder diverticulum	10			
+HP:0001634	Mitral valve prolapse	11
+															HP:0001634	Mitral valve prolapse	11			
 HP:0000855	Insulin resistance	12
 			HP:0000855	Insulin resistance	12										HP:0000855	Insulin resistance	83			
-HP:0001634	Mitral valve prolapse	12
-															HP:0001634	Mitral valve prolapse	12			
 HP:0000023	Inguinal hernia	13
 															HP:0000023	Inguinal hernia	13			
+HP:0004361	Abnormal circulating leptin concentration	14
+			HP:0004361	Abnormal circulating leptin concentration	14															
 HP:0009125	Lipodystrophy	14
 			HP:0009125	Lipodystrophy	24										HP:0009125	Lipodystrophy	14			
 			HP:0100578	Lipoatrophy	15										HP:0100578	Lipoatrophy	16			
 HP:0004414	Abnormality of the pulmonary artery	15
 			HP:0004414	Abnormality of the pulmonary artery	69										HP:0004414	Abnormality of the pulmonary artery	15			
-															HP:0004969	Peripheral pulmonary artery stenosis	56			
-HP:0000430	Underdeveloped nasal alae	16
-									HP:0000430	Underdeveloped nasal alae	16									
-HP:0004361	Abnormal circulating leptin concentration	17
-			HP:0004361	Abnormal circulating leptin concentration	17															
+															HP:0004969	Peripheral pulmonary artery stenosis	57			
+HP:0000233	Thin vermilion border	16
+									HP:0000233	Thin vermilion border	16									
+HP:0000430	Underdeveloped nasal alae	17
+									HP:0000430	Underdeveloped nasal alae	17									
 HP:0100790	Hernia	17
 															HP:0100790	Hernia	17			
 															HP:0001537	Umbilical hernia	41			
-															HP:0002036	Hiatus hernia	65			
-HP:0000233	Thin vermilion border	18
-									HP:0000233	Thin vermilion border	18									
+															HP:0002036	Hiatus hernia	63			
 HP:0001382	Joint hypermobility	18
 															HP:0001382	Joint hypermobility	18			
 															HP:0005692	Joint hyperflexibility	19			
-HP:0001654	Abnormal heart valve morphology	21
-															HP:0001654	Abnormal heart valve morphology	21			
-			HP:0001633	Abnormal mitral valve morphology	87										HP:0001633	Abnormal mitral valve morphology	24			
+HP:0004322	Short stature	21
+															HP:0004322	Short stature	21			
 HP:0009924	Aplasia/Hypoplasia involving the nose	22
 									HP:0009924	Aplasia/Hypoplasia involving the nose	22									
-HP:0004322	Short stature	22
-															HP:0004322	Short stature	22			
+HP:0001654	Abnormal heart valve morphology	22
+															HP:0001654	Abnormal heart valve morphology	22			
+			HP:0001633	Abnormal mitral valve morphology	87										HP:0001633	Abnormal mitral valve morphology	24			
 HP:0002644	Abnormal pelvic girdle bone morphology	23
 															HP:0002644	Abnormal pelvic girdle bone morphology	23			
-															HP:0002827	Hip dislocation	33			
-HP:0001510	Growth delay	25
-			HP:0001510	Growth delay	45										HP:0001510	Growth delay	25			
-HP:0000331	Short chin	26
-			HP:0000331	Short chin	26															
+															HP:0002827	Hip dislocation	34			
+HP:0000331	Short chin	25
+			HP:0000331	Short chin	25															
+HP:0001510	Growth delay	26
+			HP:0001510	Growth delay	45										HP:0001510	Growth delay	26			
 HP:0000444	Convex nasal ridge	27
 			HP:0000444	Convex nasal ridge	27															
-HP:0010668	Abnormal zygomatic bone morphology	28
-															HP:0010668	Abnormal zygomatic bone morphology	28			
-															HP:0000272	Malar flattening	72			
 HP:0000869	Secondary amenorrhea	29
 			HP:0000869	Secondary amenorrhea	29															
-HP:0001642	Pulmonic stenosis	30
-															HP:0001642	Pulmonic stenosis	30			
-HP:0002617	Vascular dilatation	31
-															HP:0002617	Vascular dilatation	31			
+HP:0010668	Abnormal zygomatic bone morphology	29
+															HP:0010668	Abnormal zygomatic bone morphology	29			
+															HP:0000272	Malar flattening	72			
+HP:0002617	Vascular dilatation	30
+															HP:0002617	Vascular dilatation	30			
 															HP:0004942	Aortic aneurysm	43			
+HP:0001642	Pulmonic stenosis	31
+															HP:0001642	Pulmonic stenosis	31			
 HP:0002797	Osteolysis	32
 			HP:0002797	Osteolysis	32															
 HP:0000008	Abnormal morphology of female internal genitalia	34
 			HP:0000008	Abnormal morphology of female internal genitalia	34															
 			HP:0100615	Ovarian neoplasm	39															
-HP:0000818	Abnormality of the endocrine system	35
-			HP:0000818	Abnormality of the endocrine system	35															
-			HP:0000135	Hypogonadism	44															
-			HP:0100031	Neoplasm of the thyroid gland	46															
-			HP:0005978	Type II diabetes mellitus	60															
-			HP:0000819	Diabetes mellitus	64															
-			HP:0000026	Male hypogonadism	80															
-															HP:0030088	Increased serum testosterone level	91			
 HP:0031653	Abnormal heart valve physiology	35
 															HP:0031653	Abnormal heart valve physiology	35			
 			HP:0001650	Aortic valve stenosis	48															
-															HP:0001653	Mitral regurgitation	77			
-HP:0000481	Abnormal cornea morphology	36
-															HP:0000481	Abnormal cornea morphology	36			
-															HP:0000485	Megalocornea	87			
-HP:0009804	Tooth agenesis	37
-			HP:0009804	Tooth agenesis	37															
-HP:0000290	Abnormality of the forehead	37
-															HP:0000290	Abnormality of the forehead	37			
+															HP:0001653	Mitral regurgitation	79			
+HP:0009804	Tooth agenesis	36
+			HP:0009804	Tooth agenesis	36															
+HP:0000290	Abnormality of the forehead	36
+															HP:0000290	Abnormality of the forehead	36			
 															HP:0000337	Broad forehead	58			
+HP:0000818	Abnormality of the endocrine system	37
+			HP:0000818	Abnormality of the endocrine system	37															
+			HP:0000135	Hypogonadism	44															
+			HP:0100031	Neoplasm of the thyroid gland	46															
+			HP:0005978	Type II diabetes mellitus	59															
+			HP:0000819	Diabetes mellitus	64															
+			HP:0000026	Male hypogonadism	80															
+															HP:0030088	Increased serum testosterone level	91			
+HP:0000481	Abnormal cornea morphology	37
+															HP:0000481	Abnormal cornea morphology	37			
+															HP:0000485	Megalocornea	86			
 HP:0001635	Congestive heart failure	38
 			HP:0001635	Congestive heart failure	38															
 HP:0000938	Osteopenia	39
@@ -162,7 +161,7 @@ HP:0000325	Triangular face	40
 															HP:0000325	Triangular face	40			
 HP:0003077	Hyperlipidemia	42
 			HP:0003077	Hyperlipidemia	42															
-			HP:0002155	Hypertriglyceridemia	62															
+			HP:0002155	Hypertriglyceridemia	61															
 HP:0000598	Abnormality of the ear	42
 															HP:0000598	Abnormality of the ear	42			
 															HP:0000364	Hearing abnormality	85			
@@ -176,70 +175,69 @@ HP:0000822	Hypertension	47
 			HP:0000822	Hypertension	47															
 HP:0011849	Abnormal bone ossification	47
 															HP:0011849	Abnormal bone ossification	47			
-			HP:0004349	Reduced bone mineral density	77										HP:0004349	Reduced bone mineral density	69			
+			HP:0004349	Reduced bone mineral density	77										HP:0004349	Reduced bone mineral density	70			
 HP:0000277	Abnormal mandible morphology	48
 															HP:0000277	Abnormal mandible morphology	48			
+HP:0100013	Neoplasm of the breast	49
+			HP:0100013	Neoplasm of the breast	49															
 HP:0000239	Large fontanelles	49
 															HP:0000239	Large fontanelles	49			
-HP:0100013	Neoplasm of the breast	50
-			HP:0100013	Neoplasm of the breast	50															
-HP:0001388	Joint laxity	51
-															HP:0001388	Joint laxity	51			
-HP:0000275	Narrow face	52
+HP:0001999	Abnormal facial shape	51
+															HP:0001999	Abnormal facial shape	51			
 			HP:0000275	Narrow face	52															
-HP:0001999	Abnormal facial shape	52
-															HP:0001999	Abnormal facial shape	52			
+HP:0001388	Joint laxity	52
+															HP:0001388	Joint laxity	52			
 HP:0000929	Abnormal skull morphology	53
 			HP:0000929	Abnormal skull morphology	81										HP:0000929	Abnormal skull morphology	53			
 HP:0000766	Abnormal sternum morphology	54
 															HP:0000766	Abnormal sternum morphology	54			
-HP:0009726	Renal neoplasm	55
-			HP:0009726	Renal neoplasm	55															
 HP:0000271	Abnormality of the face	55
 															HP:0000271	Abnormality of the face	55			
-			HP:0000164	Abnormality of the dentition	82										HP:0000164	Abnormality of the dentition	63			
+			HP:0000164	Abnormality of the dentition	82										HP:0000164	Abnormality of the dentition	66			
 															HP:0000366	Abnormality of the nose	74			
 															HP:0000168	Abnormality of the gingiva	92			
-															HP:0000212	Gingival overgrowth	93			
-															HP:0000691	Microdontia	95			
+															HP:0000691	Microdontia	93			
+															HP:0000212	Gingival overgrowth	95			
+HP:0009726	Renal neoplasm	56
+			HP:0009726	Renal neoplasm	56															
 HP:0032263	Increased blood pressure	57
 			HP:0032263	Increased blood pressure	57															
 HP:0100545	Arterial stenosis	58
 			HP:0100545	Arterial stenosis	58															
-HP:0002664	Neoplasm	59
-			HP:0002664	Neoplasm	59															
-			HP:0002858	Meningioma	72															
-			HP:0100833	Neoplasm of the small intestine	76															
 HP:0010674	Abnormality of the curvature of the vertebral column	59
 															HP:0010674	Abnormality of the curvature of the vertebral column	59			
-															HP:0002650	Scoliosis	70			
+															HP:0002650	Scoliosis	71			
+HP:0000518	Cataract	60
+			HP:0000518	Cataract	60															
 HP:0100699	Scarring	60
 															HP:0100699	Scarring	60			
-HP:0000518	Cataract	61
-			HP:0000518	Cataract	61															
-HP:0001622	Premature birth	62
-															HP:0001622	Premature birth	62			
-HP:0003097	Short femur	64
-															HP:0003097	Short femur	64			
-HP:0002035	Rectal prolapse	66
-															HP:0002035	Rectal prolapse	66			
+HP:0001622	Premature birth	61
+															HP:0001622	Premature birth	61			
+HP:0002664	Neoplasm	62
+			HP:0002664	Neoplasm	62															
+			HP:0002858	Meningioma	72															
+			HP:0100833	Neoplasm of the small intestine	74															
+HP:0002035	Rectal prolapse	65
+															HP:0002035	Rectal prolapse	65			
 HP:0005374	Cellular immunodeficiency	67
 			HP:0005374	Cellular immunodeficiency	67															
+HP:0003097	Short femur	67
+															HP:0003097	Short femur	67			
+HP:0001367	Abnormal joint morphology	69
+															HP:0001367	Abnormal joint morphology	69			
 HP:0004325	Decreased body weight	70
 			HP:0004325	Decreased body weight	70															
 															HP:0001533	Slender build	96			
-HP:0001367	Abnormal joint morphology	71
-															HP:0001367	Abnormal joint morphology	71			
 HP:0000889	Abnormal clavicle morphology	73
 			HP:0000889	Abnormal clavicle morphology	73															
+HP:0001805	Onychogryposis	77
+															HP:0001805	Onychogryposis	77			
 HP:0003119	Abnormal circulating lipid concentration	78
 			HP:0003119	Abnormal circulating lipid concentration	78															
 HP:0003010	Prolonged bleeding time	78
 															HP:0003010	Prolonged bleeding time	78			
 HP:0008404	Nail dystrophy	79
 			HP:0008404	Nail dystrophy	79															
-HP:0001805	Onychogryposis	79
-															HP:0001805	Onychogryposis	79			
 HP:0001760	Abnormal foot morphology	80
 															HP:0001760	Abnormal foot morphology	80			
 			HP:0001838	Rocker bottom foot	89															
@@ -249,15 +247,15 @@ HP:0000141	Amenorrhea	84
 			HP:0000141	Amenorrhea	84															
 HP:0001631	Atrial septal defect	84
 															HP:0001631	Atrial septal defect	84			
-HP:0002242	Abnormal intestine morphology	86
-															HP:0002242	Abnormal intestine morphology	86			
+HP:0002242	Abnormal intestine morphology	87
+															HP:0002242	Abnormal intestine morphology	87			
 HP:0000078	Abnormality of the genital system	88
 			HP:0000078	Abnormality of the genital system	88															
 HP:0011994	Abnormal atrial septum morphology	88
 															HP:0011994	Abnormal atrial septum morphology	88			
-HP:0000077	Abnormality of the kidney	89
-															HP:0000077	Abnormality of the kidney	89			
 HP:0008968	Muscle hypertrophy of the lower extremities	90
 			HP:0008968	Muscle hypertrophy of the lower extremities	90															
+HP:0000077	Abnormality of the kidney	90
+															HP:0000077	Abnormality of the kidney	90			
 HP:0000528	Anophthalmia	91
 			HP:0000528	Anophthalmia	91															

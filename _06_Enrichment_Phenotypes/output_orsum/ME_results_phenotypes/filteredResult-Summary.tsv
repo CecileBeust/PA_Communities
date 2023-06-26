@@ -1,47 +1,46 @@
 Representing term id	Representing term name	Representing term size	Representing term rank	Represented term number	1 term rank	2 term rank	3 term rank	4 term rank	5 term rank	6 term rank
 HP:0007495	Prematurely aged appearance	87	1	5	1	1	1	1	1	1
 HP:0011354	Generalized abnormality of skin	717	3	6	3	4	4	None	3	None
-HP:0005599	Hypopigmentation of hair	78	3	3	16	3	None	None	57	None
-HP:0008065	Aplasia/Hypoplasia of the skin	152	4	3	4	None	None	None	11	None
+HP:0005599	Hypopigmentation of hair	78	3	3	17	3	None	None	56	None
+HP:0008065	Aplasia/Hypoplasia of the skin	152	4	3	4	None	None	None	12	None
 HP:0000492	Abnormal eyelid morphology	888	5	5	71	None	5	None	32	None
 HP:0001582	Redundant skin	48	5	1	None	None	None	None	5	None
 HP:0010766	Ectopic calcification	169	6	3	6	None	None	None	None	None
-HP:0000534	Abnormal eyebrow morphology	369	6	3	83	None	6	None	None	None
+HP:0001595	Abnormal hair morphology	893	6	13	21	None	6	None	33	None
 HP:0011121	Abnormality of skin morphology	1663	6	15	9	None	8	None	6	None
 HP:0002634	Arteriosclerosis	61	7	3	7	None	None	None	None	None
-HP:0001595	Abnormal hair morphology	893	7	10	21	None	7	None	34	None
 HP:0009771	Osteolytic defects of the phalanges of the hand	11	8	1	8	None	None	None	None	None
-HP:0000951	Abnormality of the skin	1787	8	4	19	None	17	None	8	None
+HP:0000951	Abnormality of the skin	1787	8	4	19	None	18	None	8	None
 HP:0000632	Lacrimation abnormality	45	10	1	None	None	10	None	None	None
 HP:0000015	Bladder diverticulum	11	10	1	None	None	None	None	10	None
+HP:0001634	Mitral valve prolapse	52	11	1	None	None	None	None	11	None
 HP:0000855	Insulin resistance	60	12	1	12	None	None	None	83	None
-HP:0001634	Mitral valve prolapse	52	12	1	None	None	None	None	12	None
 HP:0000023	Inguinal hernia	168	13	1	None	None	None	None	13	None
+HP:0004361	Abnormal circulating leptin concentration	10	14	1	14	None	None	None	None	None
 HP:0009125	Lipodystrophy	65	14	2	15	None	None	None	14	None
 HP:0004414	Abnormality of the pulmonary artery	69	15	2	69	None	None	None	15	None
-HP:0000430	Underdeveloped nasal alae	73	16	1	None	None	16	None	None	None
-HP:0004361	Abnormal circulating leptin concentration	10	17	1	17	None	None	None	None	None
+HP:0000233	Thin vermilion border	191	16	1	None	None	16	None	None	None
+HP:0000430	Underdeveloped nasal alae	73	17	1	None	None	17	None	None	None
 HP:0100790	Hernia	374	17	3	None	None	None	None	17	None
-HP:0000233	Thin vermilion border	191	18	1	None	None	18	None	None	None
 HP:0001382	Joint hypermobility	209	18	2	None	None	None	None	18	None
-HP:0001654	Abnormal heart valve morphology	218	21	2	87	None	None	None	21	None
+HP:0004322	Short stature	925	21	1	None	None	None	None	21	None
 HP:0009924	Aplasia/Hypoplasia involving the nose	85	22	1	None	None	22	None	None	None
-HP:0004322	Short stature	925	22	1	None	None	None	None	22	None
+HP:0001654	Abnormal heart valve morphology	218	22	2	87	None	None	None	22	None
 HP:0002644	Abnormal pelvic girdle bone morphology	410	23	2	None	None	None	None	23	None
-HP:0001510	Growth delay	1290	25	1	45	None	None	None	25	None
-HP:0000331	Short chin	23	26	1	26	None	None	None	None	None
+HP:0000331	Short chin	23	25	1	25	None	None	None	None	None
+HP:0001510	Growth delay	1290	26	1	45	None	None	None	26	None
 HP:0000444	Convex nasal ridge	66	27	1	27	None	None	None	None	None
-HP:0010668	Abnormal zygomatic bone morphology	156	28	2	None	None	None	None	28	None
 HP:0000869	Secondary amenorrhea	24	29	1	29	None	None	None	None	None
-HP:0001642	Pulmonic stenosis	57	30	1	None	None	None	None	30	None
-HP:0002617	Vascular dilatation	111	31	2	None	None	None	None	31	None
+HP:0010668	Abnormal zygomatic bone morphology	156	29	2	None	None	None	None	29	None
+HP:0002617	Vascular dilatation	111	30	2	None	None	None	None	30	None
+HP:0001642	Pulmonic stenosis	57	31	1	None	None	None	None	31	None
 HP:0002797	Osteolysis	76	32	1	32	None	None	None	None	None
 HP:0000008	Abnormal morphology of female internal genitalia	266	34	2	34	None	None	None	None	None
-HP:0000818	Abnormality of the endocrine system	937	35	7	35	None	None	None	91	None
 HP:0031653	Abnormal heart valve physiology	190	35	3	48	None	None	None	35	None
-HP:0000481	Abnormal cornea morphology	380	36	2	None	None	None	None	36	None
-HP:0009804	Tooth agenesis	159	37	1	37	None	None	None	None	None
-HP:0000290	Abnormality of the forehead	617	37	2	None	None	None	None	37	None
+HP:0009804	Tooth agenesis	159	36	1	36	None	None	None	None	None
+HP:0000290	Abnormality of the forehead	617	36	2	None	None	None	None	36	None
+HP:0000818	Abnormality of the endocrine system	937	37	7	37	None	None	None	91	None
+HP:0000481	Abnormal cornea morphology	380	37	2	None	None	None	None	37	None
 HP:0001635	Congestive heart failure	162	38	1	38	None	None	None	None	None
 HP:0000938	Osteopenia	128	39	1	None	None	None	None	39	None
 HP:0000325	Triangular face	70	40	1	None	None	None	None	40	None
@@ -53,39 +52,38 @@ HP:0001373	Joint dislocation	219	45	1	None	None	None	None	45	None
 HP:0000822	Hypertension	200	47	1	47	None	None	None	None	None
 HP:0011849	Abnormal bone ossification	444	47	2	77	None	None	None	47	None
 HP:0000277	Abnormal mandible morphology	706	48	1	None	None	None	None	48	None
+HP:0100013	Neoplasm of the breast	45	49	1	49	None	None	None	None	None
 HP:0000239	Large fontanelles	86	49	1	None	None	None	None	49	None
-HP:0100013	Neoplasm of the breast	45	50	1	50	None	None	None	None	None
-HP:0001388	Joint laxity	92	51	1	None	None	None	None	51	None
-HP:0000275	Narrow face	50	52	1	52	None	None	None	None	None
-HP:0001999	Abnormal facial shape	730	52	1	None	None	None	None	52	None
+HP:0001999	Abnormal facial shape	730	51	2	52	None	None	None	51	None
+HP:0001388	Joint laxity	92	52	1	None	None	None	None	52	None
 HP:0000929	Abnormal skull morphology	1605	53	1	81	None	None	None	53	None
 HP:0000766	Abnormal sternum morphology	254	54	1	None	None	None	None	54	None
-HP:0009726	Renal neoplasm	52	55	1	55	None	None	None	None	None
 HP:0000271	Abnormality of the face	2330	55	6	82	None	None	None	55	None
+HP:0009726	Renal neoplasm	52	56	1	56	None	None	None	None	None
 HP:0032263	Increased blood pressure	230	57	1	57	None	None	None	None	None
 HP:0100545	Arterial stenosis	55	58	1	58	None	None	None	None	None
-HP:0002664	Neoplasm	717	59	3	59	None	None	None	None	None
 HP:0010674	Abnormality of the curvature of the vertebral column	762	59	2	None	None	None	None	59	None
+HP:0000518	Cataract	375	60	1	60	None	None	None	None	None
 HP:0100699	Scarring	102	60	1	None	None	None	None	60	None
-HP:0000518	Cataract	375	61	1	61	None	None	None	None	None
-HP:0001622	Premature birth	105	62	1	None	None	None	None	62	None
-HP:0003097	Short femur	12	64	1	None	None	None	None	64	None
-HP:0002035	Rectal prolapse	12	66	1	None	None	None	None	66	None
+HP:0001622	Premature birth	105	61	1	None	None	None	None	61	None
+HP:0002664	Neoplasm	717	62	3	62	None	None	None	None	None
+HP:0002035	Rectal prolapse	12	65	1	None	None	None	None	65	None
 HP:0005374	Cellular immunodeficiency	15	67	1	67	None	None	None	None	None
+HP:0003097	Short femur	12	67	1	None	None	None	None	67	None
+HP:0001367	Abnormal joint morphology	966	69	1	None	None	None	None	69	None
 HP:0004325	Decreased body weight	790	70	2	70	None	None	None	96	None
-HP:0001367	Abnormal joint morphology	966	71	1	None	None	None	None	71	None
 HP:0000889	Abnormal clavicle morphology	73	73	1	73	None	None	None	None	None
+HP:0001805	Onychogryposis	15	77	1	None	None	None	None	77	None
 HP:0003119	Abnormal circulating lipid concentration	175	78	1	78	None	None	None	None	None
 HP:0003010	Prolonged bleeding time	15	78	1	None	None	None	None	78	None
 HP:0008404	Nail dystrophy	80	79	1	79	None	None	None	None	None
-HP:0001805	Onychogryposis	15	79	1	None	None	None	None	79	None
 HP:0001760	Abnormal foot morphology	1000	80	2	89	None	None	None	80	None
 HP:0004947	Arteriovenous fistula	16	81	1	None	None	None	None	81	None
 HP:0000141	Amenorrhea	84	84	1	84	None	None	None	None	None
 HP:0001631	Atrial septal defect	215	84	1	None	None	None	None	84	None
-HP:0002242	Abnormal intestine morphology	438	86	1	None	None	None	None	86	None
+HP:0002242	Abnormal intestine morphology	438	87	1	None	None	None	None	87	None
 HP:0000078	Abnormality of the genital system	1121	88	1	88	None	None	None	None	None
 HP:0011994	Abnormal atrial septum morphology	219	88	1	None	None	None	None	88	None
-HP:0000077	Abnormality of the kidney	868	89	1	None	None	None	None	89	None
 HP:0008968	Muscle hypertrophy of the lower extremities	28	90	1	90	None	None	None	None	None
+HP:0000077	Abnormality of the kidney	868	90	1	None	None	None	None	90	None
 HP:0000528	Anophthalmia	28	91	1	91	None	None	None	None	None
