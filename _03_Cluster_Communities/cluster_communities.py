@@ -337,7 +337,7 @@ def analyze_clusters(dico_disease_seeds: dict, filtered_dico_cluster: dict, dico
         for disease, code in zip(diseases_names, diseases_codes):
             print(disease, code)
             seeds = dico_disease_seeds[str(code)]
-            new_row = [f"{cluster}", disease, seeds]
+            new_row = [f"{cluster[8:]}", disease, seeds]
             df = df.append(dict(zip(df.columns, new_row)), ignore_index=True)
     print(df)
     df.to_csv(path + f"output_tables/clusters_{size}.tsv", sep="\t", index=False)
