@@ -13,6 +13,7 @@ from scipy.stats import pearsonr
 import matplotlib.pyplot as plt
 import os
 import sys
+from pathlib import Path
 
 # define path
 path = os.path.dirname(os.path.realpath(__file__))
@@ -169,7 +170,33 @@ def generate_excel_genes(dico_gene_comm: dict) -> None:
     print('Correlation Nb comm / sum deg:', corr_sum)
     print('P-value:', p_value_sum)
     df_sorted = df.sort_values(by=['Nb of communities'], ascending=False)
-    df_sorted.to_csv("output_tables/genes_in_communities.tsv", sep="\t")
+    df_sorted.to_csv("output_tables/genes_in_communities.csv", sep=",")
     
     
 generate_excel_genes(dico_gene_comm)
+
+def list_genes_in_communities(list_comm: list, list_ids_analyzed: list, comm_path: str):
+    diseases_names = pd.read_csv(orpha_names, sep="\t", header=None)
+    diseases = list()
+    for index, row in diseases_names.iterrows():
+        if row[0][6:] in list_ids_analyzed:
+            diseases.append(row[1])
+    for comm, disease, id in zip(list_comm, diseases, list_ids_analyzed):
+        df = pd.DataFrame(columns=[f"{disease}", "Genes"])
+        with open(comm_path + f"results_100_{id}/seeds_{id}.txt", 'r') as file:
+            i = 1
+            for line in file:
+                df._set_value(i, "Genes", line.rstrip())
+                i += 1
+        df.to_csv(path + f"output_tables/genes_comm_{id}.tsv", sep="\t", index=False)
+    tsv_dir = Path(path + "output_tables/")
+    tsv_data = {}
+    for tsv_file in tsv_dir.glob('*.tsv'):
+        tsv_name = tsv_file.stem
+        tsv_data[tsv_name] = pd.read_csv(tsv_file, sep="\t")
+    writer = pd.ExcelWriter(path + f"output_tables/genes_in_PA_communities.xlsx", engine='xlsxwriter')
+    for sheet_name, sheet_data in tsv_data.items():
+        sheet_data.to_excel(writer, sheet_name=sheet_name, index=False)
+    writer.save()
+    
+list_genes_in_communities(communities_100, list_ids_analyzed, comm_path)
