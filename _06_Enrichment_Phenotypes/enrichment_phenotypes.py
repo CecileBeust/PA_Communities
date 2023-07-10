@@ -100,8 +100,9 @@ for key in range(1, 7):
     globals()[f'cluster{key}'] = dico_clusters_diseases[key]
 
 print(list_clusters)
+print(f"There are {len(list_clusters)} clusters to enrich with HPO phenotypes")
 
-def build_pheno_set(list_diseases_analyzed: list, dico_code_disease: dict) -> set:
+def build_pheno_list(list_diseases_analyzed: list) -> set:
     """Function that determines the background of HPO phenotypes to use
     for the hypergeometric test
 
@@ -122,14 +123,14 @@ def build_pheno_set(list_diseases_analyzed: list, dico_code_disease: dict) -> se
         phenotypes = df['HPO_TERM_NAME'].to_list()
         # add phenotypes to the background
         pheno.extend(phenotypes)
-    return set(pheno)
+    pheno = list(dict.fromkeys(pheno))
+    return pheno
 
-#pheno_set = build_pheno_set(pa_diseases_analyzed, dico_code_disease)
-pheno_set = build_pheno_set(list_ids_analyzed, dico_code_disease)
+phenos = build_pheno_list(list_ids_analyzed)
 print(" ")
-print(f"Background : {len(pheno_set)} phenotypes")
+print(f"{len(phenos)} phenotypes associated to the PA diseases")
 
-def enrich_phenotypes(pheno_set: set, list_cluster: list, background_diseases_HPO: int) -> None:
+def enrich_phenotypes(phenos: list, list_cluster: list, background_diseases_HPO: int) -> None:
     """Function to perform enrichment analysis of a set of HPO phenotypes in clusters of diseases
     using an hypergeometric test
 
@@ -144,11 +145,13 @@ def enrich_phenotypes(pheno_set: set, list_cluster: list, background_diseases_HP
         df = pd.DataFrame(columns=['Cluster', 'HPO ID', 'Phenotype', 'p-value', 'Corrected p-value'])
         nb_diseases_cluster = len(cluster)
         i = 0
-        for phenotype in pheno_set:
+        for phenotype in phenos:
             term = Ontology.get_hpo_object(phenotype)
+            print(term)
             list_diseases_pheno = list()
             for disease in term.orpha_diseases:
                 list_diseases_pheno.append(str(disease))
+            print(list_diseases_pheno)
             nb_diseases_pheno = len(set(list_diseases_pheno))
             success_sample = len(set(cluster).intersection(set(list_diseases_pheno)))
             p_value = stats.hypergeom.sf(success_sample-1, background_diseases_HPO, nb_diseases_pheno, nb_diseases_cluster)
@@ -173,7 +176,7 @@ def enrich_phenotypes(pheno_set: set, list_cluster: list, background_diseases_HP
     writer.save()
 
 # We use the number of ORPHANET diseases in HPO (4262) as a background for statistical significance
-enrich_phenotypes(pheno_set = pheno_set, list_cluster = list_clusters, background_diseases_HPO = 4262)
+enrich_phenotypes(phenos = phenos, list_cluster = list_clusters, background_diseases_HPO = 4262)
 
 def create_gmt() -> None:
     """Function to create a gmt file of HPO phenotypes
@@ -234,8 +237,8 @@ def applyOrsum(dico: dict, gmt: str, summaryFolder: str, outputFolder: str, maxR
     """
     noEnrichmentGroup = set()
     #/!\ ORSUM PATH TO ADDAPT /!\
-    # if orsum is installed as a conda pacgke
-    command = '/home/cbeust/miniconda3/pkgs/orsum-1.6.0-hdfd78af_0/bin/orsum.py'
+    # if orsum is installed as a conda package
+    #command = '/home/username/miniconda3/pkgs/orsum-1.6.0-hdfd78af_0/bin/orsum.py'
     # if orsum is installed in the current directory
     #command = path + 'orsum/orsum.py'
     command = command + ' --gmt \"'+gmt+'\" '
