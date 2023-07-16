@@ -1,21 +1,23 @@
-# Enrichment of clusters of gene communities using physiological aging genes
+# Enrichment analysis in physiological aging related genes
 
-This folder contains codes to enrich clusters of gene communities using lists of physiological aging genes. Here the lists of physiological aging genes used are the following : 
+This folder contains codes to perform the enrichment analysis using lists of physiological aging related genes. The lists of physiological aging genes used are the following: 
 
 * Genes from the GenAge database
 * Genes up and down-regulated during physiological aging in blood and skin, from the study of Irizar et al.
+
+The enrichment analyses are performed at the level of clusters.
 
 ## Folders
 
 * ```Data_PhysioAging```: Folder containing the physiological aging data.
 
-This folder contains the following data files : 
+This folder contains the following data files: 
 
 * ```GSE103232_hs_blood_batch2_counts_rpkm.xls```: File containing Ensembl identifiers of genes to map to HUGO genes symbols, from the study of Irizar et al. 
 * ```geneage_human.csv```: physiological aging genes extracted from GenAge
-* ```human-blood.txt```: list of genes differentially expressed during physiological aging in blood (from the study of Irizar et al)
-* ```human-skin.txt```: list of genes differentially expressed during physiological aging in skin (from the study of Irizar et al)
-* ```Mapping_Ensembl_GeneSymbol.txt```: mapping file for Ensembl gene symbols tp HUGO gene symbols
+* ```human-blood.txt```: list of genes differentially expressed during physiological aging in blood (from the study of Irizar et al.)
+* ```human-skin.txt```: list of genes differentially expressed during physiological aging in skin (from the study of Irizar et al.)
+* ```Mapping_Ensembl_GeneSymbol.txt```: mapping file for Ensembl gene symbols to HUGO gene symbols
 
 ## Files
 
@@ -28,7 +30,7 @@ This folder contains the following data files :
 
 ## Output
 
-* ```output_tables/Enrichment_clusters_aging_genes.tsv```: file containing the p-values of hypergeometric tests for the enrichment of the cluster in physiological aging genes
+* ```output_tables/Enrichment_clusters_aging_genes.tsv```: file containing the p-values of the hypergeometric tests for the cluster enrichments in physiological aging genes
 
 * ```output_figures/Heatmap_PhysioAging.png```: a heatmap of the enrichment results
 
