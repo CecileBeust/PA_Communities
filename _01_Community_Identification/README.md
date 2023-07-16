@@ -39,3 +39,5 @@ dom walk with restart. en. Communications Physics 5, 170. ISSN: 2399-3650. doi:1
 
 * Rath, A. et al. Representation of rare diseases in health information systems: The or-
 phanet approach to serve a wide range of end users. Human Mutation 33, 803–808. ISSN: 10597794. doi:10.1002/humu.22078 (2012).
+
+* Köhler S, et al. The Human Phenotype Ontology in 2021. Nucleic Acids Res. 2021 Jan 8;49(D1):D1207-D1217. doi: 10.1093/nar/gkaa1043. PMID: 33264411; PMCID: PMC7778952.
