@@ -12,11 +12,12 @@ sys.path.append('../..')
 os.chdir(path)
 print(path)
 
-from utilities import create_dico_disease_seeds, build_communities_list
+from utilities import create_dico_disease_seeds, build_communities_list, load_networks
 
 data_folder = os.path.join(os.path.dirname(__file__), '../..', '_00_data')
 orpha_codes = os.path.join(data_folder, 'orpha_codes_PA.txt')
 orpha_names = os.path.join(data_folder, 'pa_orphanet_diseases.tsv')
+mapping_hugo_file = os.path.join(data_folder, 'mapping_HGNC_Ensembl.txt')
 
 # Argparse
 parser = argparse.ArgumentParser(
@@ -38,6 +39,31 @@ if os.path.exists(comm_path) == False :
 (communities_100, not_analyzed) = build_communities_list(comm_path, list_id, 100)
 list_ids_analyzed = [x for x in list_id if x not in not_analyzed]
 
+all_nodes_HUGO = list(load_networks(comm_path=comm_path))
+
+def create_mapping_dict(mapping_file: str):
+    mapping_dict = dict()
+    df = pd.read_table(mapping_file, header=0)
+    for index, row in df.iterrows():
+        if str(row[0]) not in mapping_dict.keys():
+            mapping_dict[str(row[0])] = str(row[1])
+    return mapping_dict
+
+mapping_dict = create_mapping_dict(mapping_file=mapping_hugo_file)
+
+def map_all_nodes_mx(all_nodes: list, mapping_dict: dict):
+    all_nodes_ensembl = list()
+    for node in all_nodes:
+        if node in mapping_dict:
+            ensembl_node = mapping_dict[node]
+            all_nodes_ensembl.append(ensembl_node)
+        else:
+            all_nodes_ensembl.append(node)
+    return all_nodes_ensembl
+
+all_nodes_ensembl = map_all_nodes_mx(all_nodes=all_nodes_HUGO, mapping_dict=mapping_dict)
+print(len(all_nodes_ensembl))
+
 pa_diseases = pd.read_csv(orpha_names, sep="\t", header=None)
 dico_code_disease = {}
 for index, row in pa_diseases.iterrows():
@@ -55,7 +81,7 @@ def enrichment_communities(list_comm, list_ids_analyzed, size):
             for line in file:
                 genes += line.rsplit()
             gp = GProfiler(user_agent='https://biit.cs.ut.ee/gprofiler_archive3/e108_eg55_p17/api/gost/profile/', return_dataframe=True)
-            enrich = gp.profile(organism='hsapiens', query=genes, no_evidences=False)
+            enrich = gp.profile(organism='hsapiens', query=genes, sources=["GO:BP", "GO:CC", "REAC"], user_threshold=0.05, domain_scope='custom', significance_threshold_method='fdr', no_evidences=False, background=all_nodes_ensembl)
             print(enrich)
             enrich.to_csv(path + f"output_tables/comm_{id}_{size}.tsv", sep="\t")
     for id in list_ids_analyzed:

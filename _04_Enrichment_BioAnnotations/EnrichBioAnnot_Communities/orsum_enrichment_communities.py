@@ -77,7 +77,7 @@ def applyOrsum(list_comm: list, gmt: str, source: str, summaryFolder: str, outpu
     # /!\ ORSUM PATH TO ADDAPT /!\
     # if orsum is installed as a conda pacgke
     #command = '/home/.../miniconda3/pkgs/orsum-1.6.0-hdfd78af_0/bin/orsum.py'
-    command = '/home/cbeust/miniconda3/pkgs/orsum-1.6.0-hdfd78af_0/bin/orsum.py'
+    command = '/Users/cecilebeust/miniconda3/bin/orsum.py'
     # if orsum is installed in the current directory
     #command = path + 'orsum/orsum.py'
     command = command + ' --gmt \"'+gmt+'\" '

@@ -1,38 +1,41 @@
 orsum 1.6.0
 
-gmt:	/home/cbeust/Landscape_PA/Github_Codes/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Clusters/../../_00_data/gmt_files/hsapiens.GO:BP.name.gmt
-files:	['/home/cbeust/Landscape_PA/Github_Codes/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Clusters/output_orsum/Orsum_cluster_1/EnrichmentClust-GOBP.txt', '/home/cbeust/Landscape_PA/Github_Codes/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Clusters/output_orsum/Orsum_cluster_2/EnrichmentClust-GOBP.txt', '/home/cbeust/Landscape_PA/Github_Codes/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Clusters/output_orsum/Orsum_cluster_3/EnrichmentClust-GOBP.txt', '/home/cbeust/Landscape_PA/Github_Codes/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Clusters/output_orsum/Orsum_cluster_4/EnrichmentClust-GOBP.txt', '/home/cbeust/Landscape_PA/Github_Codes/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Clusters/output_orsum/Orsum_cluster_5/EnrichmentClust-GOBP.txt', '/home/cbeust/Landscape_PA/Github_Codes/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Clusters/output_orsum/Orsum_cluster_6/EnrichmentClust-GOBP.txt']
+gmt:	/Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Clusters/../../_00_data/gmt_files/hsapiens.GO:BP.name.gmt
+files:	['/Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Clusters/output_orsum/Orsum_cluster_1/EnrichmentClust-GOBP.txt', '/Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Clusters/output_orsum/Orsum_cluster_2/EnrichmentClust-GOBP.txt', '/Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Clusters/output_orsum/Orsum_cluster_3/EnrichmentClust-GOBP.txt', '/Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Clusters/output_orsum/Orsum_cluster_4/EnrichmentClust-GOBP.txt', '/Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Clusters/output_orsum/Orsum_cluster_5/EnrichmentClust-GOBP.txt', '/Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Clusters/output_orsum/Orsum_cluster_6/EnrichmentClust-GOBP.txt']
 fileAliases:	['cluster_1', 'cluster_2', 'cluster_3', 'cluster_4', 'cluster_5', 'cluster_6']
-outputFolder:	/home/cbeust/Landscape_PA/Github_Codes/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Clusters/output_orsum/ME_results_GOBP_clust
+outputFolder:	/Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Clusters/output_orsum/ME_results_GOBP_clust
 maxRepSize:	1000000
 maxTermSize:	1000000
 minTermSize:	10
 numberOfTermsToPlot:	50
 
 
-Processing /home/cbeust/Landscape_PA/Github_Codes/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Clusters/output_orsum/Orsum_cluster_1/EnrichmentClust-GOBP.txt
-53 terms are smaller than minTermSize=10, they are removed.
+Processing /Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Clusters/output_orsum/Orsum_cluster_1/EnrichmentClust-GOBP.txt
+156 terms are smaller than minTermSize=10, they are removed.
 
-Processing /home/cbeust/Landscape_PA/Github_Codes/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Clusters/output_orsum/Orsum_cluster_2/EnrichmentClust-GOBP.txt
-18 terms are smaller than minTermSize=10, they are removed.
+Processing /Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Clusters/output_orsum/Orsum_cluster_2/EnrichmentClust-GOBP.txt
+181 terms are smaller than minTermSize=10, they are removed.
 
-Processing /home/cbeust/Landscape_PA/Github_Codes/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Clusters/output_orsum/Orsum_cluster_3/EnrichmentClust-GOBP.txt
-33 terms are smaller than minTermSize=10, they are removed.
+Processing /Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Clusters/output_orsum/Orsum_cluster_3/EnrichmentClust-GOBP.txt
+2 terms are not in GMT, they are removed.
+372 terms are smaller than minTermSize=10, they are removed.
 
-Processing /home/cbeust/Landscape_PA/Github_Codes/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Clusters/output_orsum/Orsum_cluster_4/EnrichmentClust-GOBP.txt
-28 terms are smaller than minTermSize=10, they are removed.
+Processing /Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Clusters/output_orsum/Orsum_cluster_4/EnrichmentClust-GOBP.txt
+4 terms are not in GMT, they are removed.
+192 terms are smaller than minTermSize=10, they are removed.
 
-Processing /home/cbeust/Landscape_PA/Github_Codes/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Clusters/output_orsum/Orsum_cluster_5/EnrichmentClust-GOBP.txt
-18 terms are smaller than minTermSize=10, they are removed.
+Processing /Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Clusters/output_orsum/Orsum_cluster_5/EnrichmentClust-GOBP.txt
+1 term is not in GMT, it is removed.
+253 terms are smaller than minTermSize=10, they are removed.
 
-Processing /home/cbeust/Landscape_PA/Github_Codes/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Clusters/output_orsum/Orsum_cluster_6/EnrichmentClust-GOBP.txt
-18 terms are smaller than minTermSize=10, they are removed.
+Processing /Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Clusters/output_orsum/Orsum_cluster_6/EnrichmentClust-GOBP.txt
+56 terms are smaller than minTermSize=10, they are removed.
 
-Initial term number (recurring terms in different lists are not merged yet, each one is counted): 3808
+Initial term number (recurring terms in different lists are not merged yet, each one is counted): 7596
 
 Same terms in multiple lists are unified
-Representing term number: 2179
+Representing term number: 3876
 
 Superterms represent their less significant (worse ranked) subterms. This includes equal terms, i.e. the terms that annotate exactly the same set of genes.
-Representing term number: 109
+Representing term number: 98
 

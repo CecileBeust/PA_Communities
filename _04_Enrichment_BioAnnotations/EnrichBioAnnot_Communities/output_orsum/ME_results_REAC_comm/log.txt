@@ -1,237 +1,248 @@
 orsum 1.6.0
 
-gmt:	/home/cbeust/Landscape_PA/Github_Codes/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/../../_00_data/gmt_files/hsapiens.REAC.name.gmt
-files:	['/home/cbeust/Landscape_PA/Github_Codes/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_93932/EnrichmentClust-REAC.txt', '/home/cbeust/Landscape_PA/Github_Codes/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_920/EnrichmentClust-REAC.txt', '/home/cbeust/Landscape_PA/Github_Codes/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_909/EnrichmentClust-REAC.txt', '/home/cbeust/Landscape_PA/Github_Codes/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_904/EnrichmentClust-REAC.txt', '/home/cbeust/Landscape_PA/Github_Codes/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_90348/EnrichmentClust-REAC.txt', '/home/cbeust/Landscape_PA/Github_Codes/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_90324/EnrichmentClust-REAC.txt', '/home/cbeust/Landscape_PA/Github_Codes/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_90322/EnrichmentClust-REAC.txt', '/home/cbeust/Landscape_PA/Github_Codes/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_90321/EnrichmentClust-REAC.txt', '/home/cbeust/Landscape_PA/Github_Codes/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_902/EnrichmentClust-REAC.txt', '/home/cbeust/Landscape_PA/Github_Codes/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_90154/EnrichmentClust-REAC.txt', '/home/cbeust/Landscape_PA/Github_Codes/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_90153/EnrichmentClust-REAC.txt', '/home/cbeust/Landscape_PA/Github_Codes/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_897/EnrichmentClust-REAC.txt', '/home/cbeust/Landscape_PA/Github_Codes/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_895/EnrichmentClust-REAC.txt', '/home/cbeust/Landscape_PA/Github_Codes/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_894/EnrichmentClust-REAC.txt', '/home/cbeust/Landscape_PA/Github_Codes/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_808/EnrichmentClust-REAC.txt', '/home/cbeust/Landscape_PA/Github_Codes/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_79477/EnrichmentClust-REAC.txt', '/home/cbeust/Landscape_PA/Github_Codes/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_79476/EnrichmentClust-REAC.txt', '/home/cbeust/Landscape_PA/Github_Codes/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_79474/EnrichmentClust-REAC.txt', '/home/cbeust/Landscape_PA/Github_Codes/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_79333/EnrichmentClust-REAC.txt', '/home/cbeust/Landscape_PA/Github_Codes/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_79325/EnrichmentClust-REAC.txt', '/home/cbeust/Landscape_PA/Github_Codes/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_79087/EnrichmentClust-REAC.txt', '/home/cbeust/Landscape_PA/Github_Codes/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_769/EnrichmentClust-REAC.txt', '/home/cbeust/Landscape_PA/Github_Codes/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_758/EnrichmentClust-REAC.txt', '/home/cbeust/Landscape_PA/Github_Codes/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_75496/EnrichmentClust-REAC.txt', '/home/cbeust/Landscape_PA/Github_Codes/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_740/EnrichmentClust-REAC.txt', '/home/cbeust/Landscape_PA/Github_Codes/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_633/EnrichmentClust-REAC.txt', '/home/cbeust/Landscape_PA/Github_Codes/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_500/EnrichmentClust-REAC.txt', '/home/cbeust/Landscape_PA/Github_Codes/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_498359/EnrichmentClust-REAC.txt', '/home/cbeust/Landscape_PA/Github_Codes/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_487825/EnrichmentClust-REAC.txt', '/home/cbeust/Landscape_PA/Github_Codes/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_477/EnrichmentClust-REAC.txt', '/home/cbeust/Landscape_PA/Github_Codes/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_435628/EnrichmentClust-REAC.txt', '/home/cbeust/Landscape_PA/Github_Codes/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_412057/EnrichmentClust-REAC.txt', '/home/cbeust/Landscape_PA/Github_Codes/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_363618/EnrichmentClust-REAC.txt', '/home/cbeust/Landscape_PA/Github_Codes/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_357074/EnrichmentClust-REAC.txt', '/home/cbeust/Landscape_PA/Github_Codes/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_3455/EnrichmentClust-REAC.txt', '/home/cbeust/Landscape_PA/Github_Codes/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_3437/EnrichmentClust-REAC.txt', '/home/cbeust/Landscape_PA/Github_Codes/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_33445/EnrichmentClust-REAC.txt', '/home/cbeust/Landscape_PA/Github_Codes/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_33364/EnrichmentClust-REAC.txt', '/home/cbeust/Landscape_PA/Github_Codes/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_3322/EnrichmentClust-REAC.txt', '/home/cbeust/Landscape_PA/Github_Codes/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_3163/EnrichmentClust-REAC.txt', '/home/cbeust/Landscape_PA/Github_Codes/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_3051/EnrichmentClust-REAC.txt', '/home/cbeust/Landscape_PA/Github_Codes/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_2963/EnrichmentClust-REAC.txt', '/home/cbeust/Landscape_PA/Github_Codes/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_287/EnrichmentClust-REAC.txt', '/home/cbeust/Landscape_PA/Github_Codes/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_286/EnrichmentClust-REAC.txt', '/home/cbeust/Landscape_PA/Github_Codes/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_2834/EnrichmentClust-REAC.txt', '/home/cbeust/Landscape_PA/Github_Codes/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_280679/EnrichmentClust-REAC.txt', '/home/cbeust/Landscape_PA/Github_Codes/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_280365/EnrichmentClust-REAC.txt', '/home/cbeust/Landscape_PA/Github_Codes/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_2658/EnrichmentClust-REAC.txt', '/home/cbeust/Landscape_PA/Github_Codes/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_263534/EnrichmentClust-REAC.txt', '/home/cbeust/Landscape_PA/Github_Codes/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_263487/EnrichmentClust-REAC.txt', '/home/cbeust/Landscape_PA/Github_Codes/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_2500/EnrichmentClust-REAC.txt', '/home/cbeust/Landscape_PA/Github_Codes/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_220295/EnrichmentClust-REAC.txt', '/home/cbeust/Landscape_PA/Github_Codes/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_2078/EnrichmentClust-REAC.txt', '/home/cbeust/Landscape_PA/Github_Codes/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_2067/EnrichmentClust-REAC.txt', '/home/cbeust/Landscape_PA/Github_Codes/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_1942/EnrichmentClust-REAC.txt', '/home/cbeust/Landscape_PA/Github_Codes/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_1901/EnrichmentClust-REAC.txt', '/home/cbeust/Landscape_PA/Github_Codes/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_1860/EnrichmentClust-REAC.txt', '/home/cbeust/Landscape_PA/Github_Codes/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_1807/EnrichmentClust-REAC.txt', '/home/cbeust/Landscape_PA/Github_Codes/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_1775/EnrichmentClust-REAC.txt', '/home/cbeust/Landscape_PA/Github_Codes/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_163746/EnrichmentClust-REAC.txt', '/home/cbeust/Landscape_PA/Github_Codes/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_1387/EnrichmentClust-REAC.txt', '/home/cbeust/Landscape_PA/Github_Codes/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_137608/EnrichmentClust-REAC.txt', '/home/cbeust/Landscape_PA/Github_Codes/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_1340/EnrichmentClust-REAC.txt', '/home/cbeust/Landscape_PA/Github_Codes/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_1299/EnrichmentClust-REAC.txt', '/home/cbeust/Landscape_PA/Github_Codes/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_1297/EnrichmentClust-REAC.txt', '/home/cbeust/Landscape_PA/Github_Codes/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_101028/EnrichmentClust-REAC.txt', '/home/cbeust/Landscape_PA/Github_Codes/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_100/EnrichmentClust-REAC.txt']
+gmt:	/Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/../../_00_data/gmt_files/hsapiens.REAC.name.gmt
+files:	['/Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_93932/EnrichmentClust-REAC.txt', '/Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_920/EnrichmentClust-REAC.txt', '/Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_909/EnrichmentClust-REAC.txt', '/Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_904/EnrichmentClust-REAC.txt', '/Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_90348/EnrichmentClust-REAC.txt', '/Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_90324/EnrichmentClust-REAC.txt', '/Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_90322/EnrichmentClust-REAC.txt', '/Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_90321/EnrichmentClust-REAC.txt', '/Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_902/EnrichmentClust-REAC.txt', '/Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_90154/EnrichmentClust-REAC.txt', '/Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_90153/EnrichmentClust-REAC.txt', '/Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_897/EnrichmentClust-REAC.txt', '/Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_895/EnrichmentClust-REAC.txt', '/Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_894/EnrichmentClust-REAC.txt', '/Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_808/EnrichmentClust-REAC.txt', '/Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_79477/EnrichmentClust-REAC.txt', '/Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_79476/EnrichmentClust-REAC.txt', '/Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_79474/EnrichmentClust-REAC.txt', '/Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_79333/EnrichmentClust-REAC.txt', '/Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_79325/EnrichmentClust-REAC.txt', '/Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_79087/EnrichmentClust-REAC.txt', '/Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_769/EnrichmentClust-REAC.txt', '/Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_758/EnrichmentClust-REAC.txt', '/Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_75496/EnrichmentClust-REAC.txt', '/Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_740/EnrichmentClust-REAC.txt', '/Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_633/EnrichmentClust-REAC.txt', '/Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_500/EnrichmentClust-REAC.txt', '/Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_498359/EnrichmentClust-REAC.txt', '/Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_487825/EnrichmentClust-REAC.txt', '/Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_477/EnrichmentClust-REAC.txt', '/Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_435628/EnrichmentClust-REAC.txt', '/Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_412057/EnrichmentClust-REAC.txt', '/Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_363618/EnrichmentClust-REAC.txt', '/Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_357074/EnrichmentClust-REAC.txt', '/Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_3455/EnrichmentClust-REAC.txt', '/Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_3437/EnrichmentClust-REAC.txt', '/Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_33445/EnrichmentClust-REAC.txt', '/Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_33364/EnrichmentClust-REAC.txt', '/Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_3322/EnrichmentClust-REAC.txt', '/Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_3163/EnrichmentClust-REAC.txt', '/Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_3051/EnrichmentClust-REAC.txt', '/Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_2963/EnrichmentClust-REAC.txt', '/Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_287/EnrichmentClust-REAC.txt', '/Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_286/EnrichmentClust-REAC.txt', '/Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_2834/EnrichmentClust-REAC.txt', '/Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_280679/EnrichmentClust-REAC.txt', '/Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_280365/EnrichmentClust-REAC.txt', '/Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_2658/EnrichmentClust-REAC.txt', '/Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_263534/EnrichmentClust-REAC.txt', '/Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_263487/EnrichmentClust-REAC.txt', '/Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_2500/EnrichmentClust-REAC.txt', '/Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_220295/EnrichmentClust-REAC.txt', '/Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_2078/EnrichmentClust-REAC.txt', '/Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_2067/EnrichmentClust-REAC.txt', '/Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_1942/EnrichmentClust-REAC.txt', '/Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_1901/EnrichmentClust-REAC.txt', '/Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_1860/EnrichmentClust-REAC.txt', '/Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_1807/EnrichmentClust-REAC.txt', '/Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_1775/EnrichmentClust-REAC.txt', '/Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_163746/EnrichmentClust-REAC.txt', '/Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_1387/EnrichmentClust-REAC.txt', '/Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_137608/EnrichmentClust-REAC.txt', '/Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_1340/EnrichmentClust-REAC.txt', '/Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_1299/EnrichmentClust-REAC.txt', '/Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_1297/EnrichmentClust-REAC.txt', '/Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_101028/EnrichmentClust-REAC.txt', '/Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_100/EnrichmentClust-REAC.txt']
 fileAliases:	['93932', '920', '909', '904', '90348', '90324', '90322', '90321', '902', '90154', '90153', '897', '895', '894', '808', '79477', '79476', '79474', '79333', '79325', '79087', '769', '758', '75496', '740', '633', '500', '498359', '487825', '477', '435628', '412057', '363618', '357074', '3455', '3437', '33445', '33364', '3322', '3163', '3051', '2963', '287', '286', '2834', '280679', '280365', '2658', '263534', '263487', '2500', '220295', '2078', '2067', '1942', '1901', '1860', '1807', '1775', '163746', '1387', '137608', '1340', '1299', '1297', '101028', '100']
-outputFolder:	/home/cbeust/Landscape_PA/Github_Codes/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/ME_results_REAC_comm
+outputFolder:	/Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/ME_results_REAC_comm
 maxRepSize:	2000
 maxTermSize:	1000000
 minTermSize:	10
 numberOfTermsToPlot:	50
 
 
-Processing /home/cbeust/Landscape_PA/Github_Codes/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_93932/EnrichmentClust-REAC.txt
-18 terms are smaller than minTermSize=10, they are removed.
-
-Processing /home/cbeust/Landscape_PA/Github_Codes/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_920/EnrichmentClust-REAC.txt
+Processing /Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_93932/EnrichmentClust-REAC.txt
 2 terms are not in GMT, they are removed.
-23 terms are smaller than minTermSize=10, they are removed.
+69 terms are smaller than minTermSize=10, they are removed.
 
-Processing /home/cbeust/Landscape_PA/Github_Codes/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_909/EnrichmentClust-REAC.txt
-13 terms are smaller than minTermSize=10, they are removed.
-
-Processing /home/cbeust/Landscape_PA/Github_Codes/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_904/EnrichmentClust-REAC.txt
-18 terms are smaller than minTermSize=10, they are removed.
-
-Processing /home/cbeust/Landscape_PA/Github_Codes/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_90348/EnrichmentClust-REAC.txt
-20 terms are smaller than minTermSize=10, they are removed.
-
-Processing /home/cbeust/Landscape_PA/Github_Codes/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_90324/EnrichmentClust-REAC.txt
-27 terms are smaller than minTermSize=10, they are removed.
-
-Processing /home/cbeust/Landscape_PA/Github_Codes/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_90322/EnrichmentClust-REAC.txt
-16 terms are smaller than minTermSize=10, they are removed.
-
-Processing /home/cbeust/Landscape_PA/Github_Codes/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_90321/EnrichmentClust-REAC.txt
-16 terms are smaller than minTermSize=10, they are removed.
-
-Processing /home/cbeust/Landscape_PA/Github_Codes/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_902/EnrichmentClust-REAC.txt
-16 terms are smaller than minTermSize=10, they are removed.
-
-Processing /home/cbeust/Landscape_PA/Github_Codes/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_90154/EnrichmentClust-REAC.txt
-6 terms are smaller than minTermSize=10, they are removed.
-
-Processing /home/cbeust/Landscape_PA/Github_Codes/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_90153/EnrichmentClust-REAC.txt
-16 terms are smaller than minTermSize=10, they are removed.
-
-Processing /home/cbeust/Landscape_PA/Github_Codes/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_897/EnrichmentClust-REAC.txt
-20 terms are smaller than minTermSize=10, they are removed.
-
-Processing /home/cbeust/Landscape_PA/Github_Codes/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_895/EnrichmentClust-REAC.txt
-18 terms are smaller than minTermSize=10, they are removed.
-
-Processing /home/cbeust/Landscape_PA/Github_Codes/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_894/EnrichmentClust-REAC.txt
+Processing /Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_920/EnrichmentClust-REAC.txt
 2 terms are not in GMT, they are removed.
-25 terms are smaller than minTermSize=10, they are removed.
+44 terms are smaller than minTermSize=10, they are removed.
 
-Processing /home/cbeust/Landscape_PA/Github_Codes/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_808/EnrichmentClust-REAC.txt
-17 terms are smaller than minTermSize=10, they are removed.
-
-Processing /home/cbeust/Landscape_PA/Github_Codes/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_79477/EnrichmentClust-REAC.txt
-2 terms are not in GMT, they are removed.
+Processing /Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_909/EnrichmentClust-REAC.txt
 28 terms are smaller than minTermSize=10, they are removed.
 
-Processing /home/cbeust/Landscape_PA/Github_Codes/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_79476/EnrichmentClust-REAC.txt
+Processing /Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_904/EnrichmentClust-REAC.txt
+44 terms are smaller than minTermSize=10, they are removed.
+
+Processing /Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_90348/EnrichmentClust-REAC.txt
+66 terms are smaller than minTermSize=10, they are removed.
+
+Processing /Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_90324/EnrichmentClust-REAC.txt
 2 terms are not in GMT, they are removed.
-28 terms are smaller than minTermSize=10, they are removed.
+55 terms are smaller than minTermSize=10, they are removed.
 
-Processing /home/cbeust/Landscape_PA/Github_Codes/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_79474/EnrichmentClust-REAC.txt
-16 terms are smaller than minTermSize=10, they are removed.
+Processing /Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_90322/EnrichmentClust-REAC.txt
+31 terms are smaller than minTermSize=10, they are removed.
 
-Processing /home/cbeust/Landscape_PA/Github_Codes/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_79333/EnrichmentClust-REAC.txt
-1 term is not in GMT, it is removed.
-19 terms are smaller than minTermSize=10, they are removed.
+Processing /Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_90321/EnrichmentClust-REAC.txt
+31 terms are smaller than minTermSize=10, they are removed.
 
-Processing /home/cbeust/Landscape_PA/Github_Codes/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_79325/EnrichmentClust-REAC.txt
-11 terms are smaller than minTermSize=10, they are removed.
-
-Processing /home/cbeust/Landscape_PA/Github_Codes/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_79087/EnrichmentClust-REAC.txt
-21 terms are smaller than minTermSize=10, they are removed.
-
-Processing /home/cbeust/Landscape_PA/Github_Codes/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_769/EnrichmentClust-REAC.txt
-28 terms are smaller than minTermSize=10, they are removed.
-
-Processing /home/cbeust/Landscape_PA/Github_Codes/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_758/EnrichmentClust-REAC.txt
-7 terms are smaller than minTermSize=10, they are removed.
-
-Processing /home/cbeust/Landscape_PA/Github_Codes/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_75496/EnrichmentClust-REAC.txt
-3 terms are smaller than minTermSize=10, they are removed.
-
-Processing /home/cbeust/Landscape_PA/Github_Codes/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_740/EnrichmentClust-REAC.txt
-16 terms are smaller than minTermSize=10, they are removed.
-
-Processing /home/cbeust/Landscape_PA/Github_Codes/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_633/EnrichmentClust-REAC.txt
-1 term is not in GMT, it is removed.
-16 terms are smaller than minTermSize=10, they are removed.
-
-Processing /home/cbeust/Landscape_PA/Github_Codes/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_500/EnrichmentClust-REAC.txt
-38 terms are smaller than minTermSize=10, they are removed.
-
-Processing /home/cbeust/Landscape_PA/Github_Codes/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_498359/EnrichmentClust-REAC.txt
-15 terms are smaller than minTermSize=10, they are removed.
-
-Processing /home/cbeust/Landscape_PA/Github_Codes/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_487825/EnrichmentClust-REAC.txt
-2 terms are not in GMT, they are removed.
-26 terms are smaller than minTermSize=10, they are removed.
-
-Processing /home/cbeust/Landscape_PA/Github_Codes/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_477/EnrichmentClust-REAC.txt
-18 terms are smaller than minTermSize=10, they are removed.
-
-Processing /home/cbeust/Landscape_PA/Github_Codes/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_435628/EnrichmentClust-REAC.txt
-4 terms are smaller than minTermSize=10, they are removed.
-
-Processing /home/cbeust/Landscape_PA/Github_Codes/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_412057/EnrichmentClust-REAC.txt
-18 terms are smaller than minTermSize=10, they are removed.
-
-Processing /home/cbeust/Landscape_PA/Github_Codes/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_363618/EnrichmentClust-REAC.txt
-16 terms are smaller than minTermSize=10, they are removed.
-
-Processing /home/cbeust/Landscape_PA/Github_Codes/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_357074/EnrichmentClust-REAC.txt
-
-Processing /home/cbeust/Landscape_PA/Github_Codes/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_3455/EnrichmentClust-REAC.txt
-8 terms are smaller than minTermSize=10, they are removed.
-
-Processing /home/cbeust/Landscape_PA/Github_Codes/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_3437/EnrichmentClust-REAC.txt
-1 term is not in GMT, it is removed.
-13 terms are smaller than minTermSize=10, they are removed.
-
-Processing /home/cbeust/Landscape_PA/Github_Codes/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_33445/EnrichmentClust-REAC.txt
-2 terms are not in GMT, they are removed.
-28 terms are smaller than minTermSize=10, they are removed.
-
-Processing /home/cbeust/Landscape_PA/Github_Codes/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_33364/EnrichmentClust-REAC.txt
-2 terms are not in GMT, they are removed.
-22 terms are smaller than minTermSize=10, they are removed.
-
-Processing /home/cbeust/Landscape_PA/Github_Codes/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_3322/EnrichmentClust-REAC.txt
-22 terms are smaller than minTermSize=10, they are removed.
-
-Processing /home/cbeust/Landscape_PA/Github_Codes/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_3163/EnrichmentClust-REAC.txt
-24 terms are smaller than minTermSize=10, they are removed.
-
-Processing /home/cbeust/Landscape_PA/Github_Codes/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_3051/EnrichmentClust-REAC.txt
-2 terms are not in GMT, they are removed.
-34 terms are smaller than minTermSize=10, they are removed.
-
-Processing /home/cbeust/Landscape_PA/Github_Codes/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_2963/EnrichmentClust-REAC.txt
-23 terms are smaller than minTermSize=10, they are removed.
-
-Processing /home/cbeust/Landscape_PA/Github_Codes/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_287/EnrichmentClust-REAC.txt
-16 terms are smaller than minTermSize=10, they are removed.
-
-Processing /home/cbeust/Landscape_PA/Github_Codes/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_286/EnrichmentClust-REAC.txt
-20 terms are smaller than minTermSize=10, they are removed.
-
-Processing /home/cbeust/Landscape_PA/Github_Codes/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_2834/EnrichmentClust-REAC.txt
-
-Processing /home/cbeust/Landscape_PA/Github_Codes/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_280679/EnrichmentClust-REAC.txt
-1 term is not in GMT, it is removed.
-19 terms are smaller than minTermSize=10, they are removed.
-
-Processing /home/cbeust/Landscape_PA/Github_Codes/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_280365/EnrichmentClust-REAC.txt
-16 terms are smaller than minTermSize=10, they are removed.
-
-Processing /home/cbeust/Landscape_PA/Github_Codes/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_2658/EnrichmentClust-REAC.txt
-4 terms are smaller than minTermSize=10, they are removed.
-
-Processing /home/cbeust/Landscape_PA/Github_Codes/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_263534/EnrichmentClust-REAC.txt
-2 terms are not in GMT, they are removed.
-26 terms are smaller than minTermSize=10, they are removed.
-
-Processing /home/cbeust/Landscape_PA/Github_Codes/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_263487/EnrichmentClust-REAC.txt
-1 term is not in GMT, it is removed.
-19 terms are smaller than minTermSize=10, they are removed.
-
-Processing /home/cbeust/Landscape_PA/Github_Codes/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_2500/EnrichmentClust-REAC.txt
-20 terms are smaller than minTermSize=10, they are removed.
-
-Processing /home/cbeust/Landscape_PA/Github_Codes/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_220295/EnrichmentClust-REAC.txt
-18 terms are smaller than minTermSize=10, they are removed.
-
-Processing /home/cbeust/Landscape_PA/Github_Codes/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_2078/EnrichmentClust-REAC.txt
-24 terms are smaller than minTermSize=10, they are removed.
-
-Processing /home/cbeust/Landscape_PA/Github_Codes/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_2067/EnrichmentClust-REAC.txt
-3 terms are smaller than minTermSize=10, they are removed.
-
-Processing /home/cbeust/Landscape_PA/Github_Codes/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_1942/EnrichmentClust-REAC.txt
-10 terms are smaller than minTermSize=10, they are removed.
-
-Processing /home/cbeust/Landscape_PA/Github_Codes/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_1901/EnrichmentClust-REAC.txt
-16 terms are smaller than minTermSize=10, they are removed.
-
-Processing /home/cbeust/Landscape_PA/Github_Codes/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_1860/EnrichmentClust-REAC.txt
-16 terms are smaller than minTermSize=10, they are removed.
-
-Processing /home/cbeust/Landscape_PA/Github_Codes/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_1807/EnrichmentClust-REAC.txt
-2 terms are not in GMT, they are removed.
-23 terms are smaller than minTermSize=10, they are removed.
-
-Processing /home/cbeust/Landscape_PA/Github_Codes/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_1775/EnrichmentClust-REAC.txt
-16 terms are smaller than minTermSize=10, they are removed.
-
-Processing /home/cbeust/Landscape_PA/Github_Codes/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_163746/EnrichmentClust-REAC.txt
-2 terms are not in GMT, they are removed.
-30 terms are smaller than minTermSize=10, they are removed.
-
-Processing /home/cbeust/Landscape_PA/Github_Codes/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_1387/EnrichmentClust-REAC.txt
-4 terms are smaller than minTermSize=10, they are removed.
-
-Processing /home/cbeust/Landscape_PA/Github_Codes/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_137608/EnrichmentClust-REAC.txt
-22 terms are smaller than minTermSize=10, they are removed.
-
-Processing /home/cbeust/Landscape_PA/Github_Codes/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_1340/EnrichmentClust-REAC.txt
-49 terms are smaller than minTermSize=10, they are removed.
-
-Processing /home/cbeust/Landscape_PA/Github_Codes/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_1299/EnrichmentClust-REAC.txt
-2 terms are not in GMT, they are removed.
-27 terms are smaller than minTermSize=10, they are removed.
-
-Processing /home/cbeust/Landscape_PA/Github_Codes/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_1297/EnrichmentClust-REAC.txt
-2 terms are not in GMT, they are removed.
+Processing /Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_902/EnrichmentClust-REAC.txt
 29 terms are smaller than minTermSize=10, they are removed.
 
-Processing /home/cbeust/Landscape_PA/Github_Codes/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_101028/EnrichmentClust-REAC.txt
-3 terms are smaller than minTermSize=10, they are removed.
+Processing /Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_90154/EnrichmentClust-REAC.txt
+9 terms are smaller than minTermSize=10, they are removed.
 
-Processing /home/cbeust/Landscape_PA/Github_Codes/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_100/EnrichmentClust-REAC.txt
+Processing /Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_90153/EnrichmentClust-REAC.txt
+35 terms are smaller than minTermSize=10, they are removed.
+
+Processing /Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_897/EnrichmentClust-REAC.txt
+69 terms are smaller than minTermSize=10, they are removed.
+
+Processing /Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_895/EnrichmentClust-REAC.txt
+66 terms are smaller than minTermSize=10, they are removed.
+
+Processing /Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_894/EnrichmentClust-REAC.txt
+2 terms are not in GMT, they are removed.
+77 terms are smaller than minTermSize=10, they are removed.
+
+Processing /Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_808/EnrichmentClust-REAC.txt
+33 terms are smaller than minTermSize=10, they are removed.
+
+Processing /Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_79477/EnrichmentClust-REAC.txt
+2 terms are not in GMT, they are removed.
+58 terms are smaller than minTermSize=10, they are removed.
+
+Processing /Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_79476/EnrichmentClust-REAC.txt
+2 terms are not in GMT, they are removed.
+58 terms are smaller than minTermSize=10, they are removed.
+
+Processing /Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_79474/EnrichmentClust-REAC.txt
+37 terms are smaller than minTermSize=10, they are removed.
+
+Processing /Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_79333/EnrichmentClust-REAC.txt
+1 term is not in GMT, it is removed.
+51 terms are smaller than minTermSize=10, they are removed.
+
+Processing /Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_79325/EnrichmentClust-REAC.txt
+32 terms are smaller than minTermSize=10, they are removed.
+
+Processing /Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_79087/EnrichmentClust-REAC.txt
+66 terms are smaller than minTermSize=10, they are removed.
+
+Processing /Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_769/EnrichmentClust-REAC.txt
+2 terms are not in GMT, they are removed.
+82 terms are smaller than minTermSize=10, they are removed.
+
+Processing /Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_758/EnrichmentClust-REAC.txt
 16 terms are smaller than minTermSize=10, they are removed.
 
-Initial term number (recurring terms in different lists are not merged yet, each one is counted): 7859
+Processing /Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_75496/EnrichmentClust-REAC.txt
+11 terms are smaller than minTermSize=10, they are removed.
+
+Processing /Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_740/EnrichmentClust-REAC.txt
+35 terms are smaller than minTermSize=10, they are removed.
+
+Processing /Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_633/EnrichmentClust-REAC.txt
+1 term is not in GMT, it is removed.
+33 terms are smaller than minTermSize=10, they are removed.
+
+Processing /Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_500/EnrichmentClust-REAC.txt
+2 terms are not in GMT, they are removed.
+97 terms are smaller than minTermSize=10, they are removed.
+
+Processing /Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_498359/EnrichmentClust-REAC.txt
+59 terms are smaller than minTermSize=10, they are removed.
+
+Processing /Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_487825/EnrichmentClust-REAC.txt
+2 terms are not in GMT, they are removed.
+77 terms are smaller than minTermSize=10, they are removed.
+
+Processing /Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_477/EnrichmentClust-REAC.txt
+2 terms are not in GMT, they are removed.
+70 terms are smaller than minTermSize=10, they are removed.
+
+Processing /Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_435628/EnrichmentClust-REAC.txt
+11 terms are smaller than minTermSize=10, they are removed.
+
+Processing /Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_412057/EnrichmentClust-REAC.txt
+35 terms are smaller than minTermSize=10, they are removed.
+
+Processing /Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_363618/EnrichmentClust-REAC.txt
+37 terms are smaller than minTermSize=10, they are removed.
+
+Processing /Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_357074/EnrichmentClust-REAC.txt
+4 terms are smaller than minTermSize=10, they are removed.
+
+Processing /Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_3455/EnrichmentClust-REAC.txt
+53 terms are smaller than minTermSize=10, they are removed.
+
+Processing /Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_3437/EnrichmentClust-REAC.txt
+1 term is not in GMT, it is removed.
+39 terms are smaller than minTermSize=10, they are removed.
+
+Processing /Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_33445/EnrichmentClust-REAC.txt
+2 terms are not in GMT, they are removed.
+58 terms are smaller than minTermSize=10, they are removed.
+
+Processing /Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_33364/EnrichmentClust-REAC.txt
+2 terms are not in GMT, they are removed.
+55 terms are smaller than minTermSize=10, they are removed.
+
+Processing /Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_3322/EnrichmentClust-REAC.txt
+41 terms are smaller than minTermSize=10, they are removed.
+
+Processing /Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_3163/EnrichmentClust-REAC.txt
+2 terms are not in GMT, they are removed.
+78 terms are smaller than minTermSize=10, they are removed.
+
+Processing /Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_3051/EnrichmentClust-REAC.txt
+2 terms are not in GMT, they are removed.
+75 terms are smaller than minTermSize=10, they are removed.
+
+Processing /Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_2963/EnrichmentClust-REAC.txt
+70 terms are smaller than minTermSize=10, they are removed.
+
+Processing /Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_287/EnrichmentClust-REAC.txt
+56 terms are smaller than minTermSize=10, they are removed.
+
+Processing /Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_286/EnrichmentClust-REAC.txt
+61 terms are smaller than minTermSize=10, they are removed.
+
+Processing /Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_2834/EnrichmentClust-REAC.txt
+4 terms are smaller than minTermSize=10, they are removed.
+
+Processing /Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_280679/EnrichmentClust-REAC.txt
+1 term is not in GMT, it is removed.
+46 terms are smaller than minTermSize=10, they are removed.
+
+Processing /Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_280365/EnrichmentClust-REAC.txt
+37 terms are smaller than minTermSize=10, they are removed.
+
+Processing /Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_2658/EnrichmentClust-REAC.txt
+20 terms are smaller than minTermSize=10, they are removed.
+
+Processing /Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_263534/EnrichmentClust-REAC.txt
+2 terms are not in GMT, they are removed.
+44 terms are smaller than minTermSize=10, they are removed.
+
+Processing /Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_263487/EnrichmentClust-REAC.txt
+1 term is not in GMT, it is removed.
+51 terms are smaller than minTermSize=10, they are removed.
+
+Processing /Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_2500/EnrichmentClust-REAC.txt
+61 terms are smaller than minTermSize=10, they are removed.
+
+Processing /Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_220295/EnrichmentClust-REAC.txt
+44 terms are smaller than minTermSize=10, they are removed.
+
+Processing /Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_2078/EnrichmentClust-REAC.txt
+2 terms are not in GMT, they are removed.
+85 terms are smaller than minTermSize=10, they are removed.
+
+Processing /Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_2067/EnrichmentClust-REAC.txt
+11 terms are smaller than minTermSize=10, they are removed.
+
+Processing /Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_1942/EnrichmentClust-REAC.txt
+21 terms are smaller than minTermSize=10, they are removed.
+
+Processing /Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_1901/EnrichmentClust-REAC.txt
+60 terms are smaller than minTermSize=10, they are removed.
+
+Processing /Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_1860/EnrichmentClust-REAC.txt
+56 terms are smaller than minTermSize=10, they are removed.
+
+Processing /Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_1807/EnrichmentClust-REAC.txt
+2 terms are not in GMT, they are removed.
+44 terms are smaller than minTermSize=10, they are removed.
+
+Processing /Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_1775/EnrichmentClust-REAC.txt
+29 terms are smaller than minTermSize=10, they are removed.
+
+Processing /Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_163746/EnrichmentClust-REAC.txt
+2 terms are not in GMT, they are removed.
+68 terms are smaller than minTermSize=10, they are removed.
+
+Processing /Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_1387/EnrichmentClust-REAC.txt
+17 terms are smaller than minTermSize=10, they are removed.
+
+Processing /Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_137608/EnrichmentClust-REAC.txt
+35 terms are smaller than minTermSize=10, they are removed.
+
+Processing /Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_1340/EnrichmentClust-REAC.txt
+2 terms are not in GMT, they are removed.
+98 terms are smaller than minTermSize=10, they are removed.
+
+Processing /Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_1299/EnrichmentClust-REAC.txt
+2 terms are not in GMT, they are removed.
+56 terms are smaller than minTermSize=10, they are removed.
+
+Processing /Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_1297/EnrichmentClust-REAC.txt
+2 terms are not in GMT, they are removed.
+56 terms are smaller than minTermSize=10, they are removed.
+
+Processing /Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_101028/EnrichmentClust-REAC.txt
+1 term is not in GMT, it is removed.
+16 terms are smaller than minTermSize=10, they are removed.
+
+Processing /Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_100/EnrichmentClust-REAC.txt
+29 terms are smaller than minTermSize=10, they are removed.
+
+Initial term number (recurring terms in different lists are not merged yet, each one is counted): 15239
 
 Same terms in multiple lists are unified
-Representing term number: 942
+Representing term number: 1220
 
 Superterms represent their less significant (worse ranked) subterms. This includes equal terms, i.e. the terms that annotate exactly the same set of genes.
-Representing term number: 141
+Representing term number: 134
 
