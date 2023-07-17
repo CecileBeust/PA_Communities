@@ -1,6 +1,6 @@
 
 This is a collection of gmt files with the data underlying the g:GOSt enrichment service.
-gmt files are plaintext tab-separated files that can be opened in text editors (notepad) or spreadsheet editors (Excel).
+gmt files are plain text tab-separated files that can be opened in text editors (e.g., notepad) or spreadsheet editors (e.g., Excel).
 
 TRANSFAC (TF) and KEGG are omitted from this archive due to licensing issues.
 
