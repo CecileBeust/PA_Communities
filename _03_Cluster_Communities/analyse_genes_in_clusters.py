@@ -40,7 +40,7 @@ print(f"Clusters: {dico_cluster_diseases}")
 filtered_dico_cluster = filter_cluster(dico_cluster_diseases)
 print(f"Clusters containing at least 3 diseases: {filtered_dico_cluster}")
 
-def extract_genes_clusters(filtered_dico_cluster: dict) -> None:
+def extract_genes_clusters_and_degrees(filtered_dico_cluster: dict) -> None:
     """Function to extract the genes in a cluster of communities : generates
     an excel file gathering the gene composition of each cluster
 
@@ -91,7 +91,7 @@ def extract_genes_clusters(filtered_dico_cluster: dict) -> None:
             i += 1
         df = df.rename(columns={'Unnamed: 0': f"{cluster}"})
         df_sorted = df.sort_values(by=['Nb of communities in cluster'], ascending=False)
-        df_sorted.to_csv(path + f"output_tables/genes_in_{cluster}.tsv", sep="\t", index=False)
+        df_sorted.to_csv(path + f"output_tables/genes_in_{cluster}_and_degrees.tsv", sep="\t", index=False)
         comm = df['Nb of communities in cluster']
         max_deg = df['max degree']
         sum_deg = df['sum degrees']
@@ -106,10 +106,49 @@ def extract_genes_clusters(filtered_dico_cluster: dict) -> None:
     for tsv_file in tsv_dir.glob('*.tsv'):
         tsv_name = tsv_file.stem
         tsv_data[tsv_name] = pd.read_csv(tsv_file, sep="\t")
-    writer = pd.ExcelWriter(path + "output_tables/genes_in_clusters.xlsx", engine='xlsxwriter')
+    writer = pd.ExcelWriter(path + "output_tables/genes_in_clusters_and_degrees.xlsx", engine='xlsxwriter')
     for sheet_name, sheet_data in tsv_data.items():
         sheet_data.to_excel(writer, sheet_name=sheet_name, index=False)
     writer.save()
 
 
-extract_genes_clusters(filtered_dico_cluster)
+#extract_genes_clusters_and_degrees(filtered_dico_cluster)
+
+
+def generate_supp_file(filtered_dico_cluster: dict) -> None:
+    """Function to extract the genes in a cluster of communities : generates
+    an excel file gathering the gene composition of each cluster
+
+    Args:
+        filtered_dico_cluster (dict): dicitonary containing the assignement
+        of communities in custers
+    """
+    for cluster in filtered_dico_cluster:
+        diseases = []
+        for disease in filtered_dico_cluster[cluster]:
+            diseases.append(disease)
+        genes_cluster = list()
+        for disease in diseases:
+            comm = comm_path + f"results_100_{disease}/seeds_{disease}.txt"
+            with open(comm, 'r') as file:
+                for line in file:
+                    gene = line.rstrip()
+                    genes_cluster.append(gene)
+        i = 0
+        df = pd.DataFrame(columns=[f"{cluster}", "Genes"])
+        for gene in set(genes_cluster):
+            all_deg = []
+            df._set_value(i, 'Genes', gene)
+            i += 1
+        df.to_csv(path + f"output_tables/genes_in_{cluster}.tsv", sep="\t", index=False)
+    tsv_dir = Path(path + "output_tables")
+    tsv_data = {}
+    for tsv_file in tsv_dir.glob('*.tsv'):
+        tsv_name = tsv_file.stem
+        tsv_data[tsv_name] = pd.read_csv(tsv_file, sep="\t")
+    writer = pd.ExcelWriter(path + "output_tables/genes_in_clusters.xlsx", engine='xlsxwriter')
+    for sheet_name, sheet_data in tsv_data.items():
+        sheet_data.to_excel(writer, sheet_name=sheet_name, index=False)
+    writer.save()
+
+generate_supp_file(filtered_dico_cluster)

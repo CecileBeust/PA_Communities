@@ -117,7 +117,7 @@ shorter_disease_names = ['FG syndrome type 1',
                          'Classical Ehlers-Danlos syndrome', 
                          'Vascular Ehlers-Danlos syndrome', 
                          'Wrinkly skin syndrome', 
-                         'Moyamoya disease', 
+                         'MASSFDHH syndrome', 
                          'Autosomal semi-dominant severe lipodystrophic laminopathy', 
                          'Lenz-Majewski hyperostotic dwarfism', 
                          'Acral peeling skin syndrome', 
@@ -131,7 +131,7 @@ shorter_disease_names = ['FG syndrome type 1',
                          'Thanatophoric dysplasia type 1', 
                          'Focal facial dermal dysplasia type III', 
                          'Dyskeratosis congenita', 
-                         'Neurologic Waardenburg-Shah syndrome', 
+                         'PDNCDLWSH disease', 
                          'Cataract-intellectual disability-hypogonadism syndrome', 
                          'SOLAMEN Syndrome', 
                          'Cardiofaciocutaneous syndrome', 
@@ -313,8 +313,6 @@ def cluster_dendrogram(matrix: np.ndarray, cutoff: float, size: int, dico_id_sho
     plt.show()
 
 cluster_dendrogram(distance_matrix_100, 0.7, 100, dico_id_shorter_names)
-
-
 cluster_output = os.path.join(data_folder, 'cluster_output_100_0.7.tsv')
 
 dico_cluster_diseases = create_cluster_dico(cluster_output)
@@ -324,7 +322,6 @@ print(f"Clusters: {dico_cluster_diseases}")
 filtered_dico_cluster = filter_cluster(dico_cluster_diseases)
 print(" ")
 print(f"Clusters containing at least 3 diseases: {filtered_dico_cluster}")
-
 
 def analyze_clusters(dico_disease_seeds: dict, filtered_dico_cluster: dict, dico_code_disease: dict, size: int):
     df = pd.DataFrame(columns=['Cluster', 'Diseases', 'Seeds'])
@@ -340,8 +337,8 @@ def analyze_clusters(dico_disease_seeds: dict, filtered_dico_cluster: dict, dico
             new_row = [f"{cluster[8:]}", disease, seeds]
             df = df.append(dict(zip(df.columns, new_row)), ignore_index=True)
     print(df)
-    df.to_csv(path + f"output_tables/clusters_{size}.tsv", sep="\t", index=False)
-    source_file = f"output_tables/clusters_{size}.tsv"
+    df.to_csv(path + f"output_tables/clusters_composition.csv", sep=",", index=False)
+    source_file = f"output_tables/clusters_composition.csv"
     destination_folder = path + "../_00_data/"
     shutil.copy(source_file, destination_folder)
 
