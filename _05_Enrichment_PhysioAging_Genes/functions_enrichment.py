@@ -13,23 +13,6 @@ print(path)
 ###### LOAD AND PROCESS DATA ################
 #############################################
 
-def load_networks(comm_path: str):
-    # load networks
-    ppi = nx.read_edgelist(comm_path + "/multiplex/1/PPI_HiUnion_LitBM_APID_gene_names_190123.tsv", create_using = nx.Graph)
-    pathways = nx.read_edgelist(comm_path + "/multiplex/1/reactome_pathways_gene_names_190123.tsv", create_using = nx.Graph)
-    coexp = nx.read_edgelist(comm_path + "/multiplex/1/Coexpression_310323.tsv", create_using = nx.Graph)
-    complexes = nx.read_edgelist(comm_path + "/multiplex/1/Complexes_gene_names_190123.tsv", create_using = nx.Graph)
-
-    # get noeds in networks
-    ppi_nodes = ppi.nodes()
-    pat_nodes = pathways.nodes()
-    coexp_nodes = coexp.nodes()
-    complexes_nodes = complexes.nodes()
-    #all_nodes = list(set(list(ppi_nodes) + list(pat_nodes) + list(coexp_nodes) + list(complexes_nodes) + list(diseases_nodes)))
-    all_nodes = np.unique(list(ppi_nodes) + list(pat_nodes) + list(coexp_nodes) + list(complexes_nodes))
-    print(f"{len(all_nodes)} nodes in the multiplex network")
-    return all_nodes
-
 def extract_seeds(file, list_ids_analyzed):
     orpha = pd.read_table(file)
     print(orpha)
@@ -57,10 +40,12 @@ def load_geneage(file, seeds, nodes_ntw):
     print(f"{len(genes_aging_wo_seeds)} aging genes after removing seeds genes")
     # check if aging genes are present in networks
     # remove aging gene not present in network
+    genes_aging_wo_seeds_in_mx = list()
     for gene in genes_aging_wo_seeds:
-        if gene not in nodes_ntw:
-            genes_aging_wo_seeds.remove(str(gene))
-    print(f"{len(genes_aging_wo_seeds)} aging genes without seeds in network")
+        if gene in nodes_ntw:
+            genes_aging_wo_seeds_in_mx.append(str(gene))
+    print(f"{len(genes_aging_wo_seeds_in_mx)} aging genes without seeds in network")
+    print(f"There are {len(set(genes_aging_wo_seeds_in_mx).intersection(nodes_ntw))} genage genes from the list which are in the multiplex network")
     return genes_aging_wo_seeds
 
 def extract_genes_from_comm(comm_path: str, size: int, list_id_analyzed: list):
@@ -89,6 +74,74 @@ def extract_genes_from_cluster(comm_path: str, filtered_dico: dict, size: int):
                     if not gene in dico_clusters_nodes[cluster]:
                         dico_clusters_nodes[cluster] += [gene]
     return dico_clusters_nodes
+
+def remove_seeds(gene_list: list, seeds_list: list) -> list:
+    """Function which remove seeds nodes used to identify the communities
+    from a list of genes
+
+    Args:
+        gene_list (list): list of genes to analyze
+        seeds_list (list): list of seeds to remove
+
+    Returns:
+        list: new list of genes without seeds
+    """
+    new_list = []
+    for gene in gene_list:
+        if not gene in seeds_list:
+            new_list.append(gene)
+    return new_list
+
+
+##################################################
+######### MAPPING OF GENE IDENTIFIERS ############
+##################################################
+
+def create_mapping_file(rpkm_file: str) -> None:
+    """Function to create a mapping file (Ensembl gene symbols to HUGO
+    gene symbols) from the RPKM file of the study of Irizar et. al
+
+    Args:
+        rpkm_file (str): path to the RPKM file
+    """
+    df = pd.read_excel(rpkm_file)
+    df = df.iloc[:, :2]
+    print(df)
+    df.to_csv(path + "/Data_PhysioAging/Mapping_Ensembl_GeneSymbol.txt", sep="\t", index=None)
+    return path + "/Data_PhysioAging/Mapping_Ensembl_GeneSymbol.txt"
+
+def getMappingDict(filePath: str, convertFrom: str, convertTo: str):
+    df = pd.read_csv(filePath, sep="\t")
+    df = df[[convertFrom, convertTo]]
+    df = df.dropna(axis=0)
+    if('ID' in df.columns):
+        df['ID'] = df['ID'].astype(str)
+        df['ID'] = df['ID'].astype(str)
+    df = df.set_index(convertFrom)
+    mappingDict = df.to_dict()[convertTo]
+    return mappingDict
+
+def map_ensembl_to_symbol(mapping_file_path: str, list_genes: list, From: str, To: str) -> list:
+    """Function to map Ensembl genes identifiers to HUGO gene symbols
+
+    Args:
+        list_genes (list): genes to map
+        From (str): identifiers to be mapped (Ensembl)
+        To (str): identifiers to map (HUGO gene symbols)
+
+    Returns:
+        list: list of genes identified with HUGO genes symbols
+    """
+    mapping_dict = getMappingDict(
+    filePath=mapping_file_path,
+    convertFrom=From,
+    convertTo=To
+    )
+    new_list = []
+    for gene in list_genes:
+        if gene in mapping_dict:
+            new_list.append(mapping_dict[gene])
+    return new_list
 
 ##################################################
 ######## ENRICHMENT FUNCTIONS ####################
