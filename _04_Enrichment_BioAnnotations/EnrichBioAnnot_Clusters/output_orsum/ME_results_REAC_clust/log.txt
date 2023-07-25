@@ -11,32 +11,32 @@ numberOfTermsToPlot:	50
 
 
 Processing /Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Clusters/output_orsum/Orsum_cluster_1/EnrichmentClust-REAC.txt
-64 terms are smaller than minTermSize=10, they are removed.
+55 terms are smaller than minTermSize=10, they are removed.
 
 Processing /Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Clusters/output_orsum/Orsum_cluster_2/EnrichmentClust-REAC.txt
 2 terms are not in GMT, they are removed.
-56 terms are smaller than minTermSize=10, they are removed.
+52 terms are smaller than minTermSize=10, they are removed.
 
 Processing /Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Clusters/output_orsum/Orsum_cluster_3/EnrichmentClust-REAC.txt
 2 terms are not in GMT, they are removed.
-85 terms are smaller than minTermSize=10, they are removed.
+76 terms are smaller than minTermSize=10, they are removed.
 
 Processing /Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Clusters/output_orsum/Orsum_cluster_4/EnrichmentClust-REAC.txt
 1 term is not in GMT, it is removed.
-55 terms are smaller than minTermSize=10, they are removed.
+45 terms are smaller than minTermSize=10, they are removed.
 
 Processing /Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Clusters/output_orsum/Orsum_cluster_5/EnrichmentClust-REAC.txt
 2 terms are not in GMT, they are removed.
-94 terms are smaller than minTermSize=10, they are removed.
+83 terms are smaller than minTermSize=10, they are removed.
 
 Processing /Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Clusters/output_orsum/Orsum_cluster_6/EnrichmentClust-REAC.txt
-32 terms are smaller than minTermSize=10, they are removed.
+29 terms are smaller than minTermSize=10, they are removed.
 
-Initial term number (recurring terms in different lists are not merged yet, each one is counted): 1822
+Initial term number (recurring terms in different lists are not merged yet, each one is counted): 1432
 
 Same terms in multiple lists are unified
-Representing term number: 961
+Representing term number: 870
 
 Superterms represent their less significant (worse ranked) subterms. This includes equal terms, i.e. the terms that annotate exactly the same set of genes.
-Representing term number: 114
+Representing term number: 123
 

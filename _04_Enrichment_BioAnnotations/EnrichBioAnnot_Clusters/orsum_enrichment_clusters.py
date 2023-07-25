@@ -20,7 +20,6 @@ cluster_output = os.path.join(data_folder, 'cluster_output_100_0.7.tsv')
 
 # set paths for GMT files
 gmt_GOBP = os.path.join(gmt_folder, 'hsapiens.GO:BP.name.gmt')
-print(gmt_GOBP)
 gmt_GOCC = os.path.join(gmt_folder, 'hsapiens.GO:CC.name.gmt')
 gmt_REAC = os.path.join(gmt_folder, 'hsapiens.REAC.name.gmt')
 
@@ -44,7 +43,7 @@ def create_enrichment_files(cluster_id: str):
     sources=['GO:BP', 'GO:CC', 'REAC']
     for source in sources:
         dfEnrichmentGroupSource=dfEnrichmentGroup[dfEnrichmentGroup['source']==source]
-        dfEnrichmentGroupSource=dfEnrichmentGroupSource.sort_values(by='p_value', ascending=True)
+        dfEnrichmentGroupSource=dfEnrichmentGroupSource.sort_values(by='Corrected p_value', ascending=True)
         dfEnrichmentGroupSource['native'].to_csv(path + f'output_orsum/Orsum_{cluster_id}/EnrichmentClust' + '-'+ source.replace(':','')+'.txt', index=False, header=None)
 
 

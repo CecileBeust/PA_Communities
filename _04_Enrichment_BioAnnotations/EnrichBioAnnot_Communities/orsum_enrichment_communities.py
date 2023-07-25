@@ -52,11 +52,11 @@ def create_enrichment_files(comm_id: str):
         cluster_id (str): the identifier of the cluster
     """
     os.mkdir(path + f'output_orsum/Orsum_{comm_id}')
-    dfEnrichmentGroup = pd.read_csv(path + f"output_tables/comm_{comm_id}_100.tsv", sep="\t")
+    dfEnrichmentGroup = pd.read_csv(path + f"output_tables/enrich_bioannot_comm_{comm_id}.tsv", sep="\t")
     sources=['GO:BP', 'GO:CC', 'REAC']
     for source in sources:
         dfEnrichmentGroupSource=dfEnrichmentGroup[dfEnrichmentGroup['source']==source]
-        dfEnrichmentGroupSource=dfEnrichmentGroupSource.sort_values(by='p_value', ascending=True)
+        dfEnrichmentGroupSource=dfEnrichmentGroupSource.sort_values(by='Corrected p_value', ascending=True)
         dfEnrichmentGroupSource['native'].to_csv(path + f'output_orsum/Orsum_{comm_id}/EnrichmentClust' + '-'+ source.replace(':','')+'.txt', index=False, header=None)
 
 

@@ -18,7 +18,10 @@ data_folder = os.path.join(os.path.dirname(__file__), '../..', '_00_data')
 orpha_codes = os.path.join(data_folder, 'orpha_codes_PA.txt')
 orpha_names = os.path.join(data_folder, 'pa_orphanet_diseases.tsv')
 cluster_output = os.path.join(data_folder, 'cluster_output_100_0.7.tsv')
-mapping_hugo_file = os.path.join(data_folder, 'mapping_HGNC_Ensembl.txt')
+mapping_hugo_file = os.path.join(data_folder, 'mapping_HGNC_Ensembl_170723.txt')
+reac_genes = "../Build_background/REAC_genes.csv"
+gobp_genes = "../Build_background/GOBP_genes.csv"
+gocc_genes = "../Build_background/GOCC_genes.csv"
 
 # Argparse
 parser = argparse.ArgumentParser(
@@ -38,31 +41,20 @@ if os.path.exists(comm_path) == False :
 # variables statement
 (dico_disease_seeds, list_id) = create_dico_disease_seeds(orpha_codes)
 (communities_100, not_analyzed) = build_communities_list(comm_path, list_id, 100)
-# define background for hypergeometric test = number of unique nodes in the multiplex network
 all_nodes_HUGO = list(load_networks(comm_path=comm_path))
 
-def create_mapping_dict(mapping_file: str):
-    mapping_dict = dict()
-    df = pd.read_table(mapping_file, header=0)
-    for index, row in df.iterrows():
-        if str(row[0]) not in mapping_dict.keys():
-            mapping_dict[str(row[0])] = str(row[1])
-    return mapping_dict
+def compute_background_annot_mx(genes_file_annot: str, multiplex_nodes: list) -> list():
+    df = pd.read_csv(genes_file_annot, sep=",", header=0)
+    genes_annot = df["Gene"].to_list()
+    background = set(genes_annot).intersection(set(multiplex_nodes))
+    return list(background)
 
-mapping_dict = create_mapping_dict(mapping_file=mapping_hugo_file)
-
-def map_all_nodes_mx(all_nodes: list, mapping_dict: dict):
-    all_nodes_ensembl = list()
-    for node in all_nodes:
-        if node in mapping_dict:
-            ensembl_node = mapping_dict[node]
-            all_nodes_ensembl.append(ensembl_node)
-        else:
-            all_nodes_ensembl.append(node)
-    return all_nodes_ensembl
-
-all_nodes_ensembl = map_all_nodes_mx(all_nodes=all_nodes_HUGO, mapping_dict=mapping_dict)
-print(len(all_nodes_ensembl))
+background_gobp = compute_background_annot_mx(genes_file_annot=gobp_genes, multiplex_nodes=all_nodes_HUGO)
+print(f"bg go bp hugo: {len(background_gobp)}")
+background_gocc = compute_background_annot_mx(genes_file_annot=gocc_genes, multiplex_nodes=all_nodes_HUGO)
+print(f"bg go cc hugo: {len(background_gocc)}")
+background_reac = compute_background_annot_mx(genes_file_annot=reac_genes, multiplex_nodes=all_nodes_HUGO)
+print(f"bg reac hugo: {len(background_reac)}")
 
 pa_diseases = pd.read_csv(orpha_names, sep="\t", header=None)
 dico_code_disease = {}
@@ -70,11 +62,12 @@ for index, row in pa_diseases.iterrows():
     code = row[0][6:]
     disease = row[1]
     dico_code_disease[code] = disease
-print(dico_code_disease)
+print(" ")
+print(f"Dico diseases code: {dico_code_disease}")
 
 dico_cluster_diseases = create_cluster_dico(cluster_output)
 print(" ")
-print(dico_cluster_diseases)
+print(f"Dico clusters diseases: {dico_cluster_diseases}")
 
 filtered_dico_cluster = filter_cluster(dico_cluster_diseases)
 print(" ")
@@ -122,8 +115,7 @@ def select_nodes_from_cluster(comm_path: str, size: int, dico_cluster: dict, clu
                 nodes.add(line.rstrip())
     return nodes
 
-
-def enrichment_cluster(cluster_id: int, gene_set: set, size: int):
+def enrichment_cluster(source: str, cluster_id: int, gene_set: set, background: list) -> None:
     """Function to enrich a disease communities cluster wth g:Profiler
 
     Args:
@@ -135,12 +127,23 @@ def enrichment_cluster(cluster_id: int, gene_set: set, size: int):
         None
     """
     genes = list(gene_set)
-    print(genes)
-    gp = GProfiler(user_agent='https://biit.cs.ut.ee/gprofiler_archive3/e108_eg55_p17/api/gost/profile/', return_dataframe=True)
-    enrich = gp.profile(organism='hsapiens', query=genes, sources=["GO:BP", "GO:CC", "REAC"], user_threshold=0.05, domain_scope='custom', significance_threshold_method='fdr', no_evidences=False, background=all_nodes_ensembl)
-    print(enrich)
-    enrich.to_csv(path + f"output_tables/enrich_bioannot_{cluster_id}.tsv", sep="\t")
-    
+    gp = GProfiler(
+        user_agent='https://biit.cs.ut.ee/gprofiler_archive3/e108_eg55_p17/api/gost/profile/', 
+        return_dataframe=True
+        )
+    enrich = gp.profile(
+        organism='hsapiens', 
+        query=genes,
+        sources=[source],
+        domain_scope='custom',
+        user_threshold=0.05,
+        significance_threshold_method='false_discovery_rate', 
+        background=background,
+        no_evidences=False,
+        )
+    source = source.replace(":", "")
+    enrich.to_csv(path + f"output_tables/enrich_{source}_{cluster_id}.tsv", sep="\t")
+
 def enrich_all_clusters(filtered_dico: dict) -> None:
     """Function to make the enrichment of all the clusters
 
@@ -150,9 +153,10 @@ def enrich_all_clusters(filtered_dico: dict) -> None:
         cluster having at least 3 disease communities
     """
     for cluster in filtered_dico.keys():
-        print(cluster)
-        nodes = select_nodes_from_cluster(comm_path, 100, filtered_dico, cluster)
-        enrichment_cluster(cluster, nodes, 100)
+        nodes = select_nodes_from_cluster(comm_path=comm_path, size=100, dico_cluster=filtered_dico, cluster_id=cluster)
+        enrichment_cluster(source="GO:BP", cluster_id=cluster, gene_set=nodes, background=background_gobp)
+        enrichment_cluster(source="GO:CC", cluster_id=cluster, gene_set=nodes, background=background_gocc)
+        enrichment_cluster(source="REAC", cluster_id=cluster, gene_set=nodes, background=background_reac)
     tsv_dir = Path(path + "output_tables/")
     tsv_data = {}
     for tsv_file in tsv_dir.glob('*.tsv'):
@@ -163,7 +167,32 @@ def enrich_all_clusters(filtered_dico: dict) -> None:
         sheet_data.to_excel(writer, sheet_name=sheet_name, index=False)
     writer.save()
 
-#enrich_all_clusters(filtered_dico_cluster)
+enrich_all_clusters(filtered_dico=filtered_dico_cluster)
+
+def merge_enrichment_files(filetered_dico_cluster: dict, sources: list) -> None:
+    for cluster in filetered_dico_cluster:
+        gobp = pd.read_csv(f"output_tables/enrich_{sources[0]}_{cluster}.tsv", sep="\t", header=0)
+        gocc = pd.read_csv(f"output_tables/enrich_{sources[1]}_{cluster}.tsv", sep="\t", header=0)
+        reac = pd.read_csv(f"output_tables/enrich_{sources[2]}_{cluster}.tsv", sep="\t", header=0)
+        all_annot = pd.concat([gobp, gocc, reac], axis=0)
+        assert len(all_annot.index) == len(gobp.index) + len(gocc.index) + len(reac.index)
+        all_annot_sorted = all_annot.sort_values(by=["p_value"], ascending=True)
+        all_annot_sorted.rename(columns={'p_value':'Corrected p_value'}, inplace=True)
+        all_annot_sorted.to_csv(f"output_tables/enrich_bioannot_{cluster}.tsv", sep="\t", header=True, index=False)
+        os.remove(f"output_tables/enrich_{sources[0]}_{cluster}.tsv")
+        os.remove(f"output_tables/enrich_{sources[1]}_{cluster}.tsv")
+        os.remove(f"output_tables/enrich_{sources[2]}_{cluster}.tsv")
+    tsv_dir = Path(path + "output_tables/")
+    tsv_data = {}
+    for tsv_file in tsv_dir.glob('*.tsv'):
+        tsv_name = tsv_file.stem
+        tsv_data[tsv_name] = pd.read_csv(tsv_file, sep="\t")
+    writer = pd.ExcelWriter(path + f"output_tables/enrich_bioannot_clusters.xlsx", engine='xlsxwriter')
+    for sheet_name, sheet_data in tsv_data.items():
+        sheet_data.to_excel(writer, sheet_name=sheet_name, index=False)
+    writer.save()
+
+merge_enrichment_files(filetered_dico_cluster=filtered_dico_cluster, sources=["GOBP", "GOCC", "REAC"])
 
 def highlight_seeds(filtered_dico_cluster: dict, size: int, dico_code_disease: dict, dico_disease_seeds: dict) -> None:
     """Function which allows to add information to the enrichment files generated with enrich_all_clusters()
@@ -177,8 +206,6 @@ def highlight_seeds(filtered_dico_cluster: dict, size: int, dico_code_disease: d
         dico_disease_seeds (dict): dictionary containing PA diseases and their associated genes
     """
     for cluster in filtered_dico_cluster.keys():
-        print(" ")
-        print("######################")
         print(cluster)
         seeds_cluster = list()
         diseases_cluster = list()
@@ -190,6 +217,7 @@ def highlight_seeds(filtered_dico_cluster: dict, size: int, dico_code_disease: d
         print(diseases_cluster)
         enrichment_file = path + f"output_tables/enrich_bioannot_{cluster}.tsv"
         df = pd.read_csv(enrichment_file, sep="\t", header=0)
+        print(df)
         df["seeds"] = 0
         df["diseases"] = 0
         i = 0
@@ -214,8 +242,8 @@ def highlight_seeds(filtered_dico_cluster: dict, size: int, dico_code_disease: d
                 df.iat[i, df.columns.get_loc('diseases')] = dis_names
             i += 1
         df = df.drop(columns=["evidences"])
-        df.to_csv(path + f"output_tables/supp_files/enrich_bioannot_{cluster}.tsv", sep="\t")
-    tsv_dir = Path(path + "output_tables/supp_files")
+        df.to_csv(path + f"output_tables/supp_files/enrich_bioannot_{cluster}.tsv", sep="\t", header=True, index=False)
+    tsv_dir = Path(path + "output_tables/supp_files/")
     tsv_data = {}
     for tsv_file in tsv_dir.glob('*.tsv'):
         tsv_name = tsv_file.stem
@@ -227,7 +255,7 @@ def highlight_seeds(filtered_dico_cluster: dict, size: int, dico_code_disease: d
                 
 highlight_seeds(filtered_dico_cluster, 100, dico_code_disease, dico_disease_seeds)
 
-def analyze_clusters(dico_clusters, dico_diseases_names):
+"""def analyze_clusters(dico_clusters, dico_diseases_names):
     df = pd.DataFrame(columns=['Cluster', 'Diseases', 'Seeds'])
     print(df)
     i = 0
@@ -255,4 +283,4 @@ def analyze_clusters(dico_clusters, dico_diseases_names):
             new_row = [f"{new_clust_id}", disease, seeds]
             df = df.append(dict(zip(df.columns, new_row)), ignore_index=True)
     print(df)
-    df.to_csv(path + "output_tables/clusters_composition.tsv", sep="\t", index=False)
+    df.to_csv(path + "output_tables/clusters_composition.tsv", sep="\t", index=False)"""

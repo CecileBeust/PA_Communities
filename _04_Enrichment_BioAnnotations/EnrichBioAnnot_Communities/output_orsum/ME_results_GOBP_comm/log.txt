@@ -12,14 +12,14 @@ numberOfTermsToPlot:	50
 
 Processing /Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_93932/EnrichmentClust-GOBP.txt
 2 terms are not in GMT, they are removed.
-330 terms are smaller than minTermSize=10, they are removed.
+275 terms are smaller than minTermSize=10, they are removed.
 
 Processing /Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_920/EnrichmentClust-GOBP.txt
-337 terms are smaller than minTermSize=10, they are removed.
+272 terms are smaller than minTermSize=10, they are removed.
 
 Processing /Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_909/EnrichmentClust-GOBP.txt
 2 terms are not in GMT, they are removed.
-179 terms are smaller than minTermSize=10, they are removed.
+134 terms are smaller than minTermSize=10, they are removed.
 
 Processing /Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_904/EnrichmentClust-GOBP.txt
 2 terms are not in GMT, they are removed.
@@ -27,48 +27,46 @@ Processing /Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotatio
 
 Processing /Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_90348/EnrichmentClust-GOBP.txt
 2 terms are not in GMT, they are removed.
-328 terms are smaller than minTermSize=10, they are removed.
+273 terms are smaller than minTermSize=10, they are removed.
 
 Processing /Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_90324/EnrichmentClust-GOBP.txt
-97 terms are smaller than minTermSize=10, they are removed.
+96 terms are smaller than minTermSize=10, they are removed.
 
 Processing /Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_90322/EnrichmentClust-GOBP.txt
-126 terms are smaller than minTermSize=10, they are removed.
+105 terms are smaller than minTermSize=10, they are removed.
 
 Processing /Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_90321/EnrichmentClust-GOBP.txt
-126 terms are smaller than minTermSize=10, they are removed.
+105 terms are smaller than minTermSize=10, they are removed.
 
 Processing /Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_902/EnrichmentClust-GOBP.txt
 130 terms are smaller than minTermSize=10, they are removed.
 
 Processing /Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_90154/EnrichmentClust-GOBP.txt
 2 terms are not in GMT, they are removed.
-50 terms are smaller than minTermSize=10, they are removed.
+11 terms are smaller than minTermSize=10, they are removed.
 
 Processing /Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_90153/EnrichmentClust-GOBP.txt
-114 terms are smaller than minTermSize=10, they are removed.
+91 terms are smaller than minTermSize=10, they are removed.
 
 Processing /Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_897/EnrichmentClust-GOBP.txt
 2 terms are not in GMT, they are removed.
-299 terms are smaller than minTermSize=10, they are removed.
+252 terms are smaller than minTermSize=10, they are removed.
 
 Processing /Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_895/EnrichmentClust-GOBP.txt
 2 terms are not in GMT, they are removed.
-287 terms are smaller than minTermSize=10, they are removed.
+234 terms are smaller than minTermSize=10, they are removed.
 
 Processing /Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_894/EnrichmentClust-GOBP.txt
-341 terms are smaller than minTermSize=10, they are removed.
+269 terms are smaller than minTermSize=10, they are removed.
 
 Processing /Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_808/EnrichmentClust-GOBP.txt
-133 terms are smaller than minTermSize=10, they are removed.
+113 terms are smaller than minTermSize=10, they are removed.
 
 Processing /Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_79477/EnrichmentClust-GOBP.txt
-2 terms are not in GMT, they are removed.
-155 terms are smaller than minTermSize=10, they are removed.
+118 terms are smaller than minTermSize=10, they are removed.
 
 Processing /Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_79476/EnrichmentClust-GOBP.txt
-2 terms are not in GMT, they are removed.
-155 terms are smaller than minTermSize=10, they are removed.
+118 terms are smaller than minTermSize=10, they are removed.
 
 Processing /Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_79474/EnrichmentClust-GOBP.txt
 122 terms are smaller than minTermSize=10, they are removed.
@@ -83,7 +81,7 @@ Processing /Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotatio
 
 Processing /Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_79087/EnrichmentClust-GOBP.txt
 2 terms are not in GMT, they are removed.
-325 terms are smaller than minTermSize=10, they are removed.
+270 terms are smaller than minTermSize=10, they are removed.
 
 Processing /Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_769/EnrichmentClust-GOBP.txt
 2 terms are not in GMT, they are removed.
@@ -100,23 +98,22 @@ Processing /Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotatio
 125 terms are smaller than minTermSize=10, they are removed.
 
 Processing /Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_633/EnrichmentClust-GOBP.txt
-1 term is not in GMT, it is removed.
-129 terms are smaller than minTermSize=10, they are removed.
+86 terms are smaller than minTermSize=10, they are removed.
 
 Processing /Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_500/EnrichmentClust-GOBP.txt
 2 terms are not in GMT, they are removed.
-355 terms are smaller than minTermSize=10, they are removed.
+299 terms are smaller than minTermSize=10, they are removed.
 
 Processing /Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_498359/EnrichmentClust-GOBP.txt
 4 terms are not in GMT, they are removed.
-162 terms are smaller than minTermSize=10, they are removed.
+161 terms are smaller than minTermSize=10, they are removed.
 
 Processing /Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_487825/EnrichmentClust-GOBP.txt
-337 terms are smaller than minTermSize=10, they are removed.
+266 terms are smaller than minTermSize=10, they are removed.
 
 Processing /Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_477/EnrichmentClust-GOBP.txt
 2 terms are not in GMT, they are removed.
-336 terms are smaller than minTermSize=10, they are removed.
+280 terms are smaller than minTermSize=10, they are removed.
 
 Processing /Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_435628/EnrichmentClust-GOBP.txt
 66 terms are smaller than minTermSize=10, they are removed.
@@ -133,40 +130,38 @@ Processing /Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotatio
 
 Processing /Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_3455/EnrichmentClust-GOBP.txt
 1 term is not in GMT, it is removed.
-157 terms are smaller than minTermSize=10, they are removed.
+111 terms are smaller than minTermSize=10, they are removed.
 
 Processing /Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_3437/EnrichmentClust-GOBP.txt
-1 term is not in GMT, it is removed.
-158 terms are smaller than minTermSize=10, they are removed.
+110 terms are smaller than minTermSize=10, they are removed.
 
 Processing /Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_33445/EnrichmentClust-GOBP.txt
-2 terms are not in GMT, they are removed.
-155 terms are smaller than minTermSize=10, they are removed.
+118 terms are smaller than minTermSize=10, they are removed.
 
 Processing /Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_33364/EnrichmentClust-GOBP.txt
-190 terms are smaller than minTermSize=10, they are removed.
+150 terms are smaller than minTermSize=10, they are removed.
 
 Processing /Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_3322/EnrichmentClust-GOBP.txt
 213 terms are smaller than minTermSize=10, they are removed.
 
 Processing /Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_3163/EnrichmentClust-GOBP.txt
 2 terms are not in GMT, they are removed.
-297 terms are smaller than minTermSize=10, they are removed.
+241 terms are smaller than minTermSize=10, they are removed.
 
 Processing /Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_3051/EnrichmentClust-GOBP.txt
-267 terms are smaller than minTermSize=10, they are removed.
+208 terms are smaller than minTermSize=10, they are removed.
 
 Processing /Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_2963/EnrichmentClust-GOBP.txt
 2 terms are not in GMT, they are removed.
-221 terms are smaller than minTermSize=10, they are removed.
+181 terms are smaller than minTermSize=10, they are removed.
 
 Processing /Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_287/EnrichmentClust-GOBP.txt
 1 term is not in GMT, it is removed.
-214 terms are smaller than minTermSize=10, they are removed.
+213 terms are smaller than minTermSize=10, they are removed.
 
 Processing /Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_286/EnrichmentClust-GOBP.txt
 2 terms are not in GMT, they are removed.
-321 terms are smaller than minTermSize=10, they are removed.
+263 terms are smaller than minTermSize=10, they are removed.
 
 Processing /Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_2834/EnrichmentClust-GOBP.txt
 67 terms are smaller than minTermSize=10, they are removed.
@@ -183,7 +178,7 @@ Processing /Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotatio
 
 Processing /Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_263534/EnrichmentClust-GOBP.txt
 2 terms are not in GMT, they are removed.
-412 terms are smaller than minTermSize=10, they are removed.
+411 terms are smaller than minTermSize=10, they are removed.
 
 Processing /Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_263487/EnrichmentClust-GOBP.txt
 4 terms are not in GMT, they are removed.
@@ -191,14 +186,14 @@ Processing /Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotatio
 
 Processing /Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_2500/EnrichmentClust-GOBP.txt
 2 terms are not in GMT, they are removed.
-321 terms are smaller than minTermSize=10, they are removed.
+263 terms are smaller than minTermSize=10, they are removed.
 
 Processing /Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_220295/EnrichmentClust-GOBP.txt
 130 terms are smaller than minTermSize=10, they are removed.
 
 Processing /Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_2078/EnrichmentClust-GOBP.txt
 2 terms are not in GMT, they are removed.
-281 terms are smaller than minTermSize=10, they are removed.
+230 terms are smaller than minTermSize=10, they are removed.
 
 Processing /Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_2067/EnrichmentClust-GOBP.txt
 1 term is not in GMT, it is removed.
@@ -206,17 +201,17 @@ Processing /Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotatio
 
 Processing /Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_1942/EnrichmentClust-GOBP.txt
 2 terms are not in GMT, they are removed.
-220 terms are smaller than minTermSize=10, they are removed.
+172 terms are smaller than minTermSize=10, they are removed.
 
 Processing /Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_1901/EnrichmentClust-GOBP.txt
 1 term is not in GMT, it is removed.
-149 terms are smaller than minTermSize=10, they are removed.
+148 terms are smaller than minTermSize=10, they are removed.
 
 Processing /Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_1860/EnrichmentClust-GOBP.txt
 89 terms are smaller than minTermSize=10, they are removed.
 
 Processing /Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_1807/EnrichmentClust-GOBP.txt
-337 terms are smaller than minTermSize=10, they are removed.
+272 terms are smaller than minTermSize=10, they are removed.
 
 Processing /Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_1775/EnrichmentClust-GOBP.txt
 148 terms are smaller than minTermSize=10, they are removed.
@@ -225,7 +220,7 @@ Processing /Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotatio
 224 terms are smaller than minTermSize=10, they are removed.
 
 Processing /Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_1387/EnrichmentClust-GOBP.txt
-35 terms are smaller than minTermSize=10, they are removed.
+25 terms are smaller than minTermSize=10, they are removed.
 
 Processing /Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_137608/EnrichmentClust-GOBP.txt
 165 terms are smaller than minTermSize=10, they are removed.
@@ -239,19 +234,19 @@ Processing /Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotatio
 347 terms are smaller than minTermSize=10, they are removed.
 
 Processing /Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_1297/EnrichmentClust-GOBP.txt
-166 terms are smaller than minTermSize=10, they are removed.
+123 terms are smaller than minTermSize=10, they are removed.
 
 Processing /Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_101028/EnrichmentClust-GOBP.txt
-72 terms are smaller than minTermSize=10, they are removed.
+54 terms are smaller than minTermSize=10, they are removed.
 
 Processing /Users/cecilebeust/Desktop/PA_Communities/_04_Enrichment_BioAnnotations/EnrichBioAnnot_Communities/output_orsum/Orsum_100/EnrichmentClust-GOBP.txt
 130 terms are smaller than minTermSize=10, they are removed.
 
-Initial term number (recurring terms in different lists are not merged yet, each one is counted): 70557
+Initial term number (recurring terms in different lists are not merged yet, each one is counted): 66239
 
 Same terms in multiple lists are unified
-Representing term number: 5093
+Representing term number: 5008
 
 Superterms represent their less significant (worse ranked) subterms. This includes equal terms, i.e. the terms that annotate exactly the same set of genes.
-Representing term number: 162
+Representing term number: 209
 

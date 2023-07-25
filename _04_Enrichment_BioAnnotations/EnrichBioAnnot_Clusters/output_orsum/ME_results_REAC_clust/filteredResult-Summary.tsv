@@ -1,115 +1,124 @@
 Representing term id	Representing term name	Representing term size	Representing term rank	Represented term number	cluster_1 term rank	cluster_2 term rank	cluster_3 term rank	cluster_4 term rank	cluster_5 term rank	cluster_6 term rank
-REAC:R-HSA-73894	DNA Repair	330	1	61	1	69	104	205	None	None
-REAC:R-HSA-453279	Mitotic G1 phase and G1/S transition	147	1	15	36	1	6	None	None	None
-REAC:R-HSA-74160	Gene expression (Transcription)	1476	1	109	30	3	1	90	263	7
-REAC:R-HSA-166016	Toll Like Receptor 4 (TLR4) Cascade	132	1	21	None	220	None	1	270	None
-REAC:R-HSA-162582	Signal Transduction	2535	1	1	None	40	4	70	1	112
-REAC:R-HSA-9007101	Rab regulation of trafficking	120	1	3	None	None	None	167	None	1
-REAC:R-HSA-1640170	Cell Cycle	679	2	74	2	6	41	125	259	93
-REAC:R-HSA-9006934	Signaling by Receptor Tyrosine Kinases	502	2	85	None	108	95	188	2	50
-REAC:R-HSA-216083	Integrin cell surface interactions	84	3	1	None	None	None	None	3	None
+REAC:R-HSA-73894	DNA Repair	330	1	61	1	64	104	211	None	None
+REAC:R-HSA-453279	Mitotic G1 phase and G1/S transition	147	1	15	34	1	4	None	None	None
+REAC:R-HSA-74160	Gene expression (Transcription)	1476	1	105	35	3	1	89	251	7
+REAC:R-HSA-166016	Toll Like Receptor 4 (TLR4) Cascade	132	1	21	None	198	None	1	289	None
+REAC:R-HSA-9006934	Signaling by Receptor Tyrosine Kinases	502	1	82	None	97	118	168	1	44
+REAC:R-HSA-9007101	Rab regulation of trafficking	120	1	3	None	None	None	155	None	1
+REAC:R-HSA-216083	Integrin cell surface interactions	84	2	1	None	None	None	None	2	None
+REAC:R-HSA-1640170	Cell Cycle	679	3	62	3	6	39	125	269	94
+REAC:R-HSA-162582	Signal Transduction	2535	3	1	None	84	11	96	3	None
 REAC:R-HSA-8873719	RAB geranylgeranylation	64	3	1	None	None	None	None	None	3
-REAC:R-HSA-168898	Toll-like Receptor Cascades	154	4	16	None	307	377	4	223	None
+REAC:R-HSA-168898	Toll-like Receptor Cascades	154	4	16	None	None	None	4	206	None
 REAC:R-HSA-1474244	Extracellular matrix organization	298	4	15	None	None	None	None	4	None
-REAC:R-HSA-199991	Membrane Trafficking	624	4	13	None	204	None	258	204	4
-REAC:R-HSA-1643685	Disease	1823	5	101	47	37	5	46	9	24
-REAC:R-HSA-9675108	Nervous system development	574	5	23	None	302	108	233	5	59
-REAC:R-HSA-5653656	Vesicle-mediated transport	718	5	4	None	None	None	226	158	5
-REAC:R-HSA-168256	Immune System	2041	6	1	None	235	None	6	21	None
-REAC:0000000	REACTOME root term	10775	6	1	42	18	14	43	6	8
-REAC:R-HSA-168643	Nucleotide-binding domain, leucine rich repeat containing receptor (NLR) signaling pathways	55	7	4	None	None	None	7	363	None
-REAC:R-HSA-109582	Hemostasis	672	8	15	245	102	249	None	8	91
-REAC:R-HSA-392499	Metabolism of proteins	1944	10	37	84	30	25	85	144	10
-REAC:R-HSA-168249	Innate Immune System	1093	11	31	141	237	None	11	31	52
-REAC:R-HSA-205043	NRIF signals cell death from the nucleus	16	11	1	None	None	186	None	None	11
-REAC:R-HSA-193692	Regulated proteolysis of p75NTR	11	12	1	None	None	170	147	None	12
-REAC:R-HSA-5684996	MAPK1/MAPK3 signaling	269	13	7	None	343	None	None	13	None
-REAC:R-HSA-9029569	NR1H3 & NR1H2 regulate gene expression linked to cholesterol transport and efflux	36	13	1	None	None	97	None	None	13
-REAC:R-HSA-194315	Signaling by Rho GTPases	702	14	25	None	110	301	139	14	45
-REAC:R-HSA-2559583	Cellular Senescence	195	15	6	91	15	79	None	None	23
-REAC:R-HSA-2262752	Cellular responses to stress	777	16	18	99	16	83	96	262	None
-REAC:R-HSA-1980143	Signaling by NOTCH1	72	16	3	284	104	16	171	None	49
-REAC:R-HSA-9716542	Signaling by Rho GTPases, Miro GTPases and RHOBTB3	717	16	1	None	354	306	None	16	None
-REAC:R-HSA-8953897	Cellular responses to stimuli	791	17	1	103	17	86	114	None	None
-REAC:R-HSA-157118	Signaling by NOTCH	233	17	13	None	90	17	169	None	22
-REAC:R-HSA-1280215	Cytokine Signaling in Immune system	704	17	24	270	157	250	17	42	86
-REAC:R-HSA-264642	Acetylcholine Neurotransmitter Release Cycle	16	17	1	None	None	None	None	None	17
-REAC:R-HSA-1266738	Developmental Biology	1116	18	12	None	98	18	213	33	None
-REAC:R-HSA-5683057	MAPK family signaling cascades	308	18	2	None	202	365	None	18	40
-REAC:R-HSA-9024446	NR1H2 and NR1H3-mediated signaling	45	18	1	None	None	94	None	None	18
-REAC:R-HSA-181430	Norepinephrine Neurotransmitter Release Cycle	17	19	1	None	None	None	None	None	19
-REAC:R-HSA-181429	Serotonin Neurotransmitter Release Cycle	17	20	1	None	None	None	None	None	20
-REAC:R-HSA-9006931	Signaling by Nuclear Receptors	291	21	5	267	121	21	162	153	48
-REAC:R-HSA-9603798	Class I peroxisomal membrane protein import	19	21	1	None	None	None	None	None	21
-REAC:R-HSA-73887	Death Receptor Signaling	140	23	15	None	None	216	23	286	31
-REAC:R-HSA-6811558	PI5P, PP2A and IER3 Regulate PI3K/AKT Signaling	92	23	1	None	None	313	177	23	None
-REAC:R-HSA-212676	Dopamine Neurotransmitter Release Cycle	22	25	1	None	None	None	None	None	25
-REAC:R-HSA-9006936	Signaling by TGFB family members	116	26	7	None	53	26	None	57	None
-REAC:R-HSA-210500	Glutamate Neurotransmitter Release Cycle	23	27	1	None	None	None	None	None	27
-REAC:R-HSA-5357801	Programmed Cell Death	205	30	16	None	135	236	30	90	None
-REAC:R-HSA-199418	Negative regulation of the PI3K/AKT network	99	30	1	261	None	328	186	30	None
-REAC:R-HSA-4086398	Ca2+ pathway	59	30	1	None	None	None	None	None	30
-REAC:R-HSA-69306	DNA Replication	188	33	4	60	33	311	None	None	None
-REAC:R-HSA-1369062	ABC transporters in lipid homeostasis	18	35	1	None	None	None	None	None	35
-REAC:R-HSA-888590	GABA synthesis, release, reuptake and degradation	18	36	1	None	None	None	None	None	36
-REAC:R-HSA-9609507	Protein localization	158	38	3	170	None	None	None	None	38
-REAC:R-HSA-1500931	Cell-Cell communication	127	41	7	None	None	151	220	41	None
-REAC:R-HSA-400206	Regulation of lipid metabolism by PPARalpha	114	43	2	None	340	43	None	None	None
-REAC:R-HSA-8943724	Regulation of PTEN gene transcription	59	44	1	None	44	159	None	378	None
-REAC:R-HSA-1169091	Activation of NF-kappaB in B cells	67	44	1	None	256	None	44	None	None
-REAC:R-HSA-202403	TCR signaling	120	45	4	None	316	None	45	120	None
-REAC:R-HSA-9006335	Signaling by Erythropoietin	23	46	3	None	None	None	None	46	None
-REAC:R-HSA-1280218	Adaptive Immune System	809	47	16	None	271	None	50	47	None
-REAC:R-HSA-112310	Neurotransmitter release cycle	50	47	1	None	None	None	None	None	47
-REAC:R-HSA-3247509	Chromatin modifying enzymes	273	52	5	None	62	52	257	None	None
-REAC:R-HSA-1257604	PIP3 activates AKT signaling	252	55	4	107	55	126	128	66	55
-REAC:R-HSA-3858494	Beta-catenin independent WNT signaling	143	56	1	None	None	None	None	None	56
-REAC:R-HSA-1660499	Synthesis of PIPs at the plasma membrane	52	61	1	None	None	None	None	211	61
-REAC:R-HSA-9006925	Intracellular signaling by second messengers	292	68	1	113	68	138	149	78	80
+REAC:R-HSA-199991	Membrane Trafficking	624	4	10	None	197	None	None	217	4
+REAC:R-HSA-9675108	Nervous system development	574	5	22	None	None	98	213	5	57
+REAC:R-HSA-5653656	Vesicle-mediated transport	718	5	4	None	None	None	None	165	5
+REAC:R-HSA-2644602	Signaling by NOTCH1 PEST Domain Mutants in Cancer	57	6	7	None	111	6	170	None	61
+REAC:R-HSA-168643	Nucleotide-binding domain, leucine rich repeat containing receptor (NLR) signaling pathways	55	6	4	None	None	None	6	None	None
+REAC:R-HSA-109582	Hemostasis	672	9	15	None	108	272	None	9	104
+REAC:R-HSA-205043	NRIF signals cell death from the nucleus	16	9	1	None	None	173	None	None	9
+REAC:R-HSA-5663202	Diseases of signal transduction by growth factor receptors and second messengers	417	10	35	159	88	14	114	10	None
+REAC:R-HSA-193692	Regulated proteolysis of p75NTR	11	10	1	None	None	154	136	None	10
+REAC:R-HSA-1980143	Signaling by NOTCH1	72	12	3	None	102	12	156	None	46
+REAC:R-HSA-9029569	NR1H3 & NR1H2 regulate gene expression linked to cholesterol transport and efflux	36	12	1	None	None	89	None	None	12
+REAC:R-HSA-1643685	Disease	1823	13	38	69	67	13	57	68	19
+REAC:R-HSA-5684996	MAPK1/MAPK3 signaling	269	13	6	None	None	None	None	13	None
+REAC:R-HSA-264642	Acetylcholine Neurotransmitter Release Cycle	16	13	1	None	None	None	None	None	13
+REAC:R-HSA-9020702	Interleukin-1 signaling	101	15	1	None	229	None	15	None	None
+REAC:R-HSA-181429	Serotonin Neurotransmitter Release Cycle	17	15	1	None	None	None	None	None	15
+REAC:R-HSA-181430	Norepinephrine Neurotransmitter Release Cycle	17	16	1	None	None	None	None	None	16
+REAC:R-HSA-2559583	Cellular Senescence	195	17	5	88	17	70	None	None	20
+REAC:R-HSA-157118	Signaling by NOTCH	233	17	13	None	101	17	163	None	27
+REAC:R-HSA-9603798	Class I peroxisomal membrane protein import	19	17	1	None	None	None	None	None	17
+REAC:R-HSA-9024446	NR1H2 and NR1H3-mediated signaling	45	18	1	None	None	90	None	None	18
+REAC:R-HSA-168249	Innate Immune System	1093	19	30	137	247	None	19	32	66
+REAC:R-HSA-5683057	MAPK family signaling cascades	308	19	2	None	206	None	None	19	39
+REAC:R-HSA-168256	Immune System	2041	20	1	None	None	None	20	74	None
+REAC:R-HSA-2262752	Cellular responses to stress	777	21	16	122	21	112	100	256	None
+REAC:R-HSA-446652	Interleukin-1 family signaling	139	21	2	None	200	None	21	287	None
+REAC:R-HSA-212676	Dopamine Neurotransmitter Release Cycle	22	21	1	None	None	None	None	None	21
+REAC:R-HSA-9006931	Signaling by Nuclear Receptors	291	22	5	None	134	22	162	160	49
+REAC:R-HSA-73887	Death Receptor Signaling	140	22	14	None	None	220	22	297	31
+REAC:R-HSA-6811558	PI5P, PP2A and IER3 Regulate PI3K/AKT Signaling	92	22	1	None	None	None	178	22	None
+REAC:R-HSA-210500	Glutamate Neurotransmitter Release Cycle	23	22	1	None	None	None	None	None	22
+REAC:R-HSA-1280215	Cytokine Signaling in Immune system	704	23	20	None	146	259	23	34	76
+REAC:R-HSA-194315	Signaling by Rho GTPases	702	23	20	None	103	None	130	23	45
+REAC:R-HSA-4086398	Ca2+ pathway	59	24	1	None	None	None	None	None	24
+REAC:R-HSA-8953897	Cellular responses to stimuli	791	26	1	125	26	134	141	None	None
+REAC:R-HSA-9006936	Signaling by TGFB family members	116	26	7	None	52	26	None	60	None
+REAC:R-HSA-392499	Metabolism of proteins	1944	26	33	87	43	28	92	153	26
+REAC:R-HSA-1266738	Developmental Biology	1116	29	11	None	123	29	223	66	None
+REAC:R-HSA-888590	GABA synthesis, release, reuptake and degradation	18	29	1	None	None	None	None	None	29
+REAC:R-HSA-1369062	ABC transporters in lipid homeostasis	18	30	1	None	None	None	None	None	30
+REAC:R-HSA-9716542	Signaling by Rho GTPases, Miro GTPases and RHOBTB3	717	31	1	None	None	None	None	31	None
+REAC:R-HSA-5357801	Programmed Cell Death	205	32	15	None	131	234	32	76	None
+REAC:R-HSA-199418	Negative regulation of the PI3K/AKT network	99	33	1	None	None	None	187	33	None
+REAC:R-HSA-69306	DNA Replication	188	34	4	64	34	None	None	None	None
+REAC:R-HSA-9006335	Signaling by Erythropoietin	23	36	3	None	None	None	None	36	None
+REAC:R-HSA-8943724	Regulation of PTEN gene transcription	59	38	1	None	38	159	None	None	None
+REAC:R-HSA-9609507	Protein localization	158	41	3	172	None	None	None	None	41
+REAC:R-HSA-1500931	Cell-Cell communication	127	42	7	None	None	136	202	42	None
+REAC:R-HSA-112310	Neurotransmitter release cycle	50	43	1	None	None	None	None	None	43
+REAC:R-HSA-1169091	Activation of NF-kappaB in B cells	67	44	1	None	259	None	44	None	None
+REAC:R-HSA-400206	Regulation of lipid metabolism by PPARalpha	114	46	2	None	None	46	None	None	None
+REAC:R-HSA-202403	TCR signaling	120	48	3	None	None	None	48	112	None
+REAC:R-HSA-1168372	Downstream signaling events of B Cell Receptor (BCR)	80	50	1	None	None	None	50	None	None
+REAC:R-HSA-6807070	PTEN Regulation	138	56	2	123	60	188	None	None	56
+REAC:R-HSA-1257604	PIP3 activates AKT signaling	252	57	2	115	57	141	118	83	80
+REAC:R-HSA-3858494	Beta-catenin independent WNT signaling	143	58	1	None	None	None	None	None	58
+REAC:R-HSA-1660499	Synthesis of PIPs at the plasma membrane	52	59	1	None	None	None	None	211	59
+REAC:R-HSA-4839726	Chromatin organization	273	63	5	None	63	72	None	None	None
+REAC:R-HSA-983705	Signaling by the B Cell Receptor (BCR)	163	64	2	None	None	None	64	78	None
+REAC:R-HSA-9006925	Intracellular signaling by second messengers	292	68	1	124	68	163	164	103	89
 REAC:R-HSA-1474165	Reproduction	143	70	1	70	None	None	None	None	None
-REAC:R-HSA-1483255	PI Metabolism	83	75	1	None	None	None	None	260	75
-REAC:R-HSA-6794362	Protein-protein interactions at synapses	86	77	3	None	None	None	None	212	77
-REAC:R-HSA-1483257	Phospholipid metabolism	210	88	1	None	None	None	None	368	88
-REAC:R-HSA-382556	ABC-family proteins mediated transport	103	89	1	None	None	388	None	None	89
-REAC:R-HSA-9662360	Sensory processing of sound by inner hair cells of the cochlea	66	90	1	None	None	None	None	None	90
-REAC:R-HSA-8949613	Cristae formation	31	92	1	92	None	None	None	None	None
-REAC:R-HSA-8868766	rRNA processing in the mitochondrion	10	92	1	None	None	None	None	None	92
-REAC:R-HSA-9659379	Sensory processing of sound	74	95	1	None	None	None	None	None	95
-REAC:R-HSA-422356	Regulation of insulin secretion	78	97	1	None	None	None	None	None	97
-REAC:R-HSA-2046104	alpha-linolenic (omega3) and linoleic (omega6) acid metabolism	12	99	2	None	None	None	None	None	99
-REAC:R-HSA-201681	TCF dependent signaling in response to WNT	232	104	6	104	109	245	243	None	None
-REAC:R-HSA-400253	Circadian Clock	67	107	3	None	216	107	193	None	None
-REAC:R-HSA-195721	Signaling by WNT	328	109	3	115	118	304	173	None	109
-REAC:R-HSA-1592230	Mitochondrial biogenesis	92	110	2	110	None	172	None	None	None
-REAC:R-HSA-163685	Integration of energy metabolism	107	119	1	None	None	None	None	None	119
-REAC:R-HSA-390918	Peroxisomal lipid metabolism	24	120	1	None	None	None	None	None	120
-REAC:R-HSA-5620916	VxPx cargo-targeting to cilium	21	122	1	None	None	None	None	None	122
-REAC:R-HSA-556833	Metabolism of lipids	732	125	11	251	None	171	None	None	125
-REAC:R-HSA-112316	Neuronal System	400	126	12	None	None	None	None	160	126
-REAC:R-HSA-8849471	PTK6 Regulates RHO GTPases, RAS GTPase and MAP kinases	13	127	1	None	None	None	None	127	None
-REAC:R-HSA-9006927	Signaling by Non-Receptor Tyrosine Kinases	51	130	2	238	130	206	None	171	None
-REAC:R-HSA-1852241	Organelle biogenesis and maintenance	294	131	4	131	None	308	None	209	None
-REAC:R-HSA-350562	Regulation of ornithine decarboxylase (ODC)	51	132	1	None	132	None	None	None	None
-REAC:R-HSA-5358351	Signaling by Hedgehog	149	135	8	None	207	135	152	None	None
-REAC:R-HSA-351202	Metabolism of polyamines	58	139	1	None	139	None	None	None	None
-REAC:R-HSA-2564830	Cytosolic iron-sulfur cluster assembly	13	142	1	142	None	None	None	None	None
-REAC:R-HSA-5578768	Physiological factors	12	153	1	None	None	153	None	None	None
-REAC:R-HSA-450604	KSRP (KHSRP) binds and destabilizes mRNA	17	156	1	156	None	None	None	None	None
-REAC:R-HSA-9613829	Chaperone Mediated Autophagy	22	175	1	None	None	None	175	375	None
-REAC:R-HSA-372790	Signaling by GPCR	696	199	9	None	None	None	None	199	None
-REAC:R-HSA-1474151	Tetrahydrobiopterin (BH4) synthesis, recycling, salvage and regulation	10	201	1	250	None	None	201	None	None
-REAC:R-HSA-203615	eNOS activation	11	206	1	None	None	None	206	None	None
-REAC:R-HSA-9663891	Selective autophagy	80	208	2	None	None	None	208	330	None
-REAC:R-HSA-196757	Metabolism of folate and pterines	16	223	1	None	None	None	223	None	None
-REAC:R-HSA-202131	Metabolism of nitric oxide: NOS3 activation and regulation	15	227	1	None	None	None	227	None	None
-REAC:R-HSA-9612973	Autophagy	149	230	2	None	None	None	230	333	None
-REAC:R-HSA-917937	Iron uptake and transport	57	244	2	None	244	None	245	346	None
-REAC:R-HSA-8978934	Metabolism of cofactors	19	244	1	None	None	None	244	None	None
-REAC:R-HSA-6790901	rRNA modification in the nucleus and cytosol	59	253	1	253	None	None	None	None	None
-REAC:R-HSA-2028269	Signaling by Hippo	19	265	1	None	None	265	None	293	None
-REAC:R-HSA-450385	Butyrate Response Factor 1 (BRF1) binds and destabilizes mRNA	17	283	1	283	None	None	None	None	None
-REAC:R-HSA-211976	Endogenous sterols	26	283	1	None	None	283	None	None	None
-REAC:R-HSA-5576891	Cardiac conduction	127	320	1	None	None	320	None	None	None
-REAC:R-HSA-8953854	Metabolism of RNA	661	326	3	None	None	326	None	None	None
-REAC:R-HSA-445355	Smooth Muscle Contraction	38	332	1	None	None	None	None	332	None
-REAC:R-HSA-211897	Cytochrome P450 - arranged by substrate type	64	369	1	None	None	369	None	None	None
+REAC:R-HSA-1483255	PI Metabolism	83	73	1	None	None	None	None	265	73
+REAC:R-HSA-6794362	Protein-protein interactions at synapses	86	74	3	None	None	None	None	207	74
+REAC:R-HSA-1280218	Adaptive Immune System	809	81	11	None	None	None	81	84	None
+REAC:R-HSA-8868766	rRNA processing in the mitochondrion	10	83	1	None	None	None	None	None	83
+REAC:R-HSA-9662360	Sensory processing of sound by inner hair cells of the cochlea	66	85	1	None	None	None	None	None	85
+REAC:R-HSA-8949613	Cristae formation	31	86	1	86	None	None	None	None	None
+REAC:R-HSA-382556	ABC-family proteins mediated transport	103	86	1	None	None	None	None	None	86
+REAC:R-HSA-2046104	alpha-linolenic (omega3) and linoleic (omega6) acid metabolism	12	87	2	None	None	None	None	None	87
+REAC:R-HSA-1483257	Phospholipid metabolism	210	96	1	None	None	None	None	None	96
+REAC:R-HSA-9659379	Sensory processing of sound	74	98	1	None	None	None	None	None	98
+REAC:R-HSA-422356	Regulation of insulin secretion	78	102	1	None	None	None	None	None	102
+REAC:R-HSA-201681	TCF dependent signaling in response to WNT	232	106	5	106	124	242	None	None	None
+REAC:R-HSA-1592230	Mitochondrial biogenesis	92	108	2	108	None	170	None	None	None
+REAC:R-HSA-400253	Circadian Clock	67	111	3	None	217	111	192	None	None
+REAC:R-HSA-8849471	PTK6 Regulates RHO GTPases, RAS GTPase and MAP kinases	13	114	1	None	None	None	None	114	None
+REAC:R-HSA-8848021	Signaling by PTK6	51	125	2	None	125	201	None	168	None
+REAC:R-HSA-195721	Signaling by WNT	328	128	2	128	139	None	167	None	None
+REAC:R-HSA-350562	Regulation of ornithine decarboxylase (ODC)	51	130	1	None	130	None	None	None	None
+REAC:R-HSA-2564830	Cytosolic iron-sulfur cluster assembly	13	136	1	136	None	None	None	None	None
+REAC:R-HSA-351202	Metabolism of polyamines	58	137	1	None	137	None	None	None	None
+REAC:R-HSA-5578768	Physiological factors	12	139	1	None	None	139	None	None	None
+REAC:R-HSA-5610785	GLI3 is processed to GLI3R by the proteasome	60	142	1	None	205	None	142	None	None
+REAC:R-HSA-5610783	Degradation of GLI2 by the proteasome	60	143	1	None	204	None	143	None	None
+REAC:R-HSA-5358351	Signaling by Hedgehog	149	144	6	None	203	144	160	None	None
+REAC:R-HSA-450604	KSRP (KHSRP) binds and destabilizes mRNA	17	147	1	147	None	None	None	None	None
+REAC:R-HSA-442742	CREB1 phosphorylation through NMDA receptor-mediated activation of RAS signaling	26	150	1	None	None	None	None	150	None
+REAC:R-HSA-1852241	Organelle biogenesis and maintenance	294	152	4	152	None	None	None	235	None
+REAC:R-HSA-9613829	Chaperone Mediated Autophagy	22	157	1	None	None	None	157	None	None
+REAC:R-HSA-9620244	Long-term potentiation	21	159	1	None	None	None	None	159	None
+REAC:R-HSA-2426168	Activation of gene expression by SREBF (SREBP)	40	164	1	None	None	164	None	None	None
+REAC:R-HSA-1655829	Regulation of cholesterol biosynthesis by SREBP (SREBF)	53	180	1	None	None	180	None	None	None
+REAC:R-HSA-9617324	Negative regulation of NMDA receptor-mediated neuronal transmission	20	180	1	None	None	None	None	180	None
+REAC:R-HSA-438066	Unblocking of NMDA receptors, glutamate binding and activation	20	181	1	None	None	None	None	181	None
+REAC:R-HSA-1474151	Tetrahydrobiopterin (BH4) synthesis, recycling, salvage and regulation	10	182	1	227	None	None	182	None	None
+REAC:R-HSA-203615	eNOS activation	11	188	1	None	None	None	188	None	None
+REAC:R-HSA-438064	Post NMDA receptor activation events	76	192	1	None	None	None	None	192	None
+REAC:R-HSA-196757	Metabolism of folate and pterines	16	203	1	None	None	None	203	None	None
+REAC:R-HSA-202131	Metabolism of nitric oxide: NOS3 activation and regulation	15	209	1	None	None	None	209	None	None
+REAC:R-HSA-9646399	Aggrephagy	44	210	1	None	None	None	210	None	None
+REAC:R-HSA-8957322	Metabolism of steroids	152	212	6	228	None	212	None	None	None
+REAC:R-HSA-442755	Activation of NMDA receptors and postsynaptic events	89	213	2	None	None	None	None	213	None
+REAC:R-HSA-9663891	Selective autophagy	80	215	1	None	None	None	215	None	None
+REAC:R-HSA-881907	Gastrin-CREB signalling pathway via PKC and MAPK	16	225	1	None	None	None	None	225	None
+REAC:R-HSA-917937	Iron uptake and transport	57	239	1	None	239	None	None	None	None
+REAC:R-HSA-2028269	Signaling by Hippo	19	247	1	None	None	247	None	273	None
+REAC:R-HSA-556833	Metabolism of lipids	732	252	1	None	None	252	None	None	None
+REAC:R-HSA-416476	G alpha (q) signalling events	212	272	1	None	None	None	None	272	None
+REAC:R-HSA-211976	Endogenous sterols	26	273	1	None	None	273	None	None	None
+REAC:R-HSA-451306	Ionotropic activity of kainate receptors	10	276	2	None	None	None	None	276	None
+REAC:R-HSA-372790	Signaling by GPCR	696	280	4	None	None	None	None	280	None
