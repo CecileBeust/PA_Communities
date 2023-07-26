@@ -92,6 +92,92 @@ def remove_seeds(gene_list: list, seeds_list: list) -> list:
             new_list.append(gene)
     return new_list
 
+def extract_list_genes_DEG_physio_aging(file: str) -> tuple[list, list, list]:
+    """Function to extract the lists of genes up, down or up and down-regulated
+    during physiological aging described in the study of Irizar et. al
+
+    Args:
+        enrichment_file (str): path to the file containing the list of genes
+
+    Returns:
+        tuple[list, list, list]: list of genes up-regulated during physiological 
+        aging in the studied tissue, list of genes down-regulated, and list of 
+        genes both up and down-regulated. 
+    """
+    up_genes = []
+    down_genes = []
+    other_genes = []
+    is_up = None
+    with open(file, 'r') as f:
+        lines = f.read().splitlines()
+        for line in lines:
+            line = line.strip()
+            if line == "Up:":
+                is_up = True
+            elif line == "Down:":
+                is_up = False
+            elif line == "Other:":
+                 is_up = None
+            elif is_up is True:
+                up_genes.append(line)
+            elif is_up is False:
+                down_genes.append(line)
+            else:
+                other_genes.append(line)
+    print("Up-regulated genes:", len(up_genes))
+    print("Down-regulated genes:", len(down_genes))
+    print("Other genes :", len(other_genes))
+    return up_genes, down_genes, other_genes
+
+def create_filtered_enrichment_lists_physio_aging_DEG(file: str, mapping_file_path: str, seeds_list: list, is_up: int, all_nodes: list) -> list:
+    """Function to create the lists of genes up, down or both up and down regulated
+    during physiological aging for the enrichments analysis. The seeds are removed from
+    the list. 
+
+    Args:
+        file (str): path to file containing the list of genes
+        seeds_list (list): list of seeds nodes
+        is_up (int): 1 if we perform enrichment with genes up-regulated, 0 if we 
+        performe enrichment with genes down-regulated
+        all_nodes (list): list of all nodes in the multiplex network
+
+    Returns:
+        list: list of genes for the enrichment analysis
+    """
+    # extract lists of genes from file
+    genes_up, genes_down, other_genes = extract_list_genes_DEG_physio_aging(file)
+
+    # If we want to analyze UP regulated genes
+    if is_up == 1:
+        # map to gene symbol
+        genes_up_GS = map_ensembl_to_symbol(mapping_file_path, genes_up, 'ID', 'external_gene_id')
+        print(f"{len(genes_up_GS)} genes UP")
+        # remove seeds
+        gene_up_wo_seeds = remove_seeds(genes_up_GS, seeds_list)
+        print(f"{len(gene_up_wo_seeds)} genes UP without the seeds")
+        # check if aging genes are present in networks
+        genes_up_wo_seeds_in_ntw = []
+        for gene in gene_up_wo_seeds:
+            if gene in all_nodes:
+                genes_up_wo_seeds_in_ntw.append(gene)
+        print(f"{len(genes_up_wo_seeds_in_ntw)} genes UP present in multiplex (WO seeds)")
+        return genes_up_wo_seeds_in_ntw
+    
+    # If we want to analyze DOWN regulated genes
+    elif is_up == 0:
+        # map to gene names
+        genes_down_GS = map_ensembl_to_symbol(mapping_file_path, genes_down, 'ID', 'external_gene_id')
+        print(f"{len(genes_down_GS)} genes DOWN")
+        # remove seeds
+        gene_down_wo_seeds = remove_seeds(genes_down_GS, seeds_list)
+        print(f"{len(gene_down_wo_seeds)} genes DOWN without seeds")
+        # check if aging genes are present in networks
+        genes_down_wo_seeds_in_ntw = []
+        for gene in gene_down_wo_seeds:
+            if gene in all_nodes:
+                genes_down_wo_seeds_in_ntw.append(gene)
+        print(f"{len(genes_down_wo_seeds_in_ntw)} genes DOWN present in multiplex (WO seeds)")
+        return genes_down_wo_seeds_in_ntw
 
 ##################################################
 ######### MAPPING OF GENE IDENTIFIERS ############
@@ -148,15 +234,12 @@ def map_ensembl_to_symbol(mapping_file_path: str, list_genes: list, From: str, T
 ##################################################
 
 # Fischer's exact test : compare distributions of genes_comm and genes_aging_wo_seeds
-def fisher(list1, list2, gene_pool):
+def fisher(list1: list, list2: list, gene_pool: list):
     common_genes = set(list1).intersection(set(list2))
-    print(f"{len(common_genes)} common genes")
     set1_unique = set(list1) - set(list2)
-    print(f"{len(set1_unique)} genes in genes_comm but not in genes_aging_we_seeds")
     set2_unique = set(list2) - set(list1)
-    print(f"{len(set2_unique)} genes in genes_aging_wo_seeds but not in genes_comm")
 
-    not_set2 = gene_pool - len(set2_unique) - len(common_genes)
+    not_set2 = len(gene_pool) - len(set2_unique) - len(common_genes)
     #neither = gene_pool - len(common_genes) - len(set1_unique) - len(set2_unique)
     contingency_table = [
         [len(common_genes), len(set2_unique)],
@@ -165,13 +248,12 @@ def fisher(list1, list2, gene_pool):
 
     odds_ratio, p_value = stats.fisher_exact(contingency_table)
 
-    print(f'Odds Ratio: {odds_ratio:.10f}, p-value: {p_value:.10f}')
     return p_value
 
 
-def hypergeome(list1, list2, gene_pool):
+def hypergeome(list1: list, list2: list, gene_pool: list):
     # Define the size of the gene pool (total number of genes)
-    gene_pool_size = gene_pool
+    gene_pool_size = len(gene_pool)
 
     # Define the number of genes in the two lists
     list1_size = len(list1)
@@ -187,5 +269,45 @@ def hypergeome(list1, list2, gene_pool):
     # Calculate the p-value using a hypergeometric test
     p_value = stats.hypergeom.sf(common_genes_size-1, gene_pool_size, list2_size, sample_size)
 
-    print(f'p-value: {p_value:.4f}')
     return p_value
+
+"""def create_enrichment_files(deg: str, tissue: str, background: int):
+    if deg == "UP":
+        genes_enrich = functions_enrichment.create_filtered_enrichment_lists_physio_aging_DEG(
+            file=f'human-{tissue}.txt',
+            mapping_file_path=mapping_file_path,
+            seeds_list=seeds,
+            is_up=1,
+            all_nodes=all_nodes
+            )
+    elif deg == "DOWN":
+        genes_enrich = functions_enrichment.create_filtered_enrichment_lists_physio_aging_DEG(
+            file=f'human-{tissue}.txt',
+            mapping_file_path=mapping_file_path,
+            seeds_list=seeds,
+            is_up=0,
+            all_nodes=all_nodes
+            )
+
+    df = pd.DataFrame(np.zeros((7, 3)))
+    df.columns = ['Cluster', 'Fisher test p-value', 'Hypergeometric test p-value']
+    i = 0
+    for cluster in dico_clusters_nodes:
+        print(" ")
+        print(cluster)
+        nodes_cluster = set(dico_clusters_nodes[cluster])
+        set_DEG = set(genes_enrich)
+        overlap = len(set_DEG.intersection(nodes_cluster))
+        cluster_unique = len(nodes_cluster) - overlap
+        deg_unique = len(set_DEG) - overlap
+        
+        print("####### HYPERGEOMETRIC TEST #########")
+        h_pval = functions_enrichment.hypergeome(nodes_cluster, set_DEG, background)
+        print("######## FISHER #############")
+        f_pval = functions_enrichment.fisher(nodes_cluster, set_DEG, background)
+        df.at[i, 'Cluster'] = str(cluster)
+        df.at[i, 'Fisher test p-value'] = f_pval
+        df.at[i, 'Hypergeometric test p-value'] = h_pval
+        i += 1
+    df.to_csv(path + f"output_tables/Enrichment_genes_{deg}_{tissue}.tsv", sep="\t", index=False)
+    print(df)"""
