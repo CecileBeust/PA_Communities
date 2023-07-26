@@ -80,7 +80,7 @@ def create_enrichment_file_genage(genage: list, dico_clusters_nodes: dict, all_n
         df._set_value(i, 'Fisher test p-value', f_pval)
         df._set_value(i, 'Hypergeometric test p-value', h_pval)
         i += 1
-    df.to_csv(path + f"output_tables/Enrichment_clusters_GenAge.tsv", sep="\t", index=False)
+    df.to_csv(path + f"output_tables/enrichment_clusters_GenAge.csv", sep=",", index=False)
 
 create_enrichment_file_genage(genage=genage, dico_clusters_nodes=dico_clusters_nodes, all_nodes=all_nodes)
 
@@ -190,7 +190,7 @@ def heatmap_enrichment(dico_clusters_nodes: dict, all_nodes: list, seeds: list, 
         df.at[i, 'Breast up-reg. genes'] = pval_breast_up
         df.at[i, 'Breast down-reg. genes'] = pval_breast_down
         i += 1
-    df.to_csv(f"output_tables/Enrichment_clusters_physio_aging_genes.tsv", sep="\t", index=False)
+    df.to_csv(f"output_tables/enrichment_clusters_physio_aging_genes.csv", sep=",", index=False)
     # plot enrichment heatmap
     ax = plt.axes()
     y_labels = ["Cluster 1", "Cluster 2", "Cluster 3", "Cluster 4", "Cluster 5", "Cluster 6"]
