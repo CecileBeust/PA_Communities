@@ -180,7 +180,7 @@ def heatmap_enrichment(dico_clusters_nodes: dict, all_nodes: list, seeds: list, 
         df.at[i, 'Cluster'] = str(cluster)
         df.at[i, 'GenAge'] = pval_geneage
         df.at[i, 'Blood up-reg. genes'] = pval_blood_up
-        df.at[i, 'Blood down)reg. genes'] = pval_blood_down
+        df.at[i, 'Blood down-reg. genes'] = pval_blood_down
         df.at[i, 'Skin up-reg. genes'] = pval_skin_up
         df.at[i, 'Skin down-reg. genes'] = pval_skin_down
         df.at[i, 'Brain up-reg. genes'] = pval_brain_up
