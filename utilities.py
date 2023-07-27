@@ -1,6 +1,8 @@
 # Import modules
 import os
 import pandas as pd
+import networkx as nx
+import numpy as np
 
 def get_list_orpha_names(pa_diseases: str, id_diseases_analysed: list) -> list:
     """Function to get a list of PA diseases names
@@ -149,3 +151,20 @@ def filter_cluster(dico_cluster: dict) -> dict:
     print(" ")
     print(filtered_dict)
     return filtered_dict
+
+def load_networks(comm_path: str):
+    # load networks
+    ppi = nx.read_edgelist(comm_path + "/multiplex/1/PPI_HiUnion_LitBM_APID_gene_names_190123.tsv", create_using = nx.Graph)
+    pathways = nx.read_edgelist(comm_path + "/multiplex/1/reactome_pathways_gene_names_190123.tsv", create_using = nx.Graph)
+    coexp = nx.read_edgelist(comm_path + "/multiplex/1/Coexpression_310323.tsv", create_using = nx.Graph)
+    complexes = nx.read_edgelist(comm_path + "/multiplex/1/Complexes_gene_names_190123.tsv", create_using = nx.Graph)
+
+    # get noeds in networks
+    ppi_nodes = ppi.nodes()
+    pat_nodes = pathways.nodes()
+    coexp_nodes = coexp.nodes()
+    complexes_nodes = complexes.nodes()
+    #all_nodes = list(set(list(ppi_nodes) + list(pat_nodes) + list(coexp_nodes) + list(complexes_nodes) + list(diseases_nodes)))
+    all_nodes = np.unique(list(ppi_nodes) + list(pat_nodes) + list(coexp_nodes) + list(complexes_nodes))
+    print(f"{len(all_nodes)} nodes in the multiplex network")
+    return all_nodes
