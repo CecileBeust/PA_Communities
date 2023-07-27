@@ -1,0 +1,2 @@
+Cluster	HPO ID	Phenotype	p-value	Corrected p-value	Nb diseases cluster	Nb diseases pheno	intersection	background	diseases intersection
+6	HP:0007495	Prematurely aged appearance	8.220572254172088e-06	0.0112128605546907	3	87	3	4262	{'Lenz-Majewski hyperostotic dwarfism', 'B4GALT7-related spondylodysplastic Ehlers-Danlos syndrome', 'Cataract-intellectual disability-hypogonadism syndrome'}

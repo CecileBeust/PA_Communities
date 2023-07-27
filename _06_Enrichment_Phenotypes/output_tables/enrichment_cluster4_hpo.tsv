@@ -1,0 +1,2 @@
+Cluster	HPO ID	Phenotype	p-value	Corrected p-value	Nb diseases cluster	Nb diseases pheno	intersection	background	diseases intersection
+4	HP:0007495	Prematurely aged appearance	1.621338505166601e-07	0.0002211505721047	4	87	4	4262	{'COG5-CDG', 'COG7-CDG', 'Vogt-Koyanagi-Harada disease', 'Moyamoya angiopathy-short stature-facial dysmorphism-hypergonadotropic hypogonadism syndrome'}

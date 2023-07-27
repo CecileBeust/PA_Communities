@@ -1,0 +1,6 @@
+Cluster	HPO ID	Phenotype	p-value	Corrected p-value	Nb diseases cluster	Nb diseases pheno	intersection	background	diseases intersection
+2	HP:0002216	Premature graying of hair	4.5443647885048736e-12	6.198513571520647e-09	5	25	5	4262	{'Neuroectodermal melanolysosomal disease', 'Branchio-oculo-facial syndrome', 'Griscelli syndrome type 2', 'Griscelli syndrome type 1', 'Cockayne syndrome type 3'}
+2	HP:0007495	Prematurely aged appearance	3.1604296836267703e-09	2.1554130442334576e-06	5	87	5	4262	{'Neuroectodermal melanolysosomal disease', 'Branchio-oculo-facial syndrome', 'Griscelli syndrome type 2', 'Griscelli syndrome type 1', 'Cockayne syndrome type 3'}
+2	HP:0007443	Partial albinism	1.6488470193573267e-05	0.0074967577813446	5	6	2	4262	{'Griscelli syndrome type 2', 'Griscelli syndrome type 1'}
+2	HP:0005599	Hypopigmentation of hair	5.745400054733426e-05	0.0195918141866409	5	78	3	4262	{'Neuroectodermal melanolysosomal disease', 'Griscelli syndrome type 2', 'Griscelli syndrome type 1'}
+2	HP:0011354	Generalized abnormality of skin	0.0001331919832086	0.0363347730193238	5	717	5	4262	{'Neuroectodermal melanolysosomal disease', 'Branchio-oculo-facial syndrome', 'Griscelli syndrome type 2', 'Griscelli syndrome type 1', 'Cockayne syndrome type 3'}
