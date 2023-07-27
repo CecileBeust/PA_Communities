@@ -99,12 +99,17 @@ def plot_community(id: int, size: int) -> None:
             int_complexes.append(forward)
     df.to_csv(f"output_visualization/{id}_community_{size}.tsv", sep="\t")
     print(df)
+    list_nodes = df["node1"].to_list()
+    for node in df["node2"].to_list():
+        if node not in list_nodes:
+            list_nodes.append(node)
+    return(list_nodes)
 
 # Here we want to generate the files for the visualisation of the communities
 # of Hutchinson-Gilford Progeria Syndrome (ORPHANET code 740) 
 
 # Change the ORPHANET code depending on the community to analyze
-plot_community(740, 100)
+#plot_community(740, 100)
 
 def plot_community_with_neighbors(id: int, size: int) -> None:
     """Function to generate a tabulated file of the genes in 
@@ -164,7 +169,6 @@ def plot_community_with_neighbors(id: int, size: int) -> None:
                 counter += 1
                 int_complexes.append(forward)
     print(counter)
-    print(df)
     df.to_csv(f"output_visualization/{id}_community_{size}_with_neighbors.tsv", sep="\t")
 
 
@@ -247,7 +251,7 @@ def plot_several_communities(list_id: list, size: int) -> set:
 # Use this command to generate the tsv file for the representation of the three communities of
 # Hutchinson-Gilford Progeria Syndrome (ORPHANET code 740), Ataxia telangiectasia (ORPHANET code 100)
 # and Classical Ehlers-Danlos syndrome (OPRHANET code 287)
-nodes_all_comm = plot_several_communities(['100', '740', '287'], 100)
+nodes_all_comm = plot_several_communities(['90324', '90322', '90321'], 100)
 
 def create_node_table_100_740_287():
     """Function to create a node table
@@ -255,27 +259,32 @@ def create_node_table_100_740_287():
     100, 287). Allows to obtain the community
     belonging of each node.
     """
-    nodes_100 = plot_community("100", 100)
-    nodes_740 = plot_community("740", 100)
-    nodes_287 = plot_community("287", 100)
+    nodes_1 = plot_community("90321", 100)
+    nodes_2 = plot_community("90322", 100)
+    nodes_3 = plot_community("90324", 100)
+    print(nodes_1)
 
     node_table = pd.DataFrame(columns=['node', 'provenance'])
     nodes_seen = []
     for node in nodes_all_comm:
         if node not in nodes_seen:
-            if node in nodes_100 and node in nodes_740:
-                new_row = [node, "AT;HGPS"]
-            elif node in nodes_100 and node in nodes_287:
-                new_row = [node, "AT;ED"]
-            elif node in nodes_740 and node in nodes_287:
-                new_row = [node, "HGPS;ED"]
-            elif node in nodes_100:
-                new_row = [node, "AT"]
-            elif node in nodes_740:
-                new_row = [node, "HGPS"]
-            elif node in nodes_287:
-                new_row = [node, "ED"]
+            if node in nodes_2 and node in nodes_3 and node in nodes_1:
+                new_row = [node, "type1;type2;type3"]
+            elif node in nodes_1 and node in nodes_2:
+                new_row = [node, "type1;type2"]
+            elif node in nodes_1 and node in nodes_3:
+                new_row = [node, "type1;type3"]
+            elif node in nodes_2 and node in nodes_3:
+                new_row = [node, "type2;type3"]
+            elif node in nodes_1:
+                new_row = [node, "type1"]
+            elif node in nodes_2:
+                new_row = [node, "type2"]
+            elif node in nodes_3:
+                new_row = [node, "type3"]
             node_table = node_table.append(dict(zip(node_table.columns, new_row)), ignore_index=True)
             nodes_seen.append(node)
     print(node_table)
-    node_table.to_csv(path + 'output_visualization/node_table_3comm.tsv', sep="\t", index=False)
+    node_table.to_csv(path + 'output_visualization/node_table_3comm_cockaynes.tsv', sep="\t", index=False)
+
+create_node_table_100_740_287()
