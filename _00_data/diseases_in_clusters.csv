@@ -1,4 +1,4 @@
-Cluster,Diseases,Seeds
+Cluster,Disease,Seeds
 1,Cockayne syndrome type 2,"['ERCC6', 'ERCC8', 'ERCC1']"
 1,Cockayne syndrome type 1,"['ERCC4', 'ERCC6', 'ERCC8']"
 1,Werner syndrome,['WRN']
