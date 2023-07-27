@@ -252,62 +252,18 @@ def fisher(list1: list, list2: list, gene_pool: list):
 
 
 def hypergeome(list1: list, list2: list, gene_pool: list):
-    # Define the size of the gene pool (total number of genes)
-    gene_pool_size = len(gene_pool)
+    # Define the size of the background
+    background = len(gene_pool)
 
     # Define the number of genes in the two lists
     list1_size = len(list1)
     list2_size = len(list2)
 
     # Determine the number of genes that are common to both lists
-    common_genes = set(list1).intersection(list2)
+    common_genes = set(list1).intersection(set(list2))
     common_genes_size = len(common_genes)
 
-    # Define the number of genes to randomly sample from the gene pool
-    sample_size = list1_size
-
     # Calculate the p-value using a hypergeometric test
-    p_value = stats.hypergeom.sf(common_genes_size-1, gene_pool_size, list2_size, sample_size)
+    p_value = stats.hypergeom.sf(common_genes_size-1, background, list2_size, list1_size)
 
     return p_value
-
-"""def create_enrichment_files(deg: str, tissue: str, background: int):
-    if deg == "UP":
-        genes_enrich = functions_enrichment.create_filtered_enrichment_lists_physio_aging_DEG(
-            file=f'human-{tissue}.txt',
-            mapping_file_path=mapping_file_path,
-            seeds_list=seeds,
-            is_up=1,
-            all_nodes=all_nodes
-            )
-    elif deg == "DOWN":
-        genes_enrich = functions_enrichment.create_filtered_enrichment_lists_physio_aging_DEG(
-            file=f'human-{tissue}.txt',
-            mapping_file_path=mapping_file_path,
-            seeds_list=seeds,
-            is_up=0,
-            all_nodes=all_nodes
-            )
-
-    df = pd.DataFrame(np.zeros((7, 3)))
-    df.columns = ['Cluster', 'Fisher test p-value', 'Hypergeometric test p-value']
-    i = 0
-    for cluster in dico_clusters_nodes:
-        print(" ")
-        print(cluster)
-        nodes_cluster = set(dico_clusters_nodes[cluster])
-        set_DEG = set(genes_enrich)
-        overlap = len(set_DEG.intersection(nodes_cluster))
-        cluster_unique = len(nodes_cluster) - overlap
-        deg_unique = len(set_DEG) - overlap
-        
-        print("####### HYPERGEOMETRIC TEST #########")
-        h_pval = functions_enrichment.hypergeome(nodes_cluster, set_DEG, background)
-        print("######## FISHER #############")
-        f_pval = functions_enrichment.fisher(nodes_cluster, set_DEG, background)
-        df.at[i, 'Cluster'] = str(cluster)
-        df.at[i, 'Fisher test p-value'] = f_pval
-        df.at[i, 'Hypergeometric test p-value'] = h_pval
-        i += 1
-    df.to_csv(path + f"output_tables/Enrichment_genes_{deg}_{tissue}.tsv", sep="\t", index=False)
-    print(df)"""

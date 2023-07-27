@@ -8,12 +8,7 @@ import numpy as np
 from matplotlib import pyplot as plt
 import seaborn as sns
 import scipy.stats as stats
-import functions_enrichment
-
-path = os.path.dirname(os.path.realpath(__file__))
-path = path + '/'
-os.chdir(path)
-print(path)
+import useful_functions_enrichment
 
 # define path
 path = os.path.dirname(os.path.realpath(__file__))
@@ -47,17 +42,17 @@ cluster_output = os.path.join(data_folder, 'cluster_output_100_0.7.tsv')
 list_ids_analyzed = [x for x in list_id if x not in not_analyzed]
 
 all_nodes = list(load_networks(comm_path))
-seeds = list(functions_enrichment.extract_seeds(orpha_codes, list_ids_analyzed))
-genage = functions_enrichment.load_geneage('Data_PhysioAging/genage_human.csv', seeds, all_nodes)
+seeds = list(useful_functions_enrichment.extract_seeds(orpha_codes, list_ids_analyzed))
+genage = useful_functions_enrichment.load_geneage('Data_PhysioAging/genage_human.csv', seeds, all_nodes)
 
 dico_cluster_diseases = create_cluster_dico(cluster_output)
 filtered_dico_cluster = filter_cluster(dico_cluster_diseases)
 
-dico_comm_nodes = functions_enrichment.extract_genes_from_comm(comm_path, 100, list_ids_analyzed)
-dico_clusters_nodes = functions_enrichment.extract_genes_from_cluster(comm_path, filtered_dico_cluster, 100)
+dico_comm_nodes = useful_functions_enrichment.extract_genes_from_comm(comm_path, 100, list_ids_analyzed)
+dico_clusters_nodes = useful_functions_enrichment.extract_genes_from_cluster(comm_path, filtered_dico_cluster, 100)
 
 # mapping of gene identifiers in list of DEG physio aging genes
-mapping_file_path = functions_enrichment.create_mapping_file(path + '/Data_PhysioAging/GSE103232_hs_blood_batch2_counts_rpkm.xls')
+mapping_file_path = useful_functions_enrichment.create_mapping_file(path + '/Data_PhysioAging/GSE103232_hs_blood_batch2_counts_rpkm.xls')
 
 def create_enrichment_file_genage(genage: list, dico_clusters_nodes: dict, all_nodes: list) -> None:
     """Function who performs Fisher and Hypergeometric tests to assess the enrichment of 
@@ -74,8 +69,8 @@ def create_enrichment_file_genage(genage: list, dico_clusters_nodes: dict, all_n
     i = 0
     for cluster in dico_clusters_nodes:
         nodes_cluster = dico_clusters_nodes[cluster]                         
-        h_pval = functions_enrichment.hypergeome(list1=nodes_cluster, list2=genage, gene_pool=all_nodes)
-        f_pval = functions_enrichment.fisher(list1=nodes_cluster, list2=genage, gene_pool=all_nodes)
+        h_pval = useful_functions_enrichment.hypergeome(list1=nodes_cluster, list2=genage, gene_pool=all_nodes)
+        f_pval = useful_functions_enrichment.fisher(list1=nodes_cluster, list2=genage, gene_pool=all_nodes)
         df._set_value(i, 'Cluster', int(cluster[8:]))
         df._set_value(i, 'Fisher test p-value', f_pval)
         df._set_value(i, 'Hypergeometric test p-value', h_pval)
@@ -103,7 +98,7 @@ def enrich_clusters_all_physio_aging(dico_clusters_nodes: dict, all_nodes: list,
         float: p-value of the hypergeometric test
     """
     if deg == "up":
-        genes_enrich = functions_enrichment.create_filtered_enrichment_lists_physio_aging_DEG(
+        genes_enrich = useful_functions_enrichment.create_filtered_enrichment_lists_physio_aging_DEG(
                 file=f'Data_PhysioAging/human-{tissue}.txt',
                 mapping_file_path=mapping_file_path,
                 seeds_list=seeds,
@@ -111,7 +106,7 @@ def enrich_clusters_all_physio_aging(dico_clusters_nodes: dict, all_nodes: list,
                 all_nodes=all_nodes
                 )
     elif deg == "down":
-        genes_enrich = functions_enrichment.create_filtered_enrichment_lists_physio_aging_DEG(
+        genes_enrich = useful_functions_enrichment.create_filtered_enrichment_lists_physio_aging_DEG(
                 file=f'Data_PhysioAging/human-{tissue}.txt',
                 mapping_file_path=mapping_file_path,
                 seeds_list=seeds,
@@ -120,6 +115,8 @@ def enrich_clusters_all_physio_aging(dico_clusters_nodes: dict, all_nodes: list,
                 )
     elif deg == "GenAge" or tissue == "GenAge":
         genes_enrich = genage
+    
+    # state coordinates of enrichment results in the matrix
     if cluster == "cluster_1":
         i = 0
     elif cluster == "cluster_2":
@@ -155,18 +152,23 @@ def enrich_clusters_all_physio_aging(dico_clusters_nodes: dict, all_nodes: list,
         j = 9
     elif tissue == "breast" and deg == "down":
         j = 10
+    # extract nodes of cluster
     nodes_cluster = dico_clusters_nodes[cluster]
-    h_pval = functions_enrichment.hypergeome(list1=nodes_cluster, list2=genes_enrich, gene_pool=all_nodes)
+    # perform hypergeometric test
+    h_pval = useful_functions_enrichment.hypergeome(list1=nodes_cluster, list2=genes_enrich, gene_pool=all_nodes)
+    # add p-value in the matrix
     matrix[i][j] = h_pval
     return h_pval
 
 
 def heatmap_enrichment(dico_clusters_nodes: dict, all_nodes: list, seeds: list, genage: list, mapping_file_path: str):
+    # initialize enrichment matrix
     enrichment_matrix = np.zeros((len(dico_clusters_nodes), 11))
     df = pd.DataFrame(columns = ['Cluster', 'GenAge', 'Blood up-reg. genes', 'Blood down-reg. genes', 'Skin up-reg. genes', 'Skin down-reg. genes', 'Brain up-reg. genes', 'Brain down-reg. genes', 'Muscle up-reg. genes', 'Muscle down-reg. genes', 'Breast up-reg. genes', 'Breast down-reg. genes'])
     i = 0
     for cluster in dico_clusters_nodes:
-        pval_geneage = enrich_clusters_all_physio_aging(dico_clusters_nodes, all_nodes, seeds, cluster, enrichment_matrix, genage, mapping_file_path, "GenAge", "GenAge")
+        # perform hypergeometric tests for all lists of genes
+        pval_genage = enrich_clusters_all_physio_aging(dico_clusters_nodes, all_nodes, seeds, cluster, enrichment_matrix, genage, mapping_file_path, "GenAge", "GenAge")
         pval_blood_up = enrich_clusters_all_physio_aging(dico_clusters_nodes, all_nodes, seeds, cluster, enrichment_matrix, genage, mapping_file_path, "blood", "up")
         pval_blood_down = enrich_clusters_all_physio_aging(dico_clusters_nodes, all_nodes, seeds, cluster, enrichment_matrix, genage, mapping_file_path, "blood", "down")
         pval_skin_up = enrich_clusters_all_physio_aging(dico_clusters_nodes, all_nodes, seeds, cluster, enrichment_matrix, genage, mapping_file_path, "skin", "up")
@@ -178,7 +180,7 @@ def heatmap_enrichment(dico_clusters_nodes: dict, all_nodes: list, seeds: list, 
         pval_breast_up = enrich_clusters_all_physio_aging(dico_clusters_nodes, all_nodes, seeds, cluster, enrichment_matrix, genage, mapping_file_path, "breast", "up")
         pval_breast_down = enrich_clusters_all_physio_aging(dico_clusters_nodes, all_nodes, seeds, cluster, enrichment_matrix, genage, mapping_file_path, "breast", "down")
         df.at[i, 'Cluster'] = str(cluster)
-        df.at[i, 'GenAge'] = pval_geneage
+        df.at[i, 'GenAge'] = pval_genage
         df.at[i, 'Blood up-reg. genes'] = pval_blood_up
         df.at[i, 'Blood down-reg. genes'] = pval_blood_down
         df.at[i, 'Skin up-reg. genes'] = pval_skin_up
@@ -190,6 +192,7 @@ def heatmap_enrichment(dico_clusters_nodes: dict, all_nodes: list, seeds: list, 
         df.at[i, 'Breast up-reg. genes'] = pval_breast_up
         df.at[i, 'Breast down-reg. genes'] = pval_breast_down
         i += 1
+    # export enrichment results to table
     df.to_csv(f"output_tables/enrichment_clusters_physio_aging_genes.csv", sep=",", index=False)
     # plot enrichment heatmap
     ax = plt.axes()

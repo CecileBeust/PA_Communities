@@ -207,7 +207,7 @@ def build_similarity_matrix(comm: list) -> tuple[np.ndarray, dict]:
     return (similarity_matrix, dico_jaccard)
 
 # Build similarity matrix of communities based on Jaccard index
-(similarity_matrix_100, dico_jaccard) = build_similarity_matrix(communities_100)
+(similarity_matrix_100, dico_jaccard) = build_similarity_matrix(comm=communities_100)
 print(" ")
 print("Similarity matrix based on Jaccard index")
 print(similarity_matrix_100)
@@ -232,7 +232,7 @@ def build_distance_matrix(sim_matrix) -> np.ndarray:
     return new_matrix
 
 # Build a distance matrix from the similarity matrix
-distance_matrix_100 = build_distance_matrix(similarity_matrix_100)
+distance_matrix_100 = build_distance_matrix(sim_matrix=similarity_matrix_100)
 
 def cluster_dendrogram(matrix: np.ndarray, cutoff: float, size: int, dico_id_shorter_names: dict):
     """
@@ -312,7 +312,7 @@ def cluster_dendrogram(matrix: np.ndarray, cutoff: float, size: int, dico_id_sho
     plt.savefig(path + '/output_figures/clustering_PA_diseases.png')
     plt.show()
 
-cluster_dendrogram(distance_matrix_100, 0.7, 100, dico_id_shorter_names)
+cluster_dendrogram(matrix=distance_matrix_100, cutoff=0.7, size=100, dico_id_shorter_names=dico_id_shorter_names)
 cluster_output = os.path.join(data_folder, 'cluster_output_100_0.7.tsv')
 
 dico_cluster_diseases = create_cluster_dico(cluster_output)
@@ -323,23 +323,20 @@ filtered_dico_cluster = filter_cluster(dico_cluster_diseases)
 print(" ")
 print(f"Clusters containing at least 3 diseases: {filtered_dico_cluster}")
 
-def analyze_clusters(dico_disease_seeds: dict, filtered_dico_cluster: dict, dico_code_disease: dict, size: int):
-    df = pd.DataFrame(columns=['Cluster', 'Diseases', 'Seeds'])
-    i = 0
+def analyze_clusters(dico_disease_seeds: dict, filtered_dico_cluster: dict, dico_code_disease: dict) -> None:
+    df = pd.DataFrame(columns=['Cluster', 'Disease', 'Seeds'])
     for cluster in filtered_dico_cluster:
         diseases_codes = filtered_dico_cluster[cluster]
         diseases_names = []
         for code in diseases_codes:
             diseases_names.append(dico_code_disease[str(code)])
         for disease, code in zip(diseases_names, diseases_codes):
-            print(disease, code)
             seeds = dico_disease_seeds[str(code)]
             new_row = [f"{cluster[8:]}", disease, seeds]
             df = df.append(dict(zip(df.columns, new_row)), ignore_index=True)
-    print(df)
-    df.to_csv(path + f"output_tables/clusters_composition.csv", sep=",", index=False)
-    source_file = f"output_tables/clusters_composition.csv"
+    df.to_csv(path + f"output_tables/diseases_in_clusters.csv", sep=",", index=False)
+    source_file = f"output_tables/diseases_in_clusters.csv"
     destination_folder = path + "../_00_data/"
     shutil.copy(source_file, destination_folder)
 
-analyze_clusters(dico_disease_seeds, filtered_dico_cluster, dico_code_disease, 100)
+analyze_clusters(dico_disease_seeds=dico_disease_seeds, filtered_dico_cluster=filtered_dico_cluster, dico_code_disease=dico_code_disease)

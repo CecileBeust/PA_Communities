@@ -47,7 +47,7 @@ for index, row in orpha_codes_file.iterrows():
         list_ids_analyzed.append(row[0])
 
 print(list_ids_analyzed)
-print(f"{len(list_ids_analyzed)} diseases analyzed ")
+print(f"{len(list_ids_analyzed)} diseases analyzed")
 print(" ")
 
 # create list of disease names
@@ -141,39 +141,33 @@ def enrich_phenotypes(phenos: list, list_cluster: list, background_diseases_HPO:
     """
     j = 1
     for cluster in list_cluster:
-        print(cluster)
-        df = pd.DataFrame(columns=['Cluster', 'HPO ID', 'Phenotype', 'p-value', 'Corrected p-value'])
+        df = pd.DataFrame(columns=['Cluster', 'HPO ID', 'Phenotype', 'p-value', 'Corrected p-value', 'Nb diseases cluster', 'Nb diseases pheno', 'intersection', 'background', 'diseases intersection',])
         nb_diseases_cluster = len(cluster)
         i = 0
         for phenotype in phenos:
             term = Ontology.get_hpo_object(phenotype)
-            print(term)
             list_diseases_pheno = list()
             for disease in term.orpha_diseases:
                 list_diseases_pheno.append(str(disease))
-            print(list_diseases_pheno)
             nb_diseases_pheno = len(set(list_diseases_pheno))
             success_sample = len(set(cluster).intersection(set(list_diseases_pheno)))
+            intersection = set(cluster).intersection(set(list_diseases_pheno))
             p_value = stats.hypergeom.sf(success_sample-1, background_diseases_HPO, nb_diseases_pheno, nb_diseases_cluster)
             df._set_value(i, 'Cluster', j)
             df._set_value(i, 'HPO ID', str(term)[:10])
             df._set_value(i, 'Phenotype', phenotype)
             df._set_value(i, 'p-value', p_value)
+            df._set_value(i, 'Nb diseases cluster', nb_diseases_cluster)
+            df._set_value(i, 'Nb diseases pheno', nb_diseases_pheno)
+            df._set_value(i, 'intersection', len(intersection))
+            df._set_value(i, 'background', background_diseases_HPO)
+            df._set_value(i, 'diseases intersection', intersection)
             i += 1
         pvals = df['p-value'].to_list()
         p_adjusted = multipletests(pvals, alpha=0.05, method='fdr_bh')[1]
         df['Corrected p-value'] = p_adjusted
-        df.to_csv(path + f"output_tables/enrichment_cluster{j}_all_pheno.tsv", sep="\t", index=False)
+        df.to_csv(path + f"output_tables/enrichment_cluster{j}_hpo.tsv", sep="\t", index=False)
         j += 1
-    tsv_dir = Path(path + "output_tables/")
-    tsv_data = {}
-    for tsv_file in tsv_dir.glob('*.tsv'):
-        tsv_name = tsv_file.stem
-        tsv_data[tsv_name] = pd.read_csv(tsv_file, sep="\t")
-    writer = pd.ExcelWriter(path + "output_tables/enrichment_all_phenotypes.xlsx", engine='xlsxwriter')
-    for sheet_name, sheet_data in tsv_data.items():
-        sheet_data.to_excel(writer, sheet_name=sheet_name, index=False)
-    writer.save()
 
 # We use the number of ORPHANET diseases in HPO (4262) as a background for statistical significance
 enrich_phenotypes(phenos = phenos, list_cluster = list_clusters, background_diseases_HPO = 4262)
@@ -207,18 +201,39 @@ def create_gmt() -> None:
 
 create_gmt()
 
-def create_enrichment_files():
+def create_enrichment_files_orsum():
+    """Function which create files for enrichment results
+    filtering with orsum
+    """
     for i in range(1,7):
         os.mkdir(path + f"output_orsum/Orsum_cluster_{i}")
-        dfEnrichmentGroup = pd.read_csv(path + f"output_tables/enrichment_cluster{i}_all_pheno.tsv", sep="\t", header=0)
+        # load enrichment results for the cluster
+        dfEnrichmentGroup = pd.read_csv(path + f"output_tables/enrichment_cluster{i}_hpo.tsv", sep="\t", header=0)
+        # order p-values and select significant terms
         dfEnrichmentGroup = dfEnrichmentGroup.sort_values(by="Corrected p-value", ascending=True)
         dfEnrichmentGroup = dfEnrichmentGroup[dfEnrichmentGroup["Corrected p-value"] <= 0.05]
-        print(dfEnrichmentGroup)
         dfEnrichmentGroupSource = dfEnrichmentGroup["HPO ID"]
-        print(dfEnrichmentGroupSource)
         dfEnrichmentGroupSource.to_csv(path + f"output_orsum/Orsum_cluster_{i}/Enrich-HPO-cluster-{i}.txt", index=False, header=None)
 
-create_enrichment_files()
+create_enrichment_files_orsum()
+
+def merge_enrichment_files():
+    for i in range(1,7):
+        df = pd.read_csv(path + f"output_tables/enrichment_cluster{i}_hpo.tsv", sep="\t")
+        df = df.sort_values(by='Corrected p-value', ascending=True)
+        df = df[df['Corrected p-value'] <= 0.05]
+        df.to_csv(path + f"output_tables/enrichment_cluster{i}_hpo.tsv", sep="\t", header=True, index=False)
+    tsv_dir = Path(path + "output_tables/")
+    tsv_data = {}
+    for tsv_file in tsv_dir.glob('*.tsv'):
+        tsv_name = tsv_file.stem
+        tsv_data[tsv_name] = pd.read_csv(tsv_file, sep="\t")
+    writer = pd.ExcelWriter(path + "output_tables/enrichment_clusters_hpo.xlsx", engine='xlsxwriter')
+    for sheet_name, sheet_data in tsv_data.items():
+        sheet_data.to_excel(writer, sheet_name=sheet_name, index=False)
+    writer.save()
+
+merge_enrichment_files()
 
 def applyOrsum(dico: dict, gmt: str, summaryFolder: str, outputFolder: str, maxRepSize=int(1E6), minTermSize=10, numberOfTermsToPlot=50):
     """Function to apply orsum on enrichment analysis results of clusters inside a dictionnary
@@ -239,6 +254,7 @@ def applyOrsum(dico: dict, gmt: str, summaryFolder: str, outputFolder: str, maxR
     #/!\ ORSUM PATH TO ADDAPT /!\
     # if orsum is installed as a conda package
     #command = '/home/username/miniconda3/pkgs/orsum-1.6.0-hdfd78af_0/bin/orsum.py'
+    command = '/Users/cecilebeust/miniconda3/bin/orsum.py'
     # if orsum is installed in the current directory
     #command = path + 'orsum/orsum.py'
     command = command + ' --gmt \"'+gmt+'\" '

@@ -5,6 +5,7 @@ import ast
 import pandas as pd
 import sys
 from pathlib import Path
+import numpy as np
 
 path = os.path.dirname(os.path.realpath(__file__))
 path = path + '/'
@@ -176,6 +177,8 @@ def merge_enrichment_files(filetered_dico_cluster: dict, sources: list) -> None:
         reac = pd.read_csv(f"output_tables/enrich_{sources[2]}_{cluster}.tsv", sep="\t", header=0)
         all_annot = pd.concat([gobp, gocc, reac], axis=0)
         assert len(all_annot.index) == len(gobp.index) + len(gocc.index) + len(reac.index)
+        all_annot = all_annot.drop(all_annot.columns[0], axis=1)
+        print(all_annot)
         all_annot_sorted = all_annot.sort_values(by=["p_value"], ascending=True)
         all_annot_sorted.rename(columns={'p_value':'Corrected p_value'}, inplace=True)
         all_annot_sorted.to_csv(f"output_tables/enrich_bioannot_{cluster}.tsv", sep="\t", header=True, index=False)
@@ -215,9 +218,9 @@ def highlight_seeds(filtered_dico_cluster: dict, size: int, dico_code_disease: d
             seeds_cluster.extend(seed_disease)
             seeds_cluster = list(set(seeds_cluster))
         print(diseases_cluster)
+        print(seeds_cluster)
         enrichment_file = path + f"output_tables/enrich_bioannot_{cluster}.tsv"
         df = pd.read_csv(enrichment_file, sep="\t", header=0)
-        print(df)
         df["seeds"] = 0
         df["diseases"] = 0
         i = 0
@@ -254,33 +257,3 @@ def highlight_seeds(filtered_dico_cluster: dict, size: int, dico_code_disease: d
     writer.save()
                 
 highlight_seeds(filtered_dico_cluster, 100, dico_code_disease, dico_disease_seeds)
-
-"""def analyze_clusters(dico_clusters, dico_diseases_names):
-    df = pd.DataFrame(columns=['Cluster', 'Diseases', 'Seeds'])
-    print(df)
-    i = 0
-    for cluster in dico_clusters:
-        print(cluster)
-        diseases_codes = dico_clusters[cluster]
-        diseases_names = []
-        for code in diseases_codes:
-            diseases_names.append(dico_diseases_names[str(code)])
-        for disease, code in zip(diseases_names, diseases_codes):
-            print(disease, code)
-            seeds = dico_disease_seeds[str(code)]
-            if cluster == 3:
-                new_clust_id = 2
-            elif cluster == 4:
-                new_clust_id = 3
-            elif cluster == 5:
-                new_clust_id = 4
-            elif cluster == 8:
-                new_clust_id = 5
-            elif cluster == 13:
-                new_clust_id = 6
-            else:
-                new_clust_id = cluster
-            new_row = [f"{new_clust_id}", disease, seeds]
-            df = df.append(dict(zip(df.columns, new_row)), ignore_index=True)
-    print(df)
-    df.to_csv(path + "output_tables/clusters_composition.tsv", sep="\t", index=False)"""

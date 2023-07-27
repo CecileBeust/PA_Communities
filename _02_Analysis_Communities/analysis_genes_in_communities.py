@@ -175,8 +175,8 @@ def generate_excel_genes(dico_gene_comm: dict) -> None:
     
 generate_excel_genes(dico_gene_comm)
 
-def list_genes_in_communities(list_comm: list, list_ids_analyzed: list, comm_path: str):
-    diseases_names = pd.read_csv(orpha_names, sep="\t", header=None)
+def list_genes_in_communities(orpha_file: str, list_comm: list, list_ids_analyzed: list, comm_path: str):
+    diseases_names = pd.read_csv(orpha_file, sep="\t", header=None)
     diseases = list()
     for index, row in diseases_names.iterrows():
         if row[0][6:] in list_ids_analyzed:
@@ -199,4 +199,4 @@ def list_genes_in_communities(list_comm: list, list_ids_analyzed: list, comm_pat
         sheet_data.to_excel(writer, sheet_name=sheet_name, index=False)
     writer.save()
     
-list_genes_in_communities(communities_100, list_ids_analyzed, comm_path)
+list_genes_in_communities(orpha_file=orpha_names, list_comm=communities_100, list_ids_analyzed=list_ids_analyzed, comm_path=comm_path)

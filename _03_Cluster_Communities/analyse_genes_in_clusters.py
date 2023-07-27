@@ -133,11 +133,11 @@ def generate_supp_file(filtered_dico_cluster: dict) -> None:
             with open(comm, 'r') as file:
                 for line in file:
                     gene = line.rstrip()
-                    genes_cluster.append(gene)
+                    if not gene in genes_cluster:
+                        genes_cluster.append(gene)
         i = 0
         df = pd.DataFrame(columns=[f"{cluster}", "Genes"])
-        for gene in set(genes_cluster):
-            all_deg = []
+        for gene in genes_cluster:
             df._set_value(i, 'Genes', gene)
             i += 1
         df.to_csv(path + f"output_tables/genes_in_{cluster}.tsv", sep="\t", index=False)
@@ -151,4 +151,4 @@ def generate_supp_file(filtered_dico_cluster: dict) -> None:
         sheet_data.to_excel(writer, sheet_name=sheet_name, index=False)
     writer.save()
 
-generate_supp_file(filtered_dico_cluster)
+generate_supp_file(filtered_dico_cluster=filtered_dico_cluster)

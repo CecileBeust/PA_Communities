@@ -44,6 +44,9 @@ def create_enrichment_files(cluster_id: str):
     for source in sources:
         dfEnrichmentGroupSource=dfEnrichmentGroup[dfEnrichmentGroup['source']==source]
         dfEnrichmentGroupSource=dfEnrichmentGroupSource.sort_values(by='Corrected p_value', ascending=True)
+        # in fact here we don't need the following command because g:Profiler returns only signification results
+        # for other enrichment tables that would contain both significant and not significant results the following command is needed
+        dfEnrichmentGroupSource=dfEnrichmentGroupSource[dfEnrichmentGroupSource['Corrected p_value'] <= 0.05]
         dfEnrichmentGroupSource['native'].to_csv(path + f'output_orsum/Orsum_{cluster_id}/EnrichmentClust' + '-'+ source.replace(':','')+'.txt', index=False, header=None)
 
 
