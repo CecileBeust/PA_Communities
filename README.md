@@ -13,6 +13,8 @@ This pipeline can be used and/or adapted to any study dedicated to the identific
 
 <img src="HGPS_community.png" alt="Alt text" title="Community idenfitied for Hutchinson-Gilford Progeria Syndrome in a multiplex network of biological interactions">
 
+*Caption: Community idenfitied for Hutchinson-Gilford Progeria Syndrome in a multiplex network of biological interactions*
+
 ## Folders
 
 * ```_00_data```: Folder containing the data files needed for the analysis (disease identifiers files, gmt files and some output files used in different steps of the analysis)

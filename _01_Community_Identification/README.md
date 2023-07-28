@@ -12,7 +12,7 @@ The communities are identified using an iterative Random Walk with Restart algor
 
 ## Files
 
-* ```config_ID.yml```: configuration files for each PA disease analyzed, with ID being ORPHANET codes of the diseases.  
+* ```config_ID.yml```: configuration file for each PA disease analyzed, with ID being ORPHANET codes of the diseases.  
 
 * ```seeds_ID.txt```: files containing the causative genes associated with each disease. These causative genes are used as seeds by the itRWR algorithm.
 
@@ -29,7 +29,7 @@ For each disease, a folder named ```results_100_ID``` will be created, with ID b
 
 * ```config.yml```: copy of the configuration file used for the disease
 * ```multiplex_1.tsv```: a file containing the rankings of all the nodes of the multiplex network after running itRWR using the causative gene(s) associated with the disease as seed(s)
-* ```seeds_ID.txt```: a file containing the nodes of the community identified for the disease. 
+* ```seeds_ID.txt```: a file containing the seeds associated to each PA disease, as well as the nodes identified for each community in the multiplex network.
 
 ## References
 

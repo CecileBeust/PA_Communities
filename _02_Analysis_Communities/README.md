@@ -21,6 +21,8 @@ The script ```visualization_communities``` generates tsv files of communities, a
 
 <img src="visualization_3comm.png" alt="Alt text" title="Communities of Hutchinson-Gilford Progeria Syndrome (ORHPANET code 740), Ataxia telangiectasia (ORPHANET code 100) and Classical Ehlers-Danlos Syndrome (ORPHANET code 287) visualized in Cytoscape">
 
+*Caption: Communities of Hutchinson-Gilford Progeria Syndrome (ORHPANET code 740), Ataxia telangiectasia (ORPHANET code 100) and Classical Ehlers-Danlos Syndrome (ORPHANET code 287) visualized in Cytoscape*
+
 
 ## References
 

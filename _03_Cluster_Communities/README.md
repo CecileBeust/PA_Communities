@@ -6,7 +6,7 @@ The Jaccard index is the ratio of the number of genes common (i.e., overlapping)
 
 ## Files
 
-* ```cluster_communities.py```: Python script containing functions to compute pairwise Jaccard indices between communities and perform the clustering of communities.
+* ```cluster_communities.py```: Python script containing functions to compute pairwise Jaccard indices between communities, build a Jaccard index distance matrix and perform the clustering of communities based on the distance matrix.
 
 * ```analyse_genes_in_clusters.py```: Python script containing functions to analyse the genes inside clusters of communities.
 

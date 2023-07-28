@@ -4,9 +4,9 @@ This folder contains the data files used in the different steps of the analysis.
 
 * The folder ```gmt_files``` contains a collection of gmt files with the data underlying the g:GOSt enrichment service (version e108_eg55_p17)
 
-* ```cluster_output_100_0.7.tsv```: file containing the ORPHANET codes of diseases present in the clusters identified with the codes in the folder ```_03_Cluster_Communities```. 
+* ```cluster_output_100_0.7.tsv```: assignment of diseases in each cluster after clustering of diseases by the codes in the folder ```_03_Cluster_Communities```.
 
-* ```clusters_100.tsv```: file containing the names of the diseases present in each cluster, and their associated causative genes. 
+* ```diseases_in_clusters.csv```: file containing the names of the diseases present in each cluster, and their associated causative genes. 
 
 * ```orpha_codes_PA.txt```: file containing the ORRPHANET codes of the Premature Aging diseases and their associated causative genes
 
