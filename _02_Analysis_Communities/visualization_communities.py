@@ -242,7 +242,7 @@ def plot_several_communities(list_id: list, size: int) -> set:
             df = df.append(dict(zip(df.columns, new_row)), ignore_index=True)
             counter += 1
             int_complexes_all.append(forward)
-    df.to_csv(path + f'output_visualization/3communities_{size}.tsv', sep="\t", index=False)
+    df.to_csv(path + f'output_visualization/3comm_{list_id[0]}_{list_id[1]}_{list_id[2]}.tsv', sep="\t", index=False)
     return nodes_all_comm 
     
 
