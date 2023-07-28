@@ -30,7 +30,7 @@ comm_path = args.path
 if os.path.exists(comm_path) == False :
     raise ValueError("Incorrect path, please try again")
 
-def plot_community(id: int, size: int) -> None:
+def plot_single_community(id: int, size: int) -> None:
     """Function to generate a tabulated file
     of nodes in a community and edges
     between them
@@ -98,7 +98,6 @@ def plot_community(id: int, size: int) -> None:
             counter += 1
             int_complexes.append(forward)
     df.to_csv(f"output_visualization/{id}_community_{size}.tsv", sep="\t")
-    print(df)
     list_nodes = df["node1"].to_list()
     for node in df["node2"].to_list():
         if node not in list_nodes:
@@ -107,11 +106,10 @@ def plot_community(id: int, size: int) -> None:
 
 # Here we want to generate the files for the visualisation of the communities
 # of Hutchinson-Gilford Progeria Syndrome (ORPHANET code 740) 
-
 # Change the ORPHANET code depending on the community to analyze
-#plot_community(740, 100)
+#plot_single_community(740, 100)
 
-def plot_community_with_neighbors(id: int, size: int) -> None:
+def plot_single_community_with_neighbors(id: int, size: int) -> None:
     """Function to generate a tabulated file of the genes in 
     a community and their neighbors, with the edeges between
     them
@@ -251,40 +249,38 @@ def plot_several_communities(list_id: list, size: int) -> set:
 # Use this command to generate the tsv file for the representation of the three communities of
 # Hutchinson-Gilford Progeria Syndrome (ORPHANET code 740), Ataxia telangiectasia (ORPHANET code 100)
 # and Classical Ehlers-Danlos syndrome (OPRHANET code 287)
-nodes_all_comm = plot_several_communities(['90324', '90322', '90321'], 100)
+nodes_all_comm = plot_several_communities(['740', '100', '287'], 100)
 
-def create_node_table_100_740_287():
+def create_node_table_3_comm(list_comm: list, size: int) -> None:
     """Function to create a node table
-    for three communities (OHPANET code 740,
-    100, 287). Allows to obtain the community
+    for three communities. Allows to obtain the community
     belonging of each node.
     """
-    nodes_1 = plot_community("90321", 100)
-    nodes_2 = plot_community("90322", 100)
-    nodes_3 = plot_community("90324", 100)
-    print(nodes_1)
+    nodes_1 = plot_single_community(list_comm[0], size)
+    nodes_2 = plot_single_community(list_comm[1], size)
+    nodes_3 = plot_single_community(list_comm[2], size)
 
     node_table = pd.DataFrame(columns=['node', 'provenance'])
     nodes_seen = []
     for node in nodes_all_comm:
         if node not in nodes_seen:
             if node in nodes_2 and node in nodes_3 and node in nodes_1:
-                new_row = [node, "type1;type2;type3"]
+                new_row = [node, f"{list_comm[0]};{list_comm[1]};{list_comm[2]}"]
             elif node in nodes_1 and node in nodes_2:
-                new_row = [node, "type1;type2"]
+                new_row = [node, f"{list_comm[0]};{list_comm[1]}"]
             elif node in nodes_1 and node in nodes_3:
-                new_row = [node, "type1;type3"]
+                new_row = [node, f"{list_comm[0]};{list_comm[2]}"]
             elif node in nodes_2 and node in nodes_3:
-                new_row = [node, "type2;type3"]
+                new_row = [node, f"{list_comm[1]};{list_comm[2]}"]
             elif node in nodes_1:
-                new_row = [node, "type1"]
+                new_row = [node, f"{list_comm[0]}"]
             elif node in nodes_2:
-                new_row = [node, "type2"]
+                new_row = [node, f"{list_comm[1]}"]
             elif node in nodes_3:
-                new_row = [node, "type3"]
+                new_row = [node, f"{list_comm[2]}"]
             node_table = node_table.append(dict(zip(node_table.columns, new_row)), ignore_index=True)
             nodes_seen.append(node)
     print(node_table)
-    node_table.to_csv(path + 'output_visualization/node_table_3comm_cockaynes.tsv', sep="\t", index=False)
+    node_table.to_csv(path + f'output_visualization/node_table_{list_comm[0]}_{list_comm[1]}_{list_comm[2]}_size{size}.tsv', sep="\t", header=True, index=False)
 
-create_node_table_100_740_287()
+create_node_table_3_comm(list_comm=["740", "100", "287"], size=100)

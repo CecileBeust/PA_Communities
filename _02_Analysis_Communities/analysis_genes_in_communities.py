@@ -170,8 +170,7 @@ def generate_excel_genes(dico_gene_comm: dict) -> None:
     print('Correlation Nb comm / sum deg:', corr_sum)
     print('P-value:', p_value_sum)
     df_sorted = df.sort_values(by=['Nb of communities'], ascending=False)
-    df_sorted.to_csv("output_tables/genes_in_communities.csv", sep=",")
-    
+    df_sorted.to_csv("output_tables/genes_in_communities_with_degrees.csv", sep=",")
     
 generate_excel_genes(dico_gene_comm)
 
