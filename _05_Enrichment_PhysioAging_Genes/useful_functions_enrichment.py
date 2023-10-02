@@ -46,7 +46,7 @@ def load_geneage(file, seeds, nodes_ntw):
             genes_aging_wo_seeds_in_mx.append(str(gene))
     print(f"{len(genes_aging_wo_seeds_in_mx)} aging genes without seeds in network")
     print(f"There are {len(set(genes_aging_wo_seeds_in_mx).intersection(nodes_ntw))} genage genes from the list which are in the multiplex network")
-    return genes_aging_wo_seeds
+    return genes_aging_wo_seeds_in_mx
 
 def extract_genes_from_comm(comm_path: str, size: int, list_id_analyzed: list):
     dico_comm_nodes = {}

@@ -3,11 +3,11 @@ import pandas as pd
 import os
 import argparse
 import sys
-import networkx as nx
 import numpy as np
 from matplotlib import pyplot as plt
 import seaborn as sns
-import scipy.stats as stats
+from pathlib import Path
+from statsmodels.sandbox.stats.multicomp import multipletests
 import useful_functions_enrichment
 
 # define path
@@ -65,21 +65,22 @@ def create_enrichment_file_genage(genage: list, dico_clusters_nodes: dict, all_n
         the statistical significance of the analysis
     """
     df = pd.DataFrame(np.zeros((6, 3)))
-    df.columns = ['Cluster', 'Fisher test p-value', 'Hypergeometric test p-value']
+    df.columns = ['Cluster', 'Hypergeometric test p-value', 'Corrected p-value']
     i = 0
     for cluster in dico_clusters_nodes:
         nodes_cluster = dico_clusters_nodes[cluster]                         
         h_pval = useful_functions_enrichment.hypergeome(list1=nodes_cluster, list2=genage, gene_pool=all_nodes)
-        f_pval = useful_functions_enrichment.fisher(list1=nodes_cluster, list2=genage, gene_pool=all_nodes)
         df._set_value(i, 'Cluster', int(cluster[8:]))
-        df._set_value(i, 'Fisher test p-value', f_pval)
         df._set_value(i, 'Hypergeometric test p-value', h_pval)
         i += 1
+    pvals = df['Hypergeometric test p-value'].to_list()
+    p_adjusted = multipletests(pvals, alpha=0.05, method='fdr_bh')[1]
+    df['Corrected p-value'] = p_adjusted
     df.to_csv(path + f"output_tables/enrichment_clusters_GenAge.csv", sep=",", index=False)
 
 create_enrichment_file_genage(genage=genage, dico_clusters_nodes=dico_clusters_nodes, all_nodes=all_nodes)
 
-def enrich_clusters_all_physio_aging(dico_clusters_nodes: dict, all_nodes: list, seeds: list, cluster: str, matrix: np.array, genage: list, mapping_file_path: str, tissue="GenAge", deg="GenAge"):
+def enrich_clusters_all_physio_aging(dico_clusters_nodes: dict, all_nodes: list, seeds: list, cluster: str, genage: list, mapping_file_path: str, tissue="GenAge", deg="GenAge"):
     """Function that performs an hypergeometric test for the enrichment analysis of a list of
     physiological aging genes in the 6 clusters
 
@@ -115,85 +116,77 @@ def enrich_clusters_all_physio_aging(dico_clusters_nodes: dict, all_nodes: list,
                 )
     elif deg == "GenAge" or tissue == "GenAge":
         genes_enrich = genage
-    
-    # state coordinates of enrichment results in the matrix
-    if cluster == "cluster_1":
-        i = 0
-    elif cluster == "cluster_2":
-        i = 1
-    elif cluster == "cluster_3":
-        i = 2
-    elif cluster == "cluster_4":
-        i = 3
-    elif cluster == "cluster_5":
-        i = 4
-    elif cluster == "cluster_6":
-        i = 5
-    
-    if tissue == "GenAge" and deg == "GenAge":
-        j = 0
-    elif tissue == "blood" and deg == "up":
-        j = 1
-    elif tissue == "blood" and deg == "down":
-        j = 2
-    elif tissue == "skin" and deg == "up":
-        j = 3
-    elif tissue == "skin" and deg == "down":
-        j = 4
-    elif tissue == "brain" and deg == "up":
-        j = 5
-    elif tissue == "brain" and deg == "down":
-        j = 6
-    elif tissue == "muscle" and deg == "up":
-        j = 7
-    elif tissue == "muscle" and deg == "down":
-        j = 8
-    elif tissue == "breast" and deg == "up":
-        j = 9
-    elif tissue == "breast" and deg == "down":
-        j = 10
+
     # extract nodes of cluster
     nodes_cluster = dico_clusters_nodes[cluster]
+    intersection = set(nodes_cluster).intersection(set(genes_enrich))
+
     # perform hypergeometric test
     h_pval = useful_functions_enrichment.hypergeome(list1=nodes_cluster, list2=genes_enrich, gene_pool=all_nodes)
-    # add p-value in the matrix
-    matrix[i][j] = h_pval
-    return h_pval
 
+    return h_pval, nodes_cluster, genes_enrich, intersection
+
+def fill_enrichment_table(df: pd.DataFrame, position: int, cluster: str, physio_aging_genes: str, pval: float, nodes_cluster: list, genes_enrich: list, intersection: set, seeds: list):
+    df.at[position, 'Cluster'] = cluster
+    df.at[position, "List of physio aging genes"] = physio_aging_genes
+    df.at[position, 'Nb genes cluster'] = len(list(nodes_cluster))
+    df.at[position, 'Nb genes in physio aging list'] = len(list(genes_enrich))
+    df.at[position, "Background"] = len(all_nodes)
+    df.at[position, "Nb genes intersection"] = len(intersection)
+    if intersection != set():
+        df.at[position, "Intersection"] = intersection
+    df.at[position, "p-value"] = pval
+    physio_aging_seeds = list()
+    for gene in genes_enrich:
+        if gene in seeds:
+            physio_aging_seeds.append(gene)
+    df.at[position, "Seeds"] = physio_aging_seeds
 
 def heatmap_enrichment(dico_clusters_nodes: dict, all_nodes: list, seeds: list, genage: list, mapping_file_path: str):
-    # initialize enrichment matrix
-    enrichment_matrix = np.zeros((len(dico_clusters_nodes), 11))
-    df = pd.DataFrame(columns = ['Cluster', 'GenAge', 'Blood up-reg. genes', 'Blood down-reg. genes', 'Skin up-reg. genes', 'Skin down-reg. genes', 'Brain up-reg. genes', 'Brain down-reg. genes', 'Muscle up-reg. genes', 'Muscle down-reg. genes', 'Breast up-reg. genes', 'Breast down-reg. genes'])
+    physio_aging_genes_list = ['GenAge', 'Blood up-reg. genes', 'Blood down-reg. genes', 'Skin up-reg. genes', 'Skin down-reg. genes', 'Brain up-reg. genes', 'Brain down-reg. genes', 'Muscle up-reg. genes', 'Muscle down-reg. genes', 'Breast up-reg. genes', 'Breast down-reg. genes']
+    tissues_list = ['GenAge', 'blood', 'blood', 'skin', 'skin', 'brain', 'brain', 'muscle', 'muscle', 'breast', 'breast']
+    deg_list = ['GenAge', 'up', 'down', 'up', 'down', 'up', 'down', 'up', 'down', 'up', 'down']
+    summary_pvalues = pd.DataFrame(columns = ['Cluster', 'GenAge', 'Blood up-reg. genes', 'Blood down-reg. genes', 'Skin up-reg. genes', 'Skin down-reg. genes', 'Brain up-reg. genes', 'Brain down-reg. genes', 'Muscle up-reg. genes', 'Muscle down-reg. genes', 'Breast up-reg. genes', 'Breast down-reg. genes'])
     i = 0
     for cluster in dico_clusters_nodes:
-        # perform hypergeometric tests for all lists of genes
-        pval_genage = enrich_clusters_all_physio_aging(dico_clusters_nodes, all_nodes, seeds, cluster, enrichment_matrix, genage, mapping_file_path, "GenAge", "GenAge")
-        pval_blood_up = enrich_clusters_all_physio_aging(dico_clusters_nodes, all_nodes, seeds, cluster, enrichment_matrix, genage, mapping_file_path, "blood", "up")
-        pval_blood_down = enrich_clusters_all_physio_aging(dico_clusters_nodes, all_nodes, seeds, cluster, enrichment_matrix, genage, mapping_file_path, "blood", "down")
-        pval_skin_up = enrich_clusters_all_physio_aging(dico_clusters_nodes, all_nodes, seeds, cluster, enrichment_matrix, genage, mapping_file_path, "skin", "up")
-        pval_skin_down = enrich_clusters_all_physio_aging(dico_clusters_nodes, all_nodes, seeds, cluster, enrichment_matrix, genage, mapping_file_path, "skin", "down")
-        pval_brain_up = enrich_clusters_all_physio_aging(dico_clusters_nodes, all_nodes, seeds, cluster, enrichment_matrix, genage, mapping_file_path, "brain", "up")
-        pval_brain_down = enrich_clusters_all_physio_aging(dico_clusters_nodes, all_nodes, seeds, cluster, enrichment_matrix, genage, mapping_file_path, "brain", "down")
-        pval_muscle_up = enrich_clusters_all_physio_aging(dico_clusters_nodes, all_nodes, seeds, cluster, enrichment_matrix, genage, mapping_file_path, "muscle", "up")
-        pval_muscle_down = enrich_clusters_all_physio_aging(dico_clusters_nodes, all_nodes, seeds, cluster, enrichment_matrix, genage, mapping_file_path, "muscle", "down")
-        pval_breast_up = enrich_clusters_all_physio_aging(dico_clusters_nodes, all_nodes, seeds, cluster, enrichment_matrix, genage, mapping_file_path, "breast", "up")
-        pval_breast_down = enrich_clusters_all_physio_aging(dico_clusters_nodes, all_nodes, seeds, cluster, enrichment_matrix, genage, mapping_file_path, "breast", "down")
-        df.at[i, 'Cluster'] = str(cluster)
-        df.at[i, 'GenAge'] = pval_genage
-        df.at[i, 'Blood up-reg. genes'] = pval_blood_up
-        df.at[i, 'Blood down-reg. genes'] = pval_blood_down
-        df.at[i, 'Skin up-reg. genes'] = pval_skin_up
-        df.at[i, 'Skin down-reg. genes'] = pval_skin_down
-        df.at[i, 'Brain up-reg. genes'] = pval_brain_up
-        df.at[i, 'Brain down-reg. genes'] = pval_brain_down
-        df.at[i, 'Muscle up-reg. genes'] = pval_muscle_up
-        df.at[i, 'Muscle down-reg. genes'] = pval_muscle_down
-        df.at[i, 'Breast up-reg. genes'] = pval_breast_up
-        df.at[i, 'Breast down-reg. genes'] = pval_breast_down
+        enrich_results_table = pd.DataFrame(columns=["Cluster", "List of physio aging genes", "Nb genes cluster", "Nb genes in physio aging list", "p-value", "Corrected p-value", "Background", "Nb genes intersection", "Intersection", "Seeds"])
+        summary_pvalues.at[i, 'Cluster'] = str(cluster)
+        j = 1
+        for physio_aging_genes, tissue, deg in zip(physio_aging_genes_list, tissues_list, deg_list):
+            print(physio_aging_genes, tissue, deg)
+            # perform hypergeometric tests for all lists of genes
+            pval, nodes_cluster, genes_enrich, intersection = enrich_clusters_all_physio_aging(dico_clusters_nodes=dico_clusters_nodes, all_nodes=all_nodes, seeds=seeds, cluster=cluster, genage=genage, mapping_file_path=mapping_file_path, tissue=tissue, deg=deg)
+            fill_enrichment_table(df=enrich_results_table, position=j, cluster=cluster, physio_aging_genes=physio_aging_genes, pval=pval, nodes_cluster=nodes_cluster, genes_enrich=genes_enrich, intersection=intersection, seeds=seeds)
+            j += 1
+        # adjust the pvalues: Benjamini-Hochberg
+        pvals = enrich_results_table['p-value'].to_list()
+        p_adjusted = multipletests(pvals, alpha=0.05, method='fdr_bh')[1]
+        enrich_results_table['Corrected p-value'] = p_adjusted
+        # export enrichment file for the cluster
+        enrich_results_table.to_csv(f"output_tables/enrichment_details/enrichment_{cluster}.csv", sep=",", index=False)
+
+        # fill p-values summary table for the cluster
+        summary_pvalues.at[i, 'GenAge'] = p_adjusted[0]
+        summary_pvalues.at[i, 'Blood up-reg. genes'] = p_adjusted[1]
+        summary_pvalues.at[i, 'Blood down-reg. genes'] = p_adjusted[2]
+        summary_pvalues.at[i, 'Skin up-reg. genes'] = p_adjusted[3]
+        summary_pvalues.at[i, 'Skin down-reg. genes'] = p_adjusted[4]
+        summary_pvalues.at[i, 'Brain up-reg. genes'] = p_adjusted[5]
+        summary_pvalues.at[i, 'Brain down-reg. genes'] = p_adjusted[6]
+        summary_pvalues.at[i, 'Muscle up-reg. genes'] = p_adjusted[7]
+        summary_pvalues.at[i, 'Muscle down-reg. genes'] = p_adjusted[8]
+        summary_pvalues.at[i, 'Breast up-reg. genes'] = p_adjusted[9]
+        summary_pvalues.at[i, 'Breast down-reg. genes'] = p_adjusted[10]
         i += 1
-    # export enrichment results to table
-    df.to_csv(f"output_tables/enrichment_clusters_physio_aging_genes.csv", sep=",", index=False)
+    # export p-values summary table to csv file
+    summary_pvalues.to_csv(f"output_tables/enrichment_clusters_physio_aging_genes.csv", sep=",", index=False)
+
+    # create an enrichment matrix for heatmap visualization
+    summary_pvalues = summary_pvalues.drop(columns=["Cluster"])
+    #enrichment_matrix = np.zeros((len(dico_clusters_nodes), 11))
+    enrichment_matrix = np.zeros(summary_pvalues.shape)
+    enrichment_matrix[enrichment_matrix == 0] = summary_pvalues.values[enrichment_matrix == 0]
+
     # plot enrichment heatmap
     ax = plt.axes()
     y_labels = ["Cluster 1", "Cluster 2", "Cluster 3", "Cluster 4", "Cluster 5", "Cluster 6"]
@@ -210,7 +203,7 @@ def heatmap_enrichment(dico_clusters_nodes: dict, all_nodes: list, seeds: list, 
         "Breast \n up-reg. genes",
         "Breast \n down-reg. genes"
         ]
-    plt.tick_params(axis='both', which='major', labelsize=8, labelbottom = False, bottom=False, top = False, labeltop=True)
+    plt.tick_params(axis='both', which='major', labelsize=10, labelbottom = False, bottom=False, top = False, labeltop=True)
     vmin = 0
     vmax = 0.05
     mask = np.logical_or(enrichment_matrix < vmin, enrichment_matrix > vmax)
@@ -228,3 +221,35 @@ def heatmap_enrichment(dico_clusters_nodes: dict, all_nodes: list, seeds: list, 
     plt.show()
 
 heatmap_enrichment(dico_clusters_nodes=dico_clusters_nodes, all_nodes=all_nodes, seeds=seeds, genage=genage, mapping_file_path=mapping_file_path)
+
+def clean_and_merge_enrichment_physio_aging_files(dico_clusters_nodes: dict):
+    csv_dir = Path(path + "output_tables/enrichment_details/")
+    csv_data = {}
+    for csv_file in csv_dir.glob('*.csv'):
+        csv_name = csv_file.stem
+        csv_data[csv_name] = pd.read_csv(csv_file, sep=",")
+    writer = pd.ExcelWriter(path + f"output_tables/enrichment_details/enrichment_physioaging.xlsx", engine='xlsxwriter')
+    for sheet_name, sheet_data in csv_data.items():
+        sheet_data.to_excel(writer, sheet_name=sheet_name, index=False)
+    writer.save()
+    for cluster in dico_clusters_nodes:
+        os.remove(f"output_tables/enrichment_details/enrichment_{cluster}.csv")
+
+clean_and_merge_enrichment_physio_aging_files(dico_clusters_nodes=dico_clusters_nodes)
+
+def create_number_DEG_genes_supp_file():
+    list_files = ['Data_PhysioAging/human-blood.txt', 'Data_PhysioAging/human-skin.txt', 'Data_PhysioAging/human-brain.txt', 'Data_PhysioAging/human-muscle.txt', 'Data_PhysioAging/human-breast.txt']
+    list_tissues = ['Blood', 'Skin', 'Brain', 'Muscle', 'Breast']
+    supp_file = pd.DataFrame(columns=["Tissue", "Number of up-regulated genes", "Number of down-regulated genes", "Number of 'other' genes"])
+    i = 0
+    for file, tissue in zip(list_files, list_tissues):
+        genes_up, genes_down, other_genes = useful_functions_enrichment.extract_list_genes_DEG_physio_aging(file)
+        supp_file._set_value(i, "Tissue", tissue)
+        supp_file._set_value(i, "Number of up-regulated genes", len(genes_up))
+        supp_file._set_value(i, "Number of down-regulated genes", len(genes_down))
+        supp_file._set_value(i, "Number of 'other' genes", len(other_genes))
+        i += 1
+    print(supp_file)
+    supp_file.to_csv(path + f"output_tables/number_of_DEG_genes_Irizar_et_al.csv", sep=",", header=1, index=False)
+
+create_number_DEG_genes_supp_file()

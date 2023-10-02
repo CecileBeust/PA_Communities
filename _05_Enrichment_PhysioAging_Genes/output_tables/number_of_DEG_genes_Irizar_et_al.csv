@@ -1,0 +1,6 @@
+Tissue,Number of up-regulated genes,Number of down-regulated genes,Number of 'other' genes
+Blood,102,293,21060
+Skin,1509,992,20456
+Brain,586,599,0
+Muscle,369,287,0
+Breast,459,302,0
