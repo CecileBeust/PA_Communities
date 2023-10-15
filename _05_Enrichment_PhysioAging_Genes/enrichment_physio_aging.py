@@ -44,7 +44,7 @@ list_ids_analyzed = [x for x in list_id if x not in not_analyzed]
 all_nodes = list(load_networks(comm_path))
 seeds = list(useful_functions_enrichment.extract_seeds(orpha_codes, list_ids_analyzed))
 # MODIF KEEP SEEDS
-#genage = useful_functions_enrichment.load_geneage('Data_PhysioAging/genage_human.csv', seeds, all_nodes)*
+# genage = useful_functions_enrichment.load_geneage('Data_PhysioAging/genage_human.csv', seeds, all_nodes)*
 genage = useful_functions_enrichment.load_geneage_keep_seeds('Data_PhysioAging/genage_human.csv', seeds, all_nodes)
 
 dico_cluster_diseases = create_cluster_dico(cluster_output)
