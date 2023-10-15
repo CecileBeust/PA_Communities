@@ -43,7 +43,9 @@ list_ids_analyzed = [x for x in list_id if x not in not_analyzed]
 
 all_nodes = list(load_networks(comm_path))
 seeds = list(useful_functions_enrichment.extract_seeds(orpha_codes, list_ids_analyzed))
-genage = useful_functions_enrichment.load_geneage('Data_PhysioAging/genage_human.csv', seeds, all_nodes)
+# MODIF KEEP SEEDS
+#genage = useful_functions_enrichment.load_geneage('Data_PhysioAging/genage_human.csv', seeds, all_nodes)*
+genage = useful_functions_enrichment.load_geneage_keep_seeds('Data_PhysioAging/genage_human.csv', seeds, all_nodes)
 
 dico_cluster_diseases = create_cluster_dico(cluster_output)
 filtered_dico_cluster = filter_cluster(dico_cluster_diseases)
@@ -99,7 +101,7 @@ def enrich_clusters_all_physio_aging(dico_clusters_nodes: dict, all_nodes: list,
         float: p-value of the hypergeometric test
     """
     if deg == "up":
-        genes_enrich = useful_functions_enrichment.create_filtered_enrichment_lists_physio_aging_DEG(
+        genes_enrich = useful_functions_enrichment.create_filtered_enrichment_lists_physio_aging_DEG_keep_seeds(
                 file=f'Data_PhysioAging/human-{tissue}.txt',
                 mapping_file_path=mapping_file_path,
                 seeds_list=seeds,
@@ -107,7 +109,7 @@ def enrich_clusters_all_physio_aging(dico_clusters_nodes: dict, all_nodes: list,
                 all_nodes=all_nodes
                 )
     elif deg == "down":
-        genes_enrich = useful_functions_enrichment.create_filtered_enrichment_lists_physio_aging_DEG(
+        genes_enrich = useful_functions_enrichment.create_filtered_enrichment_lists_physio_aging_DEG_keep_seeds(
                 file=f'Data_PhysioAging/human-{tissue}.txt',
                 mapping_file_path=mapping_file_path,
                 seeds_list=seeds,

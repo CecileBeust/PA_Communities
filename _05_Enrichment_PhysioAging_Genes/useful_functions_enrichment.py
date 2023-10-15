@@ -48,6 +48,23 @@ def load_geneage(file, seeds, nodes_ntw):
     print(f"There are {len(set(genes_aging_wo_seeds_in_mx).intersection(nodes_ntw))} genage genes from the list which are in the multiplex network")
     return genes_aging_wo_seeds_in_mx
 
+def load_geneage_keep_seeds(file, seeds, nodes_ntw):
+    # Load and filter Gene Age database
+    df = pd.read_csv(file, sep=",")
+    # remove genes without direct association with aging
+    filtered_df = df.loc[(df['why'] != "upstream") & (df['why'] != "downstream") & (df['why'] != "putative") & (df['why'] != "functional") & (df['why'] != "downstream,putative") & (df['why'] != "functional,downstream") & (df['why'] != "functional,putative") & (df['why'] != "functional,upstream") & (df['why'] != "upstream,putative")]
+    genes_aging = filtered_df['symbol'].to_list()
+    print(f"{len(genes_aging)} aging genes")
+    # check if aging genes are present in networks
+    # remove aging gene not present in network
+    genes_aging_in_mx = list()
+    for gene in genes_aging:
+        if gene in nodes_ntw:
+            genes_aging_in_mx.append(str(gene))
+    print(f"{len(genes_aging_in_mx)} aging genes without seeds in network")
+    print(f"There are {len(set(genes_aging_in_mx).intersection(nodes_ntw))} genage genes from the list which are in the multiplex network")
+    return genes_aging_in_mx
+
 def extract_genes_from_comm(comm_path: str, size: int, list_id_analyzed: list):
     dico_comm_nodes = {}
     for id in list_id_analyzed:
@@ -178,6 +195,51 @@ def create_filtered_enrichment_lists_physio_aging_DEG(file: str, mapping_file_pa
                 genes_down_wo_seeds_in_ntw.append(gene)
         print(f"{len(genes_down_wo_seeds_in_ntw)} genes DOWN present in multiplex (WO seeds)")
         return genes_down_wo_seeds_in_ntw
+    
+
+def create_filtered_enrichment_lists_physio_aging_DEG_keep_seeds(file: str, mapping_file_path: str, seeds_list: list, is_up: int, all_nodes: list) -> list:
+    """Function to create the lists of genes up, down or both up and down regulated
+    during physiological aging for the enrichments analysis. The seeds are removed from
+    the list. 
+
+    Args:
+        file (str): path to file containing the list of genes
+        seeds_list (list): list of seeds nodes
+        is_up (int): 1 if we perform enrichment with genes up-regulated, 0 if we 
+        performe enrichment with genes down-regulated
+        all_nodes (list): list of all nodes in the multiplex network
+
+    Returns:
+        list: list of genes for the enrichment analysis
+    """
+    # extract lists of genes from file
+    genes_up, genes_down, other_genes = extract_list_genes_DEG_physio_aging(file)
+
+    # If we want to analyze UP regulated genes
+    if is_up == 1:
+        # map to gene symbol
+        genes_up_GS = map_ensembl_to_symbol(mapping_file_path, genes_up, 'ID', 'external_gene_id')
+        print(f"{len(genes_up_GS)} genes UP")
+        # check if aging genes are present in networks
+        genes_up_in_ntw = []
+        for gene in genes_up_GS:
+            if gene in all_nodes:
+                genes_up_in_ntw.append(gene)
+        print(f"{len(genes_up_in_ntw)} genes UP present in multiplex (WO seeds)")
+        return genes_up_in_ntw
+    
+    # If we want to analyze DOWN regulated genes
+    elif is_up == 0:
+        # map to gene names
+        genes_down_GS = map_ensembl_to_symbol(mapping_file_path, genes_down, 'ID', 'external_gene_id')
+        print(f"{len(genes_down_GS)} genes DOWN")
+        # check if aging genes are present in networks
+        genes_down_in_ntw = []
+        for gene in genes_down_GS:
+            if gene in all_nodes:
+                genes_down_in_ntw.append(gene)
+        print(f"{len(genes_down_in_ntw)} genes DOWN present in multiplex (WO seeds)")
+        return genes_down_in_ntw
 
 ##################################################
 ######### MAPPING OF GENE IDENTIFIERS ############
