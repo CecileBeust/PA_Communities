@@ -42,10 +42,10 @@ cluster_output = os.path.join(data_folder, 'cluster_output_100_0.7.tsv')
 list_ids_analyzed = [x for x in list_id if x not in not_analyzed]
 
 all_nodes = list(load_networks(comm_path))
-seeds = list(useful_functions_enrichment.extract_seeds(orpha_codes, list_ids_analyzed))
+all_seeds = list(useful_functions_enrichment.extract_seeds(orpha_codes, list_ids_analyzed))
 # MODIF KEEP SEEDS
-# genage = useful_functions_enrichment.load_geneage('Data_PhysioAging/genage_human.csv', seeds, all_nodes)*
-genage = useful_functions_enrichment.load_geneage_keep_seeds('Data_PhysioAging/genage_human.csv', seeds, all_nodes)
+# genage = useful_functions_enrichment.load_geneage('Data_PhysioAging/genage_human.csv', seeds, all_nodes)
+genage = useful_functions_enrichment.load_geneage_keep_seeds('Data_PhysioAging/genage_human.csv', all_seeds, all_nodes)
 
 dico_cluster_diseases = create_cluster_dico(cluster_output)
 filtered_dico_cluster = filter_cluster(dico_cluster_diseases)
@@ -151,14 +151,17 @@ def heatmap_enrichment(dico_clusters_nodes: dict, all_nodes: list, seeds: list, 
     summary_pvalues = pd.DataFrame(columns = ['Cluster', 'GenAge', 'Blood up-reg. genes', 'Blood down-reg. genes', 'Skin up-reg. genes', 'Skin down-reg. genes', 'Brain up-reg. genes', 'Brain down-reg. genes', 'Muscle up-reg. genes', 'Muscle down-reg. genes', 'Breast up-reg. genes', 'Breast down-reg. genes'])
     i = 0
     for cluster in dico_clusters_nodes:
+        dico_cluster_diseases = create_cluster_dico(cluster_output)
+        filtered_dico_cluster = filter_cluster(dico_cluster_diseases)
+        seeds_cluster = useful_functions_enrichment.select_seeds_from_cluster(dico_disease_seeds=dico_disease_seeds, dico_cluster=filtered_dico_cluster, cluster_id=cluster)
         enrich_results_table = pd.DataFrame(columns=["Cluster", "List of physio aging genes", "Nb genes cluster", "Nb genes in physio aging list", "p-value", "Corrected p-value", "Background", "Nb genes intersection", "Intersection", "Seeds"])
         summary_pvalues.at[i, 'Cluster'] = str(cluster)
         j = 1
         for physio_aging_genes, tissue, deg in zip(physio_aging_genes_list, tissues_list, deg_list):
             print(physio_aging_genes, tissue, deg)
             # perform hypergeometric tests for all lists of genes
-            pval, nodes_cluster, genes_enrich, intersection = enrich_clusters_all_physio_aging(dico_clusters_nodes=dico_clusters_nodes, all_nodes=all_nodes, seeds=seeds, cluster=cluster, genage=genage, mapping_file_path=mapping_file_path, tissue=tissue, deg=deg)
-            fill_enrichment_table(df=enrich_results_table, position=j, cluster=cluster, physio_aging_genes=physio_aging_genes, pval=pval, nodes_cluster=nodes_cluster, genes_enrich=genes_enrich, intersection=intersection, seeds=seeds)
+            pval, nodes_cluster, genes_enrich, intersection = enrich_clusters_all_physio_aging(dico_clusters_nodes=dico_clusters_nodes, all_nodes=all_nodes, seeds=seeds_cluster, cluster=cluster, genage=genage, mapping_file_path=mapping_file_path, tissue=tissue, deg=deg)
+            fill_enrichment_table(df=enrich_results_table, position=j, cluster=cluster, physio_aging_genes=physio_aging_genes, pval=pval, nodes_cluster=nodes_cluster, genes_enrich=genes_enrich, intersection=intersection, seeds=seeds_cluster)
             j += 1
         # adjust the pvalues: Benjamini-Hochberg
         pvals = enrich_results_table['p-value'].to_list()
@@ -222,7 +225,7 @@ def heatmap_enrichment(dico_clusters_nodes: dict, all_nodes: list, seeds: list, 
     plt.savefig(path + "output_figures/Heatmap_PhysioAging.png", bbox_inches='tight')
     plt.show()
 
-heatmap_enrichment(dico_clusters_nodes=dico_clusters_nodes, all_nodes=all_nodes, seeds=seeds, genage=genage, mapping_file_path=mapping_file_path)
+heatmap_enrichment(dico_clusters_nodes=dico_clusters_nodes, all_nodes=all_nodes, seeds=all_seeds, genage=genage, mapping_file_path=mapping_file_path)
 
 def clean_and_merge_enrichment_physio_aging_files(dico_clusters_nodes: dict):
     csv_dir = Path(path + "output_tables/enrichment_details/")
@@ -233,7 +236,7 @@ def clean_and_merge_enrichment_physio_aging_files(dico_clusters_nodes: dict):
     writer = pd.ExcelWriter(path + f"output_tables/enrichment_details/enrichment_physioaging.xlsx", engine='xlsxwriter')
     for sheet_name, sheet_data in csv_data.items():
         sheet_data.to_excel(writer, sheet_name=sheet_name, index=False)
-    writer.save()
+    writer.close()
     for cluster in dico_clusters_nodes:
         os.remove(f"output_tables/enrichment_details/enrichment_{cluster}.csv")
 

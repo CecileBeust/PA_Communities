@@ -65,6 +65,27 @@ def load_geneage_keep_seeds(file, seeds, nodes_ntw):
     print(f"There are {len(set(genes_aging_in_mx).intersection(nodes_ntw))} genage genes from the list which are in the multiplex network")
     return genes_aging_in_mx
 
+def select_seeds_from_cluster(dico_disease_seeds: dict, dico_cluster: dict, cluster_id: int) -> set:
+    """Function to select the seeds genes from a cluster
+
+    Args:
+        dico_disease_seeds (dict) : dico containing the diseases
+        and their associated genes (seeds)
+        dico_cluster (dict): the dico of disease communities
+        clusters
+        cluster_id (int): the ID (number) of the cluster we want
+        to select the seeds from
+
+    Returns:
+        set: set of seeds from the cluster
+    """
+    seeds = set()
+    for disease in dico_cluster[cluster_id]:
+        seeds_disease = dico_disease_seeds[str(disease)]
+        for seed in seeds_disease:
+            seeds.add(seed)
+    return seeds
+
 def extract_genes_from_comm(comm_path: str, size: int, list_id_analyzed: list):
     dico_comm_nodes = {}
     for id in list_id_analyzed:
