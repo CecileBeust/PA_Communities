@@ -14,7 +14,7 @@ print(path)
 #############################################
 
 def extract_seeds(file, list_ids_analyzed):
-    orpha = pd.read_table(file)
+    orpha = pd.read_table(file, header=None)
     print(orpha)
     seeds = set()
     for index, row in orpha.iterrows():
