@@ -18,7 +18,9 @@ This pipeline can be used and/or adapted to any study dedicated to the identific
 ## Folders
 
 * ```_00_data```: Folder containing the data files needed for the analysis (disease identifiers files, gmt files and some output files used in different steps of the analysis)
-* ```_01_Community_Identification```: Folder containing codes for the community identification using itRWR. It contains a multiplex biological network composed of 4 layers: Protein-protein interactions, Molecular complexes, Pathways and Coexpression networks. These networks are also available on the NDEx server: https://www.ndexbio.org/index.html#/search?searchType=All&searchString=cecile.beust&searchTermExpansion=false
+* ```_01_Community_Identification```: Folder containing codes for the community identification using itRWR. It contains a multiplex biological network composed of 4 layers: Protein-protein interactions, Molecular complexes, Pathways and Coexpression networks. 
+These networks are also available on the NDEx server: https://www.ndexbio.org/index.html#/search?searchType=All&searchString=cecile.beust&searchTermExpansion=false. 
+The codes allowing to build these networks are available on GitHub: https://github.com/CecileBeust/Networks_building
 
 * ```_02_Analysis_Communities```: Folder containing codes to analyze communities and generate files to visualize them in Cytoscape
 
